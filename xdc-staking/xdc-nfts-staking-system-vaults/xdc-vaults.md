@@ -1,12 +1,5 @@
----
-description: (Releasing first week of December) (Not LIVE)
----
-
 # XDC Vaults
 
-\
-\
-\
 XDC Vaults are integral to the XDC Liquid Staking System, providing a secure and efficient mechanism for staking $XDC tokens and receiving staking derivatives ($pstXDC). These vaults simplify the staking process, remove traditional barriers, and unlock new opportunities for XDC holders.
 
 
@@ -36,8 +29,7 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
    * Rewards are credited periodically to the user’s Vault and reflected in the overall balance of staked tokens.
 4. **Liquidity Through $pstXDC:**
    * $pstXDC tokens are liquid and can be used in various DeFi applications, such as lending, trading, or providing liquidity.
-   * Non-Locked: Users can use $pstXDC at any time to withdraw their original $XDC and accumulated rewards. (Lower APY)
-   * Locked: Users can use $pstXDC when the lock period ends to withdraw their original $XDC and accumulated rewards. (Higher APY)
+   * Non-Locked: Users can use $pstXDC at any time to withdraw their original $XDC and accumulated rewards.
 5. **Flexible Exit:**
    * Upon unstaking, $pstXDC is burned, and the equivalent amount of $XDC is returned to the user’s wallet.
 

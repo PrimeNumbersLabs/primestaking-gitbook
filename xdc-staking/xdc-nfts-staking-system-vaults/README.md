@@ -14,8 +14,6 @@ layout:
 
 # XDC Liquid Staking System
 
-## <mark style="color:purple;">**XDC  Liquid Staking System:**</mark>&#x20;
-
 **Stake Your $XDC. Earn $XDC from Masternodes!**
 
 The XDC Liquid Staking System offers an accessible way for XDC holders to stake their tokens and earn rewards from masternodes without the usual barriers, such as high capital requirements, KYC restrictions, or hosting expenses.
