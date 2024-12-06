@@ -35,7 +35,7 @@ From the lock, you get 7% of 100 000 $XDC -> 7000 $XDC.
 
 ## <mark style="color:purple;">Calculating NFT Rewards with PRNT Staking Rewards Pool and Extra Rewards</mark>
 
-### <mark style="color:blue;">Variables Overview</mark>
+### <mark style="color:purple;">Variables Overview</mark>
 
 * **X**: The total number of NFTs in consideration.
 * **a**: Rarity of the NFT.
@@ -48,7 +48,7 @@ A total of 82,000 tokens, plus Extra Rewards, are to be distributed, taking into
 
 ***
 
-### <mark style="color:blue;">Reward Distribution Formula</mark>
+### <mark style="color:purple;">Reward Distribution Formula</mark>
 
 #### Part 1: Based on Total Multiplier
 
@@ -86,7 +86,7 @@ $$
 
 ***
 
-### <mark style="color:blue;">Conclusion</mark>
+### <mark style="color:purple;">Conclusion</mark>
 
 Applying these formulas determines each NFT's reward by its unique characteristics (rarity and level) and the assigned XDC tokens.&#x20;
 

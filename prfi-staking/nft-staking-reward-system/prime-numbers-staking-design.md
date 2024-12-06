@@ -16,7 +16,7 @@ layout:
 
 <mark style="color:red;">**Note:**</mark> <mark style="color:red;"></mark><mark style="color:red;">Our NFTs are being migrated to a new network.</mark>&#x20;
 
-### <mark style="color:blue;">Smart-contracts:</mark>
+### <mark style="color:purple;">Smart-contracts:</mark>
 
 * PrimeDiamond: Implements a diamond contract model (following EIPs 2535 standards).
 * AdminFacet: Manages administrative duties such as modifying withdrawal charges, authorizing specific addresses, and initiating new staking interfaces.
@@ -26,7 +26,7 @@ layout:
 
 ***
 
-### <mark style="color:blue;">Benefits of Employing This Model:</mark>
+### <mark style="color:purple;">Benefits of Employing This Model:</mark>
 
 * Upgradeability: The diamond protocol enhances the efficiency of contract upgrades.
 * Flexibility: This model enables associating multiple assets with a single address.

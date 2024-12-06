@@ -22,7 +22,7 @@ Prime Numbers Labs introduces a revolutionary staking system where your $PRFI to
 
 ***
 
-### <mark style="color:blue;">How It Works</mark>
+### <mark style="color:purple;">How It Works</mark>
 
 1. **Stake Your PRFI Tokens:**&#x20;
 
@@ -48,7 +48,7 @@ Prime Numbers Labs introduces a revolutionary staking system where your $PRFI to
 
 ***
 
-### <mark style="color:blue;">Interface Buttons</mark>
+### <mark style="color:purple;">Interface Buttons</mark>
 
 * **Stake:** Stake PRFI tokens inside your NFT to start earning rewards.
 * **Get Surplus:** Withdraw PRFI tokens above 41,490 for free once your NFT reaches the top level.
@@ -59,6 +59,6 @@ Prime Numbers Labs introduces a revolutionary staking system where your $PRFI to
 * **Sell:** List your NFT for sale on PrimePort or start an auction.
 * **Merge NFTs:** Combine two NFTs of the same rarity to create a higher rarity NFT, increasing its earning potential.
 
-### <mark style="color:blue;">Rewards and Growth</mark>
+### <mark style="color:purple;">Rewards and Growth</mark>
 
-As your NFT levels up, you earn a larger share of the rewards pool. Staking rewards are available at the end of each month and contribute to leveling up your NFT, enhancing its value and the rewards it generates.
+As your NFT levels up, you earn a larger share of the rewards pool. Staking rewards are available at the end of each month and contribute to levelling up your NFT, enhancing its value and the amount of rewards it generates.

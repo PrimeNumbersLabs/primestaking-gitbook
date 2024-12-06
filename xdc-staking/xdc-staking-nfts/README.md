@@ -20,7 +20,7 @@ Prime Numbers Labs is proud to introduce the XDC Staking NFTs, the first non-cus
 
 ***
 
-### <mark style="color:blue;">Smart Contract Information</mark>
+### <mark style="color:purple;">Smart Contract Information</mark>
 
 <details>
 
@@ -30,11 +30,11 @@ Prime Numbers Labs is proud to introduce the XDC Staking NFTs, the first non-cus
 
 </details>
 
-### <mark style="color:blue;">Handmade Prime Numbers NFTs</mark>
+### <mark style="color:purple;">Handmade Prime Numbers NFTs</mark>
 
-The collection includes 15 exclusive, handcrafted NFTs by our Art Director. Owners of these rare NFTs receive three additional XDC Staking NFTs, enhancing their staking capabilities. These NFTs are not only artistically valuable but also come with a **base multiplier of 2**, making them highly sought after for their increased earning potential.
+The collection includes 15 exclusive, handcrafted NFTs by our Art Director. Owners of these rare NFTs receive three additional XDC Staking NFTs, enhancing their staking capabilities. These NFTs are artistically valuable and come with a **base multiplier of 2**, making them highly sought after for their increased earning potential.
 
-### <mark style="color:blue;">Generative XDC Staking NFTs</mark>
+### <mark style="color:purple;">Generative XDC Staking NFTs</mark>
 
 The 5,542 generative NFTs are designed with different rarity levels, each offering a distinct base multiplier that determines the rewards you can earn:
 
@@ -60,7 +60,7 @@ These varying levels of rarity ensure that each NFT is unique and valuable, prov
 
 ***
 
-### <mark style="color:blue;">Merge System</mark>
+### <mark style="color:purple;">Merge System</mark>
 
 We are happy to show you how our merge NFTs system works.
 
@@ -74,7 +74,7 @@ When you merge 2 NFTs, these 2 NFTs get burned, and you get 1 NFT of the next ra
 
 This makes the NFTs deflationary.
 
-### <mark style="color:blue;">Refund System (Not Live)</mark>
+### <mark style="color:purple;">Refund System (Not Live)</mark>
 
 **You can use the "BurnToRedeem" button to get 300 $PRFI (Refund System)**
 

@@ -20,10 +20,10 @@ Our XDC Staking NFTs introduce a staking system within the Prime Numbers Labs so
 
 ***
 
-### <mark style="color:blue;">How It Works</mark>
+### <mark style="color:purple;">How It Works</mark>
 
 1. **Staking Your XDC Tokens:** By staking XDC tokens inside your NFT, you increase its intrinsic value and unlock rewards from the XDC rewards pool. Your staked XDC remains secure, and the tokens can be withdrawn anytime unless locked in a master node.
-2. **Leveling Up and Multipliers:** As you stake more XDC, your NFT levels up, increasing its multiplier. The Total Multiplier\* (Base Multiplier + Added Multiplier) determines your share of the rewards pool. For example, an NFT with a Base Multiplier of 2.0 and a level 18 (Added Multiplier of 1.8) would have a Total Multiplier of 3.8.
+2. **Levelling Up and Multipliers:** As you stake more XDC, your NFT levels up, increasing its multiplier. The Total Multiplier\* (Base Multiplier + Added Multiplier) determines your share of the rewards pool. For example, an NFT with a Base Multiplier of 2.0 and a level 18 (Added Multiplier of 1.8) would have a Total Multiplier of 3.8.
 3. **Rewards and Maximum Staking:** You can stake up to 100,000 XDC inside each NFT. Once this limit is reached, any additional rewards will be added to your NFT each month. You can withdraw excess XDC using the “Get Surplus” button.
 
 {% hint style="info" %}
@@ -32,7 +32,7 @@ Our XDC Staking NFTs introduce a staking system within the Prime Numbers Labs so
 
 ***
 
-### <mark style="color:blue;">The Structure Of The NFTs</mark>
+### <mark style="color:purple;">The Structure Of The NFTs</mark>
 
 **A Base Multiplier -** The NFTs have a rarity that determines the base multiplier for that NFT.
 
@@ -44,7 +44,7 @@ Our XDC Staking NFTs introduce a staking system within the Prime Numbers Labs so
 
 ***
 
-### <mark style="color:blue;">Interface Buttons and Their Functions</mark>
+### <mark style="color:purple;">Interface Buttons and Their Functions</mark>
 
 * **Stake:** Stake XDC tokens inside your NFT to begin earning rewards.
 * **Get Surplus:** Withdraw any XDC above 100,000 tokens from your NFT after reaching the top level.
@@ -55,6 +55,6 @@ Our XDC Staking NFTs introduce a staking system within the Prime Numbers Labs so
 * **Claim XDC:** Claim your monthly XDC rewards, which are added to your NFT.
 * **Sell:** List or auction your NFT on the PrimePort marketplace.
 
-### <mark style="color:blue;">Maximizing Rewards</mark>
+### <mark style="color:purple;">Maximizing Rewards</mark>
 
 As your NFT levels up and gains multipliers, your rewards increase. The staking system allows you to actively manage and optimize your digital assets, providing flexibility and potential for growth.

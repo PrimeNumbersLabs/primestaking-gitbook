@@ -42,7 +42,7 @@ To be eligible for these rewards, you need to lock your NFT on PrimeFi for a per
 
 ## <mark style="color:purple;">Calculating NFT Rewards with PRFI Staking Rewards Pool and Extra Rewards</mark>
 
-### <mark style="color:blue;">Variables Overview</mark>
+### <mark style="color:purple;">Variables Overview</mark>
 
 * **X**: The total number of NFTs in consideration.
 * **a**: Rarity of the NFT.
@@ -55,7 +55,7 @@ A total of 100,000 PRFI tokens, plus Extra Rewards, are to be distributed, takin
 
 ***
 
-### <mark style="color:blue;">Reward Distribution Formula</mark>
+### <mark style="color:purple;">Reward Distribution Formula</mark>
 
 #### Part 1: Based on Total Multiplier
 
@@ -91,7 +91,7 @@ $$
 
 ***
 
-### <mark style="color:blue;">Conclusion</mark>
+### <mark style="color:purple;">Conclusion</mark>
 
 By applying these formulas, each NFT's reward is determined by its unique characteristics (rarity and level) and the assigned PRFI tokens. This dual approach ensures a balanced reward distribution that considers both the intrinsic qualities of the NFTs and the PRFI tokens allocated to them.
 

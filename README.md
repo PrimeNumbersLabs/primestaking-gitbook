@@ -41,5 +41,5 @@ PrimeStaking, developed by Prime Numbers Labs, is an advanced derivative staking
 1. **Diversified Staking Options:** Supports both ecosystem-native PRFI staking and broader XDC staking.
 2. **Accessible and Flexible:** Removes barriers such as high minimums, infrastructure costs, and KYC requirements for XDC staking.
 3. **Enhanced Utility:** Liquid staking derivatives ($pstXDC) provide users with liquidity while earning rewards.
-4. **Transparent Rewards:** Staking rewards are calculated and distributed transparently via secure, blockchain-powered smart contracts.
+4. **Transparent Rewards:** Staking rewards are calculated and distributed transparently via the secure, blockchain-powered smart contracts.
 5. **Ecosystem Integration:** Fully integrated into the Prime Numbers ecosystem, allowing users to maximize the utility of their holdings.

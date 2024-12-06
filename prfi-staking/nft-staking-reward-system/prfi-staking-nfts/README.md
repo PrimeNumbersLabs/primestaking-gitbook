@@ -26,7 +26,7 @@ During the PRFI Staking NFT minting period, only 2,333 NFTs were minted—half o
 
 ***
 
-### <mark style="color:blue;">Smart Contract Information</mark>
+### <mark style="color:purple;">Smart Contract Information</mark>
 
 <details>
 
@@ -36,13 +36,13 @@ During the PRFI Staking NFT minting period, only 2,333 NFTs were minted—half o
 
 </details>
 
-### <mark style="color:blue;">Handmade Prime Numbers NFTs</mark>
+### <mark style="color:purple;">Handmade Prime Numbers NFTs</mark>
 
 The first 15 NFTs in our collection are handcrafted by [Olatz Diaz](https://olatzdiaz.com/), each representing one of the first 15 prime numbers. These one-of-a-kind artworks are irreplaceable and will never be minted again, making them highly coveted pieces for any serious collector.
 
 <figure><img src="../../../.gitbook/assets/HANDMADENFT (1).jpg" alt=""><figcaption><p>Handmade Prime Numbers NFT #5</p></figcaption></figure>
 
-### <mark style="color:blue;">Generative Prime Numbers NFTs</mark>
+### <mark style="color:purple;">Generative Prime Numbers NFTs</mark>
 
 The artwork of our generative NFTs consists of the following elements:
 
@@ -65,7 +65,7 @@ This makes 8⁵ = 32,768 combinations possible, meaning many of the combinations
 
 Each generative NFT is unique, and there will be no others like it.
 
-### <mark style="color:blue;">NFTs Rarity</mark>
+### <mark style="color:purple;">NFTs Rarity</mark>
 
 The NFTs in our collection each have their own global rarity.  Combining the rarities of the segments determines the overall rarity of the NFT. Each rarity grants an increasing base multiplier when you stake.
 
@@ -89,10 +89,10 @@ Once the form of obtaining the rarity and how unique these NFTs are has been cre
 
 <figure><img src="../../../.gitbook/assets/PRFINFTSRARITY.jpg" alt=""><figcaption></figcaption></figure>
 
-### <mark style="color:blue;">Staking and Rewards</mark>
+### <mark style="color:purple;">Staking and Rewards</mark>
 
 Prime Numbers NFTs are not just for collection—they are powerful financial tools. When staked within the Prime Numbers Labs ecosystem, they generate consistent rewards, with the rarity of each NFT determining its staking multiplier.
 
-### <mark style="color:blue;">Experience the Future of Digital Ownership</mark>
+### <mark style="color:purple;">Experience the Future of Digital Ownership</mark>
 
 Prime Numbers NFTs are more than just digital art—they are valuable assets designed to appreciate over time while providing ongoing rewards. Join us and stake your claim in this unique collection.
