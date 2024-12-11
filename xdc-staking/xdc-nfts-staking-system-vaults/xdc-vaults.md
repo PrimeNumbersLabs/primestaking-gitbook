@@ -20,7 +20,7 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
 
 1. **Staking Interface:**
    * XDC Vaults are the liquid staking system's gateway for staking $XDC.
-   * Users can mint a Vault directly from the staking platform and deposit their $XDC tokens.
+   * Users can mint a Vault directly from the staking platform and deposit their $XDC tokens. It costs only 100 XDC to mint an XDC Vault.
 2. **$pstXDC Minting:**
    * Once $XDC tokens are deposited, the vault automatically issues an equivalent amount of $pstXDC to the user’s wallet.
    * The $pstXDC tokens maintain a 1:1 ratio with staked $XDC and serve as proof of ownership.
