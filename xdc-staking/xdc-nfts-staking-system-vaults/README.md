@@ -26,7 +26,7 @@ The XDC Liquid Staking System offers an accessible way for XDC holders to stake 
    * When you stake 1 $XDC in the system, you receive 1 $pstXDC (Proof-of-Stake XDC) in return. The exchange rate is always **1 $XDC = 1 $pstXDC**.
    * $pstXDC represents your staked XDC and can be freely used across the ecosystem.
 2. **Vault or Masternode Minting**
-   * To stake, you first mint an [**XDC Vault**](xdc-vaults.md) or an [**XDC Masternode**](xdc-masternode-vaults.md) through the platform.
+   * To stake, you first mint an [**XDC Vault**](xdc-vaults/) or an [**XDC Masternode**](xdc-masternode-vaults.md) through the platform.
    * Deposit your $XDC into the Vault or Masternode. Once deposited, $pstXDC is automatically credited to your wallet.
 3. **Ecosystem Integration**
    * $pstXDC can be used in DeFi applications, providing liquidity, earning yield, or for trading, all while your staked $XDC continues to earn rewards from masternodes.

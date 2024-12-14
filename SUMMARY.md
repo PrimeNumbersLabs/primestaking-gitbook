@@ -17,5 +17,6 @@
     * [How to Buy a XDC NFT?](xdc-staking/xdc-staking-nfts/how-to-buy-a-xdc-nft.md)
     * [How to Buy $XDC?](xdc-staking/xdc-staking-nfts/how-to-buy-usdxdc.md)
   * [XDC Liquid Staking System](xdc-staking/xdc-nfts-staking-system-vaults/README.md)
-    * [XDC Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults.md)
+    * [XDC Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults/README.md)
+      * [XDC Vaults Rewards](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults/xdc-vaults-rewards.md)
     * [XDC Masternode Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-masternode-vaults.md)

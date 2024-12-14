@@ -6,7 +6,7 @@ XDC Vaults are integral to the XDC Liquid Staking System, providing a secure and
 
 
 
-<figure><img src="../../.gitbook/assets/xdc-vault.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/xdc-vault.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
