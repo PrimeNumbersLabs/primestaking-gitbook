@@ -19,4 +19,5 @@
   * [XDC Liquid Staking System](xdc-staking/xdc-nfts-staking-system-vaults/README.md)
     * [XDC Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults/README.md)
       * [XDC Vaults Rewards](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults/xdc-vaults-rewards.md)
+      * [Staking Guide](xdc-staking/xdc-nfts-staking-system-vaults/xdc-vaults/staking-guide.md)
     * [XDC Masternode Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-masternode-vaults.md)
