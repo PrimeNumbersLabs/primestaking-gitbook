@@ -49,7 +49,7 @@ The XDC Liquid Staking System offers an accessible way for XDC holders to stake 
 #### **Security and Transparency**
 
 * **Smart Contract-Driven:**\
-  The staking system operates on secure and audited smart contracts, ensuring your funds are safe and transactions are transparent.
+  The staking system operates on secure smart contracts, ensuring your funds are safe and transactions are transparent.
 * **Decentralized Reward Distribution:**\
   Rewards from masternodes are distributed proportionally and transparently to all participants.
 

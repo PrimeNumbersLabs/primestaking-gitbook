@@ -4,8 +4,6 @@ XDC Vaults are integral to the XDC Liquid Staking System, providing a secure and
 
 
 
-
-
 <figure><img src="../../../.gitbook/assets/xdc-vault.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
@@ -54,7 +52,7 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
 #### **Technical Details**
 
 1. **Reward Mechanism:**
-   * Rewards are calculated dynamically based on protocol performance and distributed directly to Vault balances.
+   * Rewards are calculated dynamically and distributed directly to Vault balances.
 2. **Transparency:**
    * All Vault transactions are recorded on-chain, providing users with a clear and auditable trail of their staking activity.
 
