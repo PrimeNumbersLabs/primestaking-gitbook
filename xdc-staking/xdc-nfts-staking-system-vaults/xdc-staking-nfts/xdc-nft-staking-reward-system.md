@@ -20,7 +20,11 @@ layout:
 
 In the first two years, 30% of the funds from the minting will be rewarded to the XDC Staking NFTs.
 
-### 2.- XDC NFTs Masternodes Staking - Optional
+### 2- PrimeFi Rewards
+
+XDC NFTs will receive 10% of PrimeFi XDC Network profits.
+
+### 3.- XDC NFTs Masternodes Staking - Optional
 
 When your NFT reaches the MAX LIMIT (100,000 $XDC staked inside the NFT), you can lock this NFT to get an additional 7% APY.&#x20;
 

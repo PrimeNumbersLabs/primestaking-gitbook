@@ -56,7 +56,7 @@ The 5,542 generative NFTs are designed with different rarity levels, each offeri
 
 These varying levels of rarity ensure that each NFT is unique and valuable, providing both collectors and investors with a range of options to suit their staking strategy.
 
-<figure><img src="../../.gitbook/assets/BaseMultiplierXDC (2).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/BaseMultiplierXDC (2).jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
