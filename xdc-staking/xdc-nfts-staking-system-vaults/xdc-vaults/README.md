@@ -1,14 +1,12 @@
 # XDC Vaults
 
+**XDC Vaults: Integral to the Liquid Staking System**
+
 XDC Vaults are integral to the XDC Liquid Staking System, providing a secure and efficient mechanism for staking $XDC tokens and receiving staking derivatives ($pstXDC). These vaults simplify the staking process, remove traditional barriers, and unlock new opportunities for XDC holders.
-
-
-
-<figure><img src="../../../.gitbook/assets/xdc-vault.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 
-**What Are XDC Vaults?**
+#### What Are XDC Vaults?
 
 XDC Vaults are on-chain smart contract-based storage solutions where users deposit their $XDC tokens for staking. Upon depositing, users receive $pstXDC, a liquid staking derivative representing their staked $XDC.
 
@@ -44,8 +42,13 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
 
 #### Guide for Claiming Rewards
 
-* To claim rewards, the user must hold **100% of the $pstXDC** tokens at the moment of claiming.
-* Rewards are distributed directly to the Vault balance and are accessible through the staking platform interface.
+* To get rewards, the user must claim them every month after the protocol sends them to the contract, usually on the last day of the month. Users should monitor the platform for updates on reward availability.
+* **Claiming Rewards:**
+  * To claim rewards, the user must hold **100% of the $pstXDC** at the moment of claiming.
+  * Rewards will not be available for partial $pstXDC holders, ensuring a fair distribution mechanism based on full ownership.
+* **Transferring XDC Vaults:**
+  * If you transfer an XDC Vault, you must hold **100% of the $pstXDC** associated with that Vault at the time of transfer.
+  * During the transfer process, the $pstXDC tokens will be automatically transferred along with the Vault, ensuring continuity of staking and reward eligibility for the new owner.
 
 ***
 
@@ -54,7 +57,7 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
 **Mint an XDC Vault:**
 
 1. Navigate to the XDC Staking platform and select the option to mint a new Vault.
-2. Confirm the transaction to deploy the smart contract for your Vault.
+2. Confirm the transaction.
 
 **Deposit $XDC Tokens:**
 
@@ -114,6 +117,3 @@ XDC Vaults are on-chain smart contract-based storage solutions where users depos
 
 * Additional functionalities, such as automated reward compounding and multi-asset staking, are planned for future releases.
 
-***
-
-XDC Vaults provide a robust, user-friendly solution for staking $XDC, allowing token holders to earn rewards while maintaining liquidity. With secure smart contracts and seamless integration into the XDC ecosystem, Vaults are a cornerstone of the XDC Liquid Staking System.
