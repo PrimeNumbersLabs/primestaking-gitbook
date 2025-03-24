@@ -1,5 +1,6 @@
 ---
 description: How to stake XDC
+hidden: true
 ---
 
 # Staking Guide

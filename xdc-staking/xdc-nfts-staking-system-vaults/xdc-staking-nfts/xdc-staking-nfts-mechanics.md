@@ -16,40 +16,42 @@ layout:
 
 **Understanding XDC Staking NFTs: Maximizing Your Rewards**
 
-Our XDC Staking NFTs introduce a staking system within the Prime Numbers Labs solution, allowing you to stake your $XDC tokens to earn various rewards. Now, XDC NFTs are liquid and work similarly to the XDC Vaults, offering enhanced flexibility and utility.
+**XDC Staking NFTs** introduce a dynamic, gamified staking system within **Prime Numbers Labs**, allowing you to stake **$pstXDC** (not regular XDC) to earn various rewards. These NFTs are **liquid** and designed to integrate seamlessly with the **XDC Liquid Staking** ecosystem, providing enhanced flexibility and utility.
 
 ***
 
-#### How It Works
+### How It Works
 
-**Staking Your XDC Tokens:**
+#### Staking Your $pstXDC Tokens
 
-* By staking XDC tokens inside your NFT, you increase its intrinsic value and unlock rewards from the XDC rewards pool.
-* Your staked XDC remains secure, and the tokens can be withdrawn anytime unless locked in a masternode.
-* Similar to XDC Vaults, staked tokens issue a liquid staking derivative ($pstXDC), enabling you to maintain liquidity while staking.
+* **Stake $pstXDC:** Acquire $pstXDC (by depositing XDC in the Liquid Staking platform or purchasing on a DEX) and stake it inside your NFT. This boosts the NFT’s intrinsic value and unlocks rewards from the **XDC rewards pool**.
+* **Withdrawal Flexibility:** Your staked $pstXDC remains secure and can be withdrawn at any time unless you opt to lock the NFT in a masternode for additional yield.
 
-**Levelling Up and Multipliers:**
+#### Leveling Up and Multipliers
 
-* As you stake more XDC, your NFT levels up, increasing its multiplier.
-* The **Total Multiplier** (_Base Multiplier + Added Multiplier_) determines your share of the rewards pool. For example, an NFT with a Base Multiplier of 2.0 and a level 18 (Added Multiplier of 1.8) would have a Total Multiplier of 3.8.
+* **NFT Levels:** As you stake more $pstXDC, your NFT’s level increases.
+* **Base + Added Multipliers:** Each level adds an **Added Multiplier** to the NFT’s **Base Multiplier**, resulting in a **Total Multiplier**.
+  * **Example:** Base Multiplier = 2.0, Level 18 Added Multiplier = 1.8 ⇒ **Total Multiplier = 3.8**.
+* **Greater Rewards:** A higher Total Multiplier grants you a larger share of the rewards pool.
 
-**Rewards and Maximum Staking:**
+#### Rewards and Maximum Staking
 
-* You can stake up to **100,000 XDC** inside each NFT.
-* Once this limit is reached, any additional rewards will be added to your NFT each month.
-* Use the **“Get Surplus”** button to withdraw excess XDC.
+* **Staking Limit:** You can stake up to **100,000 $pstXDC** inside each NFT.
+* **Surplus Rewards:** Once the limit is reached, any **additional monthly rewards** automatically accrue to your NFT.
+* **‘Get Surplus’ Feature:** Use the **“Get Surplus”** button to withdraw excess $pstXDC above the 100,000 token limit.
 
 ***
 
-#### Key Features of Liquid XDC NFTs
+### Key Features of Liquid XDC NFTs
 
-1. **Liquidity Through $pstXDC:**
-   * Similar to XDC Vaults, NFTs now generate $pstXDC tokens when you stake XDC.
-   * $pstXDC tokens provide flexibility, enabling participation in DeFi protocols while earning staking rewards.
-2. **Gamified Staking:**
-   * Engage with staking in a fun and dynamic way by upgrading and customizing your NFTs.
-3. **Secure and Flexible:**
-   * Staked XDC remains secure in the NFT and can be withdrawn or utilized in DeFi applications at any time, providing an unparalleled level of flexibility.
+1. **Liquidity Through $pstXDC**
+   * Stake $pstXDC instead of locking raw XDC, preserving your liquidity options while still earning rewards.
+2. **Gamified Staking**
+   * Level up and customize your NFTs to enhance multipliers, adding a **fun, dynamic** aspect to the staking experience.
+3. **Secure and Flexible**
+   * All operations use **audited smart contracts**; you can withdraw staked $pstXDC or utilize it in DeFi at any time (unless the NFT is locked).
+4. **Enhanced Rewards**
+   * Combining **Liquid Staking** with NFT-based multipliers lets you **maximize yields** and tailor your staking strategy.
 
 ***
 
@@ -73,17 +75,24 @@ XDC Staking NFTs combine the power of staking and liquidity, allowing you to max
 
 ***
 
-### <mark style="color:purple;">Interface Buttons and Their Functions</mark>
+### Interface Buttons and Their Functions
 
-* **Stake:** Stake XDC tokens inside your NFT to begin earning rewards.
-* **Get Surplus:** Withdraw any XDC above 100,000 tokens from your NFT after reaching the top level.
-* **Withdraw XDC:** Withdraw staked XDC tokens from your NFT without burning it.
-* **Transfer:** Move your NFT between wallets.
-* **Merge NFTs:** Combine two NFTs of the same rarity to create a higher rarity NFT.
-* **Lock NFT:** Lock your NFT in a Prime Numbers XDC master node for 7% additional yearly rewards. Locked NFTs cannot use the Burn, Merge, or Withdraw features.
-* **Claim XDC:** Claim your monthly XDC rewards, which are added to your NFT.
-* **Sell:** List or auction your NFT on the PrimePort marketplace.
+* **Stake:**\
+  Stake $pstXDC tokens inside your NFT to start earning rewards.
+* **Get Surplus:**\
+  Withdraw any $pstXDC above **100,000 tokens** once your NFT has reached that maximum level.
+* **Withdraw $pstXDC:**\
+  Remove staked $pstXDC from your NFT without destroying it.
+* **Transfer:**\
+  Move your NFT between wallets.
+* **Merge NFTs:**\
+  Combine two NFTs of the **same rarity** to create a **higher rarity** NFT.
+* **Lock NFT:**\
+  Lock your NFT for an **additional 1.25% yearly reward**. Total reward: 7.25% + Variable APY. \
+  (Locked NFTs cannot use **Burn**, **Merge**, or **Withdraw** features.)
+* **Claim $pstXDC:**\
+  Claim your monthly $pstXDC rewards, which are stored within your NFT.
+* **Sell:**\
+  List or auction your NFT on the **PrimePort marketplace**.
 
-### <mark style="color:purple;">Maximizing Rewards</mark>
-
-As your NFT levels up and gains multipliers, your rewards increase. The staking system allows you to actively manage and optimize your digital assets, providing flexibility and potential for growth.
+###

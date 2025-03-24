@@ -1,66 +1,71 @@
 # XDC Masternode Vaults
 
-XDC Masternode Vaults are specialized staking Vaults designed for users with a minimum of 10 million $XDC tokens who wish to operate an XDC masternode. These Vaults simplify the process of running a masternode, managing rewards, and covering operational expenses, while also providing liquidity through $pstXDC tokens.
+## XDC Masternode Vaults: High-Value Staking at 7.65% APY
 
-
-
-<figure><img src="../../.gitbook/assets/xdc-masternode.jpg" alt=""><figcaption></figcaption></figure>
+**XDC Masternode Vaults** are designed for users holding **10M XDC** or more who wish to operate an XDC masternode. These Vaults streamline masternode operations, reward management, and hosting expenses—while offering **liquidity** through **$pstXDC** tokens.
 
 ***
 
-#### **What Are XDC Masternode Vaults?**
+### What Are XDC Masternode Vaults?
 
-XDC Masternode Vaults function similarly to standard XDC Vaults but are exclusively for users with 10M $XDC required to mint the Vault. These Vaults allow users to stake $XDC, operate a masternode, and earn **7.65% APY** from the masternode rewards. Additionally, when staking 10M $XDC, users receive **10M $pstXDC** in their wallet, enabling liquidity through liquid staking derivatives.
-
-***
-
-#### **How It Works**
-
-1. **Mint an XDC Masternode Vault:**
-   * Users with 10M $XDC can mint an XDC Masternode Vault, represented as an NFT that manages the staked tokens.
-2. **Receive Liquid Staking Tokens:**
-   * When you stake 10M $XDC into the Vault, the system automatically mints **10M $pstXDC** and sends it to your wallet.
-   * $pstXDC serves as proof of your staked tokens and can be freely used in the ecosystem, such as in DeFi protocols, without affecting your masternode rewards.
-3. **Earn Masternode Rewards:**
-   * Your staked $XDC generates rewards at **7.65% APY**, distributed proportionally to your Vault balance.
-   * The platform retains **0.35% of the 8% APY** to cover hosting and operational fees.
-4. **Liquidity Through $pstXDC:**
-   * $pstXDC tokens maintain a 1:1 ratio with staked $XDC, allowing users to use their tokens in DeFi applications while still earning masternode rewards.
-   * $pstXDC can be traded, staked in other protocols, or redeemed for the underlying $XDC.
-5. **Redeem Your $XDC:**
-   * To exit, click the **Request Withdraw XDC** button. This resigns the masternode and initiates the withdrawal process.
-   * After a **32-day waiting period**, your $XDC, along with any rewards, will be available for redemption.
-   * Redeeming $XDC burns the corresponding $pstXDC tokens.
+* **Specialized Staking:** Exclusively for users with **10M XDC**, making it easy to run and maintain a **masternode**.
+* **Higher Rewards:** Earn **7.65% APY** from masternode rewards.
+* **Liquid Staking Derivative:** When staking 10M XDC, you receive **10M $pstXDC**, which can be used in DeFi without losing your masternode rewards.
 
 ***
 
-#### **Key Features**
+### How It Works
 
-1. **Liquid Staking:**
-   * Users receive **10M $pstXDC** for every 10M $XDC staked, providing liquidity and flexibility while maintaining staking rewards.
-2. **Transparent Rewards:**
-   * Earn **7.65% APY** directly from masternode operations. Rewards are automatically credited to the Vault and visible on the platform dashboard.
-3. **No Hosting Hassles:**
-   * The platform handles hosting and operational management, deducting a minimal **0.35% APY** from the total rewards.
-4. **Effortless Withdrawal Process:**
-   * Users can easily resign their masternode and withdraw their $XDC in **32 days**, ensuring a smooth exit.
+1. **Mint an XDC Masternode Vault**
+   * Users with **10M XDC** can create a masternode vault, represented as an **NFT** that manages the staked tokens.
+2. **Receive Liquid Staking Tokens**
+   * Once you stake **10M XDC**, the system automatically issues **10M $pstXDC** to your wallet.
+   * **$pstXDC** proves your staked tokens and remains fully usable in the ecosystem (e.g., DeFi protocols), without affecting your masternode earnings.
+3. **Earn Masternode Rewards**
+   * Your staked XDC generates rewards at **7.65% APY**.
+   * The platform takes **0.35%** (from the total 8% APY) to cover hosting and operational fees.
+   * Rewards are credited proportionally to your masternode vault balance.
+4. **Maintain Liquidity Through $pstXDC**
+   * **$pstXDC** maintains a **1:1 ratio** with your staked XDC, so you can trade or stake it elsewhere while still collecting masternode rewards.
+   * If you ever wish to redeem your XDC, you’ll burn the corresponding $pstXDC tokens.
+5. **Redeem Your XDC**
+   * To exit, select **“Request Withdraw XDC”**, which resigns your masternode and starts the withdrawal countdown.
+   * After a **32-day waiting period**, your **XDC** and any accrued rewards become available.
+   * Redeeming your XDC **burns** the corresponding amount of $pstXDC.
 
 ***
 
-#### **Step-by-Step Guide**
+### Key Features
 
-1. **Mint an XDC Masternode Vault:**
-   * Ensure you have 10M $XDC in your wallet.
-   * Access the staking platform and mint an XDC Masternode Vault NFT.
-   * Confirm the transaction to lock your $XDC into the Vault.
-2. **Receive $pstXDC Tokens:**
-   * After staking, 10M $pstXDC will be minted and sent to your wallet.
-3. **Use $pstXDC Tokens:**
-   * Utilize $pstXDC in DeFi protocols while your staked $XDC continues to generate rewards.
-4. **Track Rewards:**
-   * Log into the platform dashboard to monitor rewards from your masternode stake.
-5. **Withdraw Your $XDC:**
-   * To withdraw, redeem your $pstXDC and initiate the **Request Withdraw XDC** process.
-   * Wait 32 days to complete the withdrawal and receive your original $XDC and accrued rewards.
+* **Liquid Staking**
+  * For every **10M XDC** staked, you receive **10M $pstXDC**, preserving **liquidity** and **flexibility**.
+* **Transparent Rewards**
+  * Earn **7.65% APY** directly from masternode operations.
+  * Rewards are **auto-credited** and viewable on your dashboard.
+* **No Hosting Hassles**
+  * The platform manages all **masternode hosting** and operational overhead.
+  * A minimal **0.35%** APY deduction covers these costs.
+* **Effortless Withdrawal**
+  * Resign your masternode with a few clicks.
+  * Your staked XDC returns in **32 days**, including accumulated rewards.
+
+***
+
+### Step-by-Step Guide
+
+1. **Mint an XDC Masternode Vault**
+   * Ensure your wallet holds **10M XDC**.
+   * Access the staking platform to mint the **Masternode Vault NFT**.
+   * Confirm the transaction and lock 10M XDC in the vault.
+2. **Receive $pstXDC Tokens**
+   * After staking, **10M $pstXDC** are minted to your wallet.
+   * These tokens reflect **full liquidity** of your staked position.
+3. **Use $pstXDC**
+   * Deploy **$pstXDC** in DeFi protocols while your staked XDC generates rewards at **7.65% APY**.
+4. **Track Rewards**
+   * View your masternode rewards via the **platform dashboard**.
+5. **Withdraw Your XDC**
+   * When ready to unstake, **burn** the matching $pstXDC and select **“Request Withdraw XDC”**.
+   * After **32 days**, retrieve your original **10M XDC** plus all accrued rewards.
 
 ***

@@ -1,151 +1,104 @@
 # FAQs
 
-**XDC Liquid Staking FAQ**
+### General Questions
 
-This FAQ covers common questions about the **XDC Liquid Staking System**, which includes **XDC NFTs, XDC Vaults, and XDC Masternode Vaults**.
+#### What is XDC Liquid Staking?
 
-***
+**XDC Liquid Staking** enables you to stake $XDC while retaining full liquidity. Instead of locking up your tokens, you receive **$pstXDC** (Prime Staked XDC) – a **liquid staking derivative** – which can be freely used or traded in DeFi.
 
-#### **General Questions**
+* **XDC NFTs:** Stake $pstXDC inside **XDC NFTs** to earn masternode rewards plus additional bonuses from the PrimeFi ecosystem.
+* **XDC Liquid Staking (Standard):** A straightforward way to stake XDC and receive $pstXDC—no minimum required.
+* **XDC Masternode Staking:** For large holders (10M+ XDC), stake in a masternode setting for **enhanced yields**.
 
-**What is XDC Liquid Staking?**
+#### What is $pstXDC?
 
-XDC Liquid Staking allows users to stake XDC and earn rewards while maintaining liquidity. Staked XDC generates **$pstXDC**, which can be used in DeFi without locking up funds. Users can stake in three ways:
+**$pstXDC** represents your staked XDC in liquid form. Holding $pstXDC means you continue to earn staking rewards even as you use or trade it.
 
-1. **XDC NFTs** – Rewards from masternodes and PrimeFi XDC ecosystem.
-2. **XDC Vaults** – Open staking with no minimum requirements.
-3. **XDC Masternode Vaults** – High-value staking for 10M+ XDC holders.
+#### Where can I trade $pstXDC?
 
-**What is $pstXDC?**
+You can trade $pstXDC on **DEXs**, where it typically pairs with $XDC. Purchasing $pstXDC directly also grants you rewards, since you’re effectively holding the staked position.
 
-$pstXDC is a liquid staking derivative (LSD) token issued when users stake XDC. It allows users to earn staking rewards while using their staked assets in DeFi.
+#### What happens when I unstake?
 
-**Where can I trade $pstXDC?**
+When you decide to unstake your XDC, you **burn** the corresponding $pstXDC—this process redeems your original XDC. After any required waiting period (usually **1–32 days**), the XDC returns to your wallet.
 
-$pstXDC can be traded on **XSWAP DEX**, where it is paired with XDC.
+#### Can I transfer my staking position?
 
-**What happens when I unstake?**
+Yes!
 
-When you unstake, the corresponding $pstXDC tokens are burned, and your staked XDC is returned to your wallet.
+* **XDC NFTs** (which contain staked $pstXDC) can be sold or transferred, typically via [PrimePort.xyz](https://primeport.xyz).
+* **XDC Masternode Staking** can also be transferred by passing ownership of the staking contract (and associated $pstXDC) to the new owner.
 
-**Can I transfer my staking position?**
+#### How does the team distribute rewards?
 
-Yes! XDC NFTs and XDC Vaults can be sold or transferred on [**Primeport.xyz**](https://primeport.xyz).\
-
-
-**What happens when I claim rewards?**
-
-* **$pstXDC gets minted to the wallet.**
-* **XDC Masternode Vaults receive XDC directly.**
-
-**How does the team distribute rewards?**
-
-* **The team sends the rewards to the smart contract, which distributes the XDC to the NFTs.**
-* **Users receive their rewards when they claim.**
+The team sends rewards to a **smart contract** that allocates them proportionally to **$pstXDC** holders or to **XDC NFTs** staked with $pstXDC. You receive your share upon **claiming**.
 
 ***
 
-#### **XDC NFTs**
+### XDC NFTs
 
-**What are XDC Staking NFTs?**
+#### What are XDC Staking NFTs?
 
-XDC Staking NFTs allow users to stake XDC while benefiting from unique rarity-based multipliers. These NFTs provide an interactive and customizable staking experience.
+**XDC Staking NFTs** is a **gamified** approach to staking, allowing you to deposit **$pstXDC** into the NFT. Each NFT can have a **rarity** and **level** that determines your **staking multiplier** and boosts rewards.
 
-**How do XDC NFTs work?**
+#### How do XDC NFTs work?
 
-* XDC is staked inside the NFT.
-* The NFT earns rewards based on its staking level and rarity.
-* Users can **merge NFTs** to create higher-rarity NFTs with better rewards.
-* Users can **lock NFTs** into masternodes for additional staking bonuses.
+1. **Stake $pstXDC**: Acquire $pstXDC (by staking XDC through Liquid Staking or buying it on a DEX) and deposit it into your NFT.
+2. **NFT Rewards**: The NFT’s **base rarity** and **upgrade level** (multiplier) affect how much it earns.
+3. **Merge System**: Combine two NFTs of the same rarity to create a **higher-rarity NFT**, improving your rewards.
+4. **Optional Locking**: For even higher yields, lock your NFT.
 
-**What is the Merge System?**
+#### What is the Merge System?
 
-The Merge System allows users to combine two NFTs of the same rarity to create a **higher-rarity NFT** with better staking benefits.
+If you have **two NFTs of the same rarity**, you can merge them into a single **higher-rarity NFT**. Higher rarity generally means a better **multiplier** and more rewards.
 
-**Can I withdraw my XDC from an NFT?**
+#### How do I sell my XDC NFT?
 
-Yes, but withdrawing XDC **burns $pstXDC** in the process. The NFT itself is not burned unless merged.
-
-**How do I sell my XDC NFT?**
-
-XDC NFTs can be listed and auctioned on **PrimePort.xyz**, where buyers can purchase them along with their staked XDC.
+List or auction your **XDC NFT** on [PrimePort.xyz](https://primeport.xyz). When a buyer purchases it, they also gain **ownership** of all staked $pstXDC and any reward multipliers or locked status.
 
 ***
 
-#### **XDC Vaults**
+### XDC Liquid Staking (Standard)
 
-**What are XDC Vaults?**
+#### How does standard Liquid Staking work?
 
-XDC Vaults are **on-chain staking contracts** where users can stake XDC and receive $pstXDC in return, enabling flexible and liquid staking.
+1. **Stake XDC** through the Liquid Staking contract.
+2. You receive **$pstXDC** at a **1:1** ratio.
+3. **Earn Rewards** continuously while retaining the ability to use $pstXDC freely in DeFi.
+4. **Unstake** by burning $pstXDC and waiting the required time to get your XDC back.
 
-**How do XDC Vaults work?**
+#### Who can participate?
 
-* Users stake XDC in a vault and receive $pstXDC tokens.
-* $pstXDC can be used in DeFi while still earning staking rewards.
-* When unstaking, $pstXDC is burned, and XDC is returned.
+**Anyone** can stake in XDC Liquid Staking. There are **no minimums**, making it accessible to all XDC holders.
 
-**Who can use XDC Vaults?**
+#### How do I withdraw my staked XDC?
 
-Anyone can stake in XDC Vaults. There are no minimum staking requirements.
+Simply **burn** the equivalent amount of $pstXDC, and your original XDC will be released back to your wallet after the standard unstaking period (1–32 days).
 
-**How do I withdraw my XDC from a Vault?**
+#### Can I transfer my Liquid Staking contract?
 
-To withdraw XDC:
-
-1. Burn the required amount of $pstXDC.
-2. Your XDC will be returned to your wallet.
-
-**Can I transfer my XDC Vault?**
-
-Yes! Vaults can be transferred or sold on **PrimePort.xyz**, provided the owner holds all corresponding $pstXDC tokens.
+Because standard Liquid Staking doesn’t involve an NFT, you can effectively transfer your position by sending $pstXDC to another address. Whoever holds $pstXDC is entitled to the associated rewards.
 
 ***
 
-#### **XDC Masternode Vaults**
+### XDC Masternode Staking
 
-**What are XDC Masternode Vaults?**
+#### What is XDC Masternode Staking?
 
-XDC Masternode Vaults allow **large holders (10M+ XDC)** to stake directly into masternodes and earn exclusive rewards.
+**XDC Masternode Staking** is for large XDC holders (generally **10M+ XDC**) who wish to stake in a **full masternode** environment. This typically offers higher or more stable rewards.
 
-**What are the benefits of using Masternode Vaults?**
+#### What are the benefits of Masternode Staking?
 
-* Higher staking rewards compared to standard XDC Vaults.
-* No need for technical setup – automated staking.
-* Exclusive reward tiers for large-scale participants.
+* **Enhanced Rewards**: Higher APY compared to standard staking.
+* **No Technical Setup**: The masternode is managed by the protocol, removing the burden of hosting and maintenance.
+* **Scalable Participation**: Ideal for large-scale holders looking to maximize returns.
 
-**Can I unstake from an XDC Masternode Vault?**
+#### Can I unstake from XDC Masternode Staking?
 
-Yes, but unstaking may have a cooldown period due to masternode operations.
+Yes. However, unstaking from a masternode may involve a **cooldown period**. Once complete, you burn $pstXDC to retrieve your XDC.
 
-**Can I transfer my Masternode Vault?**
+#### Can I transfer my Masternode position?
 
-Yes! Masternode Vaults can be sold or transferred on **PrimePort.xyz**, ensuring ownership and rewards are passed to the new holder.
-
-***
-
-#### **Security & Restrictions**
-
-**What happens if I don’t hold my $pstXDC?**
-
-* You **cannot** claim rewards if you do not hold **100% of your corresponding $pstXDC**.
-* You **cannot** mint a new Vault if you owe $pstXDC to the contract.
-* You **cannot** stake more XDC until you settle your $pstXDC balance.
-
-**What if my NFT is locked in a masternode?**
-
-* Locked NFTs **cannot be merged, withdrawn, or burned** until unlocked.
-* Locked NFTs earn an **extra 7% annual staking rewards**.
-
-**How is $pstXDC burned?**
-
-* $pstXDC is **burned** when users withdraw their staked XDC from Vaults or NFTs.
-* This ensures that rewards remain balanced and prevent inflationary abuse.
+Yes. You can **transfer** or **sell** your masternode staking contract on [PrimePort.xyz](https://primeport.xyz), granting the new owner full masternode rights and rewards.
 
 ***
-
-#### **Getting Started**
-
-1. **Choose your staking method** – XDC NFTs, XDC Vaults, or Masternode Vaults.
-2. **Stake XDC** – Start earning rewards and receive $pstXDC.
-3. **Use $pstXDC in DeFi** – Trade or hold it while still accruing staking rewards.
-4. **Claim rewards & manage your assets** – Use **PrimePort.xyz** for trading and **XSWAP** for liquidity.

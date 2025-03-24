@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Smart Contract Functions
 
 **XDC Vaults Smart Contract Functions**

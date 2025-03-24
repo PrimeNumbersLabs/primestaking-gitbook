@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # DEX Liquidity
 
 **DEX Liquidity Guide for $pstXDC**

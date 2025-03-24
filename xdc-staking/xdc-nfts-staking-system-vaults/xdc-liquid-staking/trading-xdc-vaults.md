@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Trading XDC Vaults
 
 **Simple Guide for Trading XDC Vaults**

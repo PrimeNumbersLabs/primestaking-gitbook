@@ -16,7 +16,7 @@ layout:
 
 ## <mark style="color:purple;">Introduction to XDC Staking NFTs</mark>
 
-Prime Numbers Labs is proud to introduce the XDC Staking NFTs, the first non-custodial and trustless staking system built on the XDC Network. These NFTs act as secure "vaults," allowing you to store your XDC tokens and earn rewards simultaneously. With a collection of 5,557 NFTs, including 5,542 generative and 15 handcrafted pieces, these NFTs combine utility with artistic value, offering a unique staking experience.
+These NFTs act as secure "vaults," allowing you to store your $pstXDC tokens and earn rewards simultaneously. With a collection of 5,557 NFTs, including 5,542 generative and 15 handcrafted pieces, these NFTs combine utility with artistic value, offering a unique staking experience.
 
 ***
 
@@ -78,6 +78,6 @@ This makes the NFTs deflationary.
 
 **You can use the "BurnToRedeem" button to get 300 $PRFI (Refund System)**
 
-This button breaks the NFT and extracts all the $XDC inside the NFT. It cannot be reversed; it will burn your NFT and send all the XDC to your wallet. Also, you get 300 $PRFI when you break the NFT.
+This button breaks the NFT and extracts all the $pstXDC inside the NFT. It cannot be reversed; it will burn your NFT and send all the $pstXDC to your wallet. Also, you get 300 $PRFI when you break the NFT.
 
 This makes the NFTs deflationary.\

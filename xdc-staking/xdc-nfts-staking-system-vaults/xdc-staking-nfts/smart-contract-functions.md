@@ -4,84 +4,85 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-#### **1. Stake**
+### 1. Stake
 
-* **Description:** Allows users to stake XDC tokens inside their NFT to begin earning staking rewards.
-* **Functionality:**
-  * Users deposit XDC into their NFT to start accruing rewards.
-  * Staking strengthens the NFT’s intrinsic value by tying rewards to ownership.
+**Description:** Allows users to stake **$pstXDC** inside their NFT to begin earning **NFT-based rewards**.
 
-***
+**Functionality:**
 
-#### **2. Get Surplus**
-
-* **Description:** Enables users to withdraw any excess XDC above 100,000 tokens from their NFT after reaching the top staking level.
-* **Functionality:**
-  * Users can retrieve surplus XDC that surpasses the maximum staking limit.
-  * $pstXDC is **burned** proportionally to the amount of XDC withdrawn.
-  * Ensures efficient fund management while keeping the NFT active.
+* Users deposit **$pstXDC** into their NFT; this increases the NFT’s intrinsic value and starts accruing **NFT-level rewards**.
 
 ***
 
-#### **3. Withdraw XDC**
+### 2. Get Surplus
 
-* **Description:** Users can withdraw their staked XDC tokens from the NFT, removing their staking position.
-* **Functionality:**
-  * Users **must burn** the corresponding $pstXDC when withdrawing their XDC.
-  * Unlike the Get Surplus function, this completely removes the staked position but **does not burn the NFT**.
-  * Withdrawn XDC is transferred back to the user’s wallet.
+**Description:** Enables users to withdraw any **excess $pstXDC** above 100,000 tokens from their NFT after reaching the top staking level.
 
-***
+**Functionality:**
 
-#### **4. Transfer**
-
-* **Description:** Allows users to move their NFT between wallets.
-* **Functionality:**
-  * NFT ownership is updated on-chain when transferred to another user.
-  * The new owner gains full control over the NFT and its staking benefits.
+* Users can retrieve surplus **$pstXDC** exceeding the **100,000-token limit**.
+* Maintains efficient fund management while keeping the NFT’s staking position active.
 
 ***
 
-#### **5. Merge NFTs**
+### 3. Withdraw $pstXDC
 
-* **Description:** Combines two NFTs of the same rarity to create a higher-rarity NFT.
-* **Functionality:**
-  * Merging NFTs increases their rarity and enhances staking multipliers.
-  * Both original NFTs are burned, and a new upgraded NFT is minted.
+**Description:** Users can withdraw their staked **$pstXDC** tokens from the NFT, partially or fully removing their staking position.
 
-***
+**Functionality:**
 
-#### **6. Lock NFT**
-
-* **Description:** Users can lock their NFT in a Prime Numbers XDC master node to receive additional staking rewards.
-* **Functionality:**
-  * Locked NFTs earn an additional 7% yearly staking rewards.
-  * **Restriction:** Locked NFTs cannot use the Burn, Merge, or Withdraw features until unlocked.
+* When withdrawing, the corresponding **$pstXDC** is sent to the user, symbolizing the redemption of the underlying stake.
+* This **does not burn the NFT**, allowing it to remain in use or be restaked later.
+* Withdrawn tokens are returned to the user’s wallet in **$pstXDC** form.
 
 ***
 
-#### **7. Claim XDC Rewards**
+### 4. Transfer
 
-* **Description:** Users can claim their monthly staking rewards.
-* **Functionality:**
-  * Claiming rewards **mints $pstXDC** directly into the user’s wallet.
-  * The equivalent amount of XDC rewards is **added to the NFT’s balance**.
-  * Users must claim rewards manually each month.
+**Description:** Allows users to move their **NFT** between different wallets.
 
-***
+**Functionality:**
 
-#### **8. Sell**
-
-* **Description:** Users can list or auction their XDC Staking NFT on the **PrimePort marketplace**.
-* **Functionality:**
-  * Sellers define the price and list their NFT for sale.
-  * Buyers inherit the NFT’s staking rewards and features upon purchase.
+* On transfer, **NFT ownership** is updated on-chain.
+* The new owner inherits the NFT’s staked **$pstXDC** and associated **reward multipliers**, as well as any locked status or available surplus.
 
 ***
 
-#### **Security & Ownership Rules**
+### 5. Merge NFTs
 
-* Users must burn $pstXDC when withdrawing staked XDC.
-* The NFT is **not burned** when withdrawing XDC, ensuring its continued usability.
-* Locked NFTs cannot be merged, burned, or withdrawn until unlocked.
-* Transactions are recorded on-chain, ensuring full transparency and ownership security.
+**Description:** Combines two NFTs of the **same rarity** to create a **higher-rarity** NFT.
+
+**Functionality:**
+
+* Both original NFTs are burned, and a **new, upgraded NFT** is minted with improved **base multipliers** for staking.
+* The newly created NFT can stake **$pstXDC** at an enhanced rate, potentially increasing overall rewards.
+
+***
+
+### 6. Lock NFT
+
+**Description:** Users can lock their NFT for an **additional yield** (for instance, 7.25% + variable APY) over a specified period.
+
+**Functionality:**
+
+* **Locked NFTs** earn **extra staking rewards**, typically paid monthly.
+* **Restriction:** While locked, the NFT cannot use **Merge**, **Withdraw**, or other functions that would alter its staked position.
+
+***
+
+### 7. Claim $pstXDC Rewards
+
+**Description:** Users can claim their **monthly rewards** generated through the NFT’s multipliers and staked **$pstXDC**.
+
+***
+
+### 8. Sell
+
+**Description:** Users can list or auction their **XDC Staking NFT** on the **PrimePort marketplace** (or any compatible NFT marketplace).
+
+**Functionality:**
+
+* Sellers set their price and transfer NFT ownership to the buyer upon sale.
+* The buyer then acquires the **NFT’s staked $pstXDC**, any **pending rewards**, and the right to **future yields**.
+
+***

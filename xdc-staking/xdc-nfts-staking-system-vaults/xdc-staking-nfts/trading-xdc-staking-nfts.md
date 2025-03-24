@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Trading XDC Staking NFTs
 
 **Simple Guide for Trading XDC Staking NFTs**
