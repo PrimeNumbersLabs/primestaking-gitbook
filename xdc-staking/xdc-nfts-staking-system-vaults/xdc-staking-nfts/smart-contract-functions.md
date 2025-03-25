@@ -14,18 +14,7 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-### 2. Get Surplus
-
-**Description:** Enables users to withdraw any **excess $pstXDC** above 100,000 tokens from their NFT after reaching the top staking level.
-
-**Functionality:**
-
-* Users can retrieve surplus **$pstXDC** exceeding the **100,000-token limit**.
-* Maintains efficient fund management while keeping the NFT’s staking position active.
-
-***
-
-### 3. Withdraw $pstXDC
+### 2. Withdraw $pstXDC
 
 **Description:** Users can withdraw their staked **$pstXDC** tokens from the NFT, partially or fully removing their staking position.
 
@@ -37,7 +26,7 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-### 4. Transfer
+### 3. Transfer
 
 **Description:** Allows users to move their **NFT** between different wallets.
 
@@ -48,7 +37,7 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-### 5. Merge NFTs
+### 4. Merge NFTs
 
 **Description:** Combines two NFTs of the **same rarity** to create a **higher-rarity** NFT.
 
@@ -59,7 +48,7 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-### 6. Lock NFT
+### 5. Lock NFT
 
 **Description:** Users can lock their NFT for an **additional yield** (for instance, 7.25% + variable APY) over a specified period.
 
@@ -70,13 +59,13 @@ Core functions within the XDC Staking NFTs smart contract, defining their purpos
 
 ***
 
-### 7. Claim $pstXDC Rewards
+### 6. Claim $XDC Rewards
 
-**Description:** Users can claim their **monthly rewards** generated through the NFT’s multipliers and staked **$pstXDC**.
+**Description:** Users can claim their **monthly rewards** generated through the NFT’s multipliers and staked **$pstXDC**. Rewards are paid in $XDC.
 
 ***
 
-### 8. Sell
+### 7. Sell
 
 **Description:** Users can list or auction their **XDC Staking NFT** on the **PrimePort marketplace** (or any compatible NFT marketplace).
 

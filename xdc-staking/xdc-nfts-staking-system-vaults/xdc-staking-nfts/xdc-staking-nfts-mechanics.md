@@ -37,8 +37,6 @@ layout:
 #### Rewards and Maximum Staking
 
 * **Staking Limit:** You can stake up to **100,000 $pstXDC** inside each NFT.
-* **Surplus Rewards:** Once the limit is reached, any **additional monthly rewards** automatically accrue to your NFT.
-* **‘Get Surplus’ Feature:** Use the **“Get Surplus”** button to withdraw excess $pstXDC above the 100,000 token limit.
 
 ***
 
@@ -79,8 +77,6 @@ XDC Staking NFTs combine the power of staking and liquidity, allowing you to max
 
 * **Stake:**\
   Stake $pstXDC tokens inside your NFT to start earning rewards.
-* **Get Surplus:**\
-  Withdraw any $pstXDC above **100,000 tokens** once your NFT has reached that maximum level.
 * **Withdraw $pstXDC:**\
   Remove staked $pstXDC from your NFT without destroying it.
 * **Transfer:**\
@@ -90,8 +86,8 @@ XDC Staking NFTs combine the power of staking and liquidity, allowing you to max
 * **Lock NFT:**\
   Lock your NFT for an **additional 1.25% yearly reward**. Total reward: 7.25% + Variable APY. \
   (Locked NFTs cannot use **Burn**, **Merge**, or **Withdraw** features.)
-* **Claim $pstXDC:**\
-  Claim your monthly $pstXDC rewards, which are stored within your NFT.
+* **Claim $XDC:**\
+  Claim your monthly $XDC rewards, which are stored within your NFT.
 * **Sell:**\
   List or auction your NFT on the **PrimePort marketplace**.
 
