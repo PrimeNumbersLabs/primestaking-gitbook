@@ -1,20 +1,26 @@
 # MUST READ
 
-## Transition from Old System to New System
+### Transition from Old System to New System
 
-### 1. XDC Vaults → XDC Liquid Staking
+1.  **XDC Vaults → XDC Liquid Staking**
 
-* **Old System:** “XDC Vaults” required a 100 XDC fee to mint and manage your staked tokens.
-* **New System:** **XDC Liquid Staking** replaces XDC Vaults, simplifying the process of staking and earning rewards.
-* **Refund:** Anyone who paid the 100 XDC minting fee for an XDC Vault will be **refunded** that amount in the new system.
+    * **Old System:** “XDC Vaults” required a 100 XDC fee to mint and manage your staked tokens.
+    * **New System:** **XDC Liquid Staking** replaces XDC Vaults, simplifying the staking process and making it easier to earn rewards.
+    * **Refund:** Anyone who paid the 100 XDC minting fee for an XDC Vault will receive a refund in the new system.
 
-### 2. $pstXDC is the Key to Rewards
 
-* **What’s Changing?:** Instead of manually managing Vaults, you now receive **$pstXDC** whenever you stake XDC.
-* **Why It Matters:** Holding **$pstXDC** is how you **earn and claim** staking rewards in the updated platform.
+2.  **$psXDC is the Key to Rewards**
 
-### 3. Temporary Pause During System Update
+    * **What’s Changing?:** Instead of manually creating Vaults, you now receive **$psXDC** whenever you stake XDC.
+    * **Why It Matters:** Holding **$psXDC** is how you earn and claim staking rewards in the updated platform.
+    * **Migration Required:** To continue earning rewards, you must migrate your old $pstXDC tokens to the new $psXDC tokens.
 
-* **Current Status:** The old system is **on hold** while the update is being rolled out.
-* **Rewards Preservation:** All pending rewards are **saved** and will be fully credited **once the transition is complete**.
-* **What to Expect:** Once the new platform goes live, you’ll be able to interact with your staked assets in the Liquid Staking system, claim any accumulated rewards, and enjoy the **improved** user experience.
+
+3. **Temporary Pause During System Update**
+   * **Current Status:** The old system is on hold while we roll out the update.
+   * **Rewards Preservation:** Any pending rewards are preserved and will be credited once the transition is complete.
+   * **What to Expect:** When the new platform goes live, you can interact with your staked assets in the Liquid Staking system, claim any accumulated rewards, and benefit from an improved user experience.
+
+***
+
+For more details or to migrate your assets, visit [**primestaking.xyz**](https://primestaking.xyz). Thank you for your patience and continued support as we embark on this exciting new chapter in the XDC ecosystem!
