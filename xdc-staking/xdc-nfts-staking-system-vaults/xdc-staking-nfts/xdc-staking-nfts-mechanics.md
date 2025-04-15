@@ -16,38 +16,38 @@ layout:
 
 **Understanding XDC Staking NFTs: Maximizing Your Rewards**
 
-**XDC Staking NFTs** introduce a dynamic, gamified staking system within **Prime Numbers Labs**, allowing you to stake **$pstXDC** (not regular XDC) to earn various rewards. These NFTs are **liquid** and designed to integrate seamlessly with the **XDC Liquid Staking** ecosystem, providing enhanced flexibility and utility.
+**XDC Staking NFTs** introduce a dynamic, gamified staking system within **Prime Numbers Labs**, allowing you to stake **$psXDC** (not regular XDC) to earn various rewards. These NFTs are **liquid** and designed to integrate seamlessly with the **XDC Liquid Staking** ecosystem, providing enhanced flexibility and utility.
 
 ***
 
 ### How It Works
 
-#### Staking Your $pstXDC Tokens
+#### Staking Your $psXDC Tokens
 
-* **Stake $pstXDC:** Acquire $pstXDC (by depositing XDC in the Liquid Staking platform or purchasing on a DEX) and stake it inside your NFT. This boosts the NFT’s intrinsic value and unlocks rewards from the **XDC rewards pool**.
-* **Withdrawal Flexibility:** Your staked $pstXDC remains secure and can be withdrawn at any time unless you opt to lock the NFT in a masternode for additional yield.
+* **Stake $psXDC:** Acquire $psXDC (by depositing XDC in the Liquid Staking platform or purchasing on a DEX) and stake it inside your NFT. This boosts the NFT’s intrinsic value and unlocks rewards from the **XDC rewards pool**.
+* **Withdrawal Flexibility:** Your staked $psXDC remains secure and can be withdrawn at any time unless you opt to lock the NFT in a masternode for additional yield.
 
 #### Leveling Up and Multipliers
 
-* **NFT Levels:** As you stake more $pstXDC, your NFT’s level increases.
+* **NFT Levels:** As you stake more $psXDC, your NFT’s level increases.
 * **Base + Added Multipliers:** Each level adds an **Added Multiplier** to the NFT’s **Base Multiplier**, resulting in a **Total Multiplier**.
   * **Example:** Base Multiplier = 2.0, Level 18 Added Multiplier = 1.8 ⇒ **Total Multiplier = 3.8**.
 * **Greater Rewards:** A higher Total Multiplier grants you a larger share of the rewards pool.
 
 #### Rewards and Maximum Staking
 
-* **Staking Limit:** You can stake up to **100,000 $pstXDC** inside each NFT.
+* **Staking Limit:** You can stake up to **100,000 $psXDC** inside each NFT.
 
 ***
 
 ### Key Features of Liquid XDC NFTs
 
-1. **Liquidity Through $pstXDC**
-   * Stake $pstXDC instead of locking raw XDC, preserving your liquidity options while still earning rewards.
+1. **Liquidity Through $psXDC**
+   * Stake $psXDC instead of locking raw XDC, preserving your liquidity options while still earning rewards.
 2. **Gamified Staking**
    * Level up and customize your NFTs to enhance multipliers, adding a **fun, dynamic** aspect to the staking experience.
 3. **Secure and Flexible**
-   * All operations use **audited smart contracts**; you can withdraw staked $pstXDC or utilize it in DeFi at any time (unless the NFT is locked).
+   * All operations use **audited smart contracts**; you can withdraw staked $psXDC or utilize it in DeFi at any time (unless the NFT is locked).
 4. **Enhanced Rewards**
    * Combining **Liquid Staking** with NFT-based multipliers lets you **maximize yields** and tailor your staking strategy.
 
@@ -76,9 +76,9 @@ XDC Staking NFTs combine the power of staking and liquidity, allowing you to max
 ### Interface Buttons and Their Functions
 
 * **Stake:**\
-  Stake $pstXDC tokens inside your NFT to start earning rewards.
-* **Withdraw $pstXDC:**\
-  Remove staked $pstXDC from your NFT without destroying it.
+  Stake $psXDC tokens inside your NFT to start earning rewards.
+* **Withdraw $psXDC:**\
+  Remove staked $psXDC from your NFT without destroying it.
 * **Transfer:**\
   Move your NFT between wallets.
 * **Merge NFTs:**\

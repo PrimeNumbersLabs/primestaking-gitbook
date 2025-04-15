@@ -78,6 +78,6 @@ This makes the NFTs deflationary.
 
 **You can use the "BurnToRedeem" button to get 300 $PRFI (Refund System)**
 
-This button breaks the NFT and extracts all the $pstXDC inside the NFT. It cannot be reversed; it will burn your NFT and send all the $pstXDC to your wallet. Also, you get 300 $PRFI when you break the NFT.
+This button breaks the NFT and extracts all the $pstXDC inside the NFT. It cannot be reversed; it will burn your NFT and send all the $psXDC to your wallet. Also, you get 300 $PRFI when you break the NFT.
 
 This makes the NFTs deflationary.\

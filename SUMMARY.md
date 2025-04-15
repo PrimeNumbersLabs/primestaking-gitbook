@@ -21,7 +21,6 @@
         * [Rewards History](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/rewards-history.md)
         * [Request Withdrawal](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/request-withdrawal.md)
         * [Migration](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md)
-      * [Trading XDC Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/trading-xdc-vaults.md)
       * [Smart Contract Functions](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/smart-contract-functions.md)
     * [XDC Masternode Vaults](xdc-staking/xdc-nfts-staking-system-vaults/xdc-masternode-vaults.md)
     * [XDC Staking NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/README.md)
