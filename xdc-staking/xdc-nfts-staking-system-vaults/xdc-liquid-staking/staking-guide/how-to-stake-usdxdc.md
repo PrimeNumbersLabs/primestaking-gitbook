@@ -16,7 +16,7 @@
     <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 * Confirm the transaction.
 
-**Receive $pstXDC:**\
+**Receive $psXDC:**\
 Upon deposit, $psXDC tokens are automatically issued to your wallet.\
 \
 How do you see $psXDC in your wallet?\
