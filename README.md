@@ -6,7 +6,7 @@
 
     * **Old System:** “XDC Vaults” required a 100 XDC fee to mint and manage your staked tokens.
     * **New System:** **XDC Liquid Staking** replaces XDC Vaults, simplifying the staking process and making it easier to earn rewards.
-    * **Refund:** Anyone who paid the 100 XDC minting fee for an XDC Vault will receive a refund in the new system.
+    * **Refund:** Anyone who paid the 100 XDC minting fee for an XDC Vault and was holding the XDC Vault received a refund: [https://xdcscan.com/tx/0xfe90e35de4d8d9735bf362d877af0c163c7f359b5a2dabdac996dddc71a996bc](https://xdcscan.com/tx/0xfe90e35de4d8d9735bf362d877af0c163c7f359b5a2dabdac996dddc71a996bc)
 
 
 2.  **$psXDC is the Key to Rewards**
