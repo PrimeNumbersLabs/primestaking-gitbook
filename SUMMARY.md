@@ -31,3 +31,4 @@
       * [How to Buy a XDC NFT?](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/how-to-buy-a-xdc-nft.md)
     * [DEX Liquidity](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
     * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
+* [Audits](audits.md)
