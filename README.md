@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # MUST READ
 
 ### Transition from Old System to New System
