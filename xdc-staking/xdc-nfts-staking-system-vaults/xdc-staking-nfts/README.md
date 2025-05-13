@@ -62,17 +62,17 @@ These varying levels of rarity ensure that each NFT is unique and valuable, prov
 
 ### <mark style="color:purple;">Merge System</mark>
 
-We are happy to show you how our merge NFTs system works.
+We are happy to show you how our NFT merge system works.
 
-**You can merge 2 NFTs of the same rarity to get one of the following rarities.**
+**You can merge two NFTs of the same rarity to get one of the following rarities.**
 
-Examples: The merge of **2 common NFTs** will make **one uncommon NFT.** The merge of **2 mythic NFTs** will make **one godly NFT.**
+Examples: Merging two **common NFTs** will make **one uncommon NFT.** The merge of **2 mythic NFTs** will make **one godly NFT.**
 
-**Godly** is the best rarity you can get using the **merge system**.
+**Godly** is the highest rarity you can get through the **merge system**.
 
-When you merge 2 NFTs, these 2 NFTs get burned, and you get 1 NFT of the next rarity.
+When you merge 2 NFTs, they are burned and you receive 1 NFT of the next rarity.
 
-This makes the NFTs deflationary.
+This mechanism makes the NFTs deflationary.
 
 ### <mark style="color:purple;">Refund System (Not Live)</mark>
 
@@ -80,4 +80,4 @@ This makes the NFTs deflationary.
 
 This button breaks the NFT and extracts all the $pstXDC inside the NFT. It cannot be reversed; it will burn your NFT and send all the $psXDC to your wallet. Also, you get 300 $PRFI when you break the NFT.
 
-This makes the NFTs deflationary.\
+This mechanism makes the NFTs deflationary.\

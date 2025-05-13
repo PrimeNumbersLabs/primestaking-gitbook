@@ -32,9 +32,9 @@ XDC Liquid Staking provides XDC holders with a flexible, liquid-staking derivati
 * **Mechanism**:
   1. Users stake XDC in the Liquid Staking protocol.
   2. The system issues **$psXDC** (1:1) to represent the staked XDC.
-  3. **$psXDC** will be used in DeFi while still accruing staking rewards. (Not live as it needs support from the platform or a $wpsXDC, which is coming asap)
+  3. **$psXDC** can be used in DeFi while still accruing staking rewards. (Not live as it needs support from the platform or a $wpsXDC, which is coming asap)
 * **Advantages**:
-  * There are low barriers to entry, so that anyone can participate.
+  * There are low barriers to entry, so anyone can participate.
 
 #### B. XDC NFTs
 
