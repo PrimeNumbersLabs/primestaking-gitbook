@@ -1,7 +1,6 @@
 # Table of contents
 
-* [MUST READ](README.md)
-* [Overview](<README (1).md>)
+* [Overview](README.md)
 * [PRFI STAKING](prfi-staking/README.md)
   * [Staking Reward System](prfi-staking/nft-staking-reward-system/README.md)
     * [PRFI Staking](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/README.md)
