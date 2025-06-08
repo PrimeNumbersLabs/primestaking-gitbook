@@ -14,8 +14,6 @@ layout:
 
 # PRFI Staking
 
-<mark style="color:red;">**Note:**</mark> <mark style="color:red;"></mark><mark style="color:red;">Our NFTs are being migrated to a new network. Staking is paused during this migration.</mark>
-
 ## <mark style="color:purple;">Prime Numbers NFTs: A Unique Blend of Art and Financial Power</mark>
 
 Our Prime Numbers NFT collection consists of 4,111 unique digital assets, including 4,096 generative NFTs and 15 handmade masterpieces. Each NFT in this collection is designed to offer both aesthetic value and financial utility.

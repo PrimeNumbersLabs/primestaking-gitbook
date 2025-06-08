@@ -14,8 +14,6 @@ layout:
 
 # Staking Design
 
-<mark style="color:red;">**Note:**</mark> <mark style="color:red;"></mark><mark style="color:red;">Our NFTs are being migrated to a new network.</mark>&#x20;
-
 ### <mark style="color:purple;">Smart-contracts:</mark>
 
 * PrimeDiamond: Implements a diamond contract model (following EIPs 2535 standards).
