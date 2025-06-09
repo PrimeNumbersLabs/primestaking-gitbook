@@ -16,7 +16,7 @@ layout:
 
 ## <mark style="color:purple;">Staking Reward System: Transforming Digital Collectibles into Income-Generating Assets</mark>
 
-Prime Numbers Labs introduces a **Token Staking Reward System**, enabling users to stake tokens into NFTs to unlock reward-generating capabilities. This system transforms NFTs into dynamic financial tools by integrating token staking mechanisms that enhance their utility and provide value accrual opportunities.
+Prime Numbers Labs introduces the **ONFT Staking Reward System**, transforming static collectibles into powerful yield-bearing assets. By allowing users to stake PRFI tokens into unique NFTs, the system unlocks dynamic financial utility while preserving full ownership and transferability.
 
 ***
 
@@ -31,9 +31,10 @@ The Token Staking Reward System allows users to deposit platform tokens into spe
 
 ### <mark style="color:purple;">Core Features</mark>
 
-* **Token Allocation to NFTs:** Users can deposit tokens into designated NFTs, linking the value of staked tokens to the NFT’s earning potential.
-* **Earning Rewards:** As tokens are staked, rewards accumulate over time, incentivizing long-term participation and active engagement.
-* **Dynamic and Fair Distribution:** The system adjusts reward outputs dynamically based on multiple variables, ensuring optimized returns aligned with asset performance.
+* **Token-to-NFT Staking**: Users can deposit PRFI into their NFTs, activating yield potential tied to each NFT’s characteristics.
+* **Level Progression**: As stake increases, NFTs progress through levels (1–20), boosting their earning multiplier.
+* **Reward Accumulation**: NFTs passively earn PRFI from protocol airdrops, royalties, and DeFi profits.
+* **Cross-Chain Operability**: NFTs can be bridged across supported chains (e.g. Ethereum ↔ Base) with full state and reward preservation.
 
 ***
 
@@ -50,6 +51,11 @@ The Token Staking Reward System allows users to deposit platform tokens into spe
 
 #### **Technical Overview and Adaptability**
 
-The system is built with smart contracts that securely manage token deposits, NFT associations, and reward distribution. The modular architecture supports future scalability and integration with new NFT standards, making it adaptable to the evolving DeFi and NFT landscape.
+The staking system is built on a **modular, upgradeable architecture (EIP-2535 Diamond Standard)**. Key capabilities include:
 
-Prime Numbers Labs continues to innovate by combining token staking and NFTs, creating robust financial solutions for the digital asset ecosystem.
+* **High-precision reward math** using `ABDKMathQuad`
+* **Secure custody** and staking logic on Base mainnet
+* **Cross-chain NFT movement** powered by LayerZero
+* **Upgradeable contracts** for continuous evolution without redeployment
+
+This architecture supports seamless integration of new features (e.g., PrimeFi, gamified locks, NFT marketplace incentives), ensuring adaptability as the Prime Numbers Labs ecosystem expands.
