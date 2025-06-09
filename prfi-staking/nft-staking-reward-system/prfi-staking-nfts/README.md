@@ -18,7 +18,7 @@ layout:
 
 Our Prime Numbers NFT collection consists of 4,111 unique digital assets, including 4,096 generative NFTs and 15 handmade masterpieces. Each NFT in this collection is designed to offer both aesthetic value and financial utility.
 
-During the PRFI Staking NFT minting period, only 2,333 NFTs were minted—half of the original intended supply. This early reduction in supply has significantly increased the value of the NFTs currently in circulation.&#x20;
+During the PRFI Staking NFT minting period, only 2,333 NFTs were minted, half of the original intended supply. This early reduction in supply has significantly increased the value of the NFTs currently in circulation.&#x20;
 
 <figure><img src="../../../.gitbook/assets/PRFINFTS.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -28,9 +28,9 @@ During the PRFI Staking NFT minting period, only 2,333 NFTs were minted—half o
 
 <details>
 
-<summary>Prime Numbers PRFI NFT V3</summary>
+<summary>Prime Numbers PRFI ONFT</summary>
 
-[xdc134279d46ce98cca734d9a43cc3dda63a1ac755d](https://xdc.blocksscan.io/address/xdc134279d46ce98cca734d9a43cc3dda63a1ac755d)
+[0x693A3A45Ff596024f844Be1cc6845d59F778dCF5](https://basescan.org/address/0x693a3a45ff596024f844be1cc6845d59f778dcf5)
 
 </details>
 
@@ -49,11 +49,11 @@ The artwork of our generative NFTs consists of the following elements:
 * a geometric figure
 * a feminine shape
 * futuristic background lines
-* A background color fades with complementing colors
+* A background color fades with complementary colors
 
 The prime numbers were generated at minting time sequentially, starting at the 16th prime number up to the 4,111th prime number. Each generated number is unique.
 
-The art elements behind the number graphic each have eight variations with a different rarity that has a certain chance of being randomly chosen.
+The art elements behind the number graphic each have eight variations with a different rarity that have a certain chance of being randomly chosen.
 
 The following chances are assigned to the different rarities:
 
@@ -83,14 +83,6 @@ We do the following calculation: (7 + 5 + 6 + 4 + 8) / 5 = 5.8
 
 We round up. Then our rarity will be Legendary (6).
 
-Once the form of obtaining the rarity and how unique these NFTs are has been created, you can see below the table in which the multiplier that each NFT carries is detailed.
+Once the form for obtaining rarity and the uniqueness of these NFTs has been created, you can see below the table detailing the multiplier each NFT carries.
 
 <figure><img src="../../../.gitbook/assets/PRFINFTSRARITY.jpg" alt=""><figcaption></figcaption></figure>
-
-### <mark style="color:purple;">Staking and Rewards</mark>
-
-Prime Numbers NFTs are not just for collection—they are powerful financial tools. When staked within the Prime Numbers Labs ecosystem, they generate consistent rewards, with the rarity of each NFT determining its staking multiplier.
-
-### <mark style="color:purple;">Experience the Future of Digital Ownership</mark>
-
-Prime Numbers NFTs are more than just digital art—they are valuable assets designed to appreciate over time while providing ongoing rewards. Join us and stake your claim in this unique collection.
