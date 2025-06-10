@@ -31,3 +31,4 @@
     * [DEX Liquidity](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
     * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
 * [Audits](audits.md)
+* [Audits](audits-1.md)
