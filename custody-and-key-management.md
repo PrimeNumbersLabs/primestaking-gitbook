@@ -1,4 +1,4 @@
-# Security
+# Custody & Key Management
 
 PrimeStaking entrusts validator-node keys and staked XDC to **Crypto.com Custody**, a regulated third-party custodian that delivers institutional-grade security while preserving the protocol’s non-custodial user experience.
 
@@ -11,7 +11,7 @@ PrimeStaking entrusts validator-node keys and staked XDC to **Crypto.com Custody
 
 **Migration Timeline**
 
-1. **Key transfer completed** – Validator keys encrypted and deposited into cold storage.
+1. **Key transfer in progress**– Validator keys encrypted and deposited into cold storage.
 2. **Wallet cut-over in progress** – All staking flows are being rerouted; no user action required.
 3. **Attestation (Q3 2025)** – Independent auditor to publish proof-of-reserves for custody wallets.
 
