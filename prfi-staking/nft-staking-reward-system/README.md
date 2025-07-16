@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Staking Reward System
 
 ## <mark style="color:purple;">Staking Reward System: Transforming Digital Collectibles into Income-Generating Assets</mark>

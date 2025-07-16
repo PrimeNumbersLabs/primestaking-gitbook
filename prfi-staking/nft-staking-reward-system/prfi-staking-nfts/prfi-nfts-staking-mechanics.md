@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # PRFI Staking Mechanics
 
 ## <mark style="color:purple;">Understanding PRFI Staking NFTs: Maximizing Your Rewards</mark>

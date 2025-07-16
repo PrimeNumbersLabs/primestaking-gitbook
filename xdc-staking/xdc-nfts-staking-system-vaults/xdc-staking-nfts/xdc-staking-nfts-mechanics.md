@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # XDC Staking NFTs Mechanics
 
 **Understanding XDC Staking NFTs: Maximizing Your Rewards**

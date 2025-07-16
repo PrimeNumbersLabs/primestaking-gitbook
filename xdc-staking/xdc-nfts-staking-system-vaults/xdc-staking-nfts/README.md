@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # XDC Staking NFTs
 
 ## <mark style="color:purple;">Introduction to XDC Staking NFTs</mark>

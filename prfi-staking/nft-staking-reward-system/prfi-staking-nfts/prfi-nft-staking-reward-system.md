@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # PRFI NFT Staking Reward System
 
 ## <mark style="color:purple;">PRFI NFT STAKING REWARDS:</mark> <a href="#b642" id="b642"></a>

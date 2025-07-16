@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # XDC Liquid Staking System
 
 The XDC Liquid Staking System is the one‑and‑only way to stake XDC—offering a simple, accessible path for all XDC holders to earn masternode rewards, similar to Lido Finance. There are no high capital requirements, KYC barriers, or hosting costs.
