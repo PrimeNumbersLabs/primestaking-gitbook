@@ -32,7 +32,7 @@ introduced.
 
 > Our goal is to keep every score **≥ 95 %** and close findings of> _Medium_ severity or higher in under **72 h**.
 
-{% embed url="https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract" %}
+{% embed url="https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract" %}
 
 ***
 
@@ -43,7 +43,7 @@ introduced.
 | **PRFI Staking NFTs** | Scheduled       | Q2 2025     |
 | **PrimeFi**           | Internal review | Q2 2025     |
 
-_Last updated: 10 Jun 2025._
+_Last updated: 17 Jul 2025._
 
 ***
 
