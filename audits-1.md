@@ -3,7 +3,7 @@
 ## Security Audits
 
 Code integrity is the cornerstone of PrimeStaking.\
-Therefore **all our staking-related smart contracts** undergo independent\
+Therefore, **all our staking-related smart contracts** undergo independent\
 external audits before deployment and whenever significant updates are\
 introduced.
 
@@ -26,9 +26,9 @@ introduced.
 
 ### Published reports (Staking)
 
-| Module                                                                                                         | Auditor     | Date        | Score  | Link   |
-| -------------------------------------------------------------------------------------------------------------- | ----------- | ----------- | ------ | ------ |
-| [**XDC Staking Contract**](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract) | QuillAudits | 24 Apr 2025 | 98.8 % | Report |
+| Module                                                                                                           | Auditor     | Date        | Score  | Link   |
+| ---------------------------------------------------------------------------------------------------------------- | ----------- | ----------- | ------ | ------ |
+| [**XDC Staking Contract**](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) | QuillAudits | 24 Apr 2025 | 98.8 % | Report |
 
 > Our goal is to keep every score **≥ 95 %** and close findings of> _Medium_ severity or higher in under **72 h**.
 
