@@ -32,4 +32,5 @@
     * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
 * [Audits](audits.md)
 * [Custody & Key Management](custody-and-key-management.md)
-* [Audits](audits-1.md)
+* [Audits](audits-1/README.md)
+  * [Disclaimer](audits-1/disclaimer.md)
