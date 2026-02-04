@@ -10,8 +10,7 @@
 3. **Stake $XDC and get $psXDC:** [**https://primestaking.xyz/xdc-liquid-staking**](https://primestaking.xyz/xdc-liquid-staking)
 
 *   Navigate to the XDC Liquid Staking and introduce the amount you want to stake.\
-    \
-
+    <br>
 
     <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 * Confirm the transaction.
@@ -20,8 +19,7 @@
 Upon deposit, $psXDC tokens are automatically issued to your wallet.\
 \
 How do you see $psXDC in your wallet?\
-Really easy, just click here: Add psXDC Token\
-
+Really easy, just click here: Add psXDC Token<br>
 
 <figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
@@ -33,7 +31,6 @@ You need to add a custom token: 0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6\
 ![](<../../../../.gitbook/assets/image (3).png>)
 
 ![](<../../../../.gitbook/assets/image (4).png>)\
-\
-
+<br>
 
 <div align="left"><figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>

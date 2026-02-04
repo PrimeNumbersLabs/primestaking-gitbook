@@ -10,7 +10,7 @@
 * **XDC Liquid Staking (Standard):** A straightforward way to stake XDC and receive $psXDC—no minimum required.
 * **XDC Masternode Staking:** For large holders (10M+ XDC), stake in a masternode setting for enhanced yields.
 
-#### What is $pstXDC?
+#### What is $ptXDC?
 
 $psXDC represents your staked XDC in liquid form. Holding $psXDC means you **continue to earn staking rewards (paid in XDC) even as you use or trade it**.
 

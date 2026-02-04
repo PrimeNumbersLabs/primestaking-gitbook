@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # XDC Masternode Vaults
 
 **XDC Masternode Vaults: High-Value Staking at 7.65% APY**\
