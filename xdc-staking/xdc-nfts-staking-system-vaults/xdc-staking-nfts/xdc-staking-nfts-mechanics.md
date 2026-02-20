@@ -70,7 +70,7 @@ XDC Staking NFTs combine the power of staking and liquidity, allowing you to max
 * **Merge NFTs:**\
   Combine two NFTs of the **same rarity** to create a **higher rarity** NFT.
 * **Lock NFT:**\
-  Lock your NFT for an **additional 1.25% yearly reward**. Total reward: 7.25% + Variable APY. \
+  Lock your NFT for an **additional 1.25% yearly reward**. Total reward: 6% APY. \
   (Locked NFTs cannot use **Burn**, **Merge**, or **Withdraw** features.)
 * **Claim $XDC:**\
   Claim your monthly $XDC rewards, which are stored within your NFT.

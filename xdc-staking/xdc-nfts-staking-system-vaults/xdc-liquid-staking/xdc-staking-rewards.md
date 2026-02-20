@@ -8,19 +8,19 @@ At Prime Numbers Labs, our XDC Liquid Staking system provides transparent, secur
 
 | **Staking Option**     | **APY**                  |
 | ---------------------- | ------------------------ |
-| **XDC Liquid Staking** | 4,&#x35;**%**            |
-| **XDC NFTs Staking**   | 4,&#x35;**% + 0,25%**    |
-| **XDC NFTs Locked**    | **4,5% + 0,25% + 1,25%** |
+| **XDC Liquid Staking** | 4.&#x35;**%**            |
+| **XDC NFTs Staking**   | 4.&#x35;**% + 0.25%**    |
+| **XDC NFTs Locked**    | **4.5% + 0.25% + 1.25%** |
 
-**XDC Liquid Staking (4,5%)**\
-Stake your XDC to earn 4,5% APY while retaining liquidity via **$psXDC**.\
+**XDC Liquid Staking (4.5%)**\
+Stake your XDC to earn 4.5% APY while retaining liquidity via **$psXDC**.\
 Ideal for those seeking a simple, predictable entry to staking.
 
-**XDC NFTs Staking (**&#x34;,&#x35;**% + 0,25%)**\
-Stake **$psXDC** inside XDC NFTs for a base APY of 4,75%.\
+**XDC NFTs Staking (**&#x34;.&#x35;**% + 0.25%)**\
+Stake **$psXDC** inside XDC NFTs for a base APY of 4.75%.\
 Perfect for those looking for dynamic rewards alongside unique NFT ownership.
 
-**XDC NFTs Locked (4,5% + 0,25% + 1,25%)**\
+**XDC NFTs Locked (4.5% + 0.25% + 1.25%)**\
 Lock your NFT-based staking position to secure a 6% base APY.\
 A higher-reward pathway for users comfortable with locking periods.
 

@@ -14,8 +14,8 @@
 
 ### 3. XDC NFTs Staking APYs
 
-* **XDC NFTs Staking APY:** **6% + Variable**
-* **XDC NFTs Locked APY:** **7.25% + Variable**
+* **XDC NFTs Staking APY:** **4.75%**&#x20;
+* **XDC NFTs Locked APY:** **6%**
 
 These APYs reflect the base annual yield for **staking (or locking)** your NFTs, complemented by any additional rewards mechanisms outlined below.
 

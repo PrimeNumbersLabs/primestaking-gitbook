@@ -10,7 +10,7 @@
 * **XDC Liquid Staking (Standard):** A straightforward way to stake XDC and receive $psXDC—no minimum required.
 * **XDC Masternode Staking:** For large holders (10M+ XDC), stake in a masternode setting for enhanced yields.
 
-#### What is $ptXDC?
+#### What is $psXDC?
 
 $psXDC represents your staked XDC in liquid form. Holding $psXDC means you **continue to earn staking rewards (paid in XDC) even as you use or trade it**.
 
@@ -78,25 +78,3 @@ Simply **burn the equivalent amount of $psXDC**, and your original XDC will be r
 #### Can I transfer my Liquid Staking contract?
 
 Standard Liquid Staking doesn’t involve an NFT. You can effectively transfer your position by **sending $psXDC to another address**—whoever holds $psXDC is entitled to the associated rewards.
-
-***
-
-### XDC Masternode Staking
-
-#### What is XDC Masternode Staking?
-
-**XDC Masternode Staking** is designed for large XDC holders (generally **10M+ XDC**). You stake your XDC in a full masternode environment, which often provides **higher or more stable rewards**.
-
-#### What are the benefits of Masternode Staking?
-
-* **Enhanced Rewards:** Typically offers a higher APY than standard staking.
-* **No Technical Setup:** The protocol manages the masternode, removing the burden of hosting and maintenance.
-* **Scalable Participation:** Ideal for large-scale holders seeking to maximize returns.
-
-#### Can I unstake from XDC Masternode Staking?
-
-Yes. **Unstaking** may involve a cooldown period. Once complete, you burn $psXDC to retrieve your XDC.
-
-#### Can I transfer my Masternode position?
-
-Yes. You can transfer or sell your **masternode staking contract** on PrimePort.xyz, giving the new owner full masternode rights and rewards.

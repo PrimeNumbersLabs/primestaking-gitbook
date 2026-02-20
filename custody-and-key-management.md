@@ -19,4 +19,4 @@ PrimeStaking entrusts validator-node keys and staked XDC to **Crypto.com Custody
 
 * **No change** to reward rates, lock-up periods, or fee structure.
 * Users retain full legal ownership of their XDC; assets cannot be re-hypothecated.
-* The protocol’s decentralisation roadmap remains intact—custody secures keys, not consensus.
+* The protocol’s decentralisation roadmap remains intact, custody secures keys, not consensus.

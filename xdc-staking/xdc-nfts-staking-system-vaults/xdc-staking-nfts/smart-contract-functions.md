@@ -25,7 +25,7 @@
      Both original NFTs are burned, and a new, upgraded NFT is minted with improved base multipliers for staking.\
      The newly created NFT can stake **$psXDC** at an enhanced rate, potentially increasing overall rewards.
 5. **Lock NFT**
-   * **Description**: Users can lock their NFT for an additional yield (for instance, 7.25% + variable APY) over a specified period.
+   * **Description**: Users can lock their NFT for an additional yield (for instance, 4.75% + 1.25% APY) over a specified period.
    * **Functionality**:\
      Locked NFTs earn extra staking rewards, typically paid monthly.\
      **Restriction**: While locked, the NFT cannot use Merge, Withdraw, or other functions that would alter its staked position.
