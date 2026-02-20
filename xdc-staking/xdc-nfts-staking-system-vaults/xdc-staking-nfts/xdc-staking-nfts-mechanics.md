@@ -45,7 +45,7 @@ Total Multiplier = Base Multiplier + Added Multiplier
 
 ## Locking for Extra Yield
 
-Lock your NFT for an additional **1.25% APY** bonus, bringing the maximum to **6% APY**.
+Lock your NFT for **1 year** for an additional **1.25% APY** bonus, bringing the maximum to **6% APY**.
 
 **When locked:**
 - Burn, merge, and withdraw functions are disabled.
@@ -62,6 +62,6 @@ Lock your NFT for an additional **1.25% APY** bonus, bringing the maximum to **6
 | **Withdraw psXDC** | Remove staked psXDC without destroying the NFT. |
 | **Transfer** | Move the NFT to another wallet. |
 | **Merge** | Combine two same-rarity NFTs into a higher rarity. |
-| **Lock** | Lock the NFT for +1.25% APY (disables burn/merge/withdraw). |
+| **Lock** | Lock the NFT for 1 year for +1.25% APY (disables burn/merge/withdraw). |
 | **Claim XDC** | Claim your monthly XDC rewards. |
 | **Sell** | List or auction the NFT on [PrimePort](https://primeport.xyz). |

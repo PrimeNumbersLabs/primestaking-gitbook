@@ -10,7 +10,7 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 | --- | --- | --- |
 | **XDC Liquid Staking** | ~4.5% | Stake XDC, hold psXDC, earn rewards. Simple. |
 | **XDC NFTs (Unlocked)** | ~4.75% | Deposit psXDC inside an XDC NFT for a bonus multiplier. |
-| **XDC NFTs (Locked)** | Up to 6% | Lock your NFT for an additional 1.25% APY bonus. |
+| **XDC NFTs (1-Year Lock)** | Up to 6% | Lock your NFT for 1 year for an additional 1.25% APY bonus. |
 
 ---
 
@@ -20,7 +20,7 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 | --- | --- | --- |
 | Base liquid staking | 4.5% | Hold psXDC |
 | NFT staking bonus | +0.25% | Deposit psXDC into an XDC NFT |
-| NFT lock bonus | +1.25% | Lock the NFT (disables burn, merge, and withdraw) |
+| NFT lock bonus | +1.25% | Lock the NFT for 1 year (disables burn, merge, and withdraw) |
 | **Maximum total** | **6%** | NFT staked + locked |
 
 ---
@@ -39,6 +39,6 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 | --- | --- |
 | Keep it simple, stay fully liquid | XDC Liquid Staking (~4.5%) |
 | Earn more while engaging with the NFT ecosystem | XDC NFTs Unlocked (~4.75%) |
-| Maximize yield, comfortable with locking | XDC NFTs Locked (up to 6%) |
+| Maximize yield, 1-year commitment | XDC NFTs Locked (up to 6%) |
 
 Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready — there is no pressure to lock.

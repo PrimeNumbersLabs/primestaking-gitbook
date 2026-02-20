@@ -40,7 +40,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC into collectibl
 
 - Each NFT has a **rarity** (Common → Legendary) that determines the base reward multiplier.
 - **Level up** by merging two same-rarity NFTs into a higher tier.
-- **Lock** your NFT for an additional 1.25% APY bonus (up to 6% total).
+- **Lock** your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
 - Rewards are paid in XDC and claimable monthly.
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/)

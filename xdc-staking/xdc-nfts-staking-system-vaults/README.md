@@ -28,7 +28,7 @@ The simplest path. Stake XDC, receive psXDC, earn rewards. No NFT required, no m
 
 ### XDC NFTs (Up to 6% APY)
 
-Gamified staking. Deposit psXDC into collectible NFTs. Each NFT has a rarity tier and level that multiplies your rewards. Merge NFTs to upgrade rarity. Lock NFTs for an additional 1.25% APY bonus.
+Gamified staking. Deposit psXDC into collectible NFTs. Each NFT has a rarity tier and level that multiplies your rewards. Merge NFTs to upgrade rarity. Lock NFTs for 1 year for an additional 1.25% APY bonus.
 
 → [XDC NFTs Details](xdc-staking-nfts/)
 

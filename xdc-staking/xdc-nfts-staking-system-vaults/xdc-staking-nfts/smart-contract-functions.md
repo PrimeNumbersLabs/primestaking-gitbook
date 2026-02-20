@@ -33,7 +33,7 @@ Combines two same-rarity NFTs into a higher-rarity NFT.
 
 ### Lock
 
-Locks the NFT for an additional 1.25% APY bonus (up to 6% total).
+Locks the NFT for **1 year** for an additional 1.25% APY bonus (up to 6% total).
 - While locked: burn, merge, and withdraw are disabled.
 - Rewards continue to accrue and are claimable monthly.
 

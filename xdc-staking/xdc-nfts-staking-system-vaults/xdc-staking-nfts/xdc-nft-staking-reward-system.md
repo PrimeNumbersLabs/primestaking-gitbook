@@ -9,7 +9,7 @@ XDC NFT rewards come from multiple sources and scale with your staking strategy.
 | Staking Option | APY | Details |
 | --- | --- | --- |
 | **XDC NFTs (Unlocked)** | ~4.75% | Base liquid staking APY + 0.25% NFT bonus |
-| **XDC NFTs (Locked)** | Up to 6% | Base + NFT bonus + 1.25% lock bonus |
+| **XDC NFTs (1-Year Lock)** | Up to 6% | Base + NFT bonus + 1.25% lock bonus |
 
 ---
 

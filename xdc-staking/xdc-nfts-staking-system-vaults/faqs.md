@@ -45,7 +45,7 @@ Rewards are sent to the smart contract and allocated proportionally to psXDC hol
 1. **Deposit psXDC:** Acquire psXDC (by staking XDC or buying on a DEX) and deposit it into your NFT.
 2. **Earn rewards:** The NFT's base rarity and upgrade level (multiplier) determine how much you earn.
 3. **Merge:** Combine two NFTs of the same rarity to create a higher-rarity NFT with better multipliers.
-4. **Lock (optional):** Lock your NFT for an additional 1.25% APY bonus (up to 6% total).
+4. **Lock (optional):** Lock your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
 
 #### What is the Merge System?
 

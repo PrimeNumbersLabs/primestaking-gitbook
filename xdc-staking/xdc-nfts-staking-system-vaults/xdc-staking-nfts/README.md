@@ -11,7 +11,7 @@ XDC Staking NFTs are gamified staking vaults on the XDC Network. Each NFT holds 
 | **Collection size** | 5,557 NFTs (5,542 generative + 15 handcrafted) |
 | **Token staked** | psXDC (not raw XDC) |
 | **Base APY** | ~4.75% (staked, unlocked) |
-| **Max APY** | Up to 6% (staked + locked) |
+| **Max APY** | Up to 6% (staked + 1-year lock) |
 | **Max stake per NFT** | 100,000 psXDC |
 | **Rewards paid in** | XDC |
 | **Marketplace** | [PrimePort.xyz](https://primeport.xyz) |
@@ -25,7 +25,7 @@ XDC Staking NFTs are gamified staking vaults on the XDC Network. Each NFT holds 
 3. **Deposit psXDC** — Stake psXDC inside your NFT. This levels up the NFT and activates reward multipliers.
 4. **Earn rewards** — XDC rewards are distributed monthly based on your NFT's total multiplier.
 5. **Upgrade** — Merge two same-rarity NFTs to create a higher-rarity NFT with better multipliers.
-6. **Lock (optional)** — Lock your NFT for an additional 1.25% APY bonus (up to 6% total).
+6. **Lock (optional)** — Lock your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
 
 ---
 

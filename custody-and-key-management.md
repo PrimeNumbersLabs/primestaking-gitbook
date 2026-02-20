@@ -1,16 +1,30 @@
 # Custody & Key Management
 
-PrimeStaking is transitioning to a fully **permissionless and trustless** validator custody model powered by on-chain smart contracts.
+PrimeStaking is transitioning to a fully **permissionless and trustless** validator custody model powered by on-chain smart contracts — eliminating human interaction from custody flows entirely.
 
 ---
 
-## Current Status
+## The New Model
 
-Following the completion of our smart contract audit, PrimeStaking will deploy a **contract-based validator custody system**. This means:
+The custody upgrade introduces:
 
-- **No third-party custodian** — validator keys and staked XDC are managed entirely by audited smart contracts.
-- **Permissionless** — anyone can verify the state of validators and staked assets on-chain.
+- **Smart contract-based execution** — validator keys and staked XDC are managed entirely by audited smart contracts, with no human interaction in custody flows.
+- **Permissionless** — anyone can verify the state of validators and staked assets on-chain. No centralized approval required.
 - **Trustless** — no single entity controls the keys. The protocol enforces custody rules through code, not operational trust.
+- **Institutional-grade transparency** — increased operational transparency aligned with institutional security standards.
+
+---
+
+## Audit & Collaboration
+
+A full security audit of the custody contracts is currently in progress.
+
+PrimeStaking is collaborating with:
+
+- **XDC Core team**
+- **Nethermind**
+
+The goal: build a **100% permissionless, institution-ready** staking infrastructure.
 
 ---
 
@@ -20,6 +34,7 @@ Following the completion of our smart contract audit, PrimeStaking will deploy a
 | --- | --- |
 | **Custody model** | Smart contract-based (no third-party custodian) |
 | **Key management** | Validator keys secured by on-chain contracts |
+| **Human interaction** | Eliminated from custody flows |
 | **Verifiability** | Fully transparent and auditable on the blockchain |
 | **User action required** | None — the transition is seamless |
 
@@ -27,7 +42,7 @@ Following the completion of our smart contract audit, PrimeStaking will deploy a
 
 ## Timeline
 
-1. **Smart contract audit** — In progress. The custody contract is being audited by an independent firm.
+1. **Smart contract audit** — In progress with independent auditors.
 2. **Deployment** — Within weeks of audit completion, the contract-based custody will go live.
 3. **Full decentralization** — Once deployed, validator custody becomes fully permissionless and trustless.
 
