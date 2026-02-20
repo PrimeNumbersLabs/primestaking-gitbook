@@ -24,9 +24,9 @@ Rewards and redemptions depend on third-party networks (e.g., XDC Network). Netw
 
 psXDC may trade below, at, or above its intended reference value and may not be redeemable immediately. A 1:1 mint ratio does not guarantee a 1:1 market value.
 
-#### 5. Third-Party Custody
+#### 5. Smart Contract Custody
 
-Validator key management and staked assets may involve regulated third-party custody (e.g., Crypto.com Custody). We do not assume responsibility for their acts, omissions, solvency, or security.
+Validator key management and staked assets are managed by on-chain smart contracts. While these contracts are audited, they may contain undiscovered vulnerabilities. We do not guarantee the absence of bugs or exploits in custody contracts.
 
 #### 6. Variable Rewards
 

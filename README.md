@@ -78,7 +78,7 @@ XDC  →  psXDC  →  NFT  →  Boost
 ## Security
 
 - All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract).
-- Validator keys and staked XDC are secured by **Crypto.com Custody** (institutional-grade cold storage).
+- Validator custody is transitioning to a **permissionless, trustless smart contract model** — no third-party custodian.
 - The protocol is **non-custodial** — users retain full ownership of their assets at all times.
 
 → [Audits & Security](audits-1/)

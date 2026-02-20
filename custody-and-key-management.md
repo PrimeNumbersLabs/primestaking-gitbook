@@ -1,30 +1,40 @@
 # Custody & Key Management
 
-PrimeStaking entrusts validator-node keys and staked XDC to **Crypto.com Custody**, a regulated third-party custodian that delivers institutional-grade security while preserving the protocol's non-custodial user experience.
+PrimeStaking is transitioning to a fully **permissionless and trustless** validator custody model powered by on-chain smart contracts.
 
 ---
 
-## Overview
+## Current Status
 
-| Objective | Solution |
+Following the completion of our smart contract audit, PrimeStaking will deploy a **contract-based validator custody system**. This means:
+
+- **No third-party custodian** — validator keys and staked XDC are managed entirely by audited smart contracts.
+- **Permissionless** — anyone can verify the state of validators and staked assets on-chain.
+- **Trustless** — no single entity controls the keys. The protocol enforces custody rules through code, not operational trust.
+
+---
+
+## What This Means for Users
+
+| Property | Detail |
 | --- | --- |
-| Protect validator keys and user funds | Cold-wallet storage in segregated custody accounts |
-| Eliminate single-operator risk | Multi-signatory transaction policies and role-based access |
-| Maintain on-chain liveness | 24/7 key availability with hardware security modules |
-| Provide verifiable solvency | Periodic proof-of-reserves attestations |
+| **Custody model** | Smart contract-based (no third-party custodian) |
+| **Key management** | Validator keys secured by on-chain contracts |
+| **Verifiability** | Fully transparent and auditable on the blockchain |
+| **User action required** | None — the transition is seamless |
 
 ---
 
-## Migration Timeline
+## Timeline
 
-1. **Key transfer** — Validator keys encrypted and deposited into cold storage. *(Complete)*
-2. **Wallet cut-over** — All staking flows rerouted; no user action required. *(Complete)*
-3. **Attestation** — Independent auditor to publish proof-of-reserves for custody wallets.
+1. **Smart contract audit** — In progress. The custody contract is being audited by an independent firm.
+2. **Deployment** — Within weeks of audit completion, the contract-based custody will go live.
+3. **Full decentralization** — Once deployed, validator custody becomes fully permissionless and trustless.
 
 ---
 
 ## Impact on Users
 
-- **No change** to reward rates, lock-up periods, or fee structure.
-- Users retain **full legal ownership** of their XDC — assets cannot be re-hypothecated.
-- The protocol's decentralization roadmap remains intact. Custody secures keys, not consensus.
+- **No change** to reward rates, withdrawal times, or fee structure.
+- Users retain **full ownership** of their assets at all times.
+- The move to contract-based custody eliminates reliance on any centralized custodian, strengthening the protocol's decentralization.
