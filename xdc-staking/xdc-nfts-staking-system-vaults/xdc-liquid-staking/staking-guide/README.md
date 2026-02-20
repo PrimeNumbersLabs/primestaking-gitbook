@@ -1,3 +1,3 @@
 # Staking Guide
 
-\
+<br>

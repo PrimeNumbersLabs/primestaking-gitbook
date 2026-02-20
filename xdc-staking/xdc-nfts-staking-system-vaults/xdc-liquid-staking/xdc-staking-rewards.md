@@ -6,34 +6,29 @@ At Prime Numbers Labs, our XDC Liquid Staking system provides transparent, secur
 
 ### Current Staking APYs
 
-| **Staking Option**         | **APY**              |
-| -------------------------- | -------------------- |
-| **XDC Liquid Staking**     | **6%**               |
-| **XDC NFTs Staking**       | **6% + Variable**    |
-| **XDC NFTs Locked**        | **7.25% + Variable** |
-| **XDC Masternode Staking** | **7.65%**            |
+| **Staking Option**     | **APY**                  |
+| ---------------------- | ------------------------ |
+| **XDC Liquid Staking** | 4,&#x35;**%**            |
+| **XDC NFTs Staking**   | 4,&#x35;**% + 0,25%**    |
+| **XDC NFTs Locked**    | **4,5% + 0,25% + 1,25%** |
 
-**XDC Liquid Staking (6%)**\
-Stake your XDC to earn 6% APY while retaining liquidity via **$psXDC**.\
+**XDC Liquid Staking (4,5%)**\
+Stake your XDC to earn 4,5% APY while retaining liquidity via **$psXDC**.\
 Ideal for those seeking a simple, predictable entry to staking.
 
-**XDC NFTs Staking (6% + Variable)**\
-Stake **$psXDC** inside XDC NFTs for a base APY of 6%, plus an additional variable component.\
+**XDC NFTs Staking (**&#x34;,&#x35;**% + 0,25%)**\
+Stake **$psXDC** inside XDC NFTs for a base APY of 4,75%.\
 Perfect for those looking for dynamic rewards alongside unique NFT ownership.
 
-**XDC NFTs Locked (7.25% + Variable)**\
-Lock your NFT-based staking position to secure a 7.25% base APY, plus an extra variable rate.\
+**XDC NFTs Locked (4,5% + 0,25% + 1,25%)**\
+Lock your NFT-based staking position to secure a 6% base APY.\
 A higher-reward pathway for users comfortable with locking periods.
-
-**XDC Masternode Staking (7.65%)**\
-Participate in masternode operations to earn up to 7.65% APY.\
-Suited for those who desire direct involvement in the XDC Network’s consensus.
 
 ***
 
 ### How APY Rewards Are Calculated
 
-* **Proportional Distribution:** Rewards are on-chain and transparent—everyone earns based on how much they have staked or locked.
+* **Proportional Distribution:** Rewards are on-chain and transparent, everyone earns based on how much they have staked or locked.
 
 ***
 
@@ -53,7 +48,7 @@ Suited for those who desire direct involvement in the XDC Network’s consensus.
 #### Why Choose XDC Liquid Staking?
 
 * **Competitive & Flexible APYs**\
-  Multiple staking avenues—from straightforward liquid staking to NFT staking—cater to various risk profiles and goals.
+  Multiple staking avenues, from straightforward liquid staking to NFT staking, cater to various risk profiles and goals.
 * **High Liquidity**\
   &#xNAN;**$psXDC** ensures you can trade or leverage your staked position in DeFi at any time.
 * **Long-Term Sustainability**\

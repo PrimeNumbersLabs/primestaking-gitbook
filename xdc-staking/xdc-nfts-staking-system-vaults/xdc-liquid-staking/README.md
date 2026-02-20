@@ -1,12 +1,12 @@
 # XDC Liquid Staking
 
-The XDC Liquid Staking system provides a secure, efficient way to stake your **$XDC** tokens and receive a liquid staking derivative called **$psXDC (Prime Staked XDC)**. It removes traditional barriers—such as high capital requirements, KYC, and hosting expenses—so all XDC holders can earn masternode rewards (paid in XDC) while retaining liquidity.
+The XDC Liquid Staking system provides a secure, efficient way to stake your **$XDC** tokens and receive a liquid staking derivative called **$psXDC (Prime Staked XDC)**. It removes traditional barriers, such as high capital requirements, KYC, and hosting expenses, so all XDC holders can earn masternode rewards (paid in XDC) while retaining liquidity.
 
 ***
 
 ### What Is XDC Liquid Staking?
 
-**XDC Liquid Staking** is governed by on-chain smart contracts. When you deposit **$XDC**, you automatically receive **$psXDC** at a 1:1 ratio, representing your staked tokens. Because **$psXDC** remains fully liquid, you can trade, transfer, or leverage it in DeFi—all while your underlying **$XDC** continues to generate staking rewards paid in XDC.
+**XDC Liquid Staking** is governed by on-chain smart contracts. When you deposit **$XDC**, you automatically receive **$psXDC** at a 1:1 ratio, representing your staked tokens. Because **$psXDC** remains fully liquid, you can trade, transfer, or leverage it in DeFi, all while your underlying **$XDC** continues to generate staking rewards paid in XDC.
 
 ***
 
@@ -31,7 +31,7 @@ The XDC Liquid Staking system provides a secure, efficient way to stake your **$
 #### Liquidity Through $psXDC
 
 * **Immediate Utility**: **$psXDC** is liquid, allowing you to move in and out of DeFi positions seamlessly.
-* **XDC NFTs for Extra Staking**: You can additionally stake **$psXDC** into XDC NFTs for extra rewards—also paid in XDC.
+* **XDC NFTs for Extra Staking**: You can additionally stake **$psXDC** into XDC NFTs for extra rewards, also paid in XDC.
 
 #### Flexible Exit
 
@@ -55,7 +55,7 @@ The XDC Liquid Staking system provides a secure, efficient way to stake your **$
 #### Get $psXDC
 
 1. **From the Staking Platform**: Deposit XDC on the official staking interface to mint **$psXDC**.
-2. **From a DEX**: Purchase **$psXDC** directly on a decentralized exchange—once you hold it, you start earning rewards.
+2. **From a DEX**: Purchase **$psXDC** directly on a decentralized exchange, once you hold it, you start earning rewards.
 
 #### Start Staking (Platform Method)
 
@@ -81,7 +81,7 @@ You can now use **$psXDC** in any DeFi application while earning masternode rewa
 
 ### Technical Details
 
-* **Smart Contract-Driven**: Everything—staking, reward allocations, and redemption—happens via secure, audited smart contracts.
+* **Smart Contract-Driven**: Everything, staking, reward allocations, and redemption, happens via secure, audited smart contracts.
 * **Dynamic Reward Calculation**: Rewards correlate with masternode performance and are distributed fairly across all **$psXDC** holders.
 * **On-Chain Transparency**: Every interaction is logged on-chain, providing a comprehensive audit trail.
 
@@ -103,4 +103,4 @@ You can now use **$psXDC** in any DeFi application while earning masternode rewa
 
 ***
 
-**Experience the best of both worlds—stake your XDC for masternode rewards while maintaining liquidity with $psXDC. Whether you stake directly or acquire $psXDC on a DEX, you’ll keep your options open in DeFi and still enjoy XDC-based masternode rewards.**
+**Experience the best of both worlds, stake your XDC for masternode rewards while maintaining liquidity with $psXDC. Whether you stake directly or acquire $psXDC on a DEX, you’ll keep your options open in DeFi and still enjoy XDC-based masternode rewards.**
