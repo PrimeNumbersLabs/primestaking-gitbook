@@ -2,14 +2,26 @@
 hidden: true
 ---
 
-# How to Use the Staking Platform?
+# How to Use the Platform
 
-In this section, we guide you through the process of using our staking platform. The staking platform is the main hub for you to interact with our revolutionary staking NFTs. Stake, merge, transfer, claim and burn are a few of the actions you can perfom on our staking platform. Check out our content below...
+The staking platform at [primestaking.xyz](https://primestaking.xyz) is the central hub for managing your PRFI NFTs. From the platform, you can stake, merge, transfer, claim rewards, and more.
 
-<mark style="color:purple;">**To read our guide on Medium click the link below...**</mark>
+---
+
+## Available Actions
+
+| Action | Description |
+| --- | --- |
+| **Stake** | Deposit PRFI into your NFT to start earning rewards |
+| **Merge** | Combine two same-rarity NFTs into a higher-rarity NFT |
+| **Transfer** | Move your NFT to another wallet |
+| **Claim** | Claim your monthly PRFI rewards |
+| **Withdraw** | Remove staked PRFI (20% fee) |
+| **Burn to Redeem** | Destroy the NFT and withdraw all staked PRFI |
+| **Sell** | List your NFT on PrimePort marketplace |
+
+---
+
+## Resources
 
 {% embed url="https://medium.com/@PrimeNumbersFi/using-the-prime-numbers-staking-platform-29c0e46243d3" %}
-
-<mark style="color:purple;">**To watch our video tutorial on YouTube, click the link below...**</mark>
-
-This link is still under construction.

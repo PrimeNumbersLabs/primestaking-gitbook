@@ -1,52 +1,57 @@
 # Disclaimer
 
-### Risk Disclosure & Disclaimer **Applies to:** prime‑staking smart contracts, interfaces, and related docs/content operated by **Prime Numbers Labs** (or its affiliates) (“**PrimeStaking**”, “**we**”, “**us**”, “**our**”).
+### Risk Disclosure & Disclaimer
 
-> **Plain‑English summary (non‑exhaustive):**\
-> Using blockchain protocols is risky. **You can lose some or all of your assets.** Smart contracts may have bugs or be exploited. Network conditions, third‑party services, markets, or our own updates can change outcomes. **There are no guaranteed returns.** Proceed only if you understand and accept these risks.
+**Applies to:** PrimeStaking smart contracts, interfaces, and related documentation operated by **Prime Numbers Labs** (or its affiliates) ("PrimeStaking", "we", "us", "our").
 
-#### 1) No Warranties; As‑Is
+> **Summary:** Using blockchain protocols is risky. **You can lose some or all of your assets.** Smart contracts may have bugs or be exploited. Network conditions, third-party services, markets, or protocol updates can change outcomes. **There are no guaranteed returns.** Proceed only if you understand and accept these risks.
 
-PrimeStaking and all related smart contracts, interfaces, tokens (including derivatives such as **$psXDC**), NFTs, rewards, and documentation are provided **“as is” and “as available”** without warranties of any kind, express or implied (including merchantability, fitness for a particular purpose, title, and non‑infringement). To the maximum extent permitted by law, we **disclaim all warranties**.
+---
 
-#### 2) Protocol, Smart‑Contract & Security Risks
+#### 1. No Warranties; As-Is
 
-Interacting with smart contracts involves risks including **bugs, design flaws, upgrade errors, dependency failures, governance errors, oracle issues, and economic attacks (e.g., MEV, sandwiching, depeg)**. Even if audited, **audits do not guarantee** absence of vulnerabilities or future safety. You acknowledge you **may lose funds** due to exploits or unexpected behavior. [PrimeStaking](https://docs.primestaking.xyz/audits-1)
+PrimeStaking and all related smart contracts, interfaces, tokens (including psXDC), NFTs, rewards, and documentation are provided **"as is" and "as available"** without warranties of any kind. To the maximum extent permitted by law, we disclaim all warranties.
 
-#### 3) Network & Validator Risks
+#### 2. Smart Contract & Security Risks
 
-Rewards and redemptions depend on third‑party networks (e.g., XDC). Network halts, forks, validator downtime, misbehavior, slashing/penalties (if any), or congestion can reduce or eliminate yields, delay **unstaking/redemption windows (e.g., \~1–32 days)**, or impair liquidity. [PrimeStaking](https://docs.primestaking.xyz/xdc-staking/xdc-nfts-staking-system-vaults/faqs)
+Interacting with smart contracts involves risks including bugs, design flaws, upgrade errors, dependency failures, and economic attacks. Even audited contracts do **not guarantee** absence of vulnerabilities. You may lose funds due to exploits or unexpected behavior.
 
-#### 4) Derivatives & Peg/Conversion Risks
+#### 3. Network & Validator Risks
 
-Liquid staking derivatives such as **$psXDC** may trade below, at, or above their intended reference value and **may not be redeemable immediately**. Redemption queues, caps, or third‑party integrations can change at any time. **A 1:1 mint ratio (when live) does not guarantee a 1:1 market value.** [PrimeStaking](https://docs.primestaking.xyz/xdc-staking/xdc-nfts-staking-system-vaults?utm_source=chatgpt.com)
+Rewards and redemptions depend on third-party networks (e.g., XDC Network). Network halts, forks, validator downtime, or congestion can reduce yields, delay withdrawal processing (~31 days average), or impair liquidity.
 
-#### 5) Third‑Party Custody & Service Providers
+#### 4. Derivative & Peg Risks
 
-Elements of validator key management and/or staked assets may involve **regulated third‑party custody**. These providers, exchanges, or integrations (wallets, bridges, DEXs, NFT marketplaces) are **not controlled by us**. We **do not assume responsibility** for their acts, omissions, solvency, or security. [PrimeStaking](https://docs.primestaking.xyz/custody-and-key-management)
+psXDC may trade below, at, or above its intended reference value and may not be redeemable immediately. A 1:1 mint ratio does not guarantee a 1:1 market value.
 
-#### 6) Variable Rewards; No Guaranteed Returns
+#### 5. Third-Party Custody
 
-Any APY/APR, multiplier, or reward figure is **illustrative only, subject to change, and not guaranteed**. Rewards can fluctuate to **zero**. Historical performance does **not** indicate future results. [PrimeStaking](https://docs.primestaking.xyz/xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/xdc-staking-rewards?utm_source=chatgpt.com)
+Validator key management and staked assets may involve regulated third-party custody (e.g., Crypto.com Custody). We do not assume responsibility for their acts, omissions, solvency, or security.
 
-#### 7) User Responsibilities
+#### 6. Variable Rewards
 
-You are solely responsible for **private keys, wallet security**, address accuracy, transaction review, fee settings, chain selection, and understanding contract addresses. We **do not** and **cannot** recover lost private keys or assets.
+Any APY, multiplier, or reward figure is **illustrative only, subject to change, and not guaranteed**. Rewards can fluctuate to zero. Historical performance does not indicate future results.
 
-#### 8) Regulatory, Tax & Eligibility
+#### 7. User Responsibilities
 
-You are responsible for complying with **applicable laws**, including sanctions, AML/CTF, and **tax** reporting/withholding. Access may be restricted in certain jurisdictions or to certain persons (e.g., sanctioned countries).
+You are solely responsible for private keys, wallet security, address accuracy, transaction review, and understanding contract addresses.
 
-#### 9) No Investment, Legal, or Tax Advice
+#### 8. Regulatory & Tax
 
-Nothing herein constitutes financial, investment, legal, or tax advice. Do your own research and consult qualified professionals.
+You are responsible for complying with applicable laws, including sanctions, AML/CTF, and tax reporting. Access may be restricted in certain jurisdictions.
 
-#### 10) Limitation of Liability
+#### 9. No Investment Advice
 
-To the **maximum extent permitted by law**, **we are not liable** for any **indirect, incidental, special, consequential, exemplary, or punitive damages**, or for **lost profits, lost revenue, lost data, or lost assets**, or for **security breaches, hacks, exploits, or protocol/network failures**, whether arising in contract, tort, or otherwise, even if advised of the possibility.&#x20;
+Nothing herein constitutes financial, investment, legal, or tax advice.
 
-#### 11) Indemnity
+#### 10. Limitation of Liability
 
-You agree to **indemnify and hold harmless** PrimeStaking and its contributors from claims or demands (including legal fees) arising from your use, misuse, or violation of these terms or of applicable law.
+To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, consequential, or punitive damages, or for lost profits, data, or assets.
 
-> **Binding by Use:** By connecting a wallet, interacting with our interfaces, **staking PRFI or XDC (including receiving $psXDC or staking via NFTs)**, or otherwise using PrimeStaking, **you acknowledge and accept this Risk Disclosure & Disclaimer**.
+#### 11. Indemnity
+
+You agree to indemnify and hold harmless PrimeStaking and its contributors from claims arising from your use or violation of these terms.
+
+---
+
+> **Binding by Use:** By connecting a wallet, interacting with our interfaces, staking PRFI or XDC (including receiving psXDC or staking via NFTs), or otherwise using PrimeStaking, you acknowledge and accept this Risk Disclosure & Disclaimer.

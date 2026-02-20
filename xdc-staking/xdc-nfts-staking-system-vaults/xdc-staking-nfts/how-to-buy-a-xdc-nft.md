@@ -2,34 +2,38 @@
 hidden: true
 ---
 
-# How to Buy a XDC NFT?
+# How to Buy an XDC NFT
 
-## <mark style="color:purple;">Steps to Acquire Your XDC Staking NFT</mark>
+XDC Staking NFTs are available on the [PrimePort marketplace](https://primeport.xyz).
 
-### <mark style="color:purple;">Step 1 — Set Up on the XDC Network</mark>&#x20;
+---
 
-To begin, ensure your wallet is connected to the XDC Network. If you're using MetaMask, navigate to **Menu > Settings > Networks > Add Network > Custom Networks** and input the XDC Network details. Once connected, you’re ready to explore the PrimePort marketplace.
+## Step 1 — Set Up Your Wallet
 
-### <mark style="color:purple;">Step 2 — Select Your NFT</mark>&#x20;
+Ensure your wallet (e.g., MetaMask) is configured for the XDC Network. If not already set up, add XDC Network as a custom network in your wallet settings.
 
-Visit[ PrimePort](https://primeport.xyz) using your wallet’s browser. Browse the 'XDC Staking NFTs' collection by selecting Collections from the menu. Connect your wallet to view detailed information about each NFT, including staking potential and rarity. Choose the NFT that best suits your investment goals.
+## Step 2 — Fund Your Wallet
 
-### <mark style="color:purple;">Step 3 — Fund Your Wallet</mark>&#x20;
+Make sure you have enough XDC tokens to cover the NFT price plus gas fees. You can purchase XDC on exchanges like Bitrue or KuCoin.
 
-Before purchasing, ensure your wallet has sufficient XDC tokens. You can buy XDC on exchanges like Bitrue. Remember to adjust your MetaMask address to start with "xdc" when transferring tokens to the XDC Network. Once your wallet is funded, you’re ready to buy.
+## Step 3 — Browse the Collection
 
-### <mark style="color:purple;">Step 4 — Purchase the NFT</mark>&#x20;
+Go to [PrimePort.xyz](https://primeport.xyz) and find the **XDC Staking NFTs** collection. Review each NFT's rarity, staking potential, and price.
 
-Connect your wallet to PrimePort, find the NFT you want, and click 'Buy'. Agree to the Terms of Service, confirm the transaction, and wait for the process to complete. After the purchase, you can check your NFT in the 'My Profile' section of PrimePort.
+## Step 4 — Purchase
 
-Congratulations! You are now the owner of an XDC Staking NFT. Start the staking process to maximize your rewards within the Prime Numbers Labs ecosystem.
+Connect your wallet, select the NFT you want, click **Buy**, and confirm the transaction. After confirmation, the NFT appears in your profile.
 
-***
+---
 
-**To read our guide on Medium click the link below...**
+## What's Next?
+
+Once you own an XDC Staking NFT, deposit psXDC into it to start earning rewards. See the [Staking Mechanics](xdc-staking-nfts-mechanics.md) guide for details.
+
+---
+
+## Additional Resources
 
 {% embed url="https://medium.primenumbers.xyz/how-to-buy-an-xdc-staking-nft-c66065b176b8" %}
-
-**To watch our video tutorial on YouTube click the link below...**
 
 {% embed url="https://youtu.be/n0I6_HzMFik" %}

@@ -1,73 +1,88 @@
 # Staking Design
 
-## Prime Numbers Staking Design
+The PRFI NFT Staking System uses a fully upgradeable, omnichain architecture built on the Diamond Standard (EIP-2535) and LayerZero. Users stake PRFI, level up NFTs, and earn rewards across chains.
 
-The PRFI NFT Staking System (ONFT) introduces a fully upgradeable and omnichain staking architecture utilizing the Diamond Standard (EIP-2535) and the LayerZero protocol. This allows users to stake, level up, and earn rewards across chains without compromising on transparency, precision, or security.
+---
 
-### Diamond Architecture Overview
+## Architecture
 
-All staking logic and NFT management are modularized into _facets_ within a single proxy contract on the main chain:
+All staking logic and NFT management are modularized into facets within a single proxy contract on the main chain:
 
-| Facet         | Description                                                               |
-| ------------- | ------------------------------------------------------------------------- |
-| `ERC721Facet` | Core NFT logic: minting, burning, bridging, and metadata management       |
-| `StakerFacet` | Main staking engine: handles staking, merging, locking, rewards, claiming |
-| `AdminFacet`  | Controls configurations, pausing, and authorized addresses                |
-| `GetterFacet` | Exposes view-only data for frontend and integrations                      |
+| Facet | Description |
+| --- | --- |
+| `ERC721Facet` | Core NFT logic: minting, burning, bridging, metadata |
+| `StakerFacet` | Staking engine: stake, merge, lock, rewards, claiming |
+| `AdminFacet` | Configuration, pausing, access control |
+| `GetterFacet` | Read-only data for frontend and integrations |
 
-### Omnichain NFT Support (ONFT)
+---
 
-NFTs are **omnichain**: they can be moved between Base and other supported chains using LayerZero. A sidechain contract manages local NFT ownership and forwards user actions (stake, claim, withdraw, redeem) to the mainchain. The mainchain executes core staking logic and replies with confirmations or reverts.
+## Omnichain NFT Support (ONFT)
 
-Key features:
+NFTs are **omnichain** — they can be bridged between Base and other supported chains using LayerZero.
 
-* All economic logic lives on the mainnet (single source of truth)
-* Users interact from low-gas chains (e.g. Base)
-* NFTs preserve full metadata and reward history when bridged
+- All economic logic lives on the mainnet (single source of truth).
+- Users interact from low-gas chains (e.g., Base).
+- NFTs preserve full metadata and reward history when bridged.
 
-### Staking Mechanics
+A sidechain contract manages local NFT ownership and forwards user actions (stake, claim, withdraw, redeem) to the mainchain. The mainchain executes the logic and replies with confirmations.
 
-* **Stake PRFI into your NFT** to begin earning rewards
-* **NFT Level** increases as stake crosses defined thresholds (up to level 20)
-* **Rarity Multiplier** and **Level** combine into a **weight** that determines rewards
+---
 
-#### Reward Calculation
+## Staking Mechanics
 
-Rewards are distributed monthly and split into two buckets:
+- **Stake PRFI into your NFT** to begin earning rewards.
+- **NFT Level** increases as stake crosses defined thresholds (up to level 20).
+- **Rarity Multiplier** and **Level** combine into a **weight** that determines rewards.
 
-* 50% based on the NFT’s `multiplier` (rarity + level)
-* 50% based on the NFT’s `stake × weight`
+### Reward Calculation
+
+Rewards are distributed monthly and split into two equal buckets:
+
+- **50%** based on the NFT's `multiplier` (rarity + level)
+- **50%** based on `stake x weight` (multiplier x staked PRFI)
 
 This ensures fair rewards for both quality (rarity) and quantity (stake commitment).
 
-#### Claiming Rewards
+### Claiming
 
-* Rewards are claimable on any chain
-* Calling `claim()` syncs missed airdrops and updates `lastClaimedAmount`
-* High-precision math (`ABDKMathQuad`) ensures exact distribution
+- Rewards are claimable on any chain.
+- Calling `claim()` syncs missed distributions and updates the last claimed amount.
+- High-precision math (`ABDKMathQuad`) ensures exact distribution.
 
-#### Merging NFTs
+### Merging
 
-* Two NFTs of the same rarity can be merged into one with a higher rarity
-* The resulting NFT inherits combined stake and upgraded multiplier
-* Merged NFTs are burned; new NFTs minted from a reserved ID range
+- Two NFTs of the same rarity can be merged into one with a higher rarity.
+- The resulting NFT inherits the combined stake and an upgraded multiplier.
+- Merged NFTs are burned; a new NFT is minted from a reserved ID range.
 
-### Withdrawing & Redeeming
+---
 
-* Users may **withdraw a portion** of stake (20% fee)
-* Once an NFT is no longer needed, users can **burn and redeem**
-* Withdrawals are blocked during lock periods or vesting
+## Withdrawing & Redeeming
 
-### Security Highlights
+- **Partial withdrawal:** Remove a portion of staked PRFI (20% fee, redistributed to other holders).
+- **Burn to redeem:** Destroy the NFT to withdraw all staked PRFI.
+- Withdrawals are blocked during lock periods.
 
-* **Upgradeable via Diamond Standard**: facets can be added or upgraded without migrating contracts
-* **Reentrancy Guard**: prevents reentrancy attacks
-* **Pausable**: authorized roles can pause contract functions during incidents
-* **Only Authorized Messages**: LayerZero endpoints are restricted to trusted chains/contracts
-* **All data is on-chain**, auditable, and fully deterministic
+---
 
-### Technical Details
+## Security
 
-* **Withdrawal Fee**: 20% by default (configurable via AdminFacet)
-* **Storage**: NFT state (stake, lock, rewards) is replicated between chains via bridging
-* **Rewards Pool**: Funded via protocol earnings, royalties, and monthly airdrops
+| Measure | Detail |
+| --- | --- |
+| **Diamond Standard** | Facets can be added or upgraded without contract migration |
+| **Reentrancy Guard** | Prevents reentrancy attacks |
+| **Pausable** | Authorized roles can pause functions during incidents |
+| **Trusted Endpoints** | LayerZero messages restricted to trusted chains/contracts |
+| **On-chain** | All data is auditable and fully deterministic |
+
+---
+
+## Technical Parameters
+
+| Parameter | Value |
+| --- | --- |
+| Withdrawal fee | 20% (configurable) |
+| Max level | 20 |
+| Rewards pool | Funded via protocol earnings, royalties, and monthly airdrops |
+| Storage | NFT state replicated between chains via bridging |

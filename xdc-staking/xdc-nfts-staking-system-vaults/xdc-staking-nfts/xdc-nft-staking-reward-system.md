@@ -1,22 +1,44 @@
-# XDC NFT Staking Reward System
+# Reward System
 
-## XDC NFTs Staking & Locked Staking
+XDC NFT rewards come from multiple sources and scale with your staking strategy.
 
-### 1. Fixed Rewards
+---
 
-* For the **first two years**, **30%** of the funds generated from **NFT minting** are allocated to **XDC Staking NFTs**.
-* This arrangement continues **until May 2025**, after which the distribution model may change.
+## APY Tiers
 
-### 2. PrimeFi Rewards
+| Staking Option | APY | Details |
+| --- | --- | --- |
+| **XDC NFTs (Unlocked)** | ~4.75% | Base liquid staking APY + 0.25% NFT bonus |
+| **XDC NFTs (Locked)** | Up to 6% | Base + NFT bonus + 1.25% lock bonus |
 
-* Each **XDC NFT** will receive **10% of PrimeFi’s XDC Network profits**.
-* This bonus income supplements the **base and variable APYs**, boosting your total NFT earnings.
+---
 
-### 3. XDC NFTs Staking APYs
+## Reward Sources
 
-* **XDC NFTs Staking APY:** **4.75%**&#x20;
-* **XDC NFTs Locked APY:** **6%**
+### 1. Base Staking Rewards
 
-These APYs reflect the base annual yield for **staking (or locking)** your NFTs, complemented by any additional rewards mechanisms outlined below.
+psXDC deposited inside NFTs earns the standard liquid staking yield (~4.5%), plus a 0.25% NFT staking bonus.
 
-***
+### 2. PrimeFi Ecosystem Rewards
+
+Each XDC NFT receives a share of **10% of PrimeFi's XDC Network profits**, supplementing the base APY.
+
+---
+
+## How Rewards Are Distributed
+
+- Rewards are paid in **XDC**.
+- Distribution is **monthly**.
+- Your share is determined by your NFT's **Total Multiplier** (base rarity + level) relative to the total multipliers across all staked NFTs.
+- **Claim** your rewards from the app whenever they are available.
+
+---
+
+## Maximizing Your Rewards
+
+| Strategy | Effect |
+| --- | --- |
+| Stake more psXDC | Levels up the NFT, increases added multiplier |
+| Merge NFTs | Upgrades rarity, increases base multiplier |
+| Lock the NFT | Adds 1.25% APY bonus |
+| Hold higher-rarity NFTs | Higher base multiplier = larger reward share |

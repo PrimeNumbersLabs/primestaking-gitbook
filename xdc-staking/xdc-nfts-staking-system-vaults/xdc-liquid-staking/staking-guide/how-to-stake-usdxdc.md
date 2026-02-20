@@ -1,36 +1,54 @@
-# How to stake $XDC?
+# How to Stake XDC
 
-**How to Use XDC Liquid Staking:**&#x20;
+### Prerequisites
 
-1. &#x20;**First, the User needs to have XDC in the wallet.**
-2. **Connect your wallet to** [**https://primestaking.xyz/**](https://primestaking.xyz/)
+- An XDC-compatible wallet (e.g., MetaMask configured for XDC Network).
+- XDC tokens in your wallet.
+
+---
+
+### Step 1 — Connect Your Wallet
+
+Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**. Approve the connection in your wallet.
 
 <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-3. **Stake $XDC and get $psXDC:** [**https://primestaking.xyz/xdc-liquid-staking**](https://primestaking.xyz/xdc-liquid-staking)
+---
 
-*   Navigate to the XDC Liquid Staking and introduce the amount you want to stake.\
-    <br>
+### Step 2 — Navigate to XDC Liquid Staking
 
-    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
-* Confirm the transaction.
+Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake.
 
-**Receive $psXDC:**\
-Upon deposit, $psXDC tokens are automatically issued to your wallet.\
-\
-How do you see $psXDC in your wallet?\
-Really easy, just click here: Add psXDC Token<br>
+<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+---
+
+### Step 3 — Confirm the Transaction
+
+Review the amount and click **Stake**. Confirm the on-chain transaction in your wallet.
+
+---
+
+### Step 4 — Receive psXDC
+
+Once confirmed, psXDC tokens are automatically issued to your wallet at a 1:1 ratio with your staked XDC. You can now hold, trade, or use psXDC in DeFi while your staked XDC earns rewards.
+
+---
+
+### Adding psXDC to Your Wallet
+
+If psXDC doesn't appear in your wallet automatically, click the **Add psXDC Token** button in the app.
 
 <figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-Or if it doesnt work for you, do the following:\
-\
-You need to add a custom token: 0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6\
+Alternatively, add it manually as a custom token:
+
+**Contract address:** `0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6`
+
 ![](<../../../../.gitbook/assets/image (2) (1).png>)
 
 ![](<../../../../.gitbook/assets/image (3).png>)
 
-![](<../../../../.gitbook/assets/image (4).png>)\
-<br>
+![](<../../../../.gitbook/assets/image (4).png>)
 
 <div align="left"><figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>

@@ -1,48 +1,60 @@
-# PRFI Staking Mechanics
+# Staking Mechanics
 
-## <mark style="color:purple;">Understanding PRFI Staking NFTs: Maximizing Your Rewards</mark>
+Stake PRFI tokens inside your NFT to earn rewards. The NFT's value and earning potential grow as it levels up.
 
-Prime Numbers Labs introduces a revolutionary staking system where your $PRFI tokens can be staked inside NFTs, allowing you to earn various rewards. Here’s how it works:
+---
 
-***
+## How It Works
 
-### <mark style="color:purple;">How It Works</mark>
+### 1. Stake PRFI
 
-1. **Stake Your PRFI Tokens:**&#x20;
+Deposit PRFI tokens into your NFT. This increases the NFT's level and activates its reward multiplier.
 
-* Stake PRFI tokens inside an NFT to imbue it with value and start earning rewards. The NFT’s value and rewards grow over time as it levels up.
+### 2. Earn Rewards
 
-2. **Earn Multiple Rewards:**
+Your NFT earns from multiple sources:
 
-* **PRFI Rewards Pool:** Earn monthly rewards from the PRFI rewards pool.
-* **NFT Royalties:** Receive a share of NFT royalties from the PrimePort marketplace.
-* **PrimeFi Profits:** Enjoy 40% of the profits from PrimeFi, our lending and borrowing protocol.
+| Source | Description |
+| --- | --- |
+| **PRFI Rewards Pool** | 100,000 PRFI distributed monthly across all staked NFTs |
+| **NFT Royalties** | Share of PrimePort marketplace royalties |
+| **PrimeFi Profits** | 40% of PrimeFi protocol profits |
 
-3. **Increase NFT Value:**
+### 3. Level Up
 
-* **Base Multiplier:** Each NFT has a base multiplier based on its rarity, which determines its initial rewards.
+As you stake more PRFI, your NFT progresses through levels (1–20). Each level increases the **added multiplier**, boosting your share of the reward pool.
+
+---
+
+## Multiplier System
+
+| Component | Description |
+| --- | --- |
+| **Base Multiplier** | Set by the NFT's rarity tier (fixed) |
+| **Added Multiplier** | Increases as the NFT levels up (1–20) |
+| **Total Multiplier** | Base + Added — determines your reward share |
 
 <figure><img src="../../../.gitbook/assets/PRFINFTS.jpg" alt=""><figcaption></figcaption></figure>
 
-* **Added Multiplier:** As your NFT levels up, the added multiplier increases, further boosting rewards.
-
 <figure><img src="../../../.gitbook/assets/PRFINFTSADDEDMULTIPLIER (1).png" alt=""><figcaption></figcaption></figure>
 
-* **Total Multiplier:** The combined base and added multipliers define the total rewards your NFT generates.
+---
 
-***
+## Interface Actions
 
-### <mark style="color:purple;">Interface Buttons</mark>
+| Action | Description |
+| --- | --- |
+| **Stake** | Deposit PRFI into the NFT to earn rewards and level up. |
+| **Get Surplus** | Withdraw PRFI above 41,490 for free once the NFT reaches max level. |
+| **Burn to Redeem** | Destroy the NFT to withdraw all staked PRFI. |
+| **Transfer** | Move the NFT to another wallet. |
+| **Withdraw PRFI** | Remove PRFI with a 20% fee (redistributed to other holders). |
+| **Claim PRFI** | Claim monthly rewards. |
+| **Sell** | List or auction the NFT on [PrimePort](https://primeport.xyz). |
+| **Merge** | Combine two same-rarity NFTs into a higher-rarity NFT. |
 
-* **Stake:** Stake PRFI tokens inside your NFT to start earning rewards.
-* **Get Surplus:** Withdraw PRFI tokens above 41,490 for free once your NFT reaches the top level.
-* **Burn to Redeem:** Break open the NFT to redeem all staked tokens, destroying the NFT.
-* **Transfer:** Move your NFT from one wallet to another.
-* **Withdraw PRFI:** Withdraw PRFI tokens with a 20% fee, which is redistributed to other NFT holders.
-* **Claim PRFI:** Claim monthly rewards on the last day of each month.
-* **Sell:** List your NFT for sale on PrimePort or start an auction.
-* **Merge NFTs:** Combine two NFTs of the same rarity to create a higher rarity NFT, increasing its earning potential.
+---
 
-### <mark style="color:purple;">Rewards and Growth</mark>
+## Growth
 
-As your NFT levels up, you earn a larger share of the rewards pool. Staking rewards are available at the end of each month and contribute to levelling up your NFT, enhancing its value and the amount of rewards it generates.
+As your NFT levels up, it earns a progressively larger share of the reward pool. Rewards are available at the end of each month and contribute to the long-term value of your NFT.

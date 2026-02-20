@@ -1,56 +1,44 @@
-# XDC Staking Rewards
+# How Rewards Work
 
-At Prime Numbers Labs, our XDC Liquid Staking system provides transparent, secure, and high-yield options for XDC holders. By leveraging **$psXDC (Prime Staked XDC)** and XDC NFTs, participants can choose from multiple staking strategies to match their desired level of returns and engagement.
+PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward distribution. By leveraging psXDC and optional XDC NFTs, you can choose the staking strategy that fits your goals.
 
-***
+---
 
-### Current Staking APYs
+## Current APY Tiers
 
-| **Staking Option**     | **APY**                  |
-| ---------------------- | ------------------------ |
-| **XDC Liquid Staking** | 4.&#x35;**%**            |
-| **XDC NFTs Staking**   | 4.&#x35;**% + 0.25%**    |
-| **XDC NFTs Locked**    | **4.5% + 0.25% + 1.25%** |
+| Staking Option | APY | Description |
+| --- | --- | --- |
+| **XDC Liquid Staking** | ~4.5% | Stake XDC, hold psXDC, earn rewards. Simple. |
+| **XDC NFTs (Unlocked)** | ~4.75% | Deposit psXDC inside an XDC NFT for a bonus multiplier. |
+| **XDC NFTs (Locked)** | Up to 6% | Lock your NFT for an additional 1.25% APY bonus. |
 
-**XDC Liquid Staking (4.5%)**\
-Stake your XDC to earn 4.5% APY while retaining liquidity via **$psXDC**.\
-Ideal for those seeking a simple, predictable entry to staking.
+---
 
-**XDC NFTs Staking (**&#x34;.&#x35;**% + 0.25%)**\
-Stake **$psXDC** inside XDC NFTs for a base APY of 4.75%.\
-Perfect for those looking for dynamic rewards alongside unique NFT ownership.
+## How APY Breaks Down
 
-**XDC NFTs Locked (4.5% + 0.25% + 1.25%)**\
-Lock your NFT-based staking position to secure a 6% base APY.\
-A higher-reward pathway for users comfortable with locking periods.
+| Component | Rate | Requirement |
+| --- | --- | --- |
+| Base liquid staking | 4.5% | Hold psXDC |
+| NFT staking bonus | +0.25% | Deposit psXDC into an XDC NFT |
+| NFT lock bonus | +1.25% | Lock the NFT (disables burn, merge, and withdraw) |
+| **Maximum total** | **6%** | NFT staked + locked |
 
-***
+---
 
-### How APY Rewards Are Calculated
+## How Rewards Are Calculated
 
-* **Proportional Distribution:** Rewards are on-chain and transparent, everyone earns based on how much they have staked or locked.
+- **Proportional distribution** — Rewards are allocated based on how much psXDC you hold (or have staked inside an NFT) relative to the total supply.
+- **On-chain and transparent** — Every reward event is logged on the blockchain.
+- **Claim anytime** — Rewards accrue continuously. Go to the **Rewards** tab in the app and claim to your wallet whenever you want.
 
-***
+---
 
-#### Key Features of the XDC Liquid Staking System
+## Why Multiple Tiers?
 
-1. **Security & Transparency**\
-   Rely on audited smart contracts that handle staking, rewards, and redemptions.
-2. **Liquidity with $psXDC**\
-   Staking XDC grants you **$psXDC**, allowing you to remain active in DeFi while still accruing rewards.
-3. **XDC NFTs for Extra Yield**\
-   Staking **$psXDC** in NFTs lets you boost your returns and engage with a unique NFT ecosystem.
-4. **Scalable Rewards**\
-   As staked amounts grow, rewards remain competitive for all participants.
+| Goal | Best Option |
+| --- | --- |
+| Keep it simple, stay fully liquid | XDC Liquid Staking (~4.5%) |
+| Earn more while engaging with the NFT ecosystem | XDC NFTs Unlocked (~4.75%) |
+| Maximize yield, comfortable with locking | XDC NFTs Locked (up to 6%) |
 
-***
-
-#### Why Choose XDC Liquid Staking?
-
-* **Competitive & Flexible APYs**\
-  Multiple staking avenues, from straightforward liquid staking to NFT staking, cater to various risk profiles and goals.
-* **High Liquidity**\
-  &#xNAN;**$psXDC** ensures you can trade or leverage your staked position in DeFi at any time.
-* **Long-Term Sustainability**\
-  Designed for continuous growth, with fair and evolving rewards to support the expanding XDC ecosystem.
-
+Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready — there is no pressure to lock.

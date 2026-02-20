@@ -1,68 +1,96 @@
 ---
-description: PrimeStaking Overview
+description: Stake smarter. Stay liquid. Earn more.
 ---
 
 # Overview
 
-**PrimeStaking** is an innovative platform designed to maximize the utility of digital assets. It offers a seamless, secure, and efficient way for users to earn rewards by staking their tokens. **PrimeStaking** currently supports two primary categories of staking:
+**PrimeStaking** is a non-custodial staking platform on the XDC Network. It lets you earn rewards on XDC and PRFI tokens without giving up control of your assets.
 
-***
+The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
-### 1. PRFI Staking
+---
 
-**For PRFI Token Holders**
+## What PrimeStaking Offers
 
-* **Purpose**: Allows holders of PRFI tokens to stake within the PrimeStaking system and earn additional PRFI rewards.
-* **Rewards**:
-  * Extra PRFI tokens
-  * Participation-based incentives
-  * Potential gains from ecosystem growth
-* **Flexibility**: Ideal for users who wish to grow their PRFI holdings while supporting the PrimeFi ecosystem.
+| Product | Token | Yield | How It Works |
+| --- | --- | --- | --- |
+| **XDC Liquid Staking** | XDC | ~4.5% APY | Stake XDC, receive psXDC (1:1). Stay liquid. |
+| **XDC NFTs** | psXDC | Up to 6% APY | Deposit psXDC into NFTs. Rarity multiplies rewards. |
+| **PRFI NFTs** | PRFI | 100K PRFI/mo pool | Stake PRFI inside NFTs. Rarity determines share. |
 
-***
+---
 
-### 2. XDC Liquid Staking
+## XDC Liquid Staking
 
-**For XDC Token Holders**\
-XDC Liquid Staking provides XDC holders with a flexible, liquid-staking derivative called **$psXDC**. By staking XDC (and receiving **$psXDC** in return), participants remain active in DeFi without permanently locking their funds. There are three main approaches:
+The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
-#### A. Standard XDC Liquid Staking
+1. **Stake XDC** — Deposit any amount into the liquid staking contract.
+2. **Receive psXDC** — You get psXDC at a 1:1 ratio, instantly.
+3. **Earn rewards** — Rewards accrue continuously at ~4.5% APY.
+4. **Stay liquid** — psXDC is a standard XDC Network token. Hold it, transfer it, or use it in DeFi.
+5. **Withdraw anytime** — Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (~31 days average).
 
-* **Purpose**: A straightforward method to stake XDC and receive **$psXDC**—no minimum requirements.
-* **Mechanism**:
-  1. Users stake XDC in the Liquid Staking protocol.
-  2. The system issues **$psXDC** (1:1) to represent the staked XDC.
-  3. **$psXDC** can be used in DeFi while still accruing staking rewards. (Not live as it needs support from the platform or a $wpsXDC, which is coming asap)
-* **Advantages**:
-  * There are low barriers to entry, so anyone can participate.
+→ [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/)
 
-#### B. XDC NFTs
+---
 
-* **Purpose**: A gamified staking option for those seeking higher rewards by staking **$psXDC** inside an NFT.
-* **Mechanism**:
-  1. Users deposit **$psXDC** (instead of raw XDC) into the NFT.
-  2. Each NFT has unique rarity and multiplier levels that affect reward rates.
-  3. Merging two NFTs of the same rarity can create a higher-rarity NFT with enhanced multipliers.
-* **Advantages**:
-  * **Interactive staking**: Transform staking into a collectible and upgradable experience.
-  * **Higher rewards**: Rare or leveled-up NFTs yield better returns, adding a strategic element for holders.
+## XDC NFTs
 
-#### C. XDC Masternode Staking
+A gamified staking layer on top of liquid staking. Deposit psXDC into collectible NFTs to boost your yield.
 
-* **Purpose**: Tailored for 10M+ XDC holders seeking premium rewards.
-* **Mechanism**:
-  1. Large XDC holders stake in a masternode framework without needing their own technical setup.
-  2. Rewards are automated and often higher than standard Liquid Staking.
-* **Advantages**:
-  * **Exclusive yields** from masternode operations.
-  * **Minimal overhead**: No server hosting or technical maintenance required.
+- Each NFT has a **rarity** (Common → Legendary) that determines the base reward multiplier.
+- **Level up** by merging two same-rarity NFTs into a higher tier.
+- **Lock** your NFT for an additional 1.25% APY bonus (up to 6% total).
+- Rewards are paid in XDC and claimable monthly.
 
-***
+→ [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/)
 
-#### Summary of XDC Liquid Staking Options
+---
 
-* **Standard XDC Liquid Staking** – Low-entry path to receive **$psXDC** and maintain full DeFi liquidity.
-* **XDC NFTs** – Gamified approach using **$psXDC** inside NFTs; unique rarity and multipliers can boost rewards beyond standard staking.
-* **XDC Masternode Staking** – Ideal for 10M+ XDC holders seeking premium rewards with minimal overhead.
+## PRFI NFTs
 
-By unifying **PRFI Staking** and **XDC Liquid Staking** under one umbrella, **PrimeStaking** offers multiple avenues for passive income and ecosystem engagement—whether you’re a PRFI supporter, an XDC enthusiast, or a large-scale masternode participant.
+Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the monthly reward pool.
+
+- 100,000 PRFI distributed monthly across all staked NFTs.
+- Higher rarity = higher share of the reward pool.
+- Merge NFTs to unlock stronger multipliers and maximize yield.
+
+→ [Learn more about PRFI NFTs](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/)
+
+---
+
+## The psXDC Ecosystem
+
+```
+XDC  →  psXDC  →  NFT  →  Boost
+```
+
+| Step | What Happens |
+| --- | --- |
+| **Stake** | Deposit XDC into the liquid staking contract. |
+| **Receive** | Get psXDC (1:1). Rewards start accruing. |
+| **Use** | Hold psXDC, trade it on a DEX, or deposit it into an XDC NFT. |
+| **Boost** | NFT rarity and locking multiply your rewards beyond base APY. |
+
+---
+
+## Security
+
+- All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract).
+- Validator keys and staked XDC are secured by **Crypto.com Custody** (institutional-grade cold storage).
+- The protocol is **non-custodial** — users retain full ownership of their assets at all times.
+
+→ [Audits & Security](audits-1/)
+→ [Custody & Key Management](custody-and-key-management.md)
+
+---
+
+## Quick Links
+
+| Resource | Link |
+| --- | --- |
+| App | [primestaking.xyz](https://primestaking.xyz) |
+| XDC Liquid Staking | [primestaking.xyz/xdc-liquid-staking/overview](https://primestaking.xyz/xdc-liquid-staking/overview) |
+| XDC NFTs | [primestaking.xyz/xdc-nfts/overview](https://primestaking.xyz/xdc-nfts/overview) |
+| PRFI NFTs | [primestaking.xyz/prfi-nfts/overview](https://primestaking.xyz/prfi-nfts/overview) |
+| psXDC Contract | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |

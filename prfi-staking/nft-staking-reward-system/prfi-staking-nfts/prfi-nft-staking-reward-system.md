@@ -1,83 +1,72 @@
-# PRFI NFT Staking Reward System
+# Reward System
 
-## <mark style="color:purple;">PRFI NFT STAKING REWARDS:</mark> <a href="#b642" id="b642"></a>
+PRFI NFT holders earn from three distinct reward sources.
 
-### 1- 100,000 PRFI Fixed Rewards
+---
 
-10M from the allocation is dedicated to rewarding PRFI NFT holders.&#x20;
+## Reward Sources
 
-Each month, 100,000 PRFI is distributed as a reward to these holders.
+### 1. PRFI Fixed Rewards (100,000 PRFI/month)
 
-### 2- Prime Numbers NFTs Royalties <a href="#id-6649" id="id-6649"></a>
+10M PRFI from the token allocation is dedicated to rewarding NFT holders. Each month, 100,000 PRFI is distributed across all staked NFTs.
 
-Using the NFT Royalty Standard, NFT holders will receive 50% of all royalties on presales.
+### 2. NFT Royalties
 
-The royalties percentage is set at 10%, which means 5% of the sales price of each sold NFT is distributed over all NFT holders.
+NFT holders receive 50% of all PrimePort marketplace royalties on secondary sales. The royalty rate is 10%, meaning 5% of each sale price is distributed to all NFT holders.
 
-### 3- PrimeFi <a href="#id-7896" id="id-7896"></a>
+### 3. PrimeFi Profits
 
-Prime Numbers NFTs will receive 40% of PrimeFi profits.&#x20;
+PRFI NFTs receive 40% of PrimeFi lending and borrowing protocol profits.
 
 {% hint style="info" %}
-To be eligible for these rewards, you need to lock your NFT on PrimeFi for a period of time.
+To be eligible for PrimeFi rewards, you need to lock your NFT on PrimeFi for a specified period.
 {% endhint %}
 
-***
+---
 
-## <mark style="color:purple;">Calculating NFT Rewards with PRFI Staking Rewards Pool and Extra Rewards</mark>
+## Reward Distribution Formula
 
-### <mark style="color:purple;">Variables Overview</mark>
+Rewards are split into two equal portions:
 
-* **X**: The total number of NFTs in consideration.
-* **a**: Rarity of the NFT.
-* **b**: Level of the NFT.
-* **t**: PRFI tokens assigned per NFT.
-* **Tx**: Total multiplier for an NFT, calculated as (Tx = a + b).
-* **Extra Rewards**: Additional rewards coming from Primeport and PrimeFi fees, added to the initial 100,000 PRFI rewards pool.
+### Part 1 — Based on Total Multiplier (50%)
 
-A total of 100,000 PRFI tokens, plus Extra Rewards, are to be distributed, taking into account both the NFTs' total multiplier and the product of the total multiplier and PRFI tokens per NFT.
-
-***
-
-### <mark style="color:purple;">Reward Distribution Formula</mark>
-
-#### Part 1: Based on Total Multiplier
-
-To distribute the first portion of PRFI tokens plus a share of the Extra Rewards, we calculate each NFT's share based on its total multiplier (Tx).
-
-1. **Calculate the accumulated total multiplier**:
+Each NFT's share is proportional to its total multiplier relative to the sum of all multipliers:
 
 $$
-T_{total} = \sum_{i=1}^{X} Tx_i
+R_{1,i} = \frac{Tx_i}{T_{total}} \times 50{,}000 \text{ PRFI}
 $$
 
-2. **Determine the reward for each NFT**, also considering a portion of the Extra Rewards:
+Where:
+- `Tx_i` = Total multiplier of NFT *i* (rarity + level)
+- `T_total` = Sum of all NFTs' total multipliers
+
+### Part 2 — Based on Multiplier x Stake (50%)
+
+Each NFT's share also accounts for how much PRFI is staked:
 
 $$
-R_{1,i} = \left(\frac{Tx_i}{T_{total}} \times 50000\right) + \left(\frac{Tx_i}{T_{total}} \times \text{Extra Rewards}_{\text{portion}}\right)
+R_{2,i} = \frac{Tx_i \times t_i}{P_{total}} \times 50{,}000 \text{ PRFI}
 $$
 
-#### Part 2: Based on Total Multiplier and PRFI Tokens
+Where:
+- `t_i` = PRFI tokens staked in NFT *i*
+- `P_total` = Sum of (multiplier x stake) across all NFTs
 
-For the second distribution of PRFI tokens plus another share of the Extra Rewards, we include the product of the total multiplier and PRFI tokens (Tx \* t).
-
-1. **Calculate the total of the product of total multipliers and PRFI tokens (Ptotal)**:
-
-$$
-P_{total} = \sum_{i=1}^{X} (Tx_i \times t_i)
-$$
-
-2. **Determine the reward for each NFT**, incorporating a portion of the Extra Rewards:
+### Total Reward
 
 $$
-R_{2,i} = \left(\frac{Tx_i \times t_i}{P_{total}} \times 50000\right) + \left(\frac{Tx_i \times t_i}{P_{total}} \times \text{Extra Rewards}_{\text{portion}}\right)
+R_i = R_{1,i} + R_{2,i} + \text{Extra Rewards share}
 $$
 
-***
+Extra Rewards (royalties + PrimeFi profits) are distributed using the same proportional formulas.
 
-### <mark style="color:purple;">Conclusion</mark>
+---
 
-By applying these formulas, each NFT's reward is determined by its unique characteristics (rarity and level) and the assigned PRFI tokens. This dual approach ensures a balanced reward distribution that considers both the intrinsic qualities of the NFTs and the PRFI tokens allocated to them.
+## Summary
 
+This dual approach ensures balanced reward distribution:
 
+- **Part 1** rewards NFT quality (rarity and level).
+- **Part 2** rewards staking commitment (multiplier x stake).
 
+Both factors matter — a high-rarity NFT with a large stake earns the most.

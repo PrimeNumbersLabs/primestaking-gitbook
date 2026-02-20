@@ -2,35 +2,35 @@
 hidden: true
 ---
 
-# How to Buy $PRNT?
+# How to Buy PRFI
 
-## <mark style="color:purple;">Steps to Acquire PRNT, the Utility Token of Prime Numbers Ecosystem</mark>
+PRFI is the utility token of the Prime Numbers ecosystem. You need PRFI to stake inside PRFI NFTs.
 
-### <mark style="color:blue;">Step 1 — Choose Your Exchange</mark>
+---
 
-PRNT, the native token of the Prime Numbers ecosystem, can be purchased on both decentralised exchanges (DEXs) and centralised exchanges (CEXs). For beginners, using a CEX is recommended. Start by checking if any exchanges you are signed up with offer PRNT. To do this, visit platforms like CoinGecko or CoinMarketCap, search for PRNT, and then navigate to the Exchanges tab to see where PRNT is listed.
+## Step 1 — Choose an Exchange
 
-### <mark style="color:blue;">Step 2 — Sign Up and Fund Your Account</mark>
+PRFI is available on both decentralized exchanges (DEXs) and centralized exchanges (CEXs). Check [CoinGecko](https://www.coingecko.com/) or [CoinMarketCap](https://coinmarketcap.com/) to see current listings.
 
-If you’re already signed up on a CEX that lists PRNT, simply deposit funds into your account. If not, create an account on one of the recommended exchanges, complete any necessary verification steps, and transfer funds to your exchange account.
+## Step 2 — Fund Your Account
 
-### <mark style="color:blue;">Step 3 — Purchase PRNT</mark>
+If using a CEX, create an account (if needed), complete verification, and deposit funds. If using a DEX, ensure your wallet is funded on the correct network.
 
-After funding your account, search for PRNT on the exchange. Select your trading pair, typically PRNT/USDT, and choose your buying method:
+## Step 3 — Purchase PRFI
 
-* **Limit Order:** Set a specific price at which you want to buy PRNT.
-* **Market Buy:** Purchase PRNT instantly at the current market price.
+Search for PRFI on your exchange and select a trading pair (e.g., PRFI/USDT).
 
-### <mark style="color:blue;">Step 4 — Transfer PRNT to Your Wallet</mark>
+- **Limit order** — Set your price and wait for it to fill.
+- **Market order** — Buy instantly at the current price.
 
-Once your purchase is complete, transfer your PRNT tokens to your personal wallet for safekeeping or for use within the Prime Numbers ecosystem.
+## Step 4 — Transfer to Your Wallet
 
-***
+Move your PRFI tokens to your personal wallet for staking or safekeeping.
 
-**To read our guide on Medium click the link below...**
+---
+
+## Additional Resources
 
 {% embed url="https://medium.primenumbers.xyz/how-to-buy-prnt-90f8f06553f7" %}
-
-**To watch our video tutorial on YouTube regarding how to buy $PRNT on a CEX (Centralised Exchange) click the link below...**
 
 {% embed url="https://www.youtube.com/watch?v=62S6_3efHm8" %}

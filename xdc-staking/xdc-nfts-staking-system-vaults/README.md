@@ -1,39 +1,49 @@
 # XDC Liquid Staking System
 
-The XDC Liquid Staking System is the one‑and‑only way to stake XDC—offering a simple, accessible path for all XDC holders to earn masternode rewards, similar to Lido Finance. There are no high capital requirements, KYC barriers, or hosting costs.
+The XDC Liquid Staking System is PrimeStaking's core infrastructure. It enables XDC holders to earn staking rewards without running infrastructure or locking funds permanently.
+
+---
 
 ## How It Works
 
-**Stake and Receive $psXDC (Prime Staked XDC)**\
-When you stake your XDC, you receive an equal amount of **$psXDC** at a 1 : 1 ratio.\
-&#xNAN;**$psXDC** represents your staked XDC and remains fully liquid—you can trade it or use it in other DeFi applications.
+```
+Stake XDC  →  Receive psXDC (1:1)  →  Earn ~4.5% APY  →  Withdraw anytime
+```
 
-**Earn Rewards by Holding $psXDC**\
-Because **$psXDC** is directly tied to your staked XDC, simply holding **$psXDC** entitles you to masternode rewards, which are paid in XDC.\
-If you buy **$psXDC** from a DEX, you start receiving rewards right away—no separate staking action is required.
+1. **Deposit XDC** into the liquid staking smart contract.
+2. **Receive psXDC** instantly at a 1:1 ratio.
+3. **Earn rewards** — your staked XDC generates validator rewards continuously.
+4. **Use psXDC** — it's a standard token on the XDC Network. Hold it, trade it, or stake it inside XDC NFTs for boosted yields.
+5. **Withdraw** — burn psXDC to get your XDC back. Withdrawals are processed via the validator queue (~31 days average).
 
-**Use XDC NFTs for Additional Staking**\
-You can further stake your **$psXDC** inside XDC NFTs, which also pay rewards in XDC.\
-This allows you to earn extra rewards, whether you hold **$psXDC** directly or within these NFTs.
+---
 
-**Flexible Redemption**\
-To unstake, you can return your **$psXDC** for XDC on a 1 : 1 basis, usually taking 1–32 days.\
-This ensures you retain liquidity while your original tokens are earning rewards.
+## Two Ways to Earn
 
-#### Key Features and Benefits
+### XDC Liquid Staking (~4.5% APY)
 
-* **Access Masternode Rewards**\
-  Earn masternode rewards without running your own node or needing massive capital.
-* **No KYC or High Entry Requirements**\
-  Unlike traditional masternodes that might require 10 M XDC plus KYC, Liquid Staking welcomes all XDC holders.
-* **Lower Costs**\
-  Infrastructure and hosting overhead are handled at the protocol level.
-* **Liquidity with $psXDC**\
-  &#xNAN;**$psXDC** can be used across various DeFi services or traded freely, all while accumulating rewards paid in XDC.
+The simplest path. Stake XDC, receive psXDC, earn rewards. No NFT required, no minimum amount.
 
-#### Security and Transparency
+→ [XDC Liquid Staking Details](xdc-liquid-staking/)
 
-* **Smart Contract‑Driven**\
-  All staking operations run on secure, audited smart contracts.
-* **Decentralized Reward Distribution**\
-  Masternode rewards (paid in XDC) are distributed proportionally and transparently, ensuring fair returns for everyone holding **$psXDC**.
+### XDC NFTs (Up to 6% APY)
+
+Gamified staking. Deposit psXDC into collectible NFTs. Each NFT has a rarity tier and level that multiplies your rewards. Merge NFTs to upgrade rarity. Lock NFTs for an additional 1.25% APY bonus.
+
+→ [XDC NFTs Details](xdc-staking-nfts/)
+
+---
+
+## What Is psXDC?
+
+**psXDC (Prime Staked XDC)** is the liquid staking derivative you receive when you stake XDC.
+
+| Property | Detail |
+| --- | --- |
+| Ratio | 1 XDC = 1 psXDC (always) |
+| Network | XDC Network |
+| Transferable | Yes — send, trade, or use in DeFi |
+| Earns rewards | Yes — holding psXDC earns staking rewards |
+| Redeemable | Yes — burn psXDC to withdraw XDC |
+
+psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for ~4.5% APY, or deposit it into XDC NFTs for up to 6% APY.
