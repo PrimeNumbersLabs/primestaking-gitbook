@@ -8,15 +8,25 @@ During the minting period, only 2,333 NFTs were minted (roughly half the supply)
 
 ---
 
+## Network & Marketplace
+
+PRFI NFTs live on **Base** (Ethereum L2). They are omnichain-capable via LayerZero, meaning they can be bridged to other supported chains while preserving full staking state and reward history.
+
+| | |
+| --- | --- |
+| **Network** | Base (Chain ID 8453) |
+| **Buy / Sell** | [OpenSea — primenumbers-prfi-onft](https://opensea.io/collection/primenumbers-prfi-onft) |
+| **Floor price** | Check on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) |
+
+---
+
 ## Smart Contract
 
-<details>
-
-<summary>Prime Numbers PRFI ONFT</summary>
-
-[0x693A3A45Ff596024f844Be1cc6845d59f778dCF5](https://basescan.org/address/0x693a3a45ff596024f844be1cc6845d59f778dcf5)
-
-</details>
+| | |
+| --- | --- |
+| **Contract** | `0x693A3A45Ff596024f844Be1cc6845d59F778dCF5` |
+| **Explorer** | [BaseScan](https://basescan.org/address/0x693a3a45ff596024f844be1cc6845d59f778dcf5) |
+| **Standard** | ERC-721 (ONFT via LayerZero) |
 
 ---
 

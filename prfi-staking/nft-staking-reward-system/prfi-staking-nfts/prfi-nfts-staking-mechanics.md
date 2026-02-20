@@ -50,7 +50,7 @@ As you stake more PRFI, your NFT progresses through levels (1–20). Each level 
 | **Transfer** | Move the NFT to another wallet. |
 | **Withdraw PRFI** | Remove PRFI with a 20% fee (redistributed to other holders). |
 | **Claim PRFI** | Claim monthly rewards. |
-| **Sell** | List or auction the NFT on [PrimePort](https://primeport.xyz). |
+| **Sell** | List or auction the NFT on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) (Base). |
 | **Merge** | Combine two same-rarity NFTs into a higher-rarity NFT. |
 
 ---

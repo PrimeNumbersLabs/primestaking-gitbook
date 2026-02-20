@@ -49,13 +49,14 @@ A gamified staking layer on top of liquid staking. Deposit psXDC into collectibl
 
 ## PRFI NFTs
 
-Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the monthly reward pool.
+Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the monthly reward pool. PRFI NFTs live on the **Base** network (Ethereum L2) and are tradeable on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft).
 
 - 100,000 PRFI distributed monthly across all staked NFTs.
 - Higher rarity = higher share of the reward pool.
 - Merge NFTs to unlock stronger multipliers and maximize yield.
 
 → [Learn more about PRFI NFTs](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/)
+→ [Buy on OpenSea](https://opensea.io/collection/primenumbers-prfi-onft)
 
 ---
 

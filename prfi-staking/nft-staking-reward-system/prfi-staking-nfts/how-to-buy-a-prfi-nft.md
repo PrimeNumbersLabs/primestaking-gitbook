@@ -4,31 +4,39 @@ hidden: true
 
 # How to Buy a PRFI NFT
 
-PRFI Staking NFTs are available on [PrimePort.xyz](https://primeport.xyz).
+PRFI Staking NFTs are available on **[OpenSea](https://opensea.io/collection/primenumbers-prfi-onft)** on the **Base** network.
 
 ---
 
 ## Step 1 — Set Up Your Wallet
 
-Connect your wallet to the XDC Network. If using MetaMask, add XDC Network as a custom network under **Settings > Networks > Add Network**.
+Ensure your wallet (e.g., MetaMask) is configured for the **Base** network. If not already set up, add Base as a custom network in your wallet settings:
 
-## Step 2 — Browse the Collection
+| Field | Value |
+| --- | --- |
+| Network name | Base |
+| RPC URL | `https://mainnet.base.org` |
+| Chain ID | 8453 |
+| Currency | ETH |
+| Block explorer | `https://basescan.org` |
 
-Go to [PrimePort.xyz](https://primeport.xyz) and find the **Prime Numbers** collection. Review each NFT's rarity, staking potential, and price.
+## Step 2 — Fund Your Wallet
 
-## Step 3 — Fund Your Wallet
+You need ETH on Base to cover the NFT price and gas fees. Bridge ETH from Ethereum mainnet to Base using the [Base Bridge](https://bridge.base.org) or a supported exchange.
 
-Ensure your wallet has enough PRFI or XDC to cover the NFT price plus gas fees.
+## Step 3 — Browse the Collection
+
+Go to the [PRFI NFT collection on OpenSea](https://opensea.io/collection/primenumbers-prfi-onft). Review each NFT's rarity, staking potential, and current price.
 
 ## Step 4 — Purchase
 
-Connect your wallet to PrimePort, select your NFT, click **Buy**, and confirm the transaction. Verify your purchase in the **My Profile** section.
+Connect your wallet to OpenSea, select the NFT you want, click **Buy**, and confirm the transaction. After confirmation, the NFT appears in your wallet and on the PrimeStaking app.
 
 ---
 
 ## What's Next?
 
-Start staking PRFI into your NFT to earn rewards. See [Staking Mechanics](prfi-nfts-staking-mechanics.md) for a full guide.
+Once you own a PRFI NFT, go to [primestaking.xyz/prfi-nfts](https://primestaking.xyz/prfi-nfts/overview) to deposit PRFI and start earning rewards. See [Staking Mechanics](prfi-nfts-staking-mechanics.md) for a full guide.
 
 ---
 

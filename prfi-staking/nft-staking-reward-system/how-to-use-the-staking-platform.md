@@ -18,7 +18,7 @@ The staking platform at [primestaking.xyz](https://primestaking.xyz) is the cent
 | **Claim** | Claim your monthly PRFI rewards |
 | **Withdraw** | Remove staked PRFI (20% fee) |
 | **Burn to Redeem** | Destroy the NFT and withdraw all staked PRFI |
-| **Sell** | List your NFT on PrimePort marketplace |
+| **Sell** | List your NFT on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) (Base network) |
 
 ---
 

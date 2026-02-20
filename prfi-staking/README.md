@@ -12,14 +12,16 @@ PRFI Staking allows holders of PRFI tokens to earn rewards by depositing PRFI in
 | **Monthly reward pool** | 100,000 PRFI |
 | **NFT collection** | 4,111 total (4,096 generative + 15 handcrafted) |
 | **Minted supply** | 2,333 NFTs |
-| **Network** | Base (omnichain via LayerZero) |
-| **Marketplace** | [PrimePort.xyz](https://primeport.xyz) |
+| **Network** | Base (Ethereum L2) |
+| **Omnichain** | Bridgeable via LayerZero |
+| **Marketplace** | [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) |
+| **Smart contract** | [BaseScan](https://basescan.org/address/0x693a3a45ff596024f844be1cc6845d59f778dcf5) |
 
 ---
 
 ## How It Works
 
-1. **Get a PRFI NFT** — Purchase one on [PrimePort](https://primeport.xyz) or through a supported marketplace.
+1. **Get a PRFI NFT** — Purchase one on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) (Base network).
 2. **Stake PRFI** — Deposit PRFI tokens into your NFT. This levels up the NFT and increases its reward multiplier.
 3. **Earn rewards** — Monthly PRFI distributions are allocated based on your NFT's total multiplier (rarity + level).
 4. **Merge** — Combine two same-rarity NFTs into a higher-rarity NFT with stronger multipliers.
