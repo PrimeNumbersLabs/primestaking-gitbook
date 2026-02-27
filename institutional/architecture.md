@@ -43,8 +43,6 @@ User / Partner API
 | **Reward Distribution** | Proportional reward allocation to psXDC holders | XDC Network |
 | **Withdrawal Queue** | Manages redemption requests through validator unstaking | XDC Network |
 | **Validator Custody** | Smart contract-based validator key management (permissionless) | XDC Network |
-| **XDC NFT Staking** | NFT-based staking vaults with multiplier logic | XDC Network |
-| **PRFI NFT Staking** | EIP-2535 Diamond proxy with omnichain support (LayerZero) | Base (L2) |
 
 ---
 
@@ -70,7 +68,7 @@ The protocol is transitioning to a fully **permissionless, trustless** validator
 | **Smart contract audits** | QuillAudits - 98.8% score on XDC Staking Contract |
 | **Permissionless custody** | Validator keys secured by on-chain contracts |
 | **On-chain transparency** | Every staking, reward, and withdrawal event is logged and verifiable |
-| **Upgradeable architecture** | Diamond Standard (EIP-2535) for PRFI contracts; proxy patterns for XDC contracts |
+| **Upgradeable architecture** | Proxy patterns for controlled contract upgrades |
 | **Reentrancy protection** | Built into all state-changing functions |
 | **Pausable** | Emergency pause capability with authorized roles |
 

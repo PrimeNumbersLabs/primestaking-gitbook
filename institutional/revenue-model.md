@@ -17,14 +17,6 @@ A percentage of staking rewards is retained by the protocol as a service fee bef
 | **Transparency** | On-chain, auditable |
 | **User-facing APY** | Net of fees (~4.5% APY after protocol fee) |
 
-### NFT-Related Fees
-
-| Fee Type | Rate | Recipient |
-| --- | --- | --- |
-| **XDC NFT minting** | 100 XDC per vault | Protocol |
-| **PRFI NFT withdrawal** | 20% of withdrawn PRFI | Redistributed to other NFT holders |
-| **Marketplace royalties** | 10% of secondary sales (50% to NFT holders) | Protocol + NFT holders |
-
 ---
 
 ## Revenue Sharing for Partners

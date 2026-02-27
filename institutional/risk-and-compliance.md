@@ -47,8 +47,6 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | --- | --- | --- | --- | --- |
 | **XDC Staking Contract** | QuillAudits | Apr 2025 | 98.8% | Published |
 | **Custody Contracts** | In progress | - | - | Under review |
-| **PRFI Staking NFTs** | Scheduled | Q2 2025 | - | Planned |
-| **PrimeFi** | Internal review | Q2 2025 | - | Planned |
 
 All audit reports are published publicly. Target: **>= 95% score** on every audit, with findings of Medium severity or higher resolved within **72 hours**.
 

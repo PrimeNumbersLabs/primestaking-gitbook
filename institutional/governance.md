@@ -56,7 +56,7 @@ Contract upgrades and parameter changes are subject to a mandatory timelock:
 | Parameter | Detail |
 | --- | --- |
 | **Controlled by** | Multisig wallet |
-| **Funding sources** | Protocol fees, NFT minting fees, marketplace royalties |
+| **Funding sources** | Protocol fees from staking operations |
 | **Use of funds** | Validator operations, development, audits, ecosystem growth |
 | **Transparency** | All treasury transactions on-chain |
 
