@@ -99,5 +99,5 @@ Timelines vary depending on the integration model and partner's technical readin
 
 Contact us to discuss which model fits your needs:
 
-- **Email:** [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz)
+- **Email:** [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)
 - **Website:** [primestaking.xyz](https://primestaking.xyz)

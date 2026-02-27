@@ -67,5 +67,5 @@ Integrate PrimeStaking with visible co-branding. Lower integration effort, same 
 
 For integration inquiries, partnership proposals, or technical due diligence:
 
-- **Email:** [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz)
+- **Email:** [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)
 - **Website:** [primestaking.xyz](https://primestaking.xyz)

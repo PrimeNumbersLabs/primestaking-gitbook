@@ -118,7 +118,7 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | [Risk & Compliance](institutional/risk-and-compliance.md) | Risk framework, audit history, regulatory posture |
 | [SLA & Support](institutional/sla-and-support.md) | Uptime commitments, incident response, partner support |
 
-**Contact:** [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz)
+**Contact:** [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)
 
 ---
 
@@ -145,4 +145,4 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | PRFI NFTs | [primestaking.xyz/prfi-nfts/overview](https://primestaking.xyz/prfi-nfts/overview) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/) |
 | psXDC Contract | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |
-| Partnerships | [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz) |
+| Partnerships | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz) |

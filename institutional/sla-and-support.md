@@ -76,5 +76,4 @@ Uptime is measured monthly. Downtime due to XDC Network-level issues is excluded
 
 For support inquiries:
 
-- **Email:** [support@primenumbers.xyz](mailto:support@primenumbers.xyz)
-- **Partnerships:** [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz)
+- **Email:** [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)
