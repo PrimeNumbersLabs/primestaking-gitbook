@@ -1,30 +1,26 @@
 # Custody & Key Management
 
-PrimeStaking is transitioning to a fully **permissionless and trustless** validator custody model powered by on-chain smart contracts - eliminating human interaction from custody flows entirely.
+PrimeStaking uses a **permissionless, smart contract-based** validator custody model - eliminating human interaction from custody flows entirely.
 
 ---
 
-## The New Model
-
-The custody upgrade introduces:
+## How It Works
 
 - **Smart contract-based execution** - validator keys and staked XDC are managed entirely by audited smart contracts, with no human interaction in custody flows.
 - **Permissionless** - anyone can verify the state of validators and staked assets on-chain. No centralized approval required.
 - **Trustless** - no single entity controls the keys. The protocol enforces custody rules through code, not operational trust.
-- **Institutional-grade transparency** - increased operational transparency aligned with institutional security standards.
+- **Institutional-grade transparency** - full operational transparency aligned with institutional security standards.
 
 ---
 
 ## Audit & Collaboration
 
-A full security audit of the custody contracts is currently in progress.
+PrimeStaking's custody infrastructure is developed in collaboration with:
 
-PrimeStaking is collaborating with:
+- **Nethermind** - smart contract development and security review
+- **XDC Core team** - network-level validator integration
 
-- **XDC Core team**
-- **Nethermind**
-
-The goal: build a **100% permissionless, institution-ready** staking infrastructure.
+A dedicated audit of the custody contracts is in progress with independent auditors. Full results will be published upon completion.
 
 ---
 
@@ -36,15 +32,7 @@ The goal: build a **100% permissionless, institution-ready** staking infrastruct
 | **Key management** | Validator keys secured by on-chain contracts |
 | **Human interaction** | Eliminated from custody flows |
 | **Verifiability** | Fully transparent and auditable on the blockchain |
-| **User action required** | None - the transition is seamless |
-
----
-
-## Timeline
-
-1. **Smart contract audit** - In progress with independent auditors.
-2. **Deployment** - Within weeks of audit completion, the contract-based custody will go live.
-3. **Full decentralization** - Once deployed, validator custody becomes fully permissionless and trustless.
+| **User action required** | None - fully seamless |
 
 ---
 
@@ -52,4 +40,4 @@ The goal: build a **100% permissionless, institution-ready** staking infrastruct
 
 - **No change** to reward rates, withdrawal times, or fee structure.
 - Users retain **full ownership** of their assets at all times.
-- The move to contract-based custody eliminates reliance on any centralized custodian, strengthening the protocol's decentralization.
+- Smart contract-based custody eliminates reliance on any centralized custodian, strengthening the protocol's decentralization.

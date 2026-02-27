@@ -18,9 +18,9 @@ All PrimeStaking smart contracts undergo independent external audits before depl
 
 ### Published Reports
 
-| Module | Auditor | Date | Score | Link |
-| --- | --- | --- | --- | --- |
-| [**XDC Staking Contract**](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) | QuillAudits | Apr 2025 | 98.8% | [Report](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) |
+| Module | Auditor | Score | Link |
+| --- | --- | --- | --- |
+| [**XDC Staking Contract**](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) | QuillAudits | 98.8% | [Report](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) |
 
 {% embed url="https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract" %}
 
@@ -28,13 +28,10 @@ All PrimeStaking smart contracts undergo independent external audits before depl
 
 ---
 
-### Audits in Progress
+### Upcoming Audits
 
-| Module | Status | Timeline |
-| --- | --- | --- |
-| **PRFI Staking NFTs** | Scheduled | Q2 2025 |
-| **PrimeFi** | Internal review | Q2 2025 |
+Additional audits for new modules are planned and will be published here upon completion.
 
 ---
 
-**Note:** The core PRFI Token contract was fully audited in April 2025. Although not part of this staking documentation, the report is publicly available.
+**Note:** The core PRFI Token contract was fully audited. Although not part of this staking documentation, the report is publicly available.

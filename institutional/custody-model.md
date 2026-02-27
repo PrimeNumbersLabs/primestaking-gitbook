@@ -32,6 +32,21 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 
 ---
 
+## Two Distinct Layers
+
+It is important to distinguish between **asset custody** and **contract governance**:
+
+| Layer | Mechanism | Human Involvement |
+| --- | --- | --- |
+| **Validator key custody** | Fully on-chain, smart contract-managed | None - trustless by design |
+| **Contract upgrades** | Multisig with timelock | Yes - multi-party approval required for any code changes |
+
+Validator keys and user funds are secured by code with zero human access. Contract upgrades (bug fixes, parameter changes) require a separate multisig governance process with mandatory timelock delays.
+
+→ [Governance Details](governance.md)
+
+---
+
 ## Institutional Considerations
 
 | Question | Answer |
@@ -39,7 +54,7 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 | **Who controls the masternodes?** | Smart contracts manage validator operations programmatically |
 | **Who signs upgrades?** | Multisig governance with timelock (see [Governance](governance.md)) |
 | **Is there a multisig?** | Yes - contract upgrades require multi-party approval |
-| **Is there a timelock?** | Yes - upgrade execution is delayed to allow community review |
+| **Is there a timelock?** | Yes - upgrade execution is delayed to allow review |
 | **Who controls the treasury?** | Protocol treasury is governed by multisig with transparent on-chain operations |
 | **Is there automated reporting?** | Yes - all staking, reward, and withdrawal events are indexed on-chain |
 
@@ -49,11 +64,11 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 
 The custody model is developed in collaboration with:
 
-- **XDC Core team** - network-level validator integration
 - **Nethermind** - smart contract development and security review
+- **XDC Core team** - network-level validator integration
 - **QuillAudits** - independent external audit (98.8% score on staking contracts)
 
-A dedicated audit of the custody contracts is in progress. Once complete, the system transitions to a fully **permissionless, trustless** model with zero operational trust requirements.
+A dedicated audit of the custody contracts is in progress. Full results will be published upon completion.
 
 ---
 

@@ -2,6 +2,8 @@
 
 PrimeStaking's infrastructure is designed for reliability, transparency, and institutional-grade integration. All core logic runs on audited, on-chain smart contracts deployed on the XDC Network.
 
+The infrastructure is developed in collaboration with **Nethermind** (smart contract engineering and security) and the **XDC Core team** (network-level validator integration).
+
 ---
 
 ## System Design
@@ -53,9 +55,7 @@ PrimeStaking operates XDC Network masternodes that generate the staking yield:
 - **Validator keys** are managed by on-chain smart contracts - no human custody
 - **Staked XDC** is allocated across validators for redundancy
 - **Performance monitoring** ensures uptime and optimal reward generation
-- **Slashing protection** is built into the operational model
-
-The protocol is transitioning to a fully **permissionless, trustless** validator custody model in collaboration with the XDC Core team and Nethermind.
+- **Zero slashing risk** - XDC Network uses a masternode model that does not implement slashing, eliminating the capital loss risk present in ETH-based liquid staking protocols
 
 → [Custody Model Details](custody-model.md)
 
@@ -98,13 +98,12 @@ The protocol is transitioning to a fully **permissionless, trustless** validator
 
 ## Integration Points
 
-Partners can integrate at multiple levels:
+Partners can integrate at multiple levels depending on the chosen model. Technical details are shared during the integration process.
 
 | Integration Level | Description | Use Case |
 | --- | --- | --- |
 | **Frontend** | Embed the staking UI or build a custom frontend | White-label web integration |
 | **Smart Contract** | Interact directly with staking contracts | Backend/API integration |
-| **SDK / API** | Use PrimeStaking's SDK for programmatic access | Exchange integration |
 | **Data / Reporting** | On-chain event indexing for portfolio and settlement reporting | Compliance and reconciliation |
 
 → [Integration Models](integration-models.md)

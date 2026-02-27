@@ -4,6 +4,14 @@ PrimeStaking's governance model ensures that protocol upgrades, treasury operati
 
 ---
 
+## Important Distinction
+
+Governance applies to **contract upgrades and protocol parameters** - not to validator key custody or user fund management. Those are handled by trustless, on-chain smart contracts with no human involvement.
+
+→ [Custody Model](custody-model.md) for details on asset custody
+
+---
+
 ## Governance Structure
 
 | Component | Implementation |
@@ -17,12 +25,10 @@ PrimeStaking's governance model ensures that protocol upgrades, treasury operati
 
 ## Multisig
 
-All critical operations require approval from multiple authorized signers:
+All critical operations require approval from multiple authorized signers. Multisig configuration details are available upon request as part of the due diligence process.
 
 | Parameter | Detail |
 | --- | --- |
-| **Signer count** | Multiple core team members |
-| **Threshold** | Majority required for execution |
 | **Transparency** | All multisig transactions are on-chain and verifiable |
 | **Key management** | Hardware wallet-secured keys held by distinct individuals |
 
@@ -34,7 +40,6 @@ Contract upgrades and parameter changes are subject to a mandatory timelock:
 
 | Parameter | Detail |
 | --- | --- |
-| **Delay period** | Configurable (minimum 48 hours for non-emergency changes) |
 | **Purpose** | Allows community and partner review before changes take effect |
 | **Emergency bypass** | Available for critical security patches with full multisig approval |
 
@@ -43,7 +48,7 @@ Contract upgrades and parameter changes are subject to a mandatory timelock:
 ## Upgrade Process
 
 1. **Proposal** - Engineering team proposes a contract upgrade or parameter change
-2. **Review** - Internal security review + partner notification (7-day notice for material changes)
+2. **Review** - Internal security review + partner notification (advance notice for material changes)
 3. **Multisig approval** - Required signers approve the transaction
 4. **Timelock** - Mandatory waiting period before execution
 5. **Execution** - Change is deployed on-chain

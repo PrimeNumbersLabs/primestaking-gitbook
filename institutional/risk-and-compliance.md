@@ -20,7 +20,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
 | Validator downtime | Medium | Multi-validator delegation, automated failover monitoring |
-| Slashing | Low | XDC Network does not implement slashing (masternode model) |
+| Slashing | **None** | XDC Network does not implement slashing - this is a structural advantage over ETH-based liquid staking protocols where slashing risk is real |
 | Reward rate change | Low | Dynamic APY calculation; transparent communication to partners |
 
 ### Network Risk
@@ -43,10 +43,10 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 ## Audit History
 
-| Module | Auditor | Date | Score | Status |
-| --- | --- | --- | --- | --- |
-| **XDC Staking Contract** | QuillAudits | Apr 2025 | 98.8% | Published |
-| **Custody Contracts** | In progress | - | - | Under review |
+| Module | Auditor | Score | Status |
+| --- | --- | --- | --- |
+| **XDC Staking Contract** | QuillAudits | 98.8% | Published |
+| **Custody Contracts** | In progress | - | Under review |
 
 All audit reports are published publicly. Target: **>= 95% score** on every audit, with findings of Medium severity or higher resolved within **72 hours**.
 

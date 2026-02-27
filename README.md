@@ -1,10 +1,10 @@
 ---
-description: Stake smarter. Stay liquid. Earn more.
+description: Non-custodial XDC staking infrastructure. Zero slashing risk.
 ---
 
 # Overview
 
-**PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network.
+**PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network, built in collaboration with **Nethermind** and the **XDC Core team**.
 
 The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
@@ -67,6 +67,14 @@ Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the mo
 → [Learn more about PRFI NFTs](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/)
 → [Buy on OpenSea](https://opensea.io/collection/primenumbers-prfi-onft)
 
+### How Reward Tokens Work
+
+| Product | Rewards paid in | Frequency |
+| --- | --- | --- |
+| **XDC Liquid Staking** | psXDC | Continuous accrual, claim anytime |
+| **XDC NFTs** | XDC | Monthly distribution, claim from app |
+| **PRFI NFTs** | PRFI | Monthly distribution, claim from app |
+
 ### The psXDC Ecosystem
 
 ```
@@ -92,26 +100,27 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 
 | Model | Description | Best For |
 | --- | --- | --- |
-| **White Label** | Your brand, our infrastructure. Full SDK/API access. | Exchanges, large custodians |
+| **White Label** | Your brand, our infrastructure. | Exchanges, large custodians |
 | **Powered by Prime** | Co-branded widget. Minimal integration effort. | Wallets, aggregators, regional platforms |
 
 ## Why Partners Choose PrimeStaking
 
+- **Zero slashing risk** - XDC Network does not implement slashing, unlike ETH-based protocols
 - **Audited infrastructure** - QuillAudits (98.8% score)
 - **Non-custodial** - smart contract-based validator custody, no third-party key management
+- **Built with Nethermind** - smart contract engineering by a top-tier blockchain infrastructure team
 - **Battle-tested** - live since 2024 with $6M+ TVL
 - **Revenue sharing** - transparent, on-chain fee model
-- **SLA & support** - dedicated partner management for White Label integrations
 
 ## Partner Documentation
 
 | Section | What It Covers |
 | --- | --- |
-| [Institutional Overview](institutional/) | What we offer, why PrimeStaking, integration models |
+| [Institutional Overview](institutional/) | What we offer, why PrimeStaking, why XDC Network |
 | [Architecture](institutional/architecture.md) | System design, contract topology, validator infrastructure |
 | [Custody Model](institutional/custody-model.md) | Permissionless smart contract-based key management |
-| [Integration Models](institutional/integration-models.md) | White Label vs. Powered by Prime - scope, fees, timeline |
-| [Revenue Model](institutional/revenue-model.md) | Fee structure, revenue sharing, settlement |
+| [Integration Models](institutional/integration-models.md) | White Label vs. Powered by Prime |
+| [Revenue Model](institutional/revenue-model.md) | Revenue generation, partner sharing, settlement |
 | [Reward Mechanics](institutional/reward-mechanics.md) | How staking rewards are generated and distributed |
 | [Liquidity Model](institutional/liquidity-model.md) | psXDC liquidity, redemption mechanics |
 | [Governance](institutional/governance.md) | Upgrade policy, multisig, timelock |
@@ -126,9 +135,10 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 
 ## Security
 
-- All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract).
-- Validator custody is transitioning to a **permissionless, trustless smart contract model** - no third-party custodian.
+- All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract) (98.8% score).
+- Validator custody is **smart contract-based** - permissionless and trustless, no third-party custodian.
 - The protocol is **non-custodial** - users retain full ownership of their assets at all times.
+- Infrastructure developed with **Nethermind** and the **XDC Core team**.
 
 → [Audits & Security](audits-1/)
 → [Custody & Key Management](custody-and-key-management.md)
@@ -145,4 +155,4 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | PRFI NFTs | [primestaking.xyz/prfi-nfts/overview](https://primestaking.xyz/prfi-nfts/overview) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/) |
 | psXDC Contract | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |
-| Partnerships | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz) |
+| Contact | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz) |
