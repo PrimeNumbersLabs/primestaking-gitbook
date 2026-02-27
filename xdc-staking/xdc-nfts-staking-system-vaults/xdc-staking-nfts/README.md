@@ -56,10 +56,9 @@ Combine two NFTs of the **same rarity** to create one NFT of the **next rarity t
 
 - Both original NFTs are burned.
 - A new, higher-rarity NFT is minted.
-- This makes the collection deflationary over time.
 - **Godly** is the highest rarity achievable through merging.
 
-Merge NFTs to unlock stronger multipliers and maximize your yield.
+The merge system makes the collection **deflationary by design** - every merge permanently reduces the total supply. Over time, remaining NFTs become increasingly scarce and carry higher multipliers, strengthening both reward share and collectible value.
 
 ---
 

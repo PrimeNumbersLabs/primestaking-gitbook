@@ -42,3 +42,14 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 | Maximize yield, 1-year commitment | XDC NFTs Locked (up to 6%) |
 
 Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready - there is no pressure to lock.
+
+---
+
+## Understanding Reward Timing
+
+| Product | How Rewards Accrue | How You Claim | Reward Token |
+| --- | --- | --- | --- |
+| **XDC Liquid Staking** | Continuously, as validators produce blocks | Anytime from the Rewards tab | psXDC |
+| **XDC NFTs** | Calculated monthly based on your NFT's multiplier | Monthly, from the app | XDC |
+
+Liquid staking rewards accrue in real time and can be claimed whenever you want. NFT rewards follow a monthly distribution cycle based on each NFT's total multiplier relative to all staked NFTs.

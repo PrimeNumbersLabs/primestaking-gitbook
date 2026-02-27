@@ -15,11 +15,15 @@ psXDC is the liquid receipt token representing your staked XDC. Holding psXDC me
 
 #### Where can I trade psXDC?
 
-You can trade psXDC on **DEXs** on the XDC Network, typically paired with XDC. Purchasing psXDC directly also grants you rewards, since holding it is effectively holding a staked position.
+You can trade psXDC on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) on the XDC Network, paired with XDC. Purchasing psXDC directly also grants you rewards, since holding it is effectively holding a staked position.
 
 #### What happens when I unstake?
 
 When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**~31 days average**). Once complete, the XDC returns to your wallet.
+
+#### Is there a faster way to exit?
+
+Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the ~31 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
 
 #### Can I transfer my staking position?
 
@@ -30,7 +34,16 @@ Yes.
 
 #### How are rewards distributed?
 
-Rewards are sent to the smart contract and allocated proportionally to psXDC holders and to XDC NFTs with staked psXDC. You claim your share from the Rewards tab in the app.
+Rewards work differently depending on the product:
+
+- **XDC Liquid Staking:** Rewards accrue continuously as validators produce blocks. You hold psXDC and claim your share anytime from the Rewards tab. The reward token is **psXDC**.
+- **XDC NFTs:** Rewards are calculated and distributed **monthly** based on your NFT's multiplier. The reward token is **XDC**. Claim from the app once available.
+
+Both systems are on-chain and proportional - but liquid staking accrues continuously while NFT rewards follow a monthly cycle.
+
+#### Is there any risk of slashing?
+
+No. XDC Network uses a masternode model that **does not implement slashing**. Your staked capital is never at risk from validator behavior. This is a structural advantage over ETH-based liquid staking protocols where slashing risk is real.
 
 ---
 
@@ -49,7 +62,7 @@ Rewards are sent to the smart contract and allocated proportionally to psXDC hol
 
 #### What is the Merge System?
 
-If you have two NFTs of the same rarity, you can **merge** them into a single higher-rarity NFT. Higher rarity means a **better multiplier and more rewards**. Merge NFTs to unlock stronger multipliers and maximize your yield.
+If you have two NFTs of the same rarity, you can **merge** them into a single higher-rarity NFT. Both originals are burned and a new one is minted. Higher rarity means a **better multiplier and more rewards**. Because merging burns NFTs, the collection becomes **more scarce over time** - making remaining NFTs increasingly valuable.
 
 #### How do I sell my XDC NFT?
 
@@ -64,7 +77,7 @@ List or auction your XDC NFT on **[PrimePort.xyz](https://primeport.xyz)**. When
 1. **Stake XDC** through the Liquid Staking contract.
 2. **Receive psXDC** at a 1:1 ratio.
 3. **Earn rewards** continuously at ~4.5% APY.
-4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (~31 days average).
+4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (~31 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
 
 #### Who can participate?
 
@@ -72,7 +85,10 @@ Anyone. There is **no minimum XDC required**. It's accessible to all XDC holders
 
 #### How do I withdraw my staked XDC?
 
-Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (~31 days average).
+You have two options:
+
+- **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (~31 days average).
+- **Instant exit:** Swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth).
 
 #### Can I transfer my Liquid Staking position?
 

@@ -25,15 +25,13 @@ PrimeStaking's liquidity model ensures that psXDC remains a usable, tradeable as
 
 ### Market Liquidity
 
-psXDC is paired with XDC on the **XSWAP DEX**, providing:
-
-- Secondary market liquidity for users who want instant exit (bypassing the ~31 day withdrawal queue)
-- Price discovery around the 1:1 peg
-- Trading fees for liquidity providers
+psXDC is paired with XDC on the **XSWAP DEX**, providing a secondary market for users who want instant exit without waiting for the validator queue.
 
 | DEX | Pair | Link |
 | --- | --- | --- |
 | XSWAP | psXDC / XDC | [Pool](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
+
+Partners should note that DEX liquidity depth determines how large a position can be exited instantly without price impact. The protocol redemption path (burn psXDC → wait ~31 days) is always available regardless of DEX liquidity conditions, and guarantees 1:1 redemption.
 
 ---
 
@@ -46,6 +44,8 @@ psXDC is paired with XDC on the **XSWAP DEX**, providing:
 3. XDC is returned after the XDC Network validator queue processes the request
 4. Average processing time: **~31 days**
 
+The ~31 day timeline is determined by the XDC Network's validator unstaking mechanism and is standard across all XDC staking implementations - not specific to PrimeStaking.
+
 ### Implications for Partners
 
 | Consideration | Detail |
@@ -53,7 +53,8 @@ psXDC is paired with XDC on the **XSWAP DEX**, providing:
 | **Not instant** | Withdrawals are subject to network-level validator unstaking delays |
 | **Predictable** | ~31 day average; transparent queue position |
 | **No partial fills** | Full withdrawal amount is returned once processed |
-| **User communication** | Partners should clearly communicate expected withdrawal timelines |
+| **Instant alternative** | Users can swap psXDC on XSWAP DEX for immediate exit (subject to pool depth) |
+| **User communication** | Partners should clearly communicate both withdrawal paths to users |
 
 ---
 
@@ -64,16 +65,17 @@ psXDC is paired with XDC on the **XSWAP DEX**, providing:
 | **psXDC depegs from XDC** | Low | Medium | DEX liquidity pool, arbitrage incentives, 1:1 protocol redemption |
 | **DEX liquidity dries up** | Low | Low | Protocol redemption always available (with queue delay) |
 | **Mass withdrawal event** | Low | Medium | Validator queue processes requests sequentially; no protocol insolvency risk |
-| **psXDC not accepted as collateral** | N/A | Low | Growing DeFi integrations on XDC Network |
 
 ---
 
 ## Key Metrics for Partners
 
-| Metric | Description | Verifiable |
+All metrics below are verifiable on-chain:
+
+| Metric | Description | Where to Check |
 | --- | --- | --- |
-| **Total psXDC supply** | Total staked XDC in the protocol | On-chain |
-| **DEX liquidity depth** | Available liquidity in psXDC/XDC pool | On-chain (XSWAP) |
+| **Total psXDC supply** | Total staked XDC in the protocol | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |
+| **DEX liquidity depth** | Available liquidity in psXDC/XDC pool | [XSWAP Pool](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
 | **Withdrawal queue length** | Number of pending withdrawal requests | On-chain |
 | **Average processing time** | Historical average for withdrawal completion | On-chain |
-| **Peg ratio** | Current market price of psXDC vs XDC | DEX price feeds |
+| **Peg ratio** | Current market price of psXDC vs XDC | XSWAP price feed |

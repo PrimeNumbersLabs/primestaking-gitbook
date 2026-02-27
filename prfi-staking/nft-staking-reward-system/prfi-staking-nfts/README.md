@@ -1,5 +1,36 @@
 # PRFI NFTs
 
+PRFI NFTs are yield-bearing collectibles on the **Base** network. Stake PRFI tokens inside your NFT to earn a share of the **100,000 PRFI monthly reward pool**, plus royalties and PrimeFi profits.
+
+---
+
+## Staking at a Glance
+
+| | |
+| --- | --- |
+| **Token staked** | PRFI |
+| **Monthly reward pool** | 100,000 PRFI distributed across all staked NFTs |
+| **Additional rewards** | NFT marketplace royalties + 40% of PrimeFi profits |
+| **Reward frequency** | Monthly |
+| **Max level** | 20 |
+| **Merge system** | Combine two same-rarity NFTs into a higher tier |
+| **Marketplace** | [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) |
+
+Higher rarity = higher base multiplier = larger share of the monthly reward pool.
+
+→ [Staking Mechanics](prfi-nfts-staking-mechanics.md)
+→ [Reward System](prfi-nft-staking-reward-system.md)
+
+---
+
+## Deflationary by Design
+
+Every merge **burns two NFTs** and mints one of higher rarity. The collection gets scarcer over time. Of the original 4,111 NFTs, only 2,333 were ever minted - and every merge reduces that number further.
+
+---
+
+## Collection
+
 The PRFI NFT collection consists of 4,111 unique digital assets - 4,096 generative and 15 handcrafted. Each NFT combines artistic value with staking utility.
 
 During the minting period, only 2,333 NFTs were minted (roughly half the supply), making the circulating collection inherently scarce.
