@@ -2,7 +2,9 @@
 
 * [Overview](README.md)
 
-## XDC Staking
+## For Users
+
+### XDC Staking
 
 * [XDC Liquid Staking System](xdc-staking/xdc-nfts-staking-system-vaults/README.md)
   * [XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/README.md)
@@ -23,7 +25,7 @@
   * [DEX Liquidity](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
   * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
 
-## PRFI Staking
+### PRFI Staking
 
 * [PRFI Staking Overview](prfi-staking/README.md)
   * [Staking Reward System](prfi-staking/nft-staking-reward-system/README.md)
@@ -34,6 +36,19 @@
       * [How to Buy a PRFI NFT](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/how-to-buy-a-prfi-nft.md)
       * [How to Buy PRFI](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/how-to-buy-usdprnt.md)
     * [How to Use the Platform](prfi-staking/nft-staking-reward-system/how-to-use-the-staking-platform.md)
+
+## For Partners
+
+* [Institutional & Exchange Solutions](institutional/README.md)
+  * [Architecture Overview](institutional/architecture.md)
+  * [Custody Model](institutional/custody-model.md)
+  * [Integration Models](institutional/integration-models.md)
+  * [Revenue Model](institutional/revenue-model.md)
+  * [Reward Mechanics](institutional/reward-mechanics.md)
+  * [Liquidity Model](institutional/liquidity-model.md)
+  * [Governance](institutional/governance.md)
+  * [Risk & Compliance](institutional/risk-and-compliance.md)
+  * [SLA & Support](institutional/sla-and-support.md)
 
 ## Security & Compliance
 

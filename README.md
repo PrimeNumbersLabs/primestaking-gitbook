@@ -4,7 +4,7 @@ description: Stake smarter. Stay liquid. Earn more.
 
 # Overview
 
-**PrimeStaking** is a non-custodial staking platform on the XDC Network. It lets you earn rewards on XDC and PRFI tokens without giving up control of your assets.
+**PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network. It lets retail users earn rewards on XDC and PRFI tokens without giving up control of their assets — and gives exchanges and institutions a turnkey path to offer XDC staking to their customers.
 
 The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
@@ -17,10 +17,13 @@ The platform is live at [primestaking.xyz](https://primestaking.xyz).
 | **XDC Liquid Staking** | XDC | ~4.5% APY | Stake XDC, receive psXDC (1:1). Stay liquid. |
 | **XDC NFTs** | psXDC | Up to 6% APY | Deposit psXDC into NFTs. Rarity multiplies rewards. |
 | **PRFI NFTs** | PRFI | 100K PRFI/mo pool | Stake PRFI inside NFTs. Rarity determines share. |
+| **Institutional Infrastructure** | XDC | Custom | White-label or co-branded staking for exchanges and partners. |
 
 ---
 
-## XDC Liquid Staking
+## For Users
+
+### XDC Liquid Staking
 
 The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
@@ -32,9 +35,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
 → [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/)
 
----
-
-## XDC NFTs
+### XDC NFTs
 
 A gamified staking layer on top of liquid staking. Deposit psXDC into collectible NFTs to boost your yield.
 
@@ -45,9 +46,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC into collectibl
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/)
 
----
-
-## PRFI NFTs
+### PRFI NFTs
 
 Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the monthly reward pool. PRFI NFTs live on the **Base** network (Ethereum L2) and are tradeable on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft).
 
@@ -57,6 +56,31 @@ Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the mo
 
 → [Learn more about PRFI NFTs](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/)
 → [Buy on OpenSea](https://opensea.io/collection/primenumbers-prfi-onft)
+
+---
+
+## For Partners & Institutions
+
+PrimeStaking is **staking infrastructure for the XDC Network** — built for exchanges, custodians, and institutional partners who want to offer XDC staking without building from scratch.
+
+### Two Integration Models
+
+| Model | Description | Best For |
+| --- | --- | --- |
+| **White Label** | Your brand, our infrastructure. Full SDK/API access. | Exchanges, large custodians |
+| **Powered by Prime** | Co-branded widget. Minimal integration effort. | Wallets, aggregators, regional platforms |
+
+### Why Partners Choose PrimeStaking
+
+- **Audited infrastructure** — QuillAudits (98.8% score)
+- **Non-custodial** — smart contract-based validator custody, no third-party key management
+- **Battle-tested** — live since 2024 with $6M+ TVL
+- **Revenue sharing** — transparent, on-chain fee model
+- **SLA & support** — dedicated partner management for White Label integrations
+
+→ [Institutional & Exchange Solutions](institutional/)
+→ [Architecture Overview](institutional/architecture.md)
+→ [Integration Models](institutional/integration-models.md)
 
 ---
 
@@ -94,4 +118,6 @@ XDC  →  psXDC  →  NFT  →  Boost
 | XDC Liquid Staking | [primestaking.xyz/xdc-liquid-staking/overview](https://primestaking.xyz/xdc-liquid-staking/overview) |
 | XDC NFTs | [primestaking.xyz/xdc-nfts/overview](https://primestaking.xyz/xdc-nfts/overview) |
 | PRFI NFTs | [primestaking.xyz/prfi-nfts/overview](https://primestaking.xyz/prfi-nfts/overview) |
+| Institutional Solutions | [Institutional & Exchange Solutions](institutional/) |
 | psXDC Contract | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |
+| Partnerships | [partnerships@primenumbers.xyz](mailto:partnerships@primenumbers.xyz) |
