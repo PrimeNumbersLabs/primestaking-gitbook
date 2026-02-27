@@ -7,7 +7,7 @@
 
 ---
 
-### Step 1 — Connect Your Wallet
+### Step 1 - Connect Your Wallet
 
 Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**. Approve the connection in your wallet.
 
@@ -15,7 +15,7 @@ Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**.
 
 ---
 
-### Step 2 — Navigate to XDC Liquid Staking
+### Step 2 - Navigate to XDC Liquid Staking
 
 Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake.
 
@@ -23,13 +23,13 @@ Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-s
 
 ---
 
-### Step 3 — Confirm the Transaction
+### Step 3 - Confirm the Transaction
 
 Review the amount and click **Stake**. Confirm the on-chain transaction in your wallet.
 
 ---
 
-### Step 4 — Receive psXDC
+### Step 4 - Receive psXDC
 
 Once confirmed, psXDC tokens are automatically issued to your wallet at a 1:1 ratio with your staked XDC. You can now hold, trade, or use psXDC in DeFi while your staked XDC earns rewards.
 

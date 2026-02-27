@@ -24,11 +24,11 @@ Total Multiplier = Base Multiplier + Added Multiplier
 
 ## NFT Structure
 
-**Base Multiplier** — Determined by rarity:
+**Base Multiplier** - Determined by rarity:
 
 <figure><img src="../../../.gitbook/assets/BaseMultiplierXDC (4).jpg" alt=""><figcaption></figcaption></figure>
 
-**Added Multiplier** — Increases as you level up:
+**Added Multiplier** - Increases as you level up:
 
 <figure><img src="../../../.gitbook/assets/AddedMultiplierXDC (2).jpg" alt=""><figcaption></figcaption></figure>
 

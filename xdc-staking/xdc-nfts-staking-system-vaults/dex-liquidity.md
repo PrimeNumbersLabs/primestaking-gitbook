@@ -45,10 +45,10 @@ Monitor your position and earned fees through the XSWAP interface.
 
 ## Managing Your Position
 
-- **Monitor the ratio** — psXDC:XDC is generally ~1:1 but fluctuates with market activity.
-- **Impermanent loss** — Be aware of IL risk if the ratio diverges significantly. Use available tools to estimate.
-- **Rebalance** — Add or withdraw liquidity periodically to maintain an optimal position.
-- **Claim fees** — Trading fees accrue automatically in your LP position. Withdraw LP tokens to claim.
+- **Monitor the ratio** - psXDC:XDC is generally ~1:1 but fluctuates with market activity.
+- **Impermanent loss** - Be aware of IL risk if the ratio diverges significantly. Use available tools to estimate.
+- **Rebalance** - Add or withdraw liquidity periodically to maintain an optimal position.
+- **Claim fees** - Trading fees accrue automatically in your LP position. Withdraw LP tokens to claim.
 
 ---
 

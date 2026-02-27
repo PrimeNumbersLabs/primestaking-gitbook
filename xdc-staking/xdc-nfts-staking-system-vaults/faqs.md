@@ -4,9 +4,9 @@
 
 #### What is XDC Liquid Staking?
 
-**XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) — a liquid staking derivative that can be freely used or traded in DeFi.
+**XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) - a liquid staking derivative that can be freely used or traded in DeFi.
 
-- **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC — no minimum required. Earns ~4.5% APY.
+- **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC - no minimum required. Earns ~4.5% APY.
 - **XDC NFTs:** Deposit psXDC inside XDC NFTs for boosted rewards up to 6% APY.
 
 #### What is psXDC?
@@ -25,7 +25,7 @@ When you decide to unstake, you **burn the corresponding psXDC**. This submits a
 
 Yes.
 
-- **Liquid Staking:** Send psXDC to another address — whoever holds psXDC is entitled to the associated rewards.
+- **Liquid Staking:** Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards.
 - **XDC NFTs:** If your psXDC is inside an XDC NFT, you can sell or transfer the NFT via [PrimePort.xyz](https://primeport.xyz).
 
 #### How are rewards distributed?
@@ -76,4 +76,4 @@ Submit a withdrawal request from the app. You burn the equivalent amount of psXD
 
 #### Can I transfer my Liquid Staking position?
 
-Yes. Send psXDC to another address — whoever holds psXDC is entitled to the associated rewards. No NFT required.
+Yes. Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards. No NFT required.

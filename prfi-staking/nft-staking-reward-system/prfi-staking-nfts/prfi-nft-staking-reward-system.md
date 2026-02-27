@@ -28,7 +28,7 @@ To be eligible for PrimeFi rewards, you need to lock your NFT on PrimeFi for a s
 
 Rewards are split into two equal portions:
 
-### Part 1 — Based on Total Multiplier (50%)
+### Part 1 - Based on Total Multiplier (50%)
 
 Each NFT's share is proportional to its total multiplier relative to the sum of all multipliers:
 
@@ -40,7 +40,7 @@ Where:
 - `Tx_i` = Total multiplier of NFT *i* (rarity + level)
 - `T_total` = Sum of all NFTs' total multipliers
 
-### Part 2 — Based on Multiplier x Stake (50%)
+### Part 2 - Based on Multiplier x Stake (50%)
 
 Each NFT's share also accounts for how much PRFI is staked:
 
@@ -69,4 +69,4 @@ This dual approach ensures balanced reward distribution:
 - **Part 1** rewards NFT quality (rarity and level).
 - **Part 2** rewards staking commitment (multiplier x stake).
 
-Both factors matter — a high-rarity NFT with a large stake earns the most.
+Both factors matter - a high-rarity NFT with a large stake earns the most.

@@ -1,6 +1,6 @@
 # XDC NFTs
 
-XDC Staking NFTs are gamified staking vaults on the XDC Network. Each NFT holds psXDC and earns rewards based on its rarity and level — offering higher yields than standard liquid staking.
+XDC Staking NFTs are gamified staking vaults on the XDC Network. Each NFT holds psXDC and earns rewards based on its rarity and level - offering higher yields than standard liquid staking.
 
 ---
 
@@ -20,12 +20,12 @@ XDC Staking NFTs are gamified staking vaults on the XDC Network. Each NFT holds 
 
 ## How It Works
 
-1. **Get psXDC** — Stake XDC in the liquid staking contract or buy psXDC on a DEX.
-2. **Get an NFT** — Buy an XDC Staking NFT on [PrimePort](https://primeport.xyz) or mint one.
-3. **Deposit psXDC** — Stake psXDC inside your NFT. This levels up the NFT and activates reward multipliers.
-4. **Earn rewards** — XDC rewards are distributed monthly based on your NFT's total multiplier.
-5. **Upgrade** — Merge two same-rarity NFTs to create a higher-rarity NFT with better multipliers.
-6. **Lock (optional)** — Lock your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
+1. **Get psXDC** - Stake XDC in the liquid staking contract or buy psXDC on a DEX.
+2. **Get an NFT** - Buy an XDC Staking NFT on [PrimePort](https://primeport.xyz) or mint one.
+3. **Deposit psXDC** - Stake psXDC inside your NFT. This levels up the NFT and activates reward multipliers.
+4. **Earn rewards** - XDC rewards are distributed monthly based on your NFT's total multiplier.
+5. **Upgrade** - Merge two same-rarity NFTs to create a higher-rarity NFT with better multipliers.
+6. **Lock (optional)** - Lock your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
 
 ---
 
@@ -65,7 +65,7 @@ Merge NFTs to unlock stronger multipliers and maximize your yield.
 
 ## Handcrafted NFTs
 
-The collection includes 15 exclusive, handcrafted NFTs by the Art Director. Owners receive three additional XDC Staking NFTs. These NFTs have a **base multiplier of 2.0** — the highest in the collection.
+The collection includes 15 exclusive, handcrafted NFTs by the Art Director. Owners receive three additional XDC Staking NFTs. These NFTs have a **base multiplier of 2.0** - the highest in the collection.
 
 ---
 

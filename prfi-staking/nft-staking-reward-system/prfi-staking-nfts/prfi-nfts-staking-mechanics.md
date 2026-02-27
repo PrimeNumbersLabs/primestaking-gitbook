@@ -32,7 +32,7 @@ As you stake more PRFI, your NFT progresses through levels (1–20). Each level 
 | --- | --- |
 | **Base Multiplier** | Set by the NFT's rarity tier (fixed) |
 | **Added Multiplier** | Increases as the NFT levels up (1–20) |
-| **Total Multiplier** | Base + Added — determines your reward share |
+| **Total Multiplier** | Base + Added - determines your reward share |
 
 <figure><img src="../../../.gitbook/assets/PRFINFTS.jpg" alt=""><figcaption></figcaption></figure>
 

@@ -4,7 +4,7 @@ PrimeStaking offers two integration models for exchanges, custodians, and instit
 
 ---
 
-## Model A — White Label
+## Model A - White Label
 
 **Your brand. Our infrastructure.**
 
@@ -38,7 +38,7 @@ The partner operates XDC staking under their own brand, powered by PrimeStaking'
 
 ---
 
-## Model B — Powered by Prime
+## Model B - Powered by Prime
 
 **Co-branded integration. Minimal technical lift.**
 

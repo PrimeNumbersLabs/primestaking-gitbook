@@ -39,7 +39,7 @@ After purchase, the NFT and all its staking data transfer to your wallet.
 
 ## Important Notes
 
-- **psXDC required** — You cannot trade or transfer an NFT without holding 100% of its linked psXDC.
-- **Fees** — PrimePort may charge a small marketplace fee.
-- **Rewards** — After transfer, the new owner is responsible for claiming future rewards.
-- **Pricing** — NFT value depends on rarity, staked psXDC, multiplier level, and market demand.
+- **psXDC required** - You cannot trade or transfer an NFT without holding 100% of its linked psXDC.
+- **Fees** - PrimePort may charge a small marketplace fee.
+- **Rewards** - After transfer, the new owner is responsible for claiming future rewards.
+- **Pricing** - NFT value depends on rarity, staked psXDC, multiplier level, and market demand.

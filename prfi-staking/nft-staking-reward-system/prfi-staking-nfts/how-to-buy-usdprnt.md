@@ -8,22 +8,22 @@ PRFI is the utility token of the Prime Numbers ecosystem. You need PRFI to stake
 
 ---
 
-## Step 1 — Choose an Exchange
+## Step 1 - Choose an Exchange
 
 PRFI is available on both decentralized exchanges (DEXs) and centralized exchanges (CEXs). Check [CoinGecko](https://www.coingecko.com/) or [CoinMarketCap](https://coinmarketcap.com/) to see current listings.
 
-## Step 2 — Fund Your Account
+## Step 2 - Fund Your Account
 
 If using a CEX, create an account (if needed), complete verification, and deposit funds. If using a DEX, ensure your wallet is funded on the correct network.
 
-## Step 3 — Purchase PRFI
+## Step 3 - Purchase PRFI
 
 Search for PRFI on your exchange and select a trading pair (e.g., PRFI/USDT).
 
-- **Limit order** — Set your price and wait for it to fill.
-- **Market order** — Buy instantly at the current price.
+- **Limit order** - Set your price and wait for it to fill.
+- **Market order** - Buy instantly at the current price.
 
-## Step 4 — Transfer to Your Wallet
+## Step 4 - Transfer to Your Wallet
 
 Move your PRFI tokens to your personal wallet for staking or safekeeping.
 

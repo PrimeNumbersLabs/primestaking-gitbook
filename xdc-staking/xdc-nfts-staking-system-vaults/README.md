@@ -12,9 +12,9 @@ Stake XDC  →  Receive psXDC (1:1)  →  Earn ~4.5% APY  →  Withdraw anytime
 
 1. **Deposit XDC** into the liquid staking smart contract.
 2. **Receive psXDC** instantly at a 1:1 ratio.
-3. **Earn rewards** — your staked XDC generates validator rewards continuously.
-4. **Use psXDC** — it's a standard token on the XDC Network. Hold it, trade it, or stake it inside XDC NFTs for boosted yields.
-5. **Withdraw** — burn psXDC to get your XDC back. Withdrawals are processed via the validator queue (~31 days average).
+3. **Earn rewards** - your staked XDC generates validator rewards continuously.
+4. **Use psXDC** - it's a standard token on the XDC Network. Hold it, trade it, or stake it inside XDC NFTs for boosted yields.
+5. **Withdraw** - burn psXDC to get your XDC back. Withdrawals are processed via the validator queue (~31 days average).
 
 ---
 
@@ -42,8 +42,8 @@ Gamified staking. Deposit psXDC into collectible NFTs. Each NFT has a rarity tie
 | --- | --- |
 | Ratio | 1 XDC = 1 psXDC (always) |
 | Network | XDC Network |
-| Transferable | Yes — send, trade, or use in DeFi |
-| Earns rewards | Yes — holding psXDC earns staking rewards |
-| Redeemable | Yes — burn psXDC to withdraw XDC |
+| Transferable | Yes - send, trade, or use in DeFi |
+| Earns rewards | Yes - holding psXDC earns staking rewards |
+| Redeemable | Yes - burn psXDC to withdraw XDC |
 
 psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for ~4.5% APY, or deposit it into XDC NFTs for up to 6% APY.

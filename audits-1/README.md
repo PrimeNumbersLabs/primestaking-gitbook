@@ -8,11 +8,11 @@ All PrimeStaking smart contracts undergo independent external audits before depl
 
 ### Methodology
 
-1. **Reputable external auditor** — We partner with leading firms (e.g., QuillAudits) that review every line of code and validate the economic logic of the contracts.
+1. **Reputable external auditor** - We partner with leading firms (e.g., QuillAudits) that review every line of code and validate the economic logic of the contracts.
 2. **Two-phase process**
    - *Preliminary report:* Identification of findings.
    - *Fix & Verify:* The engineering team resolves issues and the auditor performs final verification.
-3. **Transparent disclosure** — Full reports are published so the community can verify the scope and applied fixes.
+3. **Transparent disclosure** - Full reports are published so the community can verify the scope and applied fixes.
 
 ---
 

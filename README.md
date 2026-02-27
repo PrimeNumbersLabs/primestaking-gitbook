@@ -4,7 +4,7 @@ description: Stake smarter. Stay liquid. Earn more.
 
 # Overview
 
-**PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network. It lets retail users earn rewards on XDC and PRFI tokens without giving up control of their assets — and gives exchanges and institutions a turnkey path to offer XDC staking to their customers.
+**PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network. It lets retail users earn rewards on XDC and PRFI tokens without giving up control of their assets - and gives exchanges and institutions a turnkey path to offer XDC staking to their customers.
 
 The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
@@ -27,11 +27,11 @@ The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
 The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
-1. **Stake XDC** — Deposit any amount into the liquid staking contract.
-2. **Receive psXDC** — You get psXDC at a 1:1 ratio, instantly.
-3. **Earn rewards** — Rewards accrue continuously at ~4.5% APY.
-4. **Stay liquid** — psXDC is a standard XDC Network token. Hold it, transfer it, or use it in DeFi.
-5. **Withdraw anytime** — Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (~31 days average).
+1. **Stake XDC** - Deposit any amount into the liquid staking contract.
+2. **Receive psXDC** - You get psXDC at a 1:1 ratio, instantly.
+3. **Earn rewards** - Rewards accrue continuously at ~4.5% APY.
+4. **Stay liquid** - psXDC is a standard XDC Network token. Hold it, transfer it, or use it in DeFi.
+5. **Withdraw anytime** - Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (~31 days average).
 
 → [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/)
 
@@ -61,7 +61,7 @@ Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the mo
 
 ## For Partners & Institutions
 
-PrimeStaking is **staking infrastructure for the XDC Network** — built for exchanges, custodians, and institutional partners who want to offer XDC staking without building from scratch.
+PrimeStaking is **staking infrastructure for the XDC Network** - built for exchanges, custodians, and institutional partners who want to offer XDC staking without building from scratch.
 
 ### Two Integration Models
 
@@ -72,11 +72,11 @@ PrimeStaking is **staking infrastructure for the XDC Network** — built for exc
 
 ### Why Partners Choose PrimeStaking
 
-- **Audited infrastructure** — QuillAudits (98.8% score)
-- **Non-custodial** — smart contract-based validator custody, no third-party key management
-- **Battle-tested** — live since 2024 with $6M+ TVL
-- **Revenue sharing** — transparent, on-chain fee model
-- **SLA & support** — dedicated partner management for White Label integrations
+- **Audited infrastructure** - QuillAudits (98.8% score)
+- **Non-custodial** - smart contract-based validator custody, no third-party key management
+- **Battle-tested** - live since 2024 with $6M+ TVL
+- **Revenue sharing** - transparent, on-chain fee model
+- **SLA & support** - dedicated partner management for White Label integrations
 
 → [Institutional & Exchange Solutions](institutional/)
 → [Architecture Overview](institutional/architecture.md)
@@ -102,8 +102,8 @@ XDC  →  psXDC  →  NFT  →  Boost
 ## Security
 
 - All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract).
-- Validator custody is transitioning to a **permissionless, trustless smart contract model** — no third-party custodian.
-- The protocol is **non-custodial** — users retain full ownership of their assets at all times.
+- Validator custody is transitioning to a **permissionless, trustless smart contract model** - no third-party custodian.
+- The protocol is **non-custodial** - users retain full ownership of their assets at all times.
 
 → [Audits & Security](audits-1/)
 → [Custody & Key Management](custody-and-key-management.md)

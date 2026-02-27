@@ -52,7 +52,7 @@ User / Partner API
 
 PrimeStaking operates XDC Network masternodes that generate the staking yield:
 
-- **Validator keys** are managed by on-chain smart contracts — no human custody
+- **Validator keys** are managed by on-chain smart contracts - no human custody
 - **Staked XDC** is allocated across validators for redundancy
 - **Performance monitoring** ensures uptime and optimal reward generation
 - **Slashing protection** is built into the operational model
@@ -67,7 +67,7 @@ The protocol is transitioning to a fully **permissionless, trustless** validator
 
 | Layer | Implementation |
 | --- | --- |
-| **Smart contract audits** | QuillAudits — 98.8% score on XDC Staking Contract |
+| **Smart contract audits** | QuillAudits - 98.8% score on XDC Staking Contract |
 | **Permissionless custody** | Validator keys secured by on-chain contracts |
 | **On-chain transparency** | Every staking, reward, and withdrawal event is logged and verifiable |
 | **Upgradeable architecture** | Diamond Standard (EIP-2535) for PRFI contracts; proxy patterns for XDC contracts |

@@ -8,19 +8,19 @@ XDC Staking NFTs are available on the [PrimePort marketplace](https://primeport.
 
 ---
 
-## Step 1 — Set Up Your Wallet
+## Step 1 - Set Up Your Wallet
 
 Ensure your wallet (e.g., MetaMask) is configured for the XDC Network. If not already set up, add XDC Network as a custom network in your wallet settings.
 
-## Step 2 — Fund Your Wallet
+## Step 2 - Fund Your Wallet
 
 Make sure you have enough XDC tokens to cover the NFT price plus gas fees. You can purchase XDC on exchanges like Bitrue or KuCoin.
 
-## Step 3 — Browse the Collection
+## Step 3 - Browse the Collection
 
 Go to [PrimePort.xyz](https://primeport.xyz) and find the **XDC Staking NFTs** collection. Review each NFT's rarity, staking potential, and price.
 
-## Step 4 — Purchase
+## Step 4 - Purchase
 
 Connect your wallet, select the NFT you want, click **Buy**, and confirm the transaction. After confirmation, the NFT appears in your profile.
 

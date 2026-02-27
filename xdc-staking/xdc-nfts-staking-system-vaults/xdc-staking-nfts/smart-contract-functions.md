@@ -16,7 +16,7 @@ Deposits psXDC into an NFT to begin earning rewards.
 
 Removes staked psXDC from the NFT.
 - Partial or full withdrawal is supported.
-- The NFT is not burned — it can be restaked later.
+- The NFT is not burned - it can be restaked later.
 - psXDC is returned to the user's wallet.
 
 ### Transfer

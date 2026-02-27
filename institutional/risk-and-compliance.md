@@ -10,7 +10,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| Contract vulnerability | High | Independent external audits (QuillAudits — 98.8% score), reentrancy guards, formal verification roadmap |
+| Contract vulnerability | High | Independent external audits (QuillAudits - 98.8% score), reentrancy guards, formal verification roadmap |
 | Upgrade error | Medium | Multisig governance + timelock delay on all contract upgrades |
 | Dependency failure | Medium | Minimal external dependencies; core logic is self-contained |
 | Economic attack | Medium | Rate limiting, withdrawal queue design, on-chain monitoring |
@@ -35,7 +35,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 | Risk | Severity | Mitigation |
 | --- | --- | --- |
-| Key compromise | High | On-chain smart contract custody — no human key access |
+| Key compromise | High | On-chain smart contract custody - no human key access |
 | Unauthorized upgrade | High | Multisig + timelock governance |
 | Team dependency | Medium | Open-source contracts; protocol operates autonomously on-chain |
 
@@ -46,9 +46,9 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | Module | Auditor | Date | Score | Status |
 | --- | --- | --- | --- | --- |
 | **XDC Staking Contract** | QuillAudits | Apr 2025 | 98.8% | Published |
-| **Custody Contracts** | In progress | — | — | Under review |
-| **PRFI Staking NFTs** | Scheduled | Q2 2025 | — | Planned |
-| **PrimeFi** | Internal review | Q2 2025 | — | Planned |
+| **Custody Contracts** | In progress | - | - | Under review |
+| **PRFI Staking NFTs** | Scheduled | Q2 2025 | - | Planned |
+| **PrimeFi** | Internal review | Q2 2025 | - | Planned |
 
 All audit reports are published publicly. Target: **>= 95% score** on every audit, with findings of Medium severity or higher resolved within **72 hours**.
 
@@ -60,10 +60,10 @@ All audit reports are published publicly. Target: **>= 95% score** on every audi
 
 ### Protocol Level
 
-- **Non-custodial** — PrimeStaking never takes custody of user funds
-- **Permissionless** — no KYC/AML at the protocol level (open smart contracts)
-- **Transparent** — all operations verifiable on-chain
-- **Jurisdiction-agnostic** — smart contracts operate globally without geographic restriction
+- **Non-custodial** - PrimeStaking never takes custody of user funds
+- **Permissionless** - no KYC/AML at the protocol level (open smart contracts)
+- **Transparent** - all operations verifiable on-chain
+- **Jurisdiction-agnostic** - smart contracts operate globally without geographic restriction
 
 ### Partner Level
 

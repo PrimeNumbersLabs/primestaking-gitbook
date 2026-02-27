@@ -27,9 +27,9 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 
 ## How Rewards Are Calculated
 
-- **Proportional distribution** — Rewards are allocated based on how much psXDC you hold (or have staked inside an NFT) relative to the total supply.
-- **On-chain and transparent** — Every reward event is logged on the blockchain.
-- **Claim anytime** — Rewards accrue continuously. Go to the **Rewards** tab in the app and claim to your wallet whenever you want.
+- **Proportional distribution** - Rewards are allocated based on how much psXDC you hold (or have staked inside an NFT) relative to the total supply.
+- **On-chain and transparent** - Every reward event is logged on the blockchain.
+- **Claim anytime** - Rewards accrue continuously. Go to the **Rewards** tab in the app and claim to your wallet whenever you want.
 
 ---
 
@@ -41,4 +41,4 @@ PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward dis
 | Earn more while engaging with the NFT ecosystem | XDC NFTs Unlocked (~4.75%) |
 | Maximize yield, 1-year commitment | XDC NFTs Locked (up to 6%) |
 
-Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready — there is no pressure to lock.
+Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready - there is no pressure to lock.

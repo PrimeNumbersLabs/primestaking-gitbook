@@ -1,6 +1,6 @@
 # Institutional & Exchange Solutions
 
-PrimeStaking is more than a retail staking app — it is **staking infrastructure for the XDC Network**, designed to serve exchanges, custodians, and institutional partners at scale.
+PrimeStaking is more than a retail staking app - it is **staking infrastructure for the XDC Network**, designed to serve exchanges, custodians, and institutional partners at scale.
 
 ---
 
@@ -8,11 +8,11 @@ PrimeStaking is more than a retail staking app — it is **staking infrastructur
 
 PrimeStaking provides turnkey XDC staking infrastructure that exchanges and institutions can integrate or white-label. Our stack handles:
 
-- **Validator operations** — node management, uptime, slashing protection
-- **Liquid staking contracts** — audited, battle-tested smart contracts for minting psXDC
-- **Reward distribution** — automated, on-chain, proportional reward logic
-- **Withdrawal management** — validator queue processing with transparent timelines
-- **Reporting** — on-chain settlement data and portfolio-level analytics
+- **Validator operations** - node management, uptime, slashing protection
+- **Liquid staking contracts** - audited, battle-tested smart contracts for minting psXDC
+- **Reward distribution** - automated, on-chain, proportional reward logic
+- **Withdrawal management** - validator queue processing with transparent timelines
+- **Reporting** - on-chain settlement data and portfolio-level analytics
 
 ---
 
@@ -22,7 +22,7 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | --- | --- |
 | **Non-custodial** | Users retain full ownership of assets at all times |
 | **Audited** | All contracts audited by QuillAudits (98.8% score) |
-| **Permissionless custody** | Smart contract-based validator key management — no human custody |
+| **Permissionless custody** | Smart contract-based validator key management - no human custody |
 | **Battle-tested** | Live since 2024 with $6M+ TVL across retail and institutional |
 | **Modular** | White-label or co-branded integration models available |
 | **XDC-native** | Purpose-built for the XDC Network ecosystem |
@@ -33,13 +33,13 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 
 PrimeStaking offers two integration paths for exchanges and institutional partners:
 
-### Model A — White Label
+### Model A - White Label
 
 Your brand, our infrastructure. Operate XDC staking under your own brand using PrimeStaking's architecture.
 
 → [White Label Details](integration-models.md#model-a--white-label)
 
-### Model B — Powered by Prime
+### Model B - Powered by Prime
 
 Integrate PrimeStaking with visible co-branding. Lower integration effort, same underlying infrastructure.
 
@@ -53,7 +53,7 @@ Integrate PrimeStaking with visible co-branding. Lower integration effort, same 
 | --- | --- |
 | [Architecture Overview](architecture.md) | System design, contract topology, validator infrastructure |
 | [Custody Model](custody-model.md) | Permissionless smart contract-based key management |
-| [Integration Models](integration-models.md) | White Label vs. Powered by Prime — scope, requirements, fees |
+| [Integration Models](integration-models.md) | White Label vs. Powered by Prime - scope, requirements, fees |
 | [Revenue Model](revenue-model.md) | Fee structure, revenue sharing, settlement |
 | [Reward Mechanics](reward-mechanics.md) | How staking rewards are generated, calculated, and distributed |
 | [Liquidity Model](liquidity-model.md) | psXDC liquidity, DEX pools, redemption mechanics |

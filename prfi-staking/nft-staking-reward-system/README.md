@@ -30,10 +30,10 @@ Rewards are calculated and distributed monthly.
 
 ## Benefits
 
-- **Active financial utility** — NFTs generate income, not just sit in a wallet.
-- **Scalable returns** — Rewards scale with staking input, level, and rarity.
-- **Transparent distribution** — All reward logic is on-chain and auditable.
-- **Secure architecture** — Built on audited, upgradeable smart contracts (Diamond Standard / EIP-2535).
+- **Active financial utility** - NFTs generate income, not just sit in a wallet.
+- **Scalable returns** - Rewards scale with staking input, level, and rarity.
+- **Transparent distribution** - All reward logic is on-chain and auditable.
+- **Secure architecture** - Built on audited, upgradeable smart contracts (Diamond Standard / EIP-2535).
 
 ---
 

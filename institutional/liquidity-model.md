@@ -13,9 +13,9 @@ PrimeStaking's liquidity model ensures that psXDC remains a usable, tradeable as
 | **Name** | psXDC (Prime Staked XDC) |
 | **Mint ratio** | 1 XDC = 1 psXDC (always) |
 | **Network** | XDC Network |
-| **Transferable** | Yes — standard XRC-20 token |
-| **Earns rewards** | Yes — holding psXDC accrues staking rewards |
-| **Redeemable** | Yes — burn psXDC to withdraw XDC |
+| **Transferable** | Yes - standard XRC-20 token |
+| **Earns rewards** | Yes - holding psXDC accrues staking rewards |
+| **Redeemable** | Yes - burn psXDC to withdraw XDC |
 
 ### Minting & Redemption
 

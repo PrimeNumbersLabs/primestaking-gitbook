@@ -1,6 +1,6 @@
 # XDC Staking
 
-PrimeStaking offers multiple ways to earn rewards on your XDC tokens — from simple liquid staking to gamified NFT vaults.
+PrimeStaking offers multiple ways to earn rewards on your XDC tokens - from simple liquid staking to gamified NFT vaults.
 
 All products run on the XDC Network and are governed by audited smart contracts. No KYC, no minimum amounts, no infrastructure to manage.
 

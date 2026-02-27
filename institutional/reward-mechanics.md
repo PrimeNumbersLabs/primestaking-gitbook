@@ -80,11 +80,11 @@ The NFT's share of the monthly reward pool is proportional to its Total Multipli
 
 Rewards are split into two equal portions:
 
-**Part 1 — Based on Total Multiplier (50%)**
+**Part 1 - Based on Total Multiplier (50%)**
 
 Each NFT receives a share proportional to its Total Multiplier relative to the sum of all multipliers.
 
-**Part 2 — Based on Multiplier × Stake (50%)**
+**Part 2 - Based on Multiplier × Stake (50%)**
 
 Each NFT receives a share proportional to (Total Multiplier × Staked PRFI) relative to the sum across all NFTs.
 

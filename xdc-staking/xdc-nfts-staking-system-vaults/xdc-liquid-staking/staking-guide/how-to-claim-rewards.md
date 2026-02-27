@@ -1,6 +1,6 @@
 # How to Claim Rewards
 
-Rewards accrue continuously at ~4.5% APY. You can claim them at any time — there is no lock-up or minimum waiting period.
+Rewards accrue continuously at ~4.5% APY. You can claim them at any time - there is no lock-up or minimum waiting period.
 
 ---
 

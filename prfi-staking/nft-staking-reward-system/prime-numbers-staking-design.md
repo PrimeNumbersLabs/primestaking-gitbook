@@ -19,7 +19,7 @@ All staking logic and NFT management are modularized into facets within a single
 
 ## Omnichain NFT Support (ONFT)
 
-NFTs are **omnichain** — they can be bridged between Base and other supported chains using LayerZero.
+NFTs are **omnichain** - they can be bridged between Base and other supported chains using LayerZero.
 
 - All economic logic lives on the mainnet (single source of truth).
 - Users interact from low-gas chains (e.g., Base).

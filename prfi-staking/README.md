@@ -21,11 +21,11 @@ PRFI Staking allows holders of PRFI tokens to earn rewards by depositing PRFI in
 
 ## How It Works
 
-1. **Get a PRFI NFT** — Purchase one on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) (Base network).
-2. **Stake PRFI** — Deposit PRFI tokens into your NFT. This levels up the NFT and increases its reward multiplier.
-3. **Earn rewards** — Monthly PRFI distributions are allocated based on your NFT's total multiplier (rarity + level).
-4. **Merge** — Combine two same-rarity NFTs into a higher-rarity NFT with stronger multipliers.
-5. **Claim** — Claim your PRFI rewards at the end of each month.
+1. **Get a PRFI NFT** - Purchase one on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) (Base network).
+2. **Stake PRFI** - Deposit PRFI tokens into your NFT. This levels up the NFT and increases its reward multiplier.
+3. **Earn rewards** - Monthly PRFI distributions are allocated based on your NFT's total multiplier (rarity + level).
+4. **Merge** - Combine two same-rarity NFTs into a higher-rarity NFT with stronger multipliers.
+5. **Claim** - Claim your PRFI rewards at the end of each month.
 
 ---
 

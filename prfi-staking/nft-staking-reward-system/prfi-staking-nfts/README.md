@@ -1,6 +1,6 @@
 # PRFI NFTs
 
-The PRFI NFT collection consists of 4,111 unique digital assets — 4,096 generative and 15 handcrafted. Each NFT combines artistic value with staking utility.
+The PRFI NFT collection consists of 4,111 unique digital assets - 4,096 generative and 15 handcrafted. Each NFT combines artistic value with staking utility.
 
 During the minting period, only 2,333 NFTs were minted (roughly half the supply), making the circulating collection inherently scarce.
 
@@ -15,7 +15,7 @@ PRFI NFTs live on **Base** (Ethereum L2). They are omnichain-capable via LayerZe
 | | |
 | --- | --- |
 | **Network** | Base (Chain ID 8453) |
-| **Buy / Sell** | [OpenSea — primenumbers-prfi-onft](https://opensea.io/collection/primenumbers-prfi-onft) |
+| **Buy / Sell** | [OpenSea - primenumbers-prfi-onft](https://opensea.io/collection/primenumbers-prfi-onft) |
 | **Floor price** | Check on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft) |
 
 ---
@@ -48,7 +48,7 @@ Each generative NFT is composed of five art elements:
 - A feminine shape
 - Futuristic background lines with complementary color fades
 
-Prime numbers were generated sequentially at mint time, starting from the 16th up to the 4,111th prime number. Each is unique. The five art elements each have eight variations with different rarity levels, producing 8^5 = 32,768 possible combinations — far more than were ever minted.
+Prime numbers were generated sequentially at mint time, starting from the 16th up to the 4,111th prime number. Each is unique. The five art elements each have eight variations with different rarity levels, producing 8^5 = 32,768 possible combinations - far more than were ever minted.
 
 <figure><img src="../../../.gitbook/assets/GENERATIVEPRFINFTS.jpg" alt=""><figcaption></figcaption></figure>
 

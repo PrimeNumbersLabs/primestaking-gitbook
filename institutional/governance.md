@@ -42,12 +42,12 @@ Contract upgrades and parameter changes are subject to a mandatory timelock:
 
 ## Upgrade Process
 
-1. **Proposal** — Engineering team proposes a contract upgrade or parameter change
-2. **Review** — Internal security review + partner notification (7-day notice for material changes)
-3. **Multisig approval** — Required signers approve the transaction
-4. **Timelock** — Mandatory waiting period before execution
-5. **Execution** — Change is deployed on-chain
-6. **Verification** — Post-deployment validation and monitoring
+1. **Proposal** - Engineering team proposes a contract upgrade or parameter change
+2. **Review** - Internal security review + partner notification (7-day notice for material changes)
+3. **Multisig approval** - Required signers approve the transaction
+4. **Timelock** - Mandatory waiting period before execution
+5. **Execution** - Change is deployed on-chain
+6. **Verification** - Post-deployment validation and monitoring
 
 ---
 
@@ -77,7 +77,7 @@ Contract upgrades and parameter changes are subject to a mandatory timelock:
 
 ## What This Means for Partners
 
-- **No unilateral changes** — protocol modifications require multi-party approval
-- **Advance notice** — partners are informed before material changes take effect
-- **Verifiable on-chain** — all governance actions are transparent and auditable
-- **Predictable operations** — timelock ensures changes are not applied unexpectedly
+- **No unilateral changes** - protocol modifications require multi-party approval
+- **Advance notice** - partners are informed before material changes take effect
+- **Verifiable on-chain** - all governance actions are transparent and auditable
+- **Predictable operations** - timelock ensures changes are not applied unexpectedly
