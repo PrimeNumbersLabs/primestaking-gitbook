@@ -5,7 +5,7 @@ description: Non-custodial XDC staking infrastructure. Zero slashing risk.
 # Overview
 
 {% hint style="info" %}
-The protocol's smart contracts have been audited by QuillAudits and Nethermind Security.
+The protocol's smart contracts have been audited by QuillAudits (98.8%) and Nethermind Security.
 {% endhint %}
 
 ## Overview
@@ -47,7 +47,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 2. **Receive psXDC** - You get psXDC at a 1:1 ratio, instantly.
 3. **Earn rewards** - Rewards accrue continuously at \~4.5% APY.
 4. **Stay liquid** - psXDC is a standard XDC Network token. Hold it, transfer it, or use it in DeFi.
-5. **Withdraw anytime** - Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (\~31 days average).
+5. **Withdraw anytime** - Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (\~31 days average, standard for XDC Network validator queue processing).
 
 → [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/)
 
@@ -111,9 +111,9 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 ### Why Partners Choose PrimeStaking
 
 * **Zero slashing risk** - XDC Network does not implement slashing, unlike ETH-based protocols
-* **Audited infrastructure** - QuillAudits (98.8% score)
+* Audited infrastructure - QuillAudits (98.8%) + Nethermind Security (custody contracts, March 2026)
 * **Non-custodial** - smart contract-based validator custody, no third-party key management
-* **Built with Nethermind** - smart contract engineering by a top-tier blockchain infrastructure team
+* **Nethermind Security** - trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin
 * **Battle-tested** - live since 2024 with $6M+ TVL
 * **Revenue sharing** - transparent, on-chain fee model
 
@@ -140,7 +140,8 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 
 ### Security
 
-* All staking contracts are **audited** by [QuillAudits](https://www.quillaudits.com/leaderboard/prime-number/prime-number-staking-contract) (98.8% score).
+* XDC Staking Contract audited by QuillAudits (98.8% — Published). Custody contracts audit underway by Nethermind Security (March 2026).\
+  Infrastructure built in collaboration with the XDC Core team.
 * Validator custody is **smart contract-based** - permissionless and trustless, no third-party custodian.
 * The protocol is **non-custodial** - users retain full ownership of their assets at all times.
 * Infrastructure developed with **Nethermind** and the **XDC Core team**.
