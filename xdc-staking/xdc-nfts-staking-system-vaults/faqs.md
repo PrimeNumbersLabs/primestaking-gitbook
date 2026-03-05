@@ -6,8 +6,8 @@
 
 **XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) - a liquid staking derivative that can be freely used or traded in DeFi.
 
-- **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC - no minimum required. Earns ~4.5% APY.
-- **XDC NFTs:** Deposit psXDC inside XDC NFTs for boosted rewards up to 6% APY.
+* **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC - no minimum required. Earns \~4.5% APY.
+* **XDC NFTs:** Deposit psXDC inside XDC NFTs for boosted rewards up to 6% APY.
 
 #### What is psXDC?
 
@@ -19,25 +19,25 @@ You can trade psXDC on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4
 
 #### What happens when I unstake?
 
-When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**~31 days average**). Once complete, the XDC returns to your wallet.
+When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**\~31 days average, standard for XDC Network validator queue processing**). Once complete, the XDC returns to your wallet.
 
 #### Is there a faster way to exit?
 
-Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the ~31 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
+Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the \~31 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
 
 #### Can I transfer my staking position?
 
 Yes.
 
-- **Liquid Staking:** Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards.
-- **XDC NFTs:** If your psXDC is inside an XDC NFT, you can sell or transfer the NFT via [PrimePort.xyz](https://primeport.xyz).
+* **Liquid Staking:** Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards.
+* **XDC NFTs:** If your psXDC is inside an XDC NFT, you can sell or transfer the NFT via [PrimePort.xyz](https://primeport.xyz).
 
 #### How are rewards distributed?
 
 Rewards work differently depending on the product:
 
-- **XDC Liquid Staking:** Rewards accrue continuously as validators produce blocks. You hold psXDC and claim your share anytime from the Rewards tab. The reward token is **psXDC**.
-- **XDC NFTs:** Rewards are calculated and distributed **monthly** based on your NFT's multiplier. The reward token is **XDC**. Claim from the app once available.
+* **XDC Liquid Staking:** Rewards accrue continuously as validators produce blocks. You hold psXDC and claim your share anytime from the Rewards tab. Rewards accrue as additional psXDC value claimable from the Rewards tab.
+* **XDC NFTs:** Rewards are calculated and distributed **monthly** based on your NFT's multiplier. The reward token is **XDC**. Claim from the app once available.
 
 Both systems are on-chain and proportional - but liquid staking accrues continuously while NFT rewards follow a monthly cycle.
 
@@ -45,7 +45,7 @@ Both systems are on-chain and proportional - but liquid staking accrues continuo
 
 No. XDC Network uses a masternode model that **does not implement slashing**. Your staked capital is never at risk from validator behavior. This is a structural advantage over ETH-based liquid staking protocols where slashing risk is real.
 
----
+***
 
 ### XDC NFTs
 
@@ -66,9 +66,9 @@ If you have two NFTs of the same rarity, you can **merge** them into a single hi
 
 #### How do I sell my XDC NFT?
 
-List or auction your XDC NFT on **[PrimePort.xyz](https://primeport.xyz)**. When purchased, the buyer gains ownership of all staked psXDC and any reward multipliers or locked status the NFT carries.
+List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When purchased, the buyer gains ownership of all staked psXDC and any reward multipliers or locked status the NFT carries.
 
----
+***
 
 ### XDC Liquid Staking
 
@@ -76,8 +76,8 @@ List or auction your XDC NFT on **[PrimePort.xyz](https://primeport.xyz)**. When
 
 1. **Stake XDC** through the Liquid Staking contract.
 2. **Receive psXDC** at a 1:1 ratio.
-3. **Earn rewards** continuously at ~4.5% APY.
-4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (~31 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
+3. **Earn rewards** continuously at \~4.5% APY.
+4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (\~31 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
 
 #### Who can participate?
 
@@ -87,8 +87,8 @@ Anyone. There is **no minimum XDC required**. It's accessible to all XDC holders
 
 You have two options:
 
-- **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (~31 days average).
-- **Instant exit:** Swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth).
+* **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (\~31 days average).
+* **Instant exit:** Swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth).
 
 #### Can I transfer my Liquid Staking position?
 
