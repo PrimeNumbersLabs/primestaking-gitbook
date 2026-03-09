@@ -23,16 +23,6 @@ PrimeStaking's liquidity model ensures that psXDC remains a usable, tradeable as
 * **Redemption:** Users burn psXDC to initiate a withdrawal; XDC is returned after validator queue processing (\~31 days average)
 * **No slippage on mint/burn:** The ratio is protocol-enforced at 1:1
 
-### Market Liquidity
-
-psXDC is paired with XDC on the **XSWAP DEX**, providing a secondary market for users who want instant exit without waiting for the validator queue.
-
-| DEX   | Pair        | Link                                                                                    |
-| ----- | ----------- | --------------------------------------------------------------------------------------- |
-| XSWAP | psXDC / XDC | [Pool](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
-
-Partners should note that DEX liquidity depth determines how large a position can be exited instantly without price impact. The protocol redemption path (burn psXDC → wait \~31 days) is always available regardless of DEX liquidity conditions, and guarantees 1:1 redemption.
-
 ***
 
 ## Withdrawal Queue
@@ -62,11 +52,10 @@ For context, Ethereum liquid staking protocols (Lido, Rocket Pool) also implemen
 
 ## Liquidity Risk Assessment
 
-| Risk                       | Likelihood | Impact | Mitigation                                                                   |
-| -------------------------- | ---------- | ------ | ---------------------------------------------------------------------------- |
-| **psXDC depegs from XDC**  | Low        | Medium | DEX liquidity pool, arbitrage incentives, 1:1 protocol redemption            |
-| **DEX liquidity dries up** | Low        | Low    | Protocol redemption always available (with queue delay)                      |
-| **Mass withdrawal event**  | Low        | Medium | Validator queue processes requests sequentially; no protocol insolvency risk |
+| Risk                      | Likelihood | Impact | Mitigation                                                                   |
+| ------------------------- | ---------- | ------ | ---------------------------------------------------------------------------- |
+| **psXDC depegs from XDC** | Low        | Medium | DEX liquidity pool, arbitrage incentives, 1:1 protocol redemption            |
+| **Mass withdrawal event** | Low        | Medium | Validator queue processes requests sequentially; no protocol insolvency risk |
 
 ***
 
@@ -74,12 +63,11 @@ For context, Ethereum liquid staking protocols (Lido, Rocket Pool) also implemen
 
 All metrics below are verifiable on-chain:
 
-| Metric                      | Description                                  | Where to Check                                                                                |
-| --------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **Total psXDC supply**      | Total staked XDC in the protocol             | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1)              |
-| **DEX liquidity depth**     | Available liquidity in psXDC/XDC pool        | [XSWAP Pool](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
-| **Withdrawal queue length** | Number of pending withdrawal requests        | On-chain                                                                                      |
-| **Average processing time** | Historical average for withdrawal completion | On-chain                                                                                      |
-| **Peg ratio**               | Current market price of psXDC vs XDC         | XSWAP price feed                                                                              |
+| Metric                      | Description                                  | Where to Check                                                                   |
+| --------------------------- | -------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Total psXDC supply**      | Total staked XDC in the protocol             | [XDCScan](https://xdcscan.com/token/xdc59e51346a6e1d05a0017c0e5f0501dcbba41bca1) |
+| **Withdrawal queue length** | Number of pending withdrawal requests        | On-chain                                                                         |
+| **Average processing time** | Historical average for withdrawal completion | On-chain                                                                         |
+| **Peg ratio**               | Current market price of psXDC vs XDC         | XSWAP price feed                                                                 |
 
 Current pool depth and volume data is available directly on XSWAP. Partners evaluating large position sizes should review pool depth before integration and contact us to discuss liquidity arrangements for institutional volumes.
