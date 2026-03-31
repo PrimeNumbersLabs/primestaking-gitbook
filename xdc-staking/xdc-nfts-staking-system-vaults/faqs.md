@@ -19,11 +19,11 @@ You can trade psXDC on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4
 
 #### What happens when I unstake?
 
-When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**\~31 days average, standard for XDC Network validator queue processing**). Once complete, the XDC returns to your wallet.
+When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**\~35 days average based on real-world block times**). Once complete, the XDC returns to your wallet.
 
 #### Is there a faster way to exit?
 
-Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the \~31 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
+Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the \~35 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
 
 #### Can I transfer my staking position?
 
@@ -77,7 +77,7 @@ List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When
 1. **Stake XDC** through the Liquid Staking contract.
 2. **Receive psXDC** at a 1:1 ratio.
 3. **Earn rewards** continuously at \~4.5% APY.
-4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (\~31 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
+4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (\~35 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
 
 #### Who can participate?
 
@@ -87,7 +87,7 @@ Anyone. There is **no minimum XDC required**. It's accessible to all XDC holders
 
 You have two options:
 
-* **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (\~31 days average).
+* **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (\~35 days average).
 * **Instant exit:** Swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth).
 
 #### Can I transfer my Liquid Staking position?

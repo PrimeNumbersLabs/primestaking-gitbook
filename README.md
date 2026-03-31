@@ -47,7 +47,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 2. **Receive psXDC** - You get psXDC at a 1:1 ratio, instantly.
 3. **Earn rewards** - Rewards accrue continuously at \~4.5% APY.
 4. **Stay liquid** - psXDC is a standard XDC Network token. Hold it, transfer it, or use it in DeFi.
-5. **Withdraw anytime** - Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (\~31 days average, standard for XDC Network validator queue processing).
+5. **Withdraw anytime** - Burn psXDC to get your XDC back. Withdrawal requests are processed via the validator queue (\~35 days average based on real-world block times).
 
 → [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/)
 

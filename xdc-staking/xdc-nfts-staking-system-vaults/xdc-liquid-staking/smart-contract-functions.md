@@ -37,7 +37,7 @@ Deposits XDC tokens into a vault NFT to begin earning rewards.
 Removes the entire staking position from a vault.
 
 - Requires burning both the vault NFT and corresponding psXDC.
-- Withdrawn XDC is returned to the user's wallet after the validator queue processes the request (~31 days average).
+- Withdrawn XDC is returned to the user's wallet after the validator queue processes the request (~35 days average).
 
 ---
 

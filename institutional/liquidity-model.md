@@ -20,7 +20,7 @@ PrimeStaking's liquidity model ensures that psXDC remains a usable, tradeable as
 ### Minting & Redemption
 
 * **Minting:** Users deposit XDC and receive psXDC at a 1:1 ratio, instantly
-* **Redemption:** Users burn psXDC to initiate a withdrawal; XDC is returned after validator queue processing (\~31 days average)
+* **Redemption:** Users burn psXDC to initiate a withdrawal; XDC is returned after validator queue processing (\~35 days average)
 * **No slippage on mint/burn:** The ratio is protocol-enforced at 1:1
 
 ***
@@ -32,18 +32,26 @@ PrimeStaking's liquidity model ensures that psXDC remains a usable, tradeable as
 1. User submits a withdrawal request (burns psXDC)
 2. The protocol initiates validator unstaking
 3. XDC is returned after the XDC Network validator queue processes the request
-4. Average processing time: **\~31 days**
+4. Average processing time: **\~35 days** under normal network conditions
 
-The \~31 day timeline is determined by the XDC Network's validator unstaking mechanism and is standard across all XDC staking implementations - not specific to PrimeStaking.
+The withdrawal delay is determined by the XDC Network's `candidateWithdrawDelay` parameter, which is fixed at **1,296,000 blocks**. At the theoretical 2.00-second block time, this equals 30 days. However, real-world block times consistently exceed the theoretical target:
 
-For context, Ethereum liquid staking protocols (Lido, Rocket Pool) also implement withdrawal queues that can range from days to weeks depending on network conditions. The XDC queue is predictable and fixed by network parameters.
+| Period | Avg block time | Effective withdrawal delay |
+| ------ | -------------- | ------------------------- |
+| Theoretical | 2.00s | 30 days |
+| 12-month average | \~2.33s | \~35 days |
+| 90-day periods (with congestion) | \~2.83s | \~42 days |
+
+Under normal conditions, users should expect **\~35 days**. During network congestion events, the effective delay can extend further. This is standard across all XDC staking implementations - not specific to PrimeStaking.
+
+For context, Ethereum liquid staking protocols (Lido, Rocket Pool) also implement withdrawal queues that can range from days to weeks depending on network conditions.
 
 ### Implications for Partners
 
 | Consideration           | Detail                                                                       |
 | ----------------------- | ---------------------------------------------------------------------------- |
 | **Not instant**         | Withdrawals are subject to network-level validator unstaking delays          |
-| **Predictable**         | \~31 day average; transparent queue position                                 |
+| **Predictable**         | \~35 day average based on real-world block times; transparent queue position  |
 | **No partial fills**    | Full withdrawal amount is returned once processed                            |
 | **Instant alternative** | Users can swap psXDC on XSWAP DEX for immediate exit (subject to pool depth) |
 | **User communication**  | Partners should clearly communicate both withdrawal paths to users           |

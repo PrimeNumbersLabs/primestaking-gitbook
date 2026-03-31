@@ -92,7 +92,7 @@ PrimeStaking operates XDC Network masternodes that generate the staking yield:
 
 1. User burns psXDC → Withdrawal Queue contract
 2. Contract initiates validator unstaking
-3. XDC is returned after validator queue processing (~31 days average)
+3. XDC is returned after validator queue processing (~35 days average)
 
 ---
 

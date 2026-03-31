@@ -14,7 +14,7 @@ Stake XDC  →  Receive psXDC (1:1)  →  Earn ~4.5% APY  →  Withdraw anytime
 2. **Receive psXDC** instantly at a 1:1 ratio.
 3. **Earn rewards** - your staked XDC generates validator rewards continuously.
 4. **Use psXDC** - it's a standard token on the XDC Network. Hold it, trade it, or stake it inside XDC NFTs for boosted yields.
-5. **Withdraw** - burn psXDC to get your XDC back. Withdrawals are processed via the validator queue (~31 days average).
+5. **Withdraw** - burn psXDC to get your XDC back. Withdrawals are processed via the validator queue (~35 days average).
 
 ---
 

@@ -13,7 +13,7 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC - without 
 | **Token received** | psXDC (1:1 with XDC) |
 | **Reward currency** | psXDC |
 | **Reward frequency** | Continuous accrual; claim anytime |
-| **Withdrawal time** | ~31 days average (validator queue) or instant via [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
+| **Withdrawal time** | ~35 days average (validator queue) or instant via [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) |
 | **Smart contract** | Audited by QuillAudits |
 
 ---
@@ -47,7 +47,7 @@ psXDC is a standard token on the XDC Network. While your XDC earns rewards in th
 
 To convert back to XDC, you have two options:
 
-- **Standard withdrawal:** Submit a withdrawal request. You burn the corresponding psXDC, and your original XDC is returned after processing through the validator queue (~31 days average).
+- **Standard withdrawal:** Submit a withdrawal request. You burn the corresponding psXDC, and your original XDC is returned after processing through the validator queue (~35 days average).
 - **Instant exit via DEX:** Swap psXDC for XDC on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth and market rate).
 
 ---

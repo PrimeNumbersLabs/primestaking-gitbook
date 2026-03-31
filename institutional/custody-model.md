@@ -80,7 +80,7 @@ A dedicated audit of the custody contracts is in progress. Full results will be 
 | **Validator downtime** | Multi-validator delegation, performance monitoring |
 | **Unauthorized upgrades** | Multisig + timelock governance |
 | **Key compromise** | On-chain key management - no human access to private keys |
-| **Delayed withdrawals** | Transparent queue processing with predictable timelines (~31 days) |
+| **Delayed withdrawals** | Transparent queue processing with predictable timelines (~35 days) |
 
 ---
 

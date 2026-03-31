@@ -15,7 +15,9 @@ To convert psXDC back to XDC, you submit a withdrawal request. The request is pr
 
 ### Processing Time
 
-Withdrawal requests are processed via the validator queue. The average processing time is **~31 days**.
+Withdrawal requests are processed via the validator queue. The average processing time is **~35 days** under normal network conditions.
+
+This delay comes from the XDC Network's fixed `candidateWithdrawDelay` of 1,296,000 blocks. While the theoretical block time is 2.00s (which would equal 30 days), real-world block times average ~2.33s, resulting in ~35 days. During periods of network congestion, it can take longer.
 
 Once your withdrawal is ready, you can execute it from the **My Positions** page to receive XDC back in your wallet.
 

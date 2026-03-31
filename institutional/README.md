@@ -38,7 +38,7 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | ----------------------- | --------------------------------------------------------------------------------------------- |
 | **Consensus**           | XDPoS (Delegated Proof of Stake) with masternode validators                                   |
 | **No slashing**         | Validators cannot be slashed - stakers face zero risk of capital loss from validator behavior |
-| **Fast finality**       | 2-second block time with near-instant transaction confirmation                                |
+| **Fast finality**       | 2-second target block time (real-world average \~2.33s) with near-instant transaction confirmation |
 | **Low fees**            | Negligible gas costs compared to Ethereum and most L2s                                        |
 | **Enterprise adoption** | XDC Network is used for trade finance, tokenized assets, and institutional applications       |
 | **Growing ecosystem**   | Active DeFi protocols, NFT marketplaces, and developer tooling                                |
