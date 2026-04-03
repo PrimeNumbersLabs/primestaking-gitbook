@@ -1,5 +1,9 @@
 # V2 vs V3 — What Changed and Why
 
+{% hint style="warning" %}
+V3 is currently completing its final security audit and will be deployed soon.
+{% endhint %}
+
 psXDC is migrating from its current custodial contract (V2) to a fully non-custodial, ERC-4626 vault architecture (V3). This page explains what changed, why, and what it means for users and partners.
 
 ---

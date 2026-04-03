@@ -1,6 +1,10 @@
 # psXDC V3 — Non-Custodial Vault Architecture
 
-psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture that underpins all new psXDC staking.
+{% hint style="warning" %}
+V3 is currently undergoing its final security audit and will be deployed soon. The architecture described here is final and reflects the audited codebase.
+{% endhint %}
+
+psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture that will underpin all psXDC staking going forward.
 
 ---
 

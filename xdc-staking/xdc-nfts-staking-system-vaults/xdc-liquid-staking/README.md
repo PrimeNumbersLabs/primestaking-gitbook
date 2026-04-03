@@ -1,7 +1,7 @@
 # XDC Liquid Staking
 
 {% hint style="info" %}
-**psXDC V3 is live.** The contract has been upgraded to a fully non-custodial, ERC-4626 vault architecture with self-service withdrawals, direct masternode integration, and time-locked governance. → [V3 Architecture](v3-architecture.md) | [V2 vs V3](v2-vs-v3.md)
+**psXDC V3 is coming soon.** We are upgrading to a fully non-custodial, ERC-4626 vault architecture with self-service withdrawals, direct masternode integration, and time-locked governance. The audit is in its final stages. → [V3 Architecture](v3-architecture.md) | [V2 vs V3](v2-vs-v3.md)
 {% endhint %}
 
 XDC Liquid Staking lets you earn staking rewards on any amount of XDC - without running a node, meeting a minimum threshold, or locking your funds permanently.
