@@ -5,6 +5,8 @@
 ## Products
 
 * [XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/README.md)
+  * [V3 Architecture](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md)
+  * [V2 vs V3 — What Changed](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v2-vs-v3.md)
   * [How Rewards Work](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/xdc-staking-rewards.md)
   * [Staking Guide](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/README.md)
     * [How to Stake XDC](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/how-to-stake-usdxdc.md)
