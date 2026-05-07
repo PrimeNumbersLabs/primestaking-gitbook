@@ -51,30 +51,19 @@ For partners evaluating which networks to support, XDC offers a unique combinati
 
 ### Why Institutions Choose PrimeStaking
 
-Operating an independent XDC validator requires significant operational coordination despite relatively modest infrastructure costs.
+Running an independent XDC validator requires:
 
-Institutions must manage:
-
-* 10,000,000 XDC validator collateral
+* 10,000,000 XDC locked per validator
 * 24/7 infrastructure monitoring
-* Validator uptime and redundancy
+* Validator maintenance and upgrades
 * Security and key management
-* Network upgrades and maintenance
-* Reward accounting and reconciliation
 * Internal operational risk controls
 
-While direct server expenses are comparatively low, the true cost of validator operations comes from engineering overhead, governance participation, security management, and uninterrupted operational reliability.
+PrimeStaking abstracts this complexity into a managed institutional staking layer, allowing partners to access XDC staking rewards without operating validator infrastructure internally.
 
-PrimeStaking abstracts this complexity into a managed institutional-grade staking layer, allowing partners to maintain exposure to XDC staking rewards without building and maintaining validator infrastructure internally.
+This enables faster deployment, lower operational overhead, and scalable staking infrastructure for exchanges and institutional partners.
 
-This enables:
-
-* Faster deployment
-* Reduced operational burden
-* Lower infrastructure risk
-* Improved liquidity access
-* Simplified institutional integration
-* Predictable staking operations at scale
+***
 
 ## Integration Models
 
