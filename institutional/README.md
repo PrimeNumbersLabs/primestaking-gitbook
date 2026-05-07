@@ -20,32 +20,61 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 
 ## Why PrimeStaking
 
-| Advantage                   | Detail                                                                                                                                    |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Non-custodial**           | Users retain full ownership of assets at all times                                                                                        |
-| **Audited by QuillAudits**  | XDC Staking Contract, 98.8% — [Published](https://docs.primestaking.xyz/security/audits-1)                                                |
-| **Audited by Nethermind**   | Security audit of custody contracts conducted by Nethermind Security, trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin |
-| **Zero slashing risk**      | XDC Network's masternode model does not implement slashing - unlike ETH liquid staking                                                    |
-| **Permissionless custody**  | Smart contract-based validator key management - no human custody                                                                          |
-| **Battle-tested**           | Live since 2024, grown to $6M+ TVL                                                                                                        |
-| **XDC-native**              | Purpose-built for the XDC Network ecosystem                                                                                               |
+| Advantage                  | Detail                                                                                                                                    |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Non-custodial**          | Users retain full ownership of assets at all times                                                                                        |
+| **Audited by QuillAudits** | XDC Staking Contract, 98.8% — [Published](https://docs.primestaking.xyz/security/audits-1)                                                |
+| **Audited by Nethermind**  | Security audit of custody contracts conducted by Nethermind Security, trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin |
+| **Zero slashing risk**     | XDC Network's masternode model does not implement slashing - unlike ETH liquid staking                                                    |
+| **Permissionless custody** | Smart contract-based validator key management - no human custody                                                                          |
+| **Battle-tested**          | Live since 2024, grown to $6M+ TVL                                                                                                        |
+| **XDC-native**             | Purpose-built for the XDC Network ecosystem                                                                                               |
 
 ***
 
 ## Why XDC Network
 
-| Property                | Detail                                                                                        |
-| ----------------------- | --------------------------------------------------------------------------------------------- |
-| **Consensus**           | XDPoS (Delegated Proof of Stake) with masternode validators                                   |
-| **No slashing**         | Validators cannot be slashed - stakers face zero risk of capital loss from validator behavior |
+| Property                | Detail                                                                                             |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
+| **Consensus**           | XDPoS (Delegated Proof of Stake) with masternode validators                                        |
+| **No slashing**         | Validators cannot be slashed - stakers face zero risk of capital loss from validator behavior      |
 | **Fast finality**       | 2-second target block time (real-world average \~2.33s) with near-instant transaction confirmation |
-| **Low fees**            | Negligible gas costs compared to Ethereum and most L2s                                        |
-| **Enterprise adoption** | XDC Network is used for trade finance, tokenized assets, and institutional applications       |
-| **Growing ecosystem**   | Active DeFi protocols, NFT marketplaces, and developer tooling                                |
+| **Low fees**            | Negligible gas costs compared to Ethereum and most L2s                                             |
+| **Enterprise adoption** | XDC Network is used for trade finance, tokenized assets, and institutional applications            |
+| **Growing ecosystem**   | Active DeFi protocols, NFT marketplaces, and developer tooling                                     |
 
 For partners evaluating which networks to support, XDC offers a unique combination of institutional-grade infrastructure, zero slashing risk, and growing adoption.
 
 ***
+
+## Why Institutions Prefer Delegated Infrastructure
+
+### Why Institutions Choose PrimeStaking
+
+Operating an independent XDC validator requires significant operational coordination despite relatively modest infrastructure costs.
+
+Institutions must manage:
+
+* 10,000,000 XDC validator collateral
+* 24/7 infrastructure monitoring
+* Validator uptime and redundancy
+* Security and key management
+* Network upgrades and maintenance
+* Reward accounting and reconciliation
+* Internal operational risk controls
+
+While direct server expenses are comparatively low, the true cost of validator operations comes from engineering overhead, governance participation, security management, and uninterrupted operational reliability.
+
+PrimeStaking abstracts this complexity into a managed institutional-grade staking layer, allowing partners to maintain exposure to XDC staking rewards without building and maintaining validator infrastructure internally.
+
+This enables:
+
+* Faster deployment
+* Reduced operational burden
+* Lower infrastructure risk
+* Improved liquidity access
+* Simplified institutional integration
+* Predictable staking operations at scale
 
 ## Integration Models
 
