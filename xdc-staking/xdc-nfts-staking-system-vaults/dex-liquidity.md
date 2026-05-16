@@ -6,6 +6,10 @@ hidden: true
 
 psXDC is paired with XDC on the **XSWAP DEX**, enabling trading and liquidity provision for participants in the XDC Liquid Staking ecosystem.
 
+{% hint style="info" %}
+The psXDC v3 share token (address [`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)) is **NAV-based**, not a fixed 1:1 receipt. The market price on a DEX is set by AMM dynamics and may sit at, above, or below the vault's current exchange rate (`totalAssets / totalShares`). Long-term it tracks NAV; short-term it reflects supply, demand, and pool depth.
+{% endhint %}
+
 ---
 
 ## Why Provide Liquidity?
@@ -14,8 +18,8 @@ psXDC is paired with XDC on the **XSWAP DEX**, enabling trading and liquidity pr
 | --- | --- |
 | **Enable trading** | A liquid psXDC/XDC pool allows seamless swaps between the two tokens. |
 | **Earn fees** | Liquidity providers earn trading fees on every swap in the pool. |
-| **Support the ecosystem** | Deep liquidity strengthens psXDC utility and adoption. |
-| **Stable ratio** | psXDC and XDC maintain an approximate 1:1 ratio. |
+| **Support the ecosystem** | Deep liquidity strengthens psXDC utility and adoption, including as DeFi collateral. |
+| **Earn appreciating exposure** | Half of your LP position is psXDC, whose NAV grows over time as the V3 vault accrues validator rewards. |
 
 ---
 
@@ -27,11 +31,11 @@ Go to the [XSWAP platform](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c62
 
 ### 2. Select the psXDC/XDC Pair
 
-Find the liquidity pools section and search for the psXDC/XDC trading pair.
+Find the liquidity pools section and search for the psXDC/XDC trading pair. Verify the pool's `psXDC` token address matches the V3 vault ([`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)) before depositing — older pools may still hold the legacy V2 psXDC token (`0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6`).
 
 ### 3. Prepare Tokens
 
-Ensure you have an approximately equal value of psXDC and XDC in your wallet (the ratio is ~1:1).
+Ensure you have an approximately equal value of psXDC v3 and XDC in your wallet. Note that the **value** of psXDC v3 ≠ 1 XDC — it equals the current vault exchange rate. The XSWAP UI accounts for this when computing how much of each token to deposit.
 
 ### 4. Add Liquidity
 
@@ -45,10 +49,10 @@ Monitor your position and earned fees through the XSWAP interface.
 
 ## Managing Your Position
 
-- **Monitor the ratio** - psXDC:XDC is generally ~1:1 but fluctuates with market activity.
-- **Impermanent loss** - Be aware of IL risk if the ratio diverges significantly. Use available tools to estimate.
-- **Rebalance** - Add or withdraw liquidity periodically to maintain an optimal position.
-- **Claim fees** - Trading fees accrue automatically in your LP position. Withdraw LP tokens to claim.
+- **Monitor NAV vs market price** — psXDC's protocol NAV grows over time. The DEX pool may not always track NAV in real-time; sustained gaps create arbitrage opportunities.
+- **Impermanent loss** — be aware of IL risk if the NAV and pool ratio diverge significantly.
+- **Rebalance** — add or withdraw liquidity periodically to maintain an optimal position.
+- **Trading fees** — accrue automatically in your LP position. Withdraw LP tokens to claim.
 
 ---
 
@@ -58,6 +62,17 @@ Monitor your position and earned fees through the XSWAP interface.
 2. Select your psXDC/XDC position.
 3. Choose the amount to withdraw.
 4. Confirm the transaction to receive your share of psXDC and XDC plus accrued fees.
+
+---
+
+## Protocol vs DEX exit — when to use which
+
+| Path | When to use |
+| --- | --- |
+| **DEX swap (psXDC → XDC)** | You need XDC immediately and are willing to accept the current market price (which may include a small discount or premium to NAV). |
+| **Protocol redeem (`redeemWithQueue`)** | You want the exact NAV value; settles instantly when the vault buffer covers it, otherwise via the on-chain FIFO queue. |
+
+See [Withdrawals: Instant vs Queued](xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md) for how the protocol path chooses between instant and queued settlement.
 
 ---
 

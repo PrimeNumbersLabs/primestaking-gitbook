@@ -4,42 +4,49 @@
 
 #### What is XDC Liquid Staking?
 
-**XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) - a liquid staking derivative that can be freely used or traded in DeFi.
+**XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) — an ERC-4626 vault share that can be freely used or traded in DeFi.
 
-* **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC - no minimum required. Earns \~4.5% APY.
-* **XDC NFTs:** Deposit psXDC inside XDC NFTs for boosted rewards up to 6% APY.
+* **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC vault shares — no minimum required. Earns ~4.5% APY through share-price appreciation.
+* **XDC NFTs:** Deposit psXDC shares inside XDC NFTs to layer a boost slice on top of the base NAV — target band ~4.75% (unlocked) → ~6% (locked).
 
 #### What is psXDC?
 
-psXDC is the liquid receipt token representing your staked XDC. Holding psXDC means you **continue to earn staking rewards even as you use or trade it**.
+psXDC is an **ERC-4626 vault share** representing your position in the V3 staking vault. You don't claim rewards separately — the share grows in value over time (`totalAssets / totalShares` increases as validator rewards accrue), so each psXDC is worth more XDC the longer you hold it.
 
 #### Where can I trade psXDC?
 
-You can trade psXDC on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) on the XDC Network, paired with XDC. Purchasing psXDC directly also grants you rewards, since holding it is effectively holding a staked position.
+You can trade psXDC on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) on the XDC Network, paired with XDC. Purchasing psXDC directly also benefits you, since holding it means owning the appreciating share.
 
 #### What happens when I unstake?
 
-When you decide to unstake, you **burn the corresponding psXDC**. This submits a withdrawal request that is processed via the validator queue (**\~35 days average based on real-world block times**). Once complete, the XDC returns to your wallet.
+When you decide to unstake, you burn the corresponding psXDC shares. The app calls `redeemWithQueue` which:
+
+- **Settles instantly** when the vault's liquid buffer (default 5% of total assets) covers your request — XDC returns to your wallet in the same transaction.
+- **Enters a permissionless FIFO queue** otherwise — your shares are escrowed and a request is created. As soon as the buffer is replenished (new deposits, reward inflows, masternode resignations) the queue settles your request. For very large redemptions the upper bound is the network's `candidateWithdrawDelay` — approximately **~35 days** under typical block times.
+
+You can cancel queued requests any time, and if a payout ever fails the XDC lands in `pendingQueuedAssets` so you can collect it via `claimQueuedAssets`.
+
+→ [Withdrawals: Instant vs Queued](xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md)
 
 #### Is there a faster way to exit?
 
-Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the \~35 day validator queue entirely. The swap is subject to available pool liquidity and the current market rate, which stays close to 1:1.
+Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the protocol redemption queue entirely. The swap is subject to pool depth and the current market price (which tracks NAV in the long run but may differ short-term).
 
 #### Can I transfer my staking position?
 
 Yes.
 
-* **Liquid Staking:** Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards.
-* **XDC NFTs:** If your psXDC is inside an XDC NFT, you can sell or transfer the NFT via [PrimePort.xyz](https://primeport.xyz).
+* **Liquid Staking:** Send psXDC to another address — the recipient inherits the appreciating share. No further action needed.
+* **XDC NFTs:** If your psXDC is staked inside an XDC NFT, you can sell or transfer the NFT via [PrimePort.xyz](https://primeport.xyz). The new owner inherits the staked shares, pending boost, and any lock status.
 
 #### How are rewards distributed?
 
-Rewards work differently depending on the product:
+| Product | Base reward | How you receive it |
+| --- | --- | --- |
+| **XDC Liquid Staking** | ~4.5% via psXDC share-price growth | **Automatic** — no claim button. Rewards are realized when you redeem or transfer the share. |
+| **XDC NFTs** | Base ~4.5% (NAV) + boost slice (up to ~1.5% via Synthetix accumulator) | **Base is automatic** (same as liquid). **Boost is claimed** from the NFT detail page in the app, paid in XDC. |
 
-* **XDC Liquid Staking:** Rewards accrue continuously as validators produce blocks. You hold psXDC and claim your share anytime from the Rewards tab. Rewards accrue as additional psXDC value claimable from the Rewards tab.
-* **XDC NFTs:** Rewards are calculated and distributed **monthly** based on your NFT's multiplier. The reward token is **XDC**. Claim from the app once available.
-
-Both systems are on-chain and proportional - but liquid staking accrues continuously while NFT rewards follow a monthly cycle.
+→ [How Rewards Work](xdc-liquid-staking/xdc-staking-rewards.md) → [Reward Model: Base NAV + Boost](xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 
 #### Is there any risk of slashing?
 
@@ -51,22 +58,30 @@ No. XDC Network uses a masternode model that **does not implement slashing**. Yo
 
 #### What are XDC Staking NFTs?
 
-**XDC Staking NFTs** offer a gamified approach to staking. You deposit psXDC into an NFT, which has a rarity and level that **determines your staking multiplier and boosts rewards**.
+**XDC Staking NFTs** offer a gamified approach to staking. You deposit psXDC shares into an NFT, and the NFT's rarity, level, and lock status determine its weight in the boost accumulator. Higher weight = larger slice of every boost push.
 
 #### How do XDC NFTs work?
 
-1. **Deposit psXDC:** Acquire psXDC (by staking XDC or buying on a DEX) and deposit it into your NFT.
-2. **Earn rewards:** The NFT's base rarity and upgrade level (multiplier) determine how much you earn.
-3. **Merge:** Combine two NFTs of the same rarity to create a higher-rarity NFT with better multipliers.
-4. **Lock (optional):** Lock your NFT for 1 year for an additional 1.25% APY bonus (up to 6% total).
+1. **Deposit psXDC shares:** acquire psXDC (by staking XDC or buying on a DEX) and deposit it into your NFT.
+2. **Earn base NAV:** the underlying psXDC shares keep appreciating as the vault accrues validator rewards — same ~4.5% you'd get without the NFT.
+3. **Earn boost:** each `notifyBoost` push from the protocol's harvester credits the Synthetix accumulator; your NFT's pending boost grows proportionally to its weight.
+4. **Claim boost:** from the NFT detail page, in XDC.
+5. **Merge:** combine two NFTs of the same rarity to create a higher-rarity NFT with a bigger weight.
+6. **Lock (optional):** locking adds `lockBonus` to the weight (target range up to ~6% APY combined), but disables withdraw / merge / `burnAndRedeem` until expiry.
 
 #### What is the Merge System?
 
-If you have two NFTs of the same rarity, you can **merge** them into a single higher-rarity NFT. Both originals are burned and a new one is minted. Higher rarity means a **better multiplier and more rewards**. Because merging burns NFTs, the collection becomes **more scarce over time** - making remaining NFTs increasingly valuable.
+If you have two NFTs of the same rarity, you can **merge** them into one NFT of the next rarity tier. Both originals are burned and a new one is minted. Higher rarity means a bigger `rarityMultiplier` and a bigger slice of every boost push. Because merging burns NFTs, the collection becomes **more scarce over time** — making remaining NFTs increasingly valuable.
 
 #### How do I sell my XDC NFT?
 
-List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When purchased, the buyer gains ownership of all staked psXDC and any reward multipliers or locked status the NFT carries.
+List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When purchased, the buyer gains the NFT itself plus the full staking position attached to it — staked psXDC shares, pending boost, weight, and any lock status all travel with the NFT.
+
+#### I still hold a legacy XDC NFT — what should I do?
+
+You can keep it (the legacy contracts remain operational) or migrate it to V3 in a single transaction via [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate). Migration preserves your **tokenId**, **rarity**, and any active **lock expiry**, and immediately starts earning under the V3 reward model.
+
+→ [Migrate XDC NFTs to V3](xdc-staking-nfts/migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](xdc-staking-nfts/locked-nft-migration.md)
 
 ***
 
@@ -74,10 +89,10 @@ List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When
 
 #### How does Liquid Staking work?
 
-1. **Stake XDC** through the Liquid Staking contract.
-2. **Receive psXDC** at a 1:1 ratio.
-3. **Earn rewards** continuously at \~4.5% APY.
-4. **Withdraw** by burning psXDC. Requests are processed via the validator queue (\~35 days average), or swap instantly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a).
+1. **Stake XDC** through the V3 vault (`stake()` payable, or `depositNative(assets, receiver)`).
+2. **Receive psXDC shares** at the current exchange rate.
+3. **Watch the share price grow** — rewards are embedded in the share. No claim needed.
+4. **Withdraw** by calling `redeemWithQueue`: instant when the buffer covers it, queued FIFO otherwise. Or swap on XSWAP for an immediate market exit.
 
 #### Who can participate?
 
@@ -87,9 +102,13 @@ Anyone. There is **no minimum XDC required**. It's accessible to all XDC holders
 
 You have two options:
 
-* **Standard withdrawal:** Submit a withdrawal request from the app. You burn the equivalent amount of psXDC, and your original XDC is released back to your wallet after processing through the validator queue (\~35 days average).
-* **Instant exit:** Swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to available pool depth).
+* **Protocol redemption** (`redeemWithQueue`): burns the equivalent psXDC shares. **Instant** when the vault's liquid buffer permits, otherwise enters the on-chain **FIFO queue** with self-claim via `claimQueuedAssets`. You can cancel queued requests at any time before settlement.
+* **Instant DEX exit**: swap psXDC for XDC on [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity at market price.
 
 #### Can I transfer my Liquid Staking position?
 
-Yes. Send psXDC to another address - whoever holds psXDC is entitled to the associated rewards. No NFT required.
+Yes. Send psXDC to another address — whoever holds the share owns the appreciating position. No NFT required.
+
+#### I still hold V2 psXDC — how do I get V3?
+
+Use the [V2 → V3 migration bridge](xdc-liquid-staking/staking-guide/migration.md). Approve [`PrimeStakedXDC_V3MigrationBridge`](contract-addresses.md), call `migrate(amount, minSharesOut)`, and your V2 tokens are burned and V3 shares minted in the same transaction with slippage protection.
