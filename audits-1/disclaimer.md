@@ -18,11 +18,11 @@ Interacting with smart contracts involves risks including bugs, design flaws, up
 
 #### 3. Network & Validator Risks
 
-Rewards and redemptions depend on third-party networks (e.g., XDC Network). Network halts, forks, validator downtime, or congestion can reduce yields, delay withdrawal processing (~35 days average), or impair liquidity.
+Rewards and redemptions depend on third-party networks (e.g., XDC Network). Network halts, forks, validator downtime, or congestion can reduce yields, delay queue-based withdrawal processing (subject to the network's `candidateWithdrawDelay` — approximately 35 days under typical block times, longer under congestion), or impair liquidity.
 
 #### 4. Derivative & Peg Risks
 
-psXDC may trade below, at, or above its intended reference value and may not be redeemable immediately. A 1:1 mint ratio does not guarantee a 1:1 market value.
+psXDC v3 is an ERC-4626 vault share whose value tracks a vault exchange rate (`totalAssets / totalShares`), not a fixed 1:1 ratio with XDC. The share's market price on a DEX may trade below, at, or above its current NAV and may not be redeemable immediately when the protocol's liquid buffer is insufficient.
 
 #### 5. Smart Contract Custody
 

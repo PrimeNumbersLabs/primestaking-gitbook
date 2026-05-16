@@ -38,6 +38,7 @@ An independent security audit of the custody contracts is underway as part of ou
 
 ## Impact on Users
 
-* **No change** to reward rates, withdrawal times, or fee structure.
 * Users retain **full ownership** of their assets at all times.
 * Smart contract-based custody eliminates reliance on any centralized custodian, strengthening the protocol's decentralization.
+* In V3, **withdrawal UX has improved**: redemptions settle instantly when the vault's liquid buffer permits, and otherwise enter a permissionless FIFO queue users can [self-claim](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md) (`claimQueuedAssets`). The upper bound for queue settlement is the XDC Network's `candidateWithdrawDelay` — approximately **35 days** under typical block times.
+* The psXDC v3 vault is **non-upgradeable**, so the contract that holds your XDC cannot be modified by anyone. Only the NFT staking vault is upgradeable, and only through multisig + delayed governance.

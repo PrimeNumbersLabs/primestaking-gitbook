@@ -20,7 +20,7 @@ All PrimeStaking smart contracts undergo independent external audits before depl
 
 | Module                                                                                                           | Auditor     | Score | Link                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------- | ----------- | ----- | ---------------------------------------------------------------------------------------------- |
-| [**XDC Staking Contract**](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) | QuillAudits | 98.8% | [Report](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) |
+| [**XDC Staking Contract (V1 / liquid staking)**](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) | QuillAudits | 98.8% | [Report](https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract) |
 
 {% embed url="https://www.quillaudits.com/leaderboard/prime-numbers/prime-numbers-staking-contract" %}
 
@@ -28,13 +28,23 @@ All PrimeStaking smart contracts undergo independent external audits before depl
 
 ***
 
-### Upcoming Audits
+### V3 Audit Scope (in progress)
 
-**Custody Contracts Audit — In Progress**&#x20;
+PrimeStaking has engaged **Nethermind Security** to audit the V3 surface, covering:
 
-PrimeStaking has engaged **Nethermind Security** to conduct a full smart contract audit of the custody contracts, initiated March 2026. Nethermind Security is a tier-1 Web3 security firm and trusted auditing partner for Lido, EtherFi, Worldcoin, and Optimism, among others. The report will be published upon completion.
+| Component | Notes |
+| --- | --- |
+| `PrimeStakedXDC_V3` | ERC-4626 vault, non-upgradeable, queue mechanics, delayed governance, loss caps |
+| `PrimeStakedXDC_V3MigrationBridge` | V2 psXDC → V3 share migration with `minSharesOut` slippage protection |
+| `XdcNftStakingVault` | Upgradeable proxy, Synthetix-style boost accumulator, ERC-7201 namespaced storage |
+| `XdcStakedNFT` | New ERC-721 NFT collection |
+| `XdcNftMigrator` | One-shot atomic V2 → V3 NFT migration, `tokenId` / rarity / lock preservation |
+| `XdcNftBoostHarvester` | Boost funding pipe (`feed`, `harvest`, `notifyBoost`) |
+| `LegacyMigratorBypassFacet` | Facet added to the legacy Diamond via `diamondCut` for locked-NFT migration |
 
-Additional audits for new modules are planned and will be published here upon completion.
+Nethermind Security is a tier-1 Web3 security firm and trusted auditing partner for Lido, EtherFi, Worldcoin, and Optimism, among others. The full report will be published upon completion.
+
+The V3 stack also includes an internal 46-test suite (audit-fix regressions, locked-NFT migration, queue resilience, role gating, delayed governance, loss caps, bridge timelock / cap / slippage) that runs against every change.
 
 ***
 
