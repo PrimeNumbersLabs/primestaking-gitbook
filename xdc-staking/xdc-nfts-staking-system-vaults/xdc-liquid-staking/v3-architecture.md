@@ -1,10 +1,10 @@
 # psXDC V3 — Non-Custodial Vault Architecture
 
-{% hint style="warning" %}
-V3 is currently undergoing its final security audit and will be deployed soon. The architecture described here is final and reflects the audited codebase.
+{% hint style="info" %}
+V3 is **live** on XDC mainnet. Address: [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba). V2 contracts remain operational for users who have not migrated.
 {% endhint %}
 
-psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture that will underpin all psXDC staking going forward.
+psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture underpinning every new psXDC stake.
 
 ---
 
@@ -141,8 +141,9 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 | Property | Detail |
 | --- | --- |
 | **Contract** | `PrimeStakedXDC_V3.sol` |
+| **Address** | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) |
 | **Standard** | ERC-4626 (OpenZeppelin) + AccessControl |
-| **Proxy** | TransparentUpgradeableProxy |
+| **Upgradeability** | **None — deployed with a regular constructor, no proxy.** The vault logic cannot be modified after deployment. |
 | **Decimals offset** | 9 (extra share precision) |
 | **Default masternode stake** | 10,000,000 XDC |
 | **Default buffer** | 5% of total assets |
@@ -151,14 +152,30 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 
 ---
 
+## Withdrawal Queue Internals
+
+When liquidity is constrained the queue absorbs the overflow without disrupting validator operations:
+
+- Queued requests **escrow shares** inside the vault. They are not burned until settlement.
+- Settlement value is computed at processing time, not at enqueue time — the user redeems at the live share rate, not a stale snapshot.
+- Failed receiver payouts (rare; e.g. contract receivers that revert on payment) are deferred into `pendingQueuedAssets`. Users collect their XDC via `claimQueuedAssets(receiver)` later.
+- Auto-propose is **blocked while the queue has a backlog**, so the vault doesn't lock more XDC in masternodes while users are waiting to withdraw.
+- Operator and queue scans are bounded by `operatorScanLimit` and `queueScanLimit` to prevent gas-griefing.
+
+→ [Withdrawals: Instant vs Queued (user guide)](staking-guide/withdrawals-instant-vs-queued.md)
+
+---
+
 ## Migration from V2
 
-Existing V2 psXDC holders migrate to V3 through a dedicated Migration Bridge contract:
+Existing V2 psXDC holders migrate to V3 through a dedicated [`PrimeStakedXDC_V3MigrationBridge`](../contract-addresses.md):
 
-1. Approve the bridge to spend your V2 psXDC
-2. Call `migrate(amount, minSharesOut)` — the bridge burns your V2 tokens and mints V3 shares
-3. Slippage protection (`minSharesOut`) prevents unfavorable exchange rates
+1. Approve the bridge to spend your V2 psXDC.
+2. Call `migrate(amount, minSharesOut)` — the bridge burns your V2 tokens and the vault mints V3 shares.
+3. Slippage protection (`minSharesOut`) prevents unfavourable exchange rates between signing and execution.
 
-The migration bridge has its own security controls: time-locked admin, daily withdrawal caps, and disabled direct role changes.
+The migration bridge has its own security controls: time-locked admin handoff, daily withdrawal caps on excess treasury, and disabled direct role changes.
 
-→ [Migration Guide](staking-guide/migration.md)
+On the vault side, migration is gated by `setMigrationBridge(address)` (admin) and `setMigrationInProgress(bool)` (`MIGRATION_MANAGER_ROLE`). Liquidity to back migrated shares is contributed by the migration manager via `fundMigrationLiquidity()`; direct native sends to the vault while migration is in progress are accepted only from the migration manager and are tagged as migration liquidity (they do not inflate `totalAssets`).
+
+→ [Migration Guide (user-facing)](staking-guide/migration.md) → [Deployed Contracts & Addresses](../contract-addresses.md)

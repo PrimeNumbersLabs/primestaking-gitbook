@@ -1,10 +1,10 @@
 # V2 vs V3 — What Changed and Why
 
-{% hint style="warning" %}
-V3 is currently completing its final security audit and will be deployed soon.
+{% hint style="info" %}
+V3 is **live** on XDC mainnet. V2 remains operational so users can migrate at their own pace via [the migration bridge](staking-guide/migration.md).
 {% endhint %}
 
-psXDC is migrating from its current custodial contract (V2) to a fully non-custodial, ERC-4626 vault architecture (V3). This page explains what changed, why, and what it means for users and partners.
+psXDC has moved from its original custodial contract (V2) to a fully non-custodial, ERC-4626 vault architecture (V3). This page explains what changed, why, and what it means for users and partners.
 
 ---
 
@@ -33,7 +33,7 @@ V3 eliminates all of these trust assumptions.
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming — rewards are embedded in share price |
 | **XDC utilization** | Idle — sits in the contract | Productive — staked with masternodes earning yield |
 | **Masternode integration** | None | Direct on-chain integration with XDC validator contract |
-| **Proxy pattern** | UUPS (owner-controlled upgrades) | TransparentUpgradeableProxy (admin/logic separation) |
+| **Upgradeability** | UUPS (owner-controlled upgrades) | **None — `PrimeStakedXDC_V3` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
 
 ---
 
@@ -74,11 +74,12 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 
 | Aspect | V2 | V3 |
 | --- | --- | --- |
-| **How rewards enter** | Owner calls `notifyRewardAmount(reward)` with XDC | Validator rewards flow directly into the contract |
+| **How rewards enter** | Owner calls `notifyRewardAmount(reward)` with XDC | Validator rewards flow directly into the vault |
 | **Distribution logic** | Time-based APY: `rewardRate * elapsed / totalStaked` | Asset-based: exchange rate = `totalAssets / totalShares` |
-| **User experience** | Claim rewards manually from Rewards tab | No action — share value increases automatically |
+| **User experience** | Claim rewards manually from Rewards tab | No claim — share value increases automatically |
 | **Transparency** | Owner-controlled reward injection | Validator rewards verifiable on-chain via masternode contract |
 | **Risk** | Owner sets APY and reward duration manually | Exchange rate driven by actual validator performance |
+| **NFT boost stream** | N/A | `XdcNftBoostHarvester.notifyBoost` feeds a Synthetix-style accumulator inside the NFT vault — claimable separately |
 
 ---
 
@@ -89,8 +90,9 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 | **Audit** | QuillAudits | QuillAudits + Nethermind Security |
 | **Reentrancy protection** | Yes | Yes (OpenZeppelin ReentrancyGuard) |
 | **Single point of failure** | Yes — single owner key | No — 5 roles + time-locks |
+| **Upgradeability** | UUPS proxy | **None — non-upgradeable** |
 | **Governance delay** | None | 1-day minimum (configurable, max 30 days) |
-| **Loss caps** | None | 10% per report, 20% per day |
+| **Loss caps** | None | Configurable per-report + per-day caps, set via delayed governance |
 | **Principal tracking** | None | Per-operator and global tracking |
 | **Admin can drain funds** | Technically yes (`ownerWithdraw`, `mint`) | No — no such functions exist |
 | **Zero slashing risk** | Yes (XDC model) | Yes (XDC model) |
@@ -127,9 +129,9 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 | **Deposit** | Same — stake XDC, get psXDC | Same — but psXDC is now a yield-bearing vault share |
 | **Rewards** | Claim manually from Rewards tab | Automatic — no action needed, share value grows |
 | **Withdraw** | Request and wait for admin approval | Self-service — instant if liquidity available, queued otherwise |
-| **Trust** | Trust the admin not to misuse `mint()` or `ownerWithdraw()` | Trust the code — no admin can move your funds |
+| **Trust** | Trust the admin not to misuse `mint()` or `ownerWithdraw()` | Trust the code — no admin can move your funds, and the contract itself cannot be upgraded |
 | **DeFi use** | Hold, trade, or stake in NFTs | Same + usable as collateral in lending protocols |
-| **Migration** | — | One-time: approve + migrate via bridge contract |
+| **Migration** | — | One-time: approve + migrate via the [V3 migration bridge](staking-guide/migration.md) |
 
 ---
 

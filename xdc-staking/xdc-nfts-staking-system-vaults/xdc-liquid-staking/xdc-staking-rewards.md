@@ -1,55 +1,90 @@
 # How Rewards Work
 
-PrimeStaking's XDC Liquid Staking system offers transparent, on-chain reward distribution. By leveraging psXDC and optional XDC NFTs, you can choose the staking strategy that fits your goals.
+PrimeStaking V3 is a fully on-chain, ERC-4626 staking vault. Rewards are not paid through a manual `claim` flow — they are embedded directly in the **psXDC share price**. This page explains how the rate accrues and how the NFT boost layer sits on top.
 
 ---
 
-## Current APY Tiers
+## Two layers of yield
 
-| Staking Option | APY | Description |
-| --- | --- | --- |
-| **XDC Liquid Staking** | ~4.5% | Stake XDC, hold psXDC, earn rewards. Simple. |
-| **XDC NFTs (Unlocked)** | ~4.75% | Deposit psXDC inside an XDC NFT for a bonus multiplier. |
-| **XDC NFTs (1-Year Lock)** | Up to 6% | Lock your NFT for 1 year for an additional 1.25% APY bonus. |
+```
+                base yield (~4.5%)               boost slice (up to ~1.5%)
+                       │                                  │
+                       ▼                                  ▼
+   shares × NAV(t) appreciation     +     Synthetix-style accumulator
+   (every psXDC holder gets this)         (only XDC NFT holders get this)
+```
 
----
-
-## How APY Breaks Down
-
-| Component | Rate | Requirement |
-| --- | --- | --- |
-| Base liquid staking | 4.5% | Hold psXDC |
-| NFT staking bonus | +0.25% | Deposit psXDC into an XDC NFT |
-| NFT lock bonus | +1.25% | Lock the NFT for 1 year (disables burn, merge, and withdraw) |
-| **Maximum total** | **6%** | NFT staked + locked |
-
----
-
-## How Rewards Are Calculated
-
-- **Proportional distribution** - Rewards are allocated based on how much psXDC you hold (or have staked inside an NFT) relative to the total supply.
-- **On-chain and transparent** - Every reward event is logged on the blockchain.
-- **Claim anytime** - Rewards accrue continuously. Go to the **Rewards** tab in the app and claim to your wallet whenever you want.
-
----
-
-## Why Multiple Tiers?
-
-| Goal | Best Option |
-| --- | --- |
-| Keep it simple, stay fully liquid | XDC Liquid Staking (~4.5%) |
-| Earn more while engaging with the NFT ecosystem | XDC NFTs Unlocked (~4.75%) |
-| Maximize yield, 1-year commitment | XDC NFTs Locked (up to 6%) |
-
-Each tier builds on the previous one. Start with liquid staking and move into NFTs when you're ready - there is no pressure to lock.
-
----
-
-## Understanding Reward Timing
-
-| Product | How Rewards Accrue | How You Claim | Reward Token |
+| Layer | Where it lives | Who earns it | How you receive it |
 | --- | --- | --- | --- |
-| **XDC Liquid Staking** | Continuously, as validators produce blocks | Anytime from the Rewards tab | psXDC |
-| **XDC NFTs** | Calculated monthly based on your NFT's multiplier | Monthly, from the app | XDC |
+| **Base NAV** | `PrimeStakedXDC_V3` vault share price | Every psXDC holder | Automatic — share price rises as validator rewards accrue. No claim. |
+| **NFT Boost** | `XdcNftStakingVault` Synthetix accumulator | Only NFTs that have psXDC shares staked inside them | Claimed from the NFT detail page in the app. |
 
-Liquid staking rewards accrue in real time and can be claimed whenever you want. NFT rewards follow a monthly distribution cycle based on each NFT's total multiplier relative to all staked NFTs.
+---
+
+## Base layer — share-price growth
+
+When XDC validator rewards flow back into the vault, `totalAssets()` increases while the total share supply stays the same. The vault's exchange rate (`totalAssets / totalShares`) goes up, so every psXDC share becomes worth more XDC.
+
+| Aspect | Detail |
+| --- | --- |
+| Target APY | ~4.5% |
+| Mechanism | Exchange rate appreciation |
+| When you receive it | Continuously — visible the next time the vault syncs reward inflows |
+| User action required | None — there is no "claim rewards" button |
+
+**Example.** Stake 1,000 XDC when the exchange rate is `1.00`. You receive 1,000 psXDC shares. Six months later the rate is `1.025`. You burn your 1,000 shares and the vault returns **1,025 XDC** — your 25 XDC of yield was inside the price the whole time.
+
+This is the same model used by Aave aTokens, Compound cTokens, and Lido wstETH.
+
+---
+
+## NFT boost — additional slice for stakers
+
+XDC NFTs stack a second yield on top of the base NAV. The protocol's [`XdcNftBoostHarvester`](../xdc-staking-nfts/boost-harvester.md) periodically pushes XDC into the NFT vault via `notifyBoost`. That XDC is converted to psXDC v3 shares inside the vault and parked as `boostReserve`. A Synthetix-style accumulator distributes the reserve to staked NFTs in proportion to their **weight**:
+
+```
+weight = stakedShares × (rarityMultiplier + level + lockBonus)
+```
+
+| Component | Effect on weight |
+| --- | --- |
+| `stakedShares` | More psXDC staked inside the NFT → bigger slice |
+| `rarityMultiplier` | Plentiful (lowest) → Handcrafted (highest) — set at mint, immutable |
+| `level` | Increases when the NFT levels up via merge |
+| `lockBonus` | Added when the NFT is locked, zeroed when unlocked |
+
+When you `claim` from an NFT, the accumulator settles your pending boost and pays it out in XDC.
+
+| Aspect | Detail |
+| --- | --- |
+| Target APR band | ~0.25% (Plentiful unlocked) → ~1.5% (Handcrafted locked) |
+| Mechanism | `notifyBoost(x)` increments `rewardPerWeightStored`; each NFT's `earned = info.shares × (rewardPerWeightStored − info.rewardIndex) × weight / 1e18` |
+| When you receive it | When you call `claim` on the NFT |
+| User action required | Yes — claim from the NFT detail page; or it settles automatically on any other state-changing action (stake more, lock, merge, withdraw) |
+
+The boost cadence depends on how often the harvester feeds the accumulator — see [Boost Harvester (technical)](../xdc-staking-nfts/boost-harvester.md) for the full picture.
+
+---
+
+## Combined targets
+
+| Position | Base NAV | + Boost slice | Target APY |
+| --- | --- | --- | --- |
+| Plain psXDC (no NFT) | ~4.5% | — | **~4.5%** |
+| psXDC inside an unlocked NFT | ~4.5% | ~0.25% | **~4.75%** |
+| psXDC inside a locked NFT | ~4.5% | up to ~1.5% | **up to ~6%** |
+
+The exact boost slice depends on your NFT's rarity, level, and lock status relative to the rest of the vault — and on how much XDC the harvester has fed recently. The vault publishes `BoostNotified` events so the UI can show a trailing 30-day boost APR alongside the static targets.
+
+---
+
+## Why no claim button for liquid staking
+
+The V2 product distributed rewards by having the owner periodically call `notifyRewardAmount` and required users to call `claim` to collect their share. V3 removes both:
+
+- **No `notifyRewardAmount`** — validator rewards flow directly into the vault, so the exchange rate updates automatically.
+- **No `claim`** — your reward is *already inside the share*. When you redeem the share, you receive both the principal and the accrued reward in one transaction.
+
+The boost layer keeps its `claim` flow because it is a **separate** XDC stream layered on top of the share, not an internal accrual.
+
+→ [Understanding Share Price](staking-guide/how-to-claim-rewards.md) → [V2 vs V3 — What Changed](v2-vs-v3.md)
