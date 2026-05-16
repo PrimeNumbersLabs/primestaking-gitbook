@@ -1,6 +1,6 @@
 # XDC NFTs
 
-XDC Staking NFTs are gamified staking positions on the XDC Network. Each NFT holds **psXDC v3 vault shares** and earns two stacked yields: the underlying share-price appreciation (~4.5%) and a Synthetix-style **boost slice** distributed by the protocol's reward harvester (target band up to ~1.5%, depending on rarity, level, and lock status).
+XDC Staking NFTs are gamified staking positions on the XDC Network. Each NFT holds **psXDC v3 vault shares** and earns two stacked yields: a **base ~4.5%** from the underlying share-price appreciation (always earned, no claim, no rarity dependency) and an additional **boost slice up to ~1.5%** from a Synthetix-style accumulator funded by the protocol's reward harvester, weighted by rarity, level, and lock status.
 
 {% hint style="info" %}
 The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addresses: [`XdcStakedNFT`](../contract-addresses.md), [`XdcNftStakingVault`](../contract-addresses.md), [`XdcNftMigrator`](../contract-addresses.md), [`XdcNftBoostHarvester`](../contract-addresses.md), [`LegacyMigratorBypassFacet`](../contract-addresses.md). The legacy V2 collection at `0x9D45…76a0` remains operational for any holder who has not yet migrated — see [Migrate XDC NFTs to V3](migrate-nfts-v2-to-v3.md).
@@ -16,7 +16,8 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 | **Token staked** | **psXDC v3 vault shares** (not raw XDC) |
 | **Base yield** | ~4.5% — share-price appreciation of the underlying psXDC |
 | **Boost slice** | Up to ~1.5% — Synthetix accumulator, weighted by rarity / level / lock |
-| **Target APY band** | ~4.75% (unlocked) → ~6% (locked) when boost stream is steady |
+| **Floor APY** | **~4.5%** — the base NAV, automatic, always earned regardless of rarity / lock / boost cadence |
+| **Target APY band (with boost)** | ~4.75% (unlocked) → ~6% (locked) when boost stream is steady |
 | **Reward token (boost)** | XDC — `notifyBoost` mints shares, claim unwraps to native XDC |
 | **Locked yield** | Additive `lockBoost` term added to NFT weight when locked |
 | **Merge** | Two same-rarity NFTs → one higher-rarity NFT (originals burned) |

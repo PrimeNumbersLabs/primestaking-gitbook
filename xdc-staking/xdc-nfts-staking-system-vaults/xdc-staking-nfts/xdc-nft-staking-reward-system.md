@@ -43,11 +43,15 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 
 ## Combined target ranges
 
-| Position | Base NAV | + Boost slice | Target APY |
+| Position | Base NAV (floor) | + Boost slice (when flowing) | Combined target |
 | --- | --- | --- | --- |
 | Plain psXDC, no NFT | ~4.5% | — | **~4.5%** |
-| psXDC staked in an unlocked NFT | ~4.5% | ~0.25% | **~4.75%** |
-| psXDC staked in a locked NFT | ~4.5% | up to ~1.5% | **up to ~6%** |
+| psXDC staked in an unlocked NFT | **~4.5%** | ~0.25% | **~4.5% → ~4.75%** |
+| psXDC staked in a locked NFT | **~4.5%** | up to ~1.5% | **~4.5% → up to ~6%** |
+
+{% hint style="info" %}
+**The floor for every staked NFT is the base ~4.5%.** That layer is purely psXDC v3 share-price growth — it accrues automatically and does not depend on rarity, level, lock status, or harvester cadence. Even if `notifyBoost` hasn't been called in a while, you still earn the base. The boost slice is an **additional** stream on top.
+{% endhint %}
 
 Your individual boost APR depends on:
 

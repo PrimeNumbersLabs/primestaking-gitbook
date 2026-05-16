@@ -35,7 +35,7 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 - The underlying psXDC NAV (same ~4.5% the vault already gives you).
 - A Synthetix-style **boost slice** funded by the protocol's [`XdcNftBoostHarvester`](xdc-staking-nfts/boost-harvester.md), weighted by NFT rarity, level, and lock status.
 
-Target range: **~4.75% unlocked → ~6% locked** when the boost stream is flowing steadily.
+**Floor: ~4.5%** — the base NAV is always there, automatic, no claim. When the boost stream is flowing, the combined APY ranges from **~4.75% unlocked** up to **~6% locked**.
 
 → [XDC NFTs Details](xdc-staking-nfts/)
 

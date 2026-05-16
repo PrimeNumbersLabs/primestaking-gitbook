@@ -68,11 +68,15 @@ The boost cadence depends on how often the harvester feeds the accumulator — s
 
 ## Combined targets
 
-| Position | Base NAV | + Boost slice | Target APY |
+| Position | Base NAV (floor) | + Boost slice (when flowing) | Combined target |
 | --- | --- | --- | --- |
 | Plain psXDC (no NFT) | ~4.5% | — | **~4.5%** |
-| psXDC inside an unlocked NFT | ~4.5% | ~0.25% | **~4.75%** |
-| psXDC inside a locked NFT | ~4.5% | up to ~1.5% | **up to ~6%** |
+| psXDC inside an unlocked NFT | **~4.5%** | ~0.25% | **~4.5% → ~4.75%** |
+| psXDC inside a locked NFT | **~4.5%** | up to ~1.5% | **~4.5% → up to ~6%** |
+
+{% hint style="info" %}
+The floor for every staked psXDC — whether you hold it directly, in an unlocked NFT, or in a locked NFT — is the **base ~4.5%**. That layer is automatic. The boost slice (`~0.25%` → `~1.5%`) is an additional stream that depends on harvester cadence and your NFT's weight; when the stream is paused or sparse, you continue to earn the base.
+{% endhint %}
 
 The exact boost slice depends on your NFT's rarity, level, and lock status relative to the rest of the vault — and on how much XDC the harvester has fed recently. The vault publishes `BoostNotified` events so the UI can show a trailing 30-day boost APR alongside the static targets.
 

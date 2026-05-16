@@ -7,7 +7,7 @@
 **XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC) — an ERC-4626 vault share that can be freely used or traded in DeFi.
 
 * **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC vault shares — no minimum required. Earns ~4.5% APY through share-price appreciation.
-* **XDC NFTs:** Deposit psXDC shares inside XDC NFTs to layer a boost slice on top of the base NAV — target band ~4.75% (unlocked) → ~6% (locked).
+* **XDC NFTs:** Deposit psXDC shares inside XDC NFTs to layer a boost slice on top of the base NAV. **Floor stays at the base ~4.5%** (always earned, regardless of rarity / lock / boost cadence); when the boost stream is flowing, the combined APY ranges from **~4.75% (unlocked)** up to **~6% (locked)**.
 
 #### What is psXDC?
 
@@ -67,7 +67,7 @@ No. XDC Network uses a masternode model that **does not implement slashing**. Yo
 3. **Earn boost:** each `notifyBoost` push from the protocol's harvester credits the Synthetix accumulator; your NFT's pending boost grows proportionally to its weight.
 4. **Claim boost:** from the NFT detail page, in XDC.
 5. **Merge:** combine two NFTs of the same rarity to create a higher-rarity NFT with a bigger weight.
-6. **Lock (optional):** locking adds `lockBonus` to the weight (target range up to ~6% APY combined), but disables withdraw / merge / `burnAndRedeem` until expiry.
+6. **Lock (optional):** locking adds `lockBonus` to the weight, which can push the combined APY toward the ~6% top of the band, but disables withdraw / merge / `burnAndRedeem` until expiry. The base ~4.5% applies whether you lock or not.
 
 #### What is the Merge System?
 

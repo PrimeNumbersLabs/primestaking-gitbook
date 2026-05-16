@@ -81,7 +81,7 @@ XDC NFTs earn an **additional** XDC stream on top of base NAV via the Synthetix-
 - The boost slice is distributed pro-rata to each NFT's weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
 - Boost **is** claimed (`claim(tokenId)`) and paid in XDC.
 
-Boost is a product-side reward stream, not validator economics. Target band for NFT positions is **~4.75% (Plentiful unlocked) → ~6% (Handcrafted locked)** combining base NAV + boost.
+Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~4.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~4.75% (Plentiful unlocked)** up to **~6% (Handcrafted locked)** — the delta over the floor is the boost slice.
 
 → [Reward Model: Base NAV + Boost](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 

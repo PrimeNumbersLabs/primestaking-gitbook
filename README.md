@@ -36,7 +36,7 @@ Earn rewards on XDC and PRFI tokens without giving up control of your assets.
 | Product                | Token | Yield                          | How It Works                                                                                       |
 | ---------------------- | ----- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
 | **XDC Liquid Staking** | XDC   | \~4.5% APY                     | Stake XDC, receive psXDC vault shares. Share price grows as validator rewards accrue.              |
-| **XDC NFTs**           | psXDC | ~4.75% (unlocked) → ~6% (locked) | Deposit psXDC shares into NFTs. Earn the underlying NAV plus a rarity- and lock-weighted boost slice. |
+| **XDC NFTs**           | psXDC | ~4.5% base + boost slice → up to ~6% locked | Deposit psXDC shares into NFTs. Earn the underlying NAV plus a rarity- and lock-weighted boost slice. |
 | **PRFI NFTs**          | PRFI  | 100K PRFI/mo pool              | Stake PRFI inside NFTs. Rarity determines share.                                                   |
 
 #### XDC Liquid Staking
@@ -59,7 +59,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 * **Base yield** comes from the underlying psXDC share price growing over time (~4.5% APY).
 * **Boost yield** comes from a Synthetix-style accumulator. The protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) calls `notifyBoost` and the resulting slice is distributed pro-rata to NFT weights.
 * **Level up** by merging two same-rarity NFTs into a higher tier.
-* **Lock** your NFT to add a lock bonus to its weight (target band ~4.75% unlocked → ~6% locked when boost flow is steady).
+* **Lock** your NFT to add a lock bonus to its weight. Floor is the **~4.5% base NAV** (always earned, no claim); when the boost stream is flowing, the combined APY ranges from **~4.75% (unlocked)** up to **~6% (locked)**.
 * You only claim the **boost slice** from the app — base NAV is automatically inside the shares you get back on withdraw.
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/) → [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)
