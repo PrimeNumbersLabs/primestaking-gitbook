@@ -1,36 +1,73 @@
-# Reward System
+# Reward Model: Base NAV + Boost
 
-XDC NFT rewards come from multiple sources and scale with your staking strategy.
-
----
-
-## APY Tiers
-
-| Staking Option | APY | Details |
-| --- | --- | --- |
-| **XDC NFTs (Unlocked)** | ~4.75% | Base liquid staking APY + 0.25% NFT bonus |
-| **XDC NFTs (1-Year Lock)** | Up to 6% | Base + NFT bonus + 1.25% lock bonus |
+XDC NFTs in V3 earn from **two stacked sources**. There is no monthly XDC pool and no "PrimeFi ecosystem profit share" math — both layers are fully on-chain and continuously accruing.
 
 ---
 
-## Reward Sources
+## The two layers
 
-### 1. Base Staking Rewards
+```
+                  base APY (~4.5%)            boost APY (up to ~1.5%)
+                       │                              │
+                       ▼                              ▼
+   shares × NAV(t) appreciation     +     Synthetix accumulator slice
+   (the psXDC v3 share price)              (rarityMult + level + lockBonus weighted)
+```
 
-psXDC deposited inside NFTs earns the standard liquid staking yield (~4.5%), plus a 0.25% NFT staking bonus.
+### 1. Base NAV — psXDC v3 share-price appreciation
 
-### 2. PrimeFi Ecosystem Rewards
+Every psXDC v3 share grows in value as validator rewards flow into the underlying vault. When your NFT holds `stakedShares` of psXDC, the **same share count** is returned on `withdraw`, but each share is worth more XDC than it was on `stake`. This layer requires **no action and no claim** — it's already inside the shares.
 
-Each XDC NFT receives a share of **10% of PrimeFi's XDC Network profits**, supplementing the base APY.
+| Aspect | Detail |
+| --- | --- |
+| Target APY | ~4.5% |
+| How it accrues | Via [`PrimeStakedXDC_V3`](../contract-addresses.md) share-price growth |
+| When you realize it | When you `withdraw` shares from the NFT or `burnAndRedeem` |
+
+### 2. Boost — Synthetix accumulator inside the NFT vault
+
+The protocol's [`XdcNftBoostHarvester`](boost-harvester.md) periodically pushes XDC into the NFT vault via `notifyBoost`. The vault converts that XDC to psXDC v3 shares and credits the accumulator. Every staked NFT earns a slice proportional to its **weight**:
+
+```
+weight = stakedShares × (rarityMultiplier + level + lockBonus)
+```
+
+| Aspect | Detail |
+| --- | --- |
+| Target APR band | ~0.25% (Plentiful unlocked) → ~1.5% (Handcrafted locked) |
+| How it accrues | `rewardPerWeightStored` increments on every `notifyBoost`; per-NFT `earned` is computed Synthetix-style |
+| When you realize it | When you call `claim(tokenId)` from the NFT detail page (or automatically on any other state-changing action like stake/lock/merge/withdraw, which `_settle` first) |
+| Reward asset | XDC (the harvester's payload is native XDC) |
 
 ---
 
-## How Rewards Are Distributed
+## Combined target ranges
 
-- Rewards are paid in **XDC**.
-- Distribution is **monthly**.
-- Your share is determined by your NFT's **Total Multiplier** (base rarity + level) relative to the total multipliers across all staked NFTs.
-- **Claim** your rewards from the app whenever they are available.
+| Position | Base NAV | + Boost slice | Target APY |
+| --- | --- | --- | --- |
+| Plain psXDC, no NFT | ~4.5% | — | **~4.5%** |
+| psXDC staked in an unlocked NFT | ~4.5% | ~0.25% | **~4.75%** |
+| psXDC staked in a locked NFT | ~4.5% | up to ~1.5% | **up to ~6%** |
+
+Your individual boost APR depends on:
+
+- Your NFT's `rarityMultiplier`, `level`, and whether it's locked.
+- How much psXDC you have staked (more shares → more weight → more slice).
+- How active the harvester's `notifyBoost` stream has been recently.
+
+The UI surfaces a trailing 30-day boost APR alongside the static targets so you can see what the stream has actually paid.
+
+---
+
+## Why no monthly pool
+
+The V2 NFT system distributed rewards in a monthly batch process driven off-chain. V3 replaces this with a **continuous, on-chain Synthetix accumulator** for three reasons:
+
+- **Trust-minimized** — the boost rate is a function of harvester pushes, not a manually-set monthly figure.
+- **Granular** — earnings update on every `notifyBoost`, not once per month.
+- **Composable** — partner integrations can read `earned(tokenId)` directly on-chain at any time.
+
+There is no longer a "10% of PrimeFi profits" framing; the harvester's funding model is described in [Boost Harvester (technical)](boost-harvester.md).
 
 ---
 
@@ -38,7 +75,10 @@ Each XDC NFT receives a share of **10% of PrimeFi's XDC Network profits**, suppl
 
 | Strategy | Effect |
 | --- | --- |
-| Stake more psXDC | Levels up the NFT, increases added multiplier |
-| Merge NFTs | Upgrades rarity, increases base multiplier |
-| Lock the NFT | Adds 1.25% APY bonus |
-| Hold higher-rarity NFTs | Higher base multiplier = larger reward share |
+| Stake more psXDC shares | More `stakedShares` → linear increase in weight |
+| Merge two same-rarity NFTs | Higher `rarityMultiplier` on the result |
+| Level the NFT | Higher `level` term, additive to the multiplier |
+| Lock the NFT | Adds `lockBonus` to the weight, but disables withdraw/merge/burnAndRedeem until expiry |
+| Hold higher-rarity NFTs | Higher base `rarityMultiplier` = larger slice for the same staked shares |
+
+→ [Staking Mechanics](xdc-staking-nfts-mechanics.md) → [Boost Harvester (technical)](boost-harvester.md) → [Smart Contract Reference](smart-contract-functions.md)
