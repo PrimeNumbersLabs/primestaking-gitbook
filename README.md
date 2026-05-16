@@ -115,7 +115,7 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 * **Zero slashing risk** - XDC Network does not implement slashing, unlike ETH-based protocols.
 * **ERC-4626 vault** - psXDC v3 conforms to the same standard used by major DeFi protocols, making integration straightforward.
 * **Non-custodial** - smart contract-based validator custody, no third-party key management, no admin mint or `ownerWithdraw`.
-* **Audited infrastructure** - QuillAudits (98.8%) on the liquid staking contracts; Nethermind Security covering the custody and V3 surface.
+* **Audited infrastructure** - QuillAudits (98.8%) on the V1 liquid staking contracts; **Nethermind Security NM-0843** (published May 08, 2026) on the psXDC V3 vault and V3 Migration Bridge.
 * **Nethermind Security** - trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin.
 * **Battle-tested** - live since 2024 with $6M+ TVL.
 * **Revenue sharing** - transparent, on-chain fee model.

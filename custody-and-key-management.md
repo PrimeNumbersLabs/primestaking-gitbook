@@ -20,7 +20,7 @@ PrimeStaking's custody infrastructure is developed in collaboration with:
 * Nethermind — smart contract development and security review
 * XDC Core team — network-level validator integration
 
-An independent security audit of the custody contracts is underway as part of our ongoing security program. Full results will be published upon completion.
+The custody substrate (`PrimeStakedXDC_V3` vault + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in audit **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed; the three Acknowledged findings are operationally mitigated. [Read the full report (PDF)](NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf) or see the [Audits page](audits-1/README.md) for the per-finding breakdown.
 
 ***
 

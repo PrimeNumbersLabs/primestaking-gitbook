@@ -70,7 +70,7 @@ The custody model is developed in collaboration with:
 - **XDC Core team** - network-level validator integration
 - **QuillAudits** - independent external audit (98.8% score on staking contracts)
 
-A dedicated audit of the custody contracts is in progress. Full results will be published upon completion.
+The custody substrate (`PrimeStakedXDC_V3` vault + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed. [Full report (PDF)](../NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf) · [Audits page](../audits-1/README.md).
 
 ---
 

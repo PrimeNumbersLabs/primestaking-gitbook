@@ -10,7 +10,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 | Risk                   | Severity | Mitigation                                                                                              |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| Contract vulnerability | High     | Independent external audits (QuillAudits - 98.8% score on liquid staking; Nethermind Security on custody / V3 surface), reentrancy guards |
+| Contract vulnerability | High     | Independent external audits (QuillAudits - 98.8% score on V1 liquid staking; Nethermind Security NM-0843 on V3 vault + V3 Migration Bridge, all Critical/High/Medium findings Fixed), reentrancy guards, emergency pause on the V3 vault |
 | Upgrade error          | Medium   | psXDC v3 vault is **non-upgradeable**; only the NFT staking vault is upgradeable, and only via multisig + delayed governance |
 | Dependency failure     | Medium   | Minimal external dependencies; core logic is self-contained                                             |
 | Economic attack        | Medium   | Buffer + FIFO queue design, bounded scans, per-report and per-day loss caps                             |
@@ -44,13 +44,15 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 ## Audit History
 
-| Module                              | Auditor     | Score | Status       |
-| ----------------------------------- | ----------- | ----- | ------------ |
-| **XDC Staking Contract (liquid)**   | QuillAudits | 98.8% | Published    |
-| **Custody / V3 surface**            | Nethermind  | -     | Under review |
-| **XDC NFT V3 stack (vault, migrator, harvester, bypass facet)** | Nethermind | - | In scope of the V3 review |
+| Module                              | Auditor             | Findings / Score | Status       |
+| ----------------------------------- | ------------------- | ---------------- | ------------ |
+| **XDC Staking Contract (V1 liquid)**| QuillAudits         | 98.8% score      | Published    |
+| **psXDC V3 vault + V3 Migration Bridge** (NM-0843) | Nethermind Security | 21 findings (1C / 2H / 1M / 6L / 9I / 2BP) — **18 Fixed / 3 Acknowledged** | **Published — May 8, 2026** |
+| **XDC NFT V3 stack** (vault, collection, migrator, harvester, bypass facet) | Internal — Nethermind planned | 46 unit tests + 17-test audit-fix regression battery | Internal review complete; external review planned |
 
-A Nethermind Security audit covering the V3 surface (custody, NFT staking vault, migrator, boost harvester, and legacy bypass facet) is in progress. Results will be published upon completion.
+**Nethermind Security NM-0843 — XDC Prime Stake** (final report, May 08, 2026) covered `PrimeStakedXDC_V3.sol` and `PrimeStakedXDC_V3MigrationBridge.sol` (1,391 LoC). All Critical, High, and Medium findings are Fixed. The three Acknowledged findings are operationally mitigated (loss caps for risk-manager front-running, pre-deployment seed enforcement, and two-call workaround for partial-fill queue redemption).
+
+[→ Read the full NM-0843 report (PDF)](../NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf)
 
 All audit reports are published publicly. Target: **>= 95% score** on every audit, with findings of Medium severity or higher resolved within **72 hours**.
 
