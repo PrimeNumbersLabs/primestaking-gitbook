@@ -28,10 +28,6 @@ You can cancel queued requests any time, and if a payout ever fails the XDC land
 
 → [Withdrawals: Instant vs Queued](xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md)
 
-#### Is there a faster way to exit?
-
-Yes. You can swap psXDC for XDC instantly on the [XSWAP DEX](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a), bypassing the protocol redemption queue entirely. The swap is subject to pool depth and the current market price (which tracks NAV in the long run but may differ short-term).
-
 #### Can I transfer my staking position?
 
 Yes.
