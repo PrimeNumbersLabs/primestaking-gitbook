@@ -25,10 +25,10 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 
 ### Staked Asset Custody
 
-- User XDC deposits are held in the Liquid Staking Pool contract
-- The contract delegates staked XDC to validators programmatically
-- Withdrawal requests are processed through the contract's redemption queue
-- At no point does a human operator have discretionary control over user funds
+- User XDC deposits are held in the [`PrimeStakedXDC_V3`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault — **non-upgradeable**, so the logic that holds your XDC can never be modified
+- The vault keeps a tunable **liquid buffer** (default 5% of total assets); excess is auto-delegated to KYC-verified masternode operators on the XDC Network
+- Withdrawal requests use `redeemWithQueue` — instant when the buffer covers them, queued FIFO otherwise. Failed payouts defer into `pendingQueuedAssets` and the user collects them via `claimQueuedAssets`. There is no admin approval step at any point.
+- The vault has **no `mint` and no `ownerWithdraw`** — these were removed in V3. Even the protocol admin cannot move user funds.
 
 ---
 
@@ -39,9 +39,11 @@ It is important to distinguish between **asset custody** and **contract governan
 | Layer | Mechanism | Human Involvement |
 | --- | --- | --- |
 | **Validator key custody** | Fully on-chain, smart contract-managed | None - trustless by design |
-| **Contract upgrades** | Multisig with timelock | Yes - multi-party approval required for any code changes |
+| **psXDC v3 vault** | Non-upgradeable — deployed with a regular constructor, no proxy | None - cannot be modified |
+| **NFT staking vault upgrades** | TransparentUpgradeableProxy with ERC-7201 namespaced storage, controlled by the protocol multisig with delayed governance | Yes - multi-party approval required for vault implementation changes |
+| **Parameter changes (psXDC v3)** | Role-gated + delayed governance (schedule → wait → execute) | Yes - multi-party approval, but cannot move user funds |
 
-Validator keys and user funds are secured by code with zero human access. Contract upgrades (bug fixes, parameter changes) require a separate multisig governance process with mandatory timelock delays.
+User funds are secured by code with zero human access. The psXDC vault itself cannot be upgraded. Only the NFT staking vault is upgradeable, and only through the multisig + delayed-governance path.
 
 → [Governance Details](governance.md)
 
@@ -78,9 +80,9 @@ A dedicated audit of the custody contracts is in progress. Full results will be 
 | --- | --- |
 | **Smart contract exploit** | Independent audits, reentrancy guards, pausable contracts |
 | **Validator downtime** | Multi-validator delegation, performance monitoring |
-| **Unauthorized upgrades** | Multisig + timelock governance |
+| **Unauthorized upgrades** | psXDC v3 vault is **non-upgradeable** (cannot happen); NFT vault upgrades require multisig + delayed governance |
 | **Key compromise** | On-chain key management - no human access to private keys |
-| **Delayed withdrawals** | Transparent queue processing with predictable timelines (~35 days) |
+| **Delayed withdrawals** | Transparent FIFO queue; instant when the buffer permits, otherwise bounded by the network's `candidateWithdrawDelay` (~35 days under typical block times) |
 
 ---
 

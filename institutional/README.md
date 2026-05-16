@@ -10,11 +10,12 @@ Built in collaboration with **Nethermind** and the **XDC Core team**, PrimeStaki
 
 PrimeStaking provides turnkey XDC staking infrastructure that exchanges and institutions can integrate or white-label. Our stack handles:
 
-* **Validator operations** - node management, uptime, performance monitoring
-* **Liquid staking contracts** - audited, battle-tested smart contracts for minting psXDC
-* **Reward distribution** - automated, on-chain, proportional reward logic
-* **Withdrawal management** - validator queue processing with transparent timelines
-* **Reporting** - on-chain settlement data and portfolio-level analytics
+* **Validator operations** - masternode management, uptime, performance monitoring, on-chain delegation
+* **Liquid staking contracts** - the non-upgradeable, ERC-4626 [`PrimeStakedXDC_V3`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault for minting and redeeming psXDC shares
+* **NAV-based reward accrual** - reward XDC flows back into the vault, share price rises automatically; no manual reward distribution path
+* **Self-service withdrawals** - instant when the buffer permits, otherwise a permissionless FIFO queue with `claimQueuedAssets` self-claim
+* **V2 → V3 migration** - dedicated bridge with slippage protection for any psXDC v2 balance partners may already hold
+* **Reporting** - on-chain settlement data and portfolio-level analytics via the [`staking-v3-indexer`](https://github.com/PrimeNumbersLabs/staking-v3-indexer) and [`xdc-nft-v3-indexer`](https://github.com/PrimeNumbersLabs/xdc-nft-v3-indexer)
 
 ***
 
@@ -85,17 +86,18 @@ Integrate PrimeStaking with visible co-branding. Lower integration effort, same 
 
 ## Documentation Map
 
-| Section                                     | What It Covers                                                 |
-| ------------------------------------------- | -------------------------------------------------------------- |
-| [Architecture Overview](architecture.md)    | System design, contract topology, validator infrastructure     |
-| [Custody Model](custody-model.md)           | Permissionless smart contract-based key management             |
-| [Integration Models](integration-models.md) | White Label vs. Powered by Prime - scope, requirements         |
-| [Revenue Model](revenue-model.md)           | Revenue generation, partner sharing, settlement                |
-| [Reward Mechanics](reward-mechanics.md)     | How staking rewards are generated, calculated, and distributed |
-| [Liquidity Model](liquidity-model.md)       | psXDC liquidity, DEX pools, redemption mechanics               |
-| [Governance](governance.md)                 | Upgrade policy, multisig, timelock, decision-making            |
-| [Risk & Compliance](risk-and-compliance.md) | Risk framework, audit history, regulatory posture              |
-| [SLA & Support](sla-and-support.md)         | Uptime commitments, incident response, partner support         |
+| Section                                     | What It Covers                                                            |
+| ------------------------------------------- | ------------------------------------------------------------------------- |
+| [Architecture Overview](architecture.md)    | System design, V3 contract topology, validator infrastructure             |
+| [Custody Model](custody-model.md)           | Permissionless smart contract-based key management                        |
+| [Integration Models](integration-models.md) | White Label vs. Powered by Prime - scope, requirements                    |
+| [Revenue Model](revenue-model.md)           | Revenue generation, partner sharing, settlement                           |
+| [Reward Mechanics](reward-mechanics.md)     | NAV-based reward accrual; NFT boost stream                                |
+| [Liquidity Model](liquidity-model.md)       | psXDC share semantics, buffer / queue redemption, DEX vs protocol price   |
+| [Governance](governance.md)                 | Role separation, delayed governance, what is upgradeable vs immutable     |
+| [Risk & Compliance](risk-and-compliance.md) | Risk framework, audit history, regulatory posture                         |
+| [SLA & Support](sla-and-support.md)         | Uptime commitments, incident response, partner support                    |
+| [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) | Canonical address book for V3 and legacy V2 contracts |
 
 ***
 

@@ -10,10 +10,11 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 | Risk                   | Severity | Mitigation                                                                                              |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| Contract vulnerability | High     | Independent external audits (QuillAudits - 98.8% score), reentrancy guards, formal verification roadmap |
-| Upgrade error          | Medium   | Multisig governance + timelock delay on all contract upgrades                                           |
+| Contract vulnerability | High     | Independent external audits (QuillAudits - 98.8% score on liquid staking; Nethermind Security on custody / V3 surface), reentrancy guards |
+| Upgrade error          | Medium   | psXDC v3 vault is **non-upgradeable**; only the NFT staking vault is upgradeable, and only via multisig + delayed governance |
 | Dependency failure     | Medium   | Minimal external dependencies; core logic is self-contained                                             |
-| Economic attack        | Medium   | Rate limiting, withdrawal queue design, on-chain monitoring                                             |
+| Economic attack        | Medium   | Buffer + FIFO queue design, bounded scans, per-report and per-day loss caps                             |
+| Migration risk         | Low      | One-shot atomic migration with `minSharesOut` slippage protection; migration window is gated; failure modes always revert |
 
 ### Validator Risk
 
@@ -43,13 +44,14 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 
 ## Audit History
 
-| Module                   | Auditor     | Score | Status       |
-| ------------------------ | ----------- | ----- | ------------ |
-| **XDC Staking Contract** | QuillAudits | 98.8% | Published    |
-| **Custody Contracts**    | Nethermind  | -     | Under review |
+| Module                              | Auditor     | Score | Status       |
+| ----------------------------------- | ----------- | ----- | ------------ |
+| **XDC Staking Contract (liquid)**   | QuillAudits | 98.8% | Published    |
+| **Custody / V3 surface**            | Nethermind  | -     | Under review |
+| **XDC NFT V3 stack (vault, migrator, harvester, bypass facet)** | Nethermind | - | In scope of the V3 review |
 
-A Nethermind Security audit of the custody contracts is currently underway (initiated March 2026). Results will be published upon completion.\
-\
+A Nethermind Security audit covering the V3 surface (custody, NFT staking vault, migrator, boost harvester, and legacy bypass facet) is in progress. Results will be published upon completion.
+
 All audit reports are published publicly. Target: **>= 95% score** on every audit, with findings of Medium severity or higher resolved within **72 hours**.
 
 → [Full Audit Reports](../audits-1/)
@@ -100,9 +102,10 @@ PrimeStaking provides the technical infrastructure; regulatory compliance is han
 
 ### In Case of Delayed Withdrawals
 
-* Withdrawal timing depends on the XDC Network validator queue (\~31 days average)
-* PrimeStaking does not guarantee specific withdrawal timelines
-* Partners should communicate expected withdrawal windows to their users
+* In V3, withdrawals settle **instantly** when the vault buffer covers them; otherwise they enter the on-chain FIFO queue and settle as new deposits, reward inflows, or masternode resignations replenish liquidity.
+* For redemptions that depend on a masternode resignation, the upper bound is the XDC Network's `candidateWithdrawDelay` — approximately **35 days** under typical real-world block times (longer under network congestion).
+* PrimeStaking does not guarantee specific withdrawal timelines — the queue is FIFO and depends on network conditions and protocol-level cash flow.
+* Partners should communicate **both paths** (instant-when-possible and queued-with-self-claim) to their users.
 
 ### In Case of Reward Rate Changes
 
