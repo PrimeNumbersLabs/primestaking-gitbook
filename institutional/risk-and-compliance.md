@@ -21,7 +21,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | Risk               | Severity | Mitigation                                                                                                                                   |
 | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | Validator downtime | Medium   | Multi-validator delegation, automated failover monitoring                                                                                    |
-| Slashing           | **None** | XDC Network does not implement slashing - this is a structural advantage over ETH-based liquid staking protocols where slashing risk is real |
+| Slashing (principal-stake) | **None** | XDC's slashing mechanism penalizes downtime via temporary exclusion from block production (~2h, 4 epochs) and missed rewards, but never burns principal — structurally different from ETH-based liquid staking where slashing can permanently destroy a portion of staked ETH |
 | Reward rate change | Low      | Dynamic APY calculation; transparent communication to partners                                                                               |
 
 ### Network Risk

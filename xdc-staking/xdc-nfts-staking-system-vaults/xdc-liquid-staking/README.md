@@ -116,4 +116,4 @@ If you already hold the V2 psXDC token, the new vault is a separate contract and
 - **Full liquidity** — psXDC keeps your position liquid while earning rewards.
 - **Composable** — ERC-4626 makes psXDC drop-in compatible with DeFi protocols.
 - **Non-custodial** — no admin mint, no admin withdraw, no third-party custodian.
-- **Zero slashing risk** — XDC Network does not implement slashing, so staked capital is never at risk from validator behavior.
+- **No principal-stake slashing** — XDC's slashing penalizes downtime via temporary exclusion from block production (~2h) and missed rewards, but never burns principal — so staked capital is never at risk from validator behavior.

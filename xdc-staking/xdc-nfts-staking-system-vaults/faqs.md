@@ -46,7 +46,7 @@ Yes.
 
 #### Is there any risk of slashing?
 
-No. XDC Network uses a masternode model that **does not implement slashing**. Your staked capital is never at risk from validator behavior. This is a structural advantage over ETH-based liquid staking protocols where slashing risk is real.
+XDC Network does have a slashing mechanism, but it differs fundamentally from Ethereum's. A masternode that fails to sign any block during one full epoch (900 blocks, ~30 minutes) is excluded from block production for the next 4 epochs (~2 hours) and forfeits rewards during that window. **Crucially, principal stake is not burned** — staked capital is never destroyed by validator behavior. For psXDC holders this means a slashing event on a protocol masternode would only briefly slow the rate at which the share price grows during the exclusion window; it cannot reduce the value of the shares themselves. This is structurally different from Ethereum-based liquid staking, where slashing can permanently destroy a portion of staked ETH.
 
 ***
 

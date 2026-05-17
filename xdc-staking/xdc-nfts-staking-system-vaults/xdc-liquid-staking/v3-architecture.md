@@ -132,7 +132,7 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 | **Principal separation** | Returning masternode principal is not counted as yield — prevents artificial exchange rate inflation |
 | **Reentrancy protection** | All external state-changing functions are protected |
 | **Reward threshold** | Reward inflows below 1,000 XDC are not immediately synced, preventing dust manipulation |
-| **Zero slashing risk** | XDC Network does not implement slashing |
+| **No principal-stake slashing** | XDC's slashing mechanism penalizes downtime via ~2h exclusion and missed rewards, but never burns principal stake |
 
 ---
 

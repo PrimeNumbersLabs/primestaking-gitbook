@@ -60,7 +60,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 - **Auto-propose** runs opportunistically during stake or via `triggerAutoPropose(maxNodes)`. It is **blocked whenever the withdrawal queue has a backlog** — user redemptions are prioritised over new validator locks.
 - **Resignation** returns principal to the vault after the network `candidateWithdrawDelay` (~35 days under typical block times). `reportMasternodeResignPrincipal(operator)` accounts for the returned principal without inflating the reward share.
 - **Per-operator tracking** of outstanding principal both globally and per operator (`outstandingValidatorPrincipalByOperator`).
-- **Zero slashing risk** — XDC Network's masternode model has no slashing.
+- **No principal-stake slashing** — XDC penalizes underperforming masternodes via temporary exclusion (~2h) and missed rewards, but never burns staked capital.
 
 → [Custody Model](custody-model.md)
 

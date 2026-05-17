@@ -1,5 +1,5 @@
 ---
-description: Non-custodial XDC staking infrastructure. Zero slashing risk.
+description: Non-custodial XDC staking infrastructure. No principal-stake slashing.
 ---
 
 # Overview
@@ -112,7 +112,7 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 
 ### Why Partners Choose PrimeStaking
 
-* **Zero slashing risk** - XDC Network does not implement slashing, unlike ETH-based protocols.
+* **No principal-stake slashing** - XDC's slashing mechanism penalizes downtime via temporary exclusion from block production (~2h) and missed rewards; principal stake is never burned, unlike ETH-based protocols.
 * **ERC-4626 vault** - psXDC v3 conforms to the same standard used by major DeFi protocols, making integration straightforward.
 * **Non-custodial** - smart contract-based validator custody, no third-party key management, no admin mint or `ownerWithdraw`.
 * **Audited infrastructure** - QuillAudits (98.8%) on the V1 liquid staking contracts; **Nethermind Security NM-0843** (published May 08, 2026) on the psXDC V3 vault and V3 Migration Bridge.

@@ -2,7 +2,7 @@
 
 PrimeStaking is more than a retail staking app, it is **staking infrastructure for the XDC Network**, designed to serve exchanges, custodians, and institutional partners at scale.
 
-Built in collaboration with **Nethermind** and the **XDC Core team**, PrimeStaking provides production-grade liquid staking infrastructure with zero slashing risk, audited smart contracts, and non-custodial architecture.
+Built in collaboration with **Nethermind** and the **XDC Core team**, PrimeStaking provides production-grade liquid staking infrastructure with no principal-stake slashing, audited smart contracts, and non-custodial architecture.
 
 ***
 
@@ -26,7 +26,7 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | **Non-custodial**          | Users retain full ownership of assets at all times                                                                                        |
 | **Audited by QuillAudits** | XDC Staking Contract, 98.8% — [Published](https://docs.primestaking.xyz/security/audits-1)                                                |
 | **Audited by Nethermind**  | Security audit of custody contracts conducted by Nethermind Security, trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin |
-| **Zero slashing risk**     | XDC Network's masternode model does not implement slashing - unlike ETH liquid staking                                                    |
+| **No principal-stake slashing** | XDC's slashing penalizes downtime via temporary exclusion (~2h) and missed rewards; staked capital is never burned - unlike ETH liquid staking |
 | **Permissionless custody** | Smart contract-based validator key management - no human custody                                                                          |
 | **Battle-tested**          | Live since 2024, grown to $6M+ TVL                                                                                                        |
 | **XDC-native**             | Purpose-built for the XDC Network ecosystem                                                                                               |
@@ -38,13 +38,13 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | Property                | Detail                                                                                             |
 | ----------------------- | -------------------------------------------------------------------------------------------------- |
 | **Consensus**           | XDPoS (Delegated Proof of Stake) with masternode validators                                        |
-| **No slashing**         | Validators cannot be slashed - stakers face zero risk of capital loss from validator behavior      |
+| **No stake-burning slashing** | XDC slashing excludes underperforming masternodes from block production for ~2h and forfeits their rewards, but never burns principal — stakers face no risk of capital loss from validator behavior |
 | **Fast finality**       | 2-second target block time (real-world average \~2.33s) with near-instant transaction confirmation |
 | **Low fees**            | Negligible gas costs compared to Ethereum and most L2s                                             |
 | **Enterprise adoption** | XDC Network is used for trade finance, tokenized assets, and institutional applications            |
 | **Growing ecosystem**   | Active DeFi protocols, NFT marketplaces, and developer tooling                                     |
 
-For partners evaluating which networks to support, XDC offers a unique combination of institutional-grade infrastructure, zero slashing risk, and growing adoption.
+For partners evaluating which networks to support, XDC offers a unique combination of institutional-grade infrastructure, no principal-stake slashing, and growing adoption.
 
 ***
 

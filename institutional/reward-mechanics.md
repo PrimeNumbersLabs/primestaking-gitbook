@@ -8,7 +8,7 @@ This section explains how XDC liquid staking rewards are generated and distribut
 
 PrimeStaking generates yield through XDC Network masternode operations. Validators participate in the XDPoS consensus process and receive protocol rewards derived from block production and network activity.
 
-Unlike ETH-based liquid staking protocols, XDC Network **does not implement punitive principal-slashing mechanisms comparable to Ethereum Casper**. Validator penalties are limited to operational demotion and reward impacts, without destruction of the underlying staked capital. This creates a materially lower staking risk profile for institutional partners and end users.
+Unlike ETH-based liquid staking protocols, XDC Network **does not implement punitive principal-slashing mechanisms comparable to Ethereum Casper**. XDC's slashing instead penalizes downtime: a masternode that fails to sign any block during one full epoch (900 blocks, ~30 minutes) is excluded from block production for the next 4 epochs (~2 hours) and forfeits rewards during that window. Validator penalties are therefore limited to operational demotion and reward impacts, without destruction of the underlying staked capital. This creates a materially lower staking risk profile for institutional partners and end users.
 
 ---
 
@@ -21,7 +21,7 @@ Direct XDC staking requires running a masternode (10M XDC minimum, infrastructur
 | **Minimum** | 10,000,000 XDC | None |
 | **Infrastructure** | Run and maintain a masternode | Fully managed |
 | **Liquidity** | Locked until unstake | Liquid (psXDC is ERC-4626, transferable, tradeable) |
-| **Slashing risk** | None (XDC model) | None (XDC model) |
+| **Principal-stake slashing** | None (XDC model) | None (XDC model) |
 | **Reward rate** | Depends on your node's uptime | Pooled across optimized validators |
 | **Composability** | None | psXDC usable as ERC-4626 collateral in DeFi |
 | **Withdrawal UX** | Wait the network unstake delay | Instant when buffer allows; FIFO queue otherwise |
@@ -98,7 +98,7 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 | **Claim flow (base)** | None — rewards are realized on redemption |
 | **Claim flow (boost)** | User-initiated `claim(tokenId)` from the NFT detail page |
 | **On-chain verifiability** | Yes — both layers emit events indexed by the public subgraphs |
-| **Slashing risk** | None |
+| **Principal-stake slashing** | None — XDC penalizes downtime via ~2h exclusion + missed rewards, never burns principal |
 
 ---
 

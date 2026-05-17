@@ -95,7 +95,7 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 | **Loss caps** | None | Configurable per-report + per-day caps, set via delayed governance |
 | **Principal tracking** | None | Per-operator and global tracking |
 | **Admin can drain funds** | Technically yes (`ownerWithdraw`, `mint`) | No — no such functions exist |
-| **Zero slashing risk** | Yes (XDC model) | Yes (XDC model) |
+| **No principal-stake slashing** | Yes (XDC model) | Yes (XDC model) |
 
 ---
 
