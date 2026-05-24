@@ -13,7 +13,7 @@ psXDC has moved from its original custodial contract (V2) to a fully non-custodi
 V2 was the first generation of psXDC. It works, but its custodial design creates trust dependencies that limit adoption — particularly as collateral in DeFi lending markets. The core issues:
 
 - **Withdrawals require admin approval** — a user requests to withdraw, then the owner must manually approve each request before XDC is released
-- **Off-chain validator staking** — XDC was admin-withdrawn from the contract and staked into validators off-chain; users had to trust the team to manage this with no on-chain verification
+- **Custodial validator staking** — the admin withdrew XDC from the contract and staked it into validators; staking happened on-chain but was entirely admin-controlled, so users had to trust the team to manage their funds
 - **Owner can mint and withdraw** — the contract has `mint()` and `ownerWithdraw()` functions that give the owner broad control over user funds
 - **Rewards are manual** — the owner must call `notifyRewardAmount()` to distribute rewards
 
@@ -31,8 +31,8 @@ V3 eliminates all of these trust assumptions.
 | **Token model** | 1:1 fixed ratio (1 psXDC = 1 XDC) | Share-based exchange rate (increases over time) |
 | **Reward distribution** | Manual — owner calls `notifyRewardAmount()` | Automatic — exchange rate rises as validator rewards flow in |
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming — rewards are embedded in share price |
-| **XDC utilization** | Off-chain — admin-withdrawn and staked into validators outside the contract | On-chain — staked with masternodes via the validator contract, fully verifiable |
-| **Masternode integration** | Off-chain — admin managed validators manually | Direct on-chain integration with XDC validator contract |
+| **XDC utilization** | Custodial — admin withdrew XDC and staked with validators manually | Non-custodial — vault stakes directly with masternodes via smart contract, fully verifiable |
+| **Masternode integration** | Custodial — admin managed validators manually | Direct non-custodial integration with XDC validator contract |
 | **Upgradeability** | UUPS (owner-controlled upgrades) | **None — `PrimeStakedXDC_V3` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
 
 ---
