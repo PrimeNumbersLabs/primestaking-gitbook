@@ -29,7 +29,7 @@ The platform is live at [primestaking.xyz](https://primestaking.xyz).
 
 ## For Users
 
-Earn rewards on XDC and PRFI tokens without giving up control of your assets.
+Earn rewards on XDC without giving up control of your assets.
 
 ### Products
 
@@ -37,7 +37,6 @@ Earn rewards on XDC and PRFI tokens without giving up control of your assets.
 | ---------------------- | ----- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
 | **XDC Liquid Staking** | XDC   | \~4.5% APY                     | Stake XDC, receive psXDC vault shares. Share price grows as validator rewards accrue.              |
 | **XDC NFTs**           | psXDC | ~4.5% base + boost slice → up to ~6% locked | Deposit psXDC shares into NFTs. Earn the underlying NAV plus a rarity- and lock-weighted boost slice. |
-| **PRFI NFTs**          | PRFI  | 100K PRFI/mo pool              | Stake PRFI inside NFTs. Rarity determines share.                                                   |
 
 #### XDC Liquid Staking
 
@@ -64,23 +63,12 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/) → [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)
 
-#### PRFI NFTs
-
-Staking for PRFI token holders. Deposit PRFI into NFTs to earn a share of the monthly reward pool. PRFI NFTs live on the **Base** network (Ethereum L2) and are tradeable on [OpenSea](https://opensea.io/collection/primenumbers-prfi-onft).
-
-* 100,000 PRFI distributed monthly across all staked NFTs.
-* Higher rarity = higher share of the reward pool.
-* Merge NFTs to unlock stronger multipliers and maximize yield.
-
-→ [Learn more about PRFI NFTs](prfi-staking/nft-staking-reward-system/prfi-staking-nfts/) → [Buy on OpenSea](https://opensea.io/collection/primenumbers-prfi-onft)
-
 #### How Rewards Reach You
 
 | Product                | What you earn                                    | How you receive it                                                                           |
 | ---------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **XDC Liquid Staking** | Higher psXDC share price                         | Automatic — your shares are worth more XDC over time. No claim button.                       |
 | **XDC NFTs**           | Underlying NAV growth + boost slice (in XDC)     | NAV is automatic; **claim boost** from the NFT detail page. Withdraw burns shares back to XDC. |
-| **PRFI NFTs**          | PRFI                                             | Monthly distribution, claim from app                                                          |
 
 #### The psXDC Ecosystem
 
@@ -162,7 +150,6 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | XDC NFTs                | [primestaking.xyz/xdc-nfts/overview](https://primestaking.xyz/xdc-nfts/overview)                     |
 | Migrate XDC NFTs        | [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migrate)                       |
 | Migrate psXDC V2 → V3   | [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration) |
-| PRFI NFTs               | [primestaking.xyz/prfi-nfts/overview](https://primestaking.xyz/prfi-nfts/overview)                   |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/)                                                 |
 | psXDC V3 vault          | [XDCScan](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)                    |
 | Deployed addresses      | [Contract Addresses](xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md)               |

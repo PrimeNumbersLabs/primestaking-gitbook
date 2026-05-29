@@ -54,4 +54,4 @@ You agree to indemnify and hold harmless PrimeStaking and its contributors from 
 
 ---
 
-> **Binding by Use:** By connecting a wallet, interacting with our interfaces, staking PRFI or XDC (including receiving psXDC or staking via NFTs), or otherwise using PrimeStaking, you acknowledge and accept this Risk Disclosure & Disclaimer.
+> **Binding by Use:** By connecting a wallet, interacting with our interfaces, staking XDC (including receiving psXDC or staking via NFTs), or otherwise using PrimeStaking, you acknowledge and accept this Risk Disclosure & Disclaimer.

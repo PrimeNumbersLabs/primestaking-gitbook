@@ -47,17 +47,6 @@ These contracts are kept live so users who choose not to migrate can continue to
 
 ---
 
-## PRFI (Base Mainnet, chain ID `8453`)
-
-PRFI is a separate product and is **not** affected by the V3 rebuild.
-
-| Contract | Address | Role |
-| --- | --- | --- |
-| PRFI NFT collection | [`0x693A3A45Ff596024f844Be1cc6845d59F778dCF5`](https://basescan.org/address/0x693A3A45Ff596024f844Be1cc6845d59F778dCF5) | PRFI staking NFTs on Base. |
-| PRFI ERC-20 | [`0x7BBCf1B600565AE023a1806ef637Af4739dE3255`](https://basescan.org/address/0x7BBCf1B600565AE023a1806ef637Af4739dE3255) | PRFI token on Base. |
-
----
-
 ## Quick reference for integrators
 
 If you are integrating PrimeStaking from a partner application, the only contracts you ever call directly are:
