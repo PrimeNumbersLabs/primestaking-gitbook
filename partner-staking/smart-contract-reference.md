@@ -2,8 +2,8 @@
 
 Two contracts make up Partner Staking: **`PartnerStakedXDC_V3`** (the per-partner vault) and **`PartnerVaultRegistry`** (the shared directory).
 
-{% hint style="warning" %}
-Pre-launch — no mainnet addresses yet. They'll be added to [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) at launch.
+{% hint style="info" %}
+Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) is at `0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`. Each `PartnerStakedXDC_V3` is a separate per-partner deployment; discover live pools via the registry's `allVaults()` / `verifiedVaults()`. See [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
 {% endhint %}
 
 ---

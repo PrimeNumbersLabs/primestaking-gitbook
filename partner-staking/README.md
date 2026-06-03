@@ -4,8 +4,8 @@ description: White-label XDC liquid staking pools that partners deploy and fully
 
 # Partner Staking
 
-{% hint style="warning" %}
-**Status: pre-launch.** The Partner Staking contracts (`PartnerStakedXDC_V3` and `PartnerVaultRegistry`) are built and tested but not yet deployed to XDC Mainnet, and the directory is gated behind a feature flag in the app (`NEXT_PUBLIC_PARTNERS_ENABLED`, off by default). Mainnet addresses will be published here at launch. The mechanics below reflect the finalized contracts.
+{% hint style="info" %}
+**Status: live on XDC Mainnet.** The [`PartnerVaultRegistry`](registry-and-verification.md) is deployed at [`0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) and partner pools are already being registered. Pools appear in the app's directory once PrimeStaking marks them **Verified**.
 {% endhint %}
 
 **Partner Staking** lets a community, validator, exchange, or institution run its **own** XDC liquid staking pool — its own branded token, its own masternode operators, its own admin keys — while plugging into the PrimeStaking app, UI, and tooling. PrimeStaking does not custody the pool or operate its validators; it provides the audited vault design and the directory, and earns a flat **15% protocol fee** on the pool's staking rewards.

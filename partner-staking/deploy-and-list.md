@@ -2,8 +2,8 @@
 
 Bringing a partner pool online is a two-stage process: **deploy** your own `PartnerStakedXDC_V3`, then **register** it in the `PartnerVaultRegistry` so it appears in the PrimeStaking app. Both stages are self-service from the partner dashboard.
 
-{% hint style="warning" %}
-Pre-launch: the registry and the canonical codehash allow-list are not yet live on mainnet. The flow below reflects the finalized contracts.
+{% hint style="info" %}
+Live on XDC Mainnet: the registry ([`0x325D…3a67`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67)) and its canonical codehash allow-list are deployed, and pools are already registering through the flow below.
 {% endhint %}
 
 ---

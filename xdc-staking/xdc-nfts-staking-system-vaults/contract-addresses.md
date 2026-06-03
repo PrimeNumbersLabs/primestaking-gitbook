@@ -36,6 +36,17 @@ This page is the single source of truth for every address the V3 stack interacts
 
 ---
 
+## Partner Staking
+
+These power the white-label [Partner Staking](../../partner-staking/README.md) product. The registry is shared; each partner pool is its own independent `PartnerStakedXDC_V3` deployment, so pool addresses are discovered dynamically via the registry rather than hard-coded here.
+
+| Contract | Address | Type | Notes |
+| --- | --- | --- | --- |
+| **`PartnerVaultRegistry`** | [`0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) | Registry (`Ownable2Step`) | On-chain directory of partner pools. Codehash-gated registration; PrimeStaking curates which pools are **Verified**. Enumerate pools via `allVaults()` / `verifiedVaults()`. |
+| `PartnerStakedXDC_V3` (per partner) | _discover via registry_ | ERC-4626 vault (native XDC) | Each partner deploys their own pool. Identical runtime bytecode (15% fee constant) so the registry can verify it by `codehash`. |
+
+---
+
 ## Legacy (V2) — still operational
 
 These contracts are kept live so users who choose not to migrate can continue to use the V2 product. Every new deposit and every audited V3 path uses the V3 contracts above.
