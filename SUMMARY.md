@@ -29,6 +29,14 @@
 * [DEX Liquidity](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
 * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
 
+## Partner Staking
+
+* [Partner Staking](partner-staking/README.md)
+  * [How It Works](partner-staking/how-it-works.md)
+  * [Deploy & List a Pool](partner-staking/deploy-and-list.md)
+  * [Registry & Verification](partner-staking/registry-and-verification.md)
+  * [Smart Contract Reference](partner-staking/smart-contract-reference.md)
+
 ## For Partners
 
 * [Institutional Overview](institutional/README.md)

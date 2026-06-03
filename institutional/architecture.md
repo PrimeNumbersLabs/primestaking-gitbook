@@ -43,9 +43,9 @@ Infrastructure is developed in collaboration with **Nethermind** (smart contract
 | `PrimeStakedXDC_V3MigrationBridge` | One-way V2 psXDC → V3 share migration. Time-locked admin, daily withdrawal caps. | **None** | [`0x2927…5dD2`](https://xdcscan.com/address/0x2927630dfDd66433DbA9370b316EF5a8408d5dD2) |
 | `XdcStakedNFT` | ERC-721 NFT collection for staking positions. Rarity stored on-chain. | **None** | [`0xf3eB…898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) |
 | `XdcNftStakingVault` | Holds psXDC v3 shares per NFT; runs Synthetix-style boost accumulator; handles stake/withdraw/claim/lock/merge/burnAndRedeem. | **TransparentUpgradeableProxy** (ERC-7201 namespaced storage) | [`0x9f38…4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) |
-| `XdcNftMigrator` | Atomic V2 → V3 NFT migration with `tokenId`/rarity/lock preservation. | **None** | [`0x45e2…7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) |
+| `XdcNftMigratorV2` | Atomic V2 → V3 NFT migration. Preserves `tokenId`/rarity/lock, and remaps legacy ids ≥ `10000` into the free `5558–9999` band. | **None** | [`0x36Fe…f026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) |
 | `XdcNftBoostHarvester` | Funds the NFT vault's boost accumulator via `notifyBoost`. Only holder of `FEE_ROUTER_ROLE`. | **None** | [`0x3bEd…8DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) |
-| `LegacyMigratorBypassFacet` | Diamond facet on the legacy Diamond `0x7a5d…aA17` enabling locked-NFT migration. | Facet — added via `diamondCut` | [`0x2756…1836`](https://xdcscan.com/address/0x275641d5bA81786A7e60352F990F0c203e7D1836) |
+| `LegacyMigratorBypassFacet` | Diamond facet on the legacy Diamond `0x7a5d…aA17` enabling locked-NFT migration (clears `tokenLocked`; the diamond pays the psXDC). | Facet — added via `diamondCut` | [`0x6441…25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) |
 
 Full inventory in [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
 

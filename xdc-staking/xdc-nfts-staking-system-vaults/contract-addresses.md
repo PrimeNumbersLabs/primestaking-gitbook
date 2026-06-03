@@ -25,13 +25,14 @@ This page is the single source of truth for every address the V3 stack interacts
 
 | Contract | Address | Type | Notes |
 | --- | --- | --- | --- |
-| **`XdcStakedNFT`** | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection | **Non-upgradeable**. Stores rarity on-chain; migrated NFTs preserve their legacy `tokenId`. |
+| **`XdcStakedNFT`** | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection | **Non-upgradeable**. Stores rarity on-chain; migrated NFTs preserve their legacy `tokenId` (except legacy ids ≥ `10000`, which `XdcNftMigratorV2` remaps into the `5558–9999` band). |
 | **`XdcNftStakingVault`** (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | TransparentUpgradeableProxy | User-facing vault for stake / withdraw / claim / lock / merge / `burnAndRedeem`. Uses ERC-7201 namespaced storage. |
 | `XdcNftStakingVault` implementation | [`0x98D4880663ABAF96CAb2C005eb4A56bf1d583990`](https://xdcscan.com/address/0x98D4880663ABAF96CAb2C005eb4A56bf1d583990) | Vault logic | Always interact with the proxy above, not this address. |
 | Vault `ProxyAdmin` | [`0xCE17925533C570B3EE5621Df39019b1a5785fb3d`](https://xdcscan.com/address/0xCE17925533C570B3EE5621Df39019b1a5785fb3d) | Proxy admin | Owned by the protocol multisig. |
-| **`XdcNftMigrator`** | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) | Migrator | One-shot per NFT: burns legacy NFT → bridges psXDC → mints + stakes new NFT. **Non-upgradeable**. |
+| **`XdcNftMigratorV2`** | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) | Migrator (**live**) | The active one-shot migrator: burns legacy NFT → bridges psXDC → mints + stakes new NFT. Additionally **remaps legacy ids ≥ `10000`** (the merge-reserved range) to a free id in `5558–9999`, emitting `LegacyIdRemapped`. **Non-upgradeable**. |
+| `XdcNftMigrator` (superseded) | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) | Migrator (**paused**) | The original migrator. **Paused and replaced** by `XdcNftMigratorV2`. It could not migrate the lock-class stragglers (it took a reverting `primeV2.burnToRedeem` path) nor legacy ids ≥ `10000`. Do not use. |
 | **`XdcNftBoostHarvester`** | [`0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) | Boost pipe | Funds the Synthetix-style boost accumulator via `notifyBoost`. **Non-upgradeable**. |
-| **`LegacyMigratorBypassFacet`** | [`0x275641d5bA81786A7e60352F990F0c203e7D1836`](https://xdcscan.com/address/0x275641d5bA81786A7e60352F990F0c203e7D1836) | Diamond facet | Added to the legacy Diamond via `diamondCut` so locked legacy NFTs can be migrated in a single transaction. |
+| **`LegacyMigratorBypassFacet`** | [`0x64413bAD206b5D90a5010cc683F50086407F25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) | Diamond facet (**live**) | Added to the legacy Diamond via `diamondCut` so locked legacy NFTs migrate in a single transaction. Clears the diamond's `tokenLocked` flag and lets the diamond's own `burnAndRedeem` pay the psXDC — it makes **no** call to the drained v2 staker. Replaced the original facet `0x2756…1836` via a `diamondCut` Replace. |
 
 ---
 
@@ -41,7 +42,8 @@ These contracts are kept live so users who choose not to migrate can continue to
 
 | Contract | Address | Role |
 | --- | --- | --- |
-| Legacy Diamond (ERC-2535) | [`0x7a5d364b97126600C0AdDFD5C339230748bcaA17`](https://xdcscan.com/address/0x7a5d364b97126600C0AdDFD5C339230748bcaA17) | Host of all legacy XDC NFT facets. Now also hosts `LegacyMigratorBypassFacet` for one-tx migration. |
+| Legacy Diamond (ERC-2535) | [`0x7a5d364b97126600C0AdDFD5C339230748bcaA17`](https://xdcscan.com/address/0x7a5d364b97126600C0AdDFD5C339230748bcaA17) | Host of all legacy XDC NFT facets. Now also hosts `LegacyMigratorBypassFacet` (`0x6441…25C6`) for one-tx migration. |
+| Drained v2 staker (`PrimeStakerV2XDC`) | [`0x2204E4Db4D45A290e284daa6f6fb52273593B293`](https://xdcscan.com/address/0x2204E4Db4D45A290e284daa6f6fb52273593B293) | The original v2 XDC staker. Drained to ~0; retained for reference only. The bypass facet deliberately does **not** call it. |
 | Legacy ERC-721 façade | [`0x9D458330e458f11fd1cE7E44B3a66568af8076a0`](https://xdcscan.com/address/0x9D458330e458f11fd1cE7E44B3a66568af8076a0) | The user-visible NFT contract behind the V2 XDC NFTs. |
 | Legacy psXDC v2 (proxy) | [`0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6`](https://xdcscan.com/address/0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6) | The V2 psXDC ERC-20 token. Use this address when approving the V2→V3 migration bridge. |
 
@@ -54,7 +56,7 @@ If you are integrating PrimeStaking from a partner application, the only contrac
 - `PrimeStakedXDC_V3` — to stake, withdraw, redeem, or read the share price.
 - `PrimeStakedXDC_V3MigrationBridge` — only if your users hold V2 psXDC and want to migrate.
 - `XdcNftStakingVault` (proxy) — for any NFT-side action.
-- `XdcNftMigrator` — only during the NFT migration window.
+- `XdcNftMigratorV2` — only during the NFT migration window (the original `XdcNftMigrator` is paused).
 
 The harvester, bypass facet, vault implementation, and ProxyAdmin are operated by the protocol and do not need to be called from partner code.
 

@@ -75,7 +75,7 @@ List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When
 
 #### I still hold a legacy XDC NFT — what should I do?
 
-You can keep it (the legacy contracts remain operational) or migrate it to V3 in a single transaction via [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate). Migration preserves your **tokenId**, **rarity**, and any active **lock expiry**, and immediately starts earning under the V3 reward model.
+You can keep it (the legacy contracts remain operational) or migrate it to V3 in a single transaction via [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate). Migration preserves your **rarity** and any active **lock expiry**, and your **tokenId** for legacy ids below `10000` (ids ≥ `10000` are remapped into the `5558–9999` band because that range is reserved for merged NFTs). It immediately starts earning under the V3 reward model.
 
 → [Migrate XDC NFTs to V3](xdc-staking-nfts/migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](xdc-staking-nfts/locked-nft-migration.md)
 

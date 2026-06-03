@@ -91,12 +91,15 @@ XDC  →  psXDC shares  →  NFT  →  Boost slice
 
 PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, custodians, and institutional partners who want to offer XDC staking to their customers without building from scratch.
 
-### Two Integration Models
+### Three Partner Models
 
-| Model                | Description                                    | Best For                                 |
-| -------------------- | ---------------------------------------------- | ---------------------------------------- |
-| **White Label**      | Your brand, our infrastructure.                | Exchanges, large custodians              |
-| **Powered by Prime** | Co-branded widget. Minimal integration effort. | Wallets, aggregators, regional platforms |
+| Model                | Description                                                                          | Best For                                 |
+| -------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------- |
+| **White Label**      | Your brand, our infrastructure.                                                      | Exchanges, large custodians              |
+| **Powered by Prime** | Co-branded widget. Minimal integration effort.                                       | Wallets, aggregators, regional platforms |
+| **Partner Staking**  | Deploy and self-manage **your own** liquid staking pool, listed in the PrimeStaking app. Flat 15% protocol fee. | Communities, validators, regional platforms |
+
+White Label and Powered by Prime are integration tracks where you embed the flagship PrimeStaking vault — see [For Partners](#for-partners--institutions) below. **Partner Staking** is a distinct, self-service product where you run your own vault — see [Partner Staking](partner-staking/README.md).
 
 ### Why Partners Choose PrimeStaking
 
@@ -151,6 +154,7 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | Migrate XDC NFTs        | [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migrate)                       |
 | Migrate psXDC V2 → V3   | [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/)                                                 |
+| Partner Staking         | [Run your own staking pool](partner-staking/README.md)                                               |
 | psXDC V3 vault          | [XDCScan](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)                    |
 | Deployed addresses      | [Contract Addresses](xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md)               |
 | Contact                 | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)                                              |

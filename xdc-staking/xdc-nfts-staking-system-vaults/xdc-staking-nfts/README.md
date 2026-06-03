@@ -28,7 +28,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 ## How It Works
 
 1. **Get psXDC shares** — stake XDC in [`PrimeStakedXDC_V3`](../xdc-liquid-staking/README.md) or buy psXDC on a DEX. (Already hold V2 psXDC? [Migrate to V3 first](../xdc-liquid-staking/staking-guide/migration.md).)
-2. **Get an NFT** — buy one on [PrimePort](https://primeport.xyz), or migrate a legacy V2 NFT through [`XdcNftMigrator`](migrate-nfts-v2-to-v3.md) (preserves your `tokenId`, rarity, and any active lock).
+2. **Get an NFT** — buy one on [PrimePort](https://primeport.xyz), or migrate a legacy V2 NFT through [`XdcNftMigratorV2`](migrate-nfts-v2-to-v3.md) (preserves your rarity and any active lock, and your `tokenId` for legacy ids below `10000` — ids ≥ `10000` are remapped).
 3. **Stake psXDC shares into your NFT** — the vault records the shares against the NFT's `tokenId`. The NFT's **weight** in the boost accumulator becomes `stakedShares × (rarityMultiplier + level + lockBoost)`.
 4. **Earn two stacked yields**:
    - **Base NAV** — your staked shares keep appreciating; you receive them back at the higher value when you withdraw.
@@ -89,8 +89,8 @@ The collection includes 15 exclusive, handcrafted NFTs by the Art Director. Owne
 | --- | --- | --- |
 | `XdcStakedNFT` | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | Fresh ERC-721 collection. Non-upgradeable. |
 | `XdcNftStakingVault` (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | Staking engine — holds psXDC shares under each NFT, runs the accumulator. TransparentUpgradeableProxy, ERC-7201 namespaced storage. |
-| `XdcNftMigrator` | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) | One-shot V2 → V3 migrator. Non-upgradeable. |
+| `XdcNftMigratorV2` | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) | Live one-shot V2 → V3 migrator. Remaps legacy ids ≥ `10000` to `5558–9999`. Non-upgradeable. (Supersedes the paused `XdcNftMigrator` `0x45e2…7dFb`.) |
 | `XdcNftBoostHarvester` | [`0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) | Funds the boost accumulator via `notifyBoost`. Non-upgradeable. |
-| `LegacyMigratorBypassFacet` | [`0x275641d5bA81786A7e60352F990F0c203e7D1836`](https://xdcscan.com/address/0x275641d5bA81786A7e60352F990F0c203e7D1836) | Diamond facet on the legacy diamond enabling locked-NFT migration. |
+| `LegacyMigratorBypassFacet` | [`0x64413bAD206b5D90a5010cc683F50086407F25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) | Diamond facet on the legacy diamond enabling locked-NFT migration. Clears `tokenLocked`; the diamond pays the psXDC (no v2-staker call). |
 
 → [Staking Mechanics (V3)](xdc-staking-nfts-mechanics.md) → [Reward Model: Base NAV + Boost](xdc-nft-staking-reward-system.md) → [Migrate XDC NFTs to V3](migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](locked-nft-migration.md) → [Boost Harvester (technical)](boost-harvester.md) → [Smart Contract Reference (V3)](smart-contract-functions.md)

@@ -1,9 +1,13 @@
 # Migrate XDC NFTs to V3
 
-The V3 XDC NFT stack is a fresh set of contracts. Your legacy V2 NFTs continue to work, but to earn under the new reward model (psXDC v3 NAV + Synthetix boost slice) you migrate them through [`XdcNftMigrator`](../contract-addresses.md). Migration preserves your **tokenId**, **rarity**, and any active **lock expiry**.
+The V3 XDC NFT stack is a fresh set of contracts. Your legacy V2 NFTs continue to work, but to earn under the new reward model (psXDC v3 NAV + Synthetix boost slice) you migrate them through [`XdcNftMigratorV2`](../contract-addresses.md). Migration preserves your **rarity** and any active **lock expiry**, and preserves your **tokenId** for every legacy id below `10000`.
 
 {% hint style="info" %}
-Migration is **one-shot per NFT**, **atomic** (all-or-nothing), and never holds your funds across transactions. Same `tokenId` end-to-end — your social presence, links, and OpenSea / PrimePort references keep working.
+Migration is **one-shot per NFT**, **atomic** (all-or-nothing), and never holds your funds across transactions. For legacy ids below `10000` the `tokenId` is identical end-to-end — your social presence, links, and OpenSea / PrimePort references keep working.
+{% endhint %}
+
+{% hint style="warning" %}
+**Legacy ids ≥ `10000` are remapped.** The V3 collection reserves token ids `≥ 10000` for merged NFTs, so a legacy NFT minted in that band cannot keep its number. `XdcNftMigratorV2` automatically assigns such an NFT a **new** id in the `5558–9999` range (emitting `LegacyIdRemapped`) and migrates everything else — rarity, staked value, lock — unchanged. Only ~21 legacy NFTs are affected; all other ids are preserved 1:1.
 {% endhint %}
 
 ---
@@ -32,7 +36,7 @@ For locked NFTs the flow is identical except it also routes through the [`Legacy
 
 ### Properties that always hold
 
-- **Same `tokenId`** end-to-end. Wallets, social, marketplaces keep working.
+- **Same `tokenId`** end-to-end for legacy ids below `10000` (wallets, social, marketplaces keep working). Legacy ids ≥ `10000` are remapped to a fresh `5558–9999` id (see the warning above).
 - **Same rarity** — the migrator reads `getNFTData` on the legacy NFT and mints with the matching `rarityMultiplier`.
 - **Atomic** — every step reverts together. If any leg of the migration fails (slippage exceeded, bridge inactive, locked NFT but bypass facet missing, etc.) the whole transaction reverts and you keep your legacy NFT untouched.
 - **No reward forfeiture** — for locked NFTs, the migrator calls `try oldFacade.claim(tokenId)` before burning so any V2-pending rewards are folded into the staked balance and survive into V3. (Vanilla `burnAndRedeem` on V2 would otherwise silently drop them.)
@@ -48,7 +52,7 @@ Go to [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migr
 
 ### 2. Approve the migrator
 
-For each legacy NFT you want to migrate, approve [`XdcNftMigrator`](../contract-addresses.md) to pull it. The migrate page issues one `approve(migrator, tokenId)` per NFT.
+For each legacy NFT you want to migrate, approve [`XdcNftMigratorV2`](../contract-addresses.md) to pull it. The migrate page issues one `approve(migrator, tokenId)` per NFT.
 
 ### 3. Set slippage
 
@@ -94,7 +98,7 @@ You can interact with your V3 NFT immediately: stake more shares, lock, merge, c
 
 **Can I migrate part of an NFT?** No. Migration is one tokenId at a time. You can batch multiple NFTs in a single tx via `migrateBatch`.
 
-**Can I roll back?** No. Legacy NFTs are **burned** when migrated. The V3 NFT is functionally equivalent (same `tokenId`, same rarity, same lock expiry).
+**Can I roll back?** No. Legacy NFTs are **burned** when migrated. The V3 NFT is functionally equivalent (same rarity, same lock expiry; same `tokenId` unless your legacy id was ≥ `10000`, in which case it is remapped to a `5558–9999` id).
 
 **Do I need to claim V2 rewards first?** No. The migrator handles the V2-side claim automatically (best-effort `try claim(tokenId)`) so pending V2 rewards are folded into the staked balance.
 
