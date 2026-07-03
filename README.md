@@ -5,7 +5,7 @@ description: Non-custodial XDC staking infrastructure. No principal-stake slashi
 # Overview
 
 {% hint style="info" %}
-PrimeStaking runs on the **`PrimeStakedXDC_V3_1`** vault — a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. In July 2026 the vault was redeployed as V3.1 and **every V3 holder's balance was mirrored 1:1 via a snapshot airdrop — no user action was needed**. The XDC NFT stack was cut over to V3.1 in the same operation. V2 holders who never migrated can still do so through the [v2 → V3.1 migration bridge](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md); legacy NFTs migrate via [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
+PrimeStaking runs on the **`PrimeStakedXDC_V3_1`** vault, a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. In July 2026 the vault was redeployed as V3.1 and **every V3 holder's balance was mirrored 1:1 via a snapshot airdrop; no user action was needed**. The XDC NFT stack was cut over to V3.1 in the same operation. V2 holders who never migrated can still do so through the [v2 → V3.1 migration bridge](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md); legacy NFTs migrate via [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
 {% endhint %}
 
 ## Overview
@@ -44,7 +44,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
 1. **Stake XDC** - Deposit any amount into the V3 vault.
 2. **Receive psXDC shares** - You receive psXDC at the current vault exchange rate. There is no fixed 1:1 ratio; share price rises as rewards accrue.
-3. **Earn rewards** - Rewards are embedded directly in the share price (~4.5% APY). No claim button — your shares simply become worth more XDC over time.
+3. **Earn rewards** - Rewards are embedded directly in the share price (~4.5% APY). There is no claim button; your shares simply become worth more XDC over time.
 4. **Stay liquid** - psXDC is a standard ERC-20 on the XDC Network. Hold it, transfer it, use it as DeFi collateral, or deposit it into XDC NFTs.
 5. **Withdraw anytime** - Burn psXDC shares. If the vault has enough buffer liquidity, you receive XDC instantly in the same transaction. Otherwise your request enters an automatic FIFO queue and you claim once the masternode payouts return.
 
@@ -59,7 +59,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 * **Boost yield** comes from a Synthetix-style accumulator. The protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) calls `notifyBoost` and the resulting slice is distributed pro-rata to NFT weights.
 * **Level up** by merging two same-rarity NFTs into a higher tier.
 * **Lock** your NFT to add a lock bonus to its weight. Floor is the **~4.5% base NAV** (always earned, no claim); when the boost stream is flowing, the combined APY ranges from **~4.75% (unlocked)** up to **~6% (locked)**.
-* You only claim the **boost slice** from the app — base NAV is automatically inside the shares you get back on withdraw.
+* You only claim the **boost slice** from the app. Base NAV is automatically inside the shares you get back on withdraw.
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/) → [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)
 
@@ -67,7 +67,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 
 | Product                | What you earn                                    | How you receive it                                                                           |
 | ---------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| **XDC Liquid Staking** | Higher psXDC share price                         | Automatic — your shares are worth more XDC over time. No claim button.                       |
+| **XDC Liquid Staking** | Higher psXDC share price                         | Automatic: your shares are worth more XDC over time. No claim button.                       |
 | **XDC NFTs**           | Underlying NAV growth + boost slice (in XDC)     | NAV is automatic; **claim boost** from the NFT detail page. Withdraw burns shares back to XDC. |
 
 #### The psXDC Ecosystem
@@ -99,7 +99,7 @@ PrimeStaking is **XDC liquid staking infrastructure** - built for exchanges, cus
 | **Powered by Prime** | Co-branded widget. Minimal integration effort.                                       | Wallets, aggregators, regional platforms |
 | **Partner Staking**  | Deploy and self-manage **your own** liquid staking pool, listed in the PrimeStaking app. Flat 15% protocol fee. | Communities, validators, regional platforms |
 
-White Label and Powered by Prime are integration tracks where you embed the flagship PrimeStaking vault — see [For Partners](#for-partners--institutions) below. **Partner Staking** is a distinct, self-service product where you run your own vault — see [Partner Staking](partner-staking/README.md).
+White Label and Powered by Prime are integration tracks where you embed the flagship PrimeStaking vault (see [For Partners](#for-partners--institutions) below). **Partner Staking** is a distinct, self-service product where you run your own vault (see [Partner Staking](partner-staking/README.md)).
 
 ### Why Partners Choose PrimeStaking
 
@@ -134,7 +134,7 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 
 ### Security
 
-* `PrimeStakedXDC_V3_1` is **non-upgradeable** — deployed with a regular constructor, no proxy. The vault logic cannot be modified after deployment.
+* `PrimeStakedXDC_V3_1` is **non-upgradeable**, deployed with a regular constructor and no proxy. The vault logic cannot be modified after deployment.
 * The XDC NFT staking vault is a `TransparentUpgradeableProxy` controlled by the protocol multisig, with namespaced ERC-7201 storage. All other NFT-stack contracts (collection, migrator, harvester, bypass facet) are non-upgradeable.
 * Validator custody is **smart contract-based** - permissionless and trustless, no third-party custodian.
 * The protocol is **non-custodial** - users retain full ownership of their assets at all times.

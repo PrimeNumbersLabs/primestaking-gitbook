@@ -17,7 +17,7 @@ Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**.
 
 ### Step 2 - Navigate to XDC Liquid Staking
 
-Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake. The app previews how many psXDC shares you will receive at the current exchange rate — this is **not** a fixed 1:1; once the vault has accrued rewards, each share is worth more than 1 XDC.
+Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake. The app previews how many psXDC shares you will receive at the current exchange rate. This is **not** a fixed 1:1; once the vault has accrued rewards, each share is worth more than 1 XDC.
 
 <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -31,7 +31,7 @@ Review the previewed share amount and click **Stake**. The app calls `stake()` o
 
 ### Step 4 - Receive psXDC Shares
 
-Once confirmed, psXDC shares are minted to your wallet at the live exchange rate. From this moment your shares are appreciating — rewards accrue automatically through the share price, with no claim button to press.
+Once confirmed, psXDC shares are minted to your wallet at the live exchange rate. From this moment your shares are appreciating: rewards accrue automatically through the share price, with no claim button to press.
 
 You can now hold psXDC, transfer it, trade it on a DEX, use it as DeFi collateral, or deposit it into an [XDC NFT](../../xdc-staking-nfts/) for the additional boost slice.
 

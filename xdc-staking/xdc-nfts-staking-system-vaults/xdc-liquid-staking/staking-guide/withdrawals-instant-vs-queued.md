@@ -1,9 +1,9 @@
 # Withdrawals: Instant vs Queued
 
-Every withdrawal on V3 goes through `redeemWithQueue` (or `withdrawWithQueue`). The vault automatically picks the **fastest path your balance and the buffer allow** — no admin approval, no per-user setting to flip.
+Every withdrawal on V3 goes through `redeemWithQueue` (or `withdrawWithQueue`). The vault automatically picks the **fastest path your balance and the buffer allow**: no admin approval, no per-user setting to flip.
 
 {% hint style="info" %}
-**During the V3.1 collateral transition** (masternodes moving into the vault roughly weekly), instant withdrawals are served from the vault's free liquidity, and the FIFO queue is backed by dedicated team funding that is ring-fenced for queued requests — new stakers' deposits are never trapped, and queued users are paid as each liquidity tranche arrives. Once the transition completes, the standard buffer model below applies in full.
+**During the V3.1 collateral transition** (masternodes moving into the vault roughly weekly), instant withdrawals are served from the vault's free liquidity, and the FIFO queue is backed by dedicated team funding that is ring-fenced for queued requests. New stakers' deposits are never trapped, and queued users are paid as each liquidity tranche arrives. Once the transition completes, the standard buffer model below applies in full.
 {% endhint %}
 
 ---
@@ -31,7 +31,7 @@ The buffer is the percentage of total assets the vault keeps liquid (default 5%,
 
 ---
 
-## Path A — Instant redeem
+## Path A: Instant redeem
 
 When liquidity is sufficient:
 
@@ -43,7 +43,7 @@ Use cases: routine withdrawals while the vault has free liquidity, partner integ
 
 ---
 
-## Path B — Queued redeem
+## Path B: Queued redeem
 
 When liquidity is constrained:
 
@@ -57,7 +57,7 @@ Anyone can call `processWithdrawalQueue(maxRequests)`, which:
 
 1. Walks the FIFO, oldest first.
 2. For each request, checks the current liquid XDC against the request's share value at the **current** exchange rate.
-3. If the vault can pay, it does — burns the escrowed shares, sends XDC to the original receiver.
+3. If the vault can pay, it does: it burns the escrowed shares and sends XDC to the original receiver.
 4. If the receiver payout fails (e.g. a smart contract receiver that reverts on payment), the XDC is deferred into `pendingQueuedAssets[receiver]`. The user collects it later via `claimQueuedAssets`.
 
 Auto-propose (the function that pushes new XDC into masternodes) is **blocked while there is any backlog**, so the protocol prioritizes outgoing user redemptions over locking up more XDC.
@@ -68,14 +68,14 @@ The vault's liquid balance grows from:
 
 - **New user deposits** (any `stake` adds XDC to the buffer).
 - **Validator reward inflows** (rewards flow back into the vault and bump tracked assets).
-- **Masternode resignation** — when a proposer resigns a masternode, the XDC returns to the vault after the network's `candidateWithdrawDelay` (~35 days under typical block times).
-- **Collateral-transition funding** (V3.1) — while the legacy masternode fleet is being moved over, the team injects liquidity tranches on a rolling schedule; funding earmarked for the withdrawal queue is reserved for queued requests and cannot be consumed by instant withdrawals.
+- **Masternode resignation**: when a proposer resigns a masternode, the XDC returns to the vault after the network's `candidateWithdrawDelay` (~35 days under typical block times).
+- **Collateral-transition funding** (V3.1): while the legacy masternode fleet is being moved over, the team injects liquidity tranches on a rolling schedule; funding earmarked for the withdrawal queue is reserved for queued requests and cannot be consumed by instant withdrawals.
 
 For very large withdrawals where the protocol doesn't already have a buffer + recent rewards sufficient to cover, the resignation timeline is the upper bound on settlement.
 
 ### Cancelling
 
-You can call `cancelQueuedWithdrawal(requestId)` at any time before settlement. The escrowed psXDC shares are returned to your wallet — no XDC moves and nothing is lost.
+You can call `cancelQueuedWithdrawal(requestId)` at any time before settlement. The escrowed psXDC shares are returned to your wallet; no XDC moves and nothing is lost.
 
 ### Self-claim with `claimQueuedAssets`
 
@@ -85,10 +85,10 @@ If you ever see a queued request that says "ready to claim" in the app, that mea
 
 ## How the app uses these paths
 
-The PrimeStaking UI always calls `redeemWithQueue` — it never picks the path manually. Instead it shows you, before you sign, whether the transaction will:
+The PrimeStaking UI always calls `redeemWithQueue`; it never picks the path manually. Instead it shows you, before you sign, whether the transaction will:
 
-- **"Withdraw complete"** — buffer is enough, this will settle now.
-- **"Withdrawal queued — claim from My Positions when ready"** — buffer is not enough; the request will go into the FIFO.
+- **"Withdraw complete"**: buffer is enough, this will settle now.
+- **"Withdrawal queued, claim from My Positions when ready"**: buffer is not enough; the request will go into the FIFO.
 
 In Lite Mode the **withdraw tab** uses the same logic. The **queue list** on the Withdraw and My Positions pages shows your active queued requests with cancel / claim controls.
 
@@ -99,7 +99,7 @@ In Lite Mode the **withdraw tab** uses the same logic. The **queue list** on the
 | V2 behaviour | V3 behaviour |
 | --- | --- |
 | Every withdrawal required admin approval | No admin approval at any point |
-| The owner picked which requests to honor | FIFO is enforced on-chain — first in, first out |
+| The owner picked which requests to honor | FIFO is enforced on-chain: first in, first out |
 | Withdrawals could be paused unilaterally by the admin | Auto-propose is blocked while the queue is non-empty, prioritizing exits over new validator locks |
 | You had to wait the full validator-queue time even when liquidity was available | Instant when possible, queued only when the buffer is insufficient |
 | Failed payouts could lose XDC | Failed payouts defer into `pendingQueuedAssets` and the user self-claims with `claimQueuedAssets` |

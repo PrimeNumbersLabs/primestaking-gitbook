@@ -23,7 +23,7 @@ constructor(
 
 The deploying address (`msg.sender`) becomes the vault **admin** and is also granted the proposer, operations-manager, and risk-manager roles. Any XDC sent with deployment is seeded as the initial stake.
 
-To stay eligible for listing, deploy the **canonical, unmodified** `PartnerStakedXDC_V3` bytecode that PrimeStaking has allow-listed — the fee rate and recipient are constants baked into that bytecode, so a custom build will not match the registry's codehash and cannot be listed.
+To stay eligible for listing, deploy the **canonical, unmodified** `PartnerStakedXDC_V3` bytecode that PrimeStaking has allow-listed. The fee rate and recipient are constants baked into that bytecode, so a custom build will not match the registry's codehash and cannot be listed.
 
 ---
 
@@ -73,8 +73,8 @@ PartnerVaultRegistry.register(address vault)
 
 `register` succeeds only if **both** of the following hold:
 
-1. The vault's `codehash` is an **allow-listed canonical hash** (`isCanonicalCodeHash[vault.codehash] == true`) — proving it's a genuine, unmodified `PartnerStakedXDC_V3` that charges the 15% fee.
-2. The caller **holds the vault's `DEFAULT_ADMIN_ROLE`** — proving they actually control the pool.
+1. The vault's `codehash` is an **allow-listed canonical hash** (`isCanonicalCodeHash[vault.codehash] == true`), proving it's a genuine, unmodified `PartnerStakedXDC_V3` that charges the 15% fee.
+2. The caller **holds the vault's `DEFAULT_ADMIN_ROLE`**, proving they actually control the pool.
 
 It then records the registrant and emits `VaultRegistered(vault, registrant, name, symbol)`.
 

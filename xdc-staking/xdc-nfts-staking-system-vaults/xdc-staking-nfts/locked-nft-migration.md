@@ -1,15 +1,15 @@
 # Locked NFTs & Legacy Diamond Bypass
 
-Locked legacy XDC NFTs cannot be burnt-and-redeemed through the standard V2 façade — the `tokenLocked` flag blocks the burn. Without intervention, every locked NFT would be unmigratable until its lock expires.
+Locked legacy XDC NFTs cannot be burnt-and-redeemed through the standard V2 façade, because the `tokenLocked` flag blocks the burn. Without intervention, every locked NFT would be unmigratable until its lock expires.
 
-The V3 stack solves this with a tiny facet — [`LegacyMigratorBypassFacet`](../contract-addresses.md) — added to the legacy Diamond via `diamondCut`. The facet exposes a single mutator that only the V3 migrator can call, which clears the diamond's `tokenLocked` flag so the standard `burnAndRedeem` succeeds inside the same atomic migration transaction. The diamond custodies the psXDC backing every NFT and pays the redemption from its own reserve — the facet makes **no** external call.
+The V3 stack solves this with a tiny facet, [`LegacyMigratorBypassFacet`](../contract-addresses.md), added to the legacy Diamond via `diamondCut`. The facet exposes a single mutator that only the V3 migrator can call, which clears the diamond's `tokenLocked` flag so the standard `burnAndRedeem` succeeds inside the same atomic migration transaction. The diamond custodies the psXDC backing every NFT and pays the redemption from its own reserve; the facet makes **no** external call.
 
 {% hint style="info" %}
 The bypass facet is **live** on the legacy Diamond. The current facet is `0x2786…5e13`, bound to the current migrator `XdcNftMigratorV2` (`0x69DE…2ea8`). Locked migrations work end-to-end through [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate) with no extra steps required from the user.
 {% endhint %}
 
 {% hint style="warning" %}
-**Why the facet was updated.** There are three generations of contracts: the original **v2 staker** (`PrimeStakerV2XDC` `0x2204…B293`), the **legacy Diamond** (the system we migrate *from*), and **V3**. Some Diamond NFTs were themselves migrated v2 → Diamond while locked and carry a historical `lockedFromV2 == true` marker. The original facet treated that marker as *"the funds are still in v2, pull them back via `primeV2.burnToRedeem`."* On-chain inspection (June 2026) showed that is false: the v2 staker has been **drained to ~0**, so `burnToRedeem` reverted, while the Diamond already holds the psXDC. The current facet **removes the v2-staker call entirely** — it just enforces any still-active v2 unlock window, clears `tokenLocked`, and lets the Diamond pay.
+**Why the facet was updated.** There are three generations of contracts: the original **v2 staker** (`PrimeStakerV2XDC` `0x2204…B293`), the **legacy Diamond** (the system we migrate *from*), and **V3**. Some Diamond NFTs were themselves migrated v2 → Diamond while locked and carry a historical `lockedFromV2 == true` marker. The original facet treated that marker as *"the funds are still in v2, pull them back via `primeV2.burnToRedeem`."* On-chain inspection (June 2026) showed that is false: the v2 staker has been **drained to ~0**, so `burnToRedeem` reverted, while the Diamond already holds the psXDC. The current facet **removes the v2-staker call entirely**: it just enforces any still-active v2 unlock window, clears `tokenLocked`, and lets the Diamond pay.
 {% endhint %}
 
 ---
@@ -44,8 +44,8 @@ function migratorPrepareForBurn(address asset, uint256 tokenId) external;
 ```
 
 - **Caller restriction**: only the configured migrator (`XdcNftMigratorV2`) can call it. The migrator address is baked into the facet at deployment.
-- **Effect**: clears the `tokenLocked[asset][tokenId]` flag in the legacy Diamond's storage. If the NFT is `lockedFromV2`, it **first** checks the real v2 `unlockTimestamp` and reverts `V2NftStillLocked` if the lock is still active; otherwise it clears the flag. It makes **no** external call (no `primeV2.burnToRedeem`) — the Diamond already custodies the psXDC and pays it on `burnAndRedeem`.
-- **No new privileges**: the facet does not enable anything else — once `tokenLocked` is cleared, the legacy `burnAndRedeem` flow runs normally.
+- **Effect**: clears the `tokenLocked[asset][tokenId]` flag in the legacy Diamond's storage. If the NFT is `lockedFromV2`, it **first** checks the real v2 `unlockTimestamp` and reverts `V2NftStillLocked` if the lock is still active; otherwise it clears the flag. It makes **no** external call (no `primeV2.burnToRedeem`); the Diamond already custodies the psXDC and pays it on `burnAndRedeem`.
+- **No new privileges**: the facet does not enable anything else. Once `tokenLocked` is cleared, the legacy `burnAndRedeem` flow runs normally.
 
 Two informational view selectors are also added in the same cut so the migrator (and indexers) can introspect lock state without storage tricks:
 
@@ -66,7 +66,7 @@ So a token whose view-returned `lockedFromV2 == true` may actually have been loc
 
 - For both lock origins it **clears `tokenLocked`** so the burn succeeds.
 - For genuine storage-`lockedFromV2` tokens it **additionally enforces the original v2 unlock window** (reverting `V2NftStillLocked` if the lock has not yet expired).
-- In **neither** case does it touch the v2 staker — the Diamond already holds the underlying psXDC and pays it on `burnAndRedeem`.
+- In **neither** case does it touch the v2 staker; the Diamond already holds the underlying psXDC and pays it on `burnAndRedeem`.
 
 Indexers and integrators that need to know the actual lock origin should use the facet's view functions instead of the legacy `getNFTData` field.
 
@@ -74,7 +74,7 @@ Indexers and integrators that need to know the actual lock origin should use the
 
 ## What happens on the V3 side
 
-Once the legacy burn succeeds the migrator continues exactly as for an unlocked NFT — bridge the redeemed psXDC into V3 shares, then call:
+Once the legacy burn succeeds the migrator continues exactly as for an unlocked NFT: bridge the redeemed psXDC into V3 shares, then call:
 
 ```solidity
 mintAndStakeLocked(
@@ -93,7 +93,7 @@ mintAndStakeLocked(
 
 ## What if I migrate a locked NFT *before* `lockEnd`?
 
-That's the supported case — the migrator preserves the lock and the V3 vault honours it. You won't be able to `withdraw`, `merge`, or `burnAndRedeem` your V3 NFT until `lockEnd` passes, but you will:
+That's the supported case. The migrator preserves the lock and the V3 vault honours it. You won't be able to `withdraw`, `merge`, or `burnAndRedeem` your V3 NFT until `lockEnd` passes, but you will:
 
 - Earn the boost slice on the locked weight (which is higher than the unlocked weight) the entire time.
 - Earn the base NAV through the underlying psXDC v3 shares.
@@ -107,8 +107,8 @@ After `lockEnd` you can call `unlock(tokenId)` on the V3 vault to remove the loc
 
 | Condition | Revert |
 | --- | --- |
-| Migrator deployed but bypass facet not yet cut into the Diamond | `LegacyDiamondRequiredForLockedNft(tokenId)` — the user keeps the legacy NFT |
-| A genuine `lockedFromV2` NFT whose original v2 lock has **not** yet expired | `V2NftStillLocked(tokenId, unlockTs)` — the facet refuses to clear the lock early; user keeps the legacy NFT until the lock expires |
+| Migrator deployed but bypass facet not yet cut into the Diamond | `LegacyDiamondRequiredForLockedNft(tokenId)`; the user keeps the legacy NFT |
+| A genuine `lockedFromV2` NFT whose original v2 lock has **not** yet expired | `V2NftStillLocked(tokenId, unlockTs)`. The facet refuses to clear the lock early; user keeps the legacy NFT until the lock expires |
 | Slippage exceeded on the V3 bridge | Whole migration reverts, user keeps the legacy NFT |
 
 Every failure mode is "fail closed": the user's legacy NFT remains in place. No mid-state outcomes.

@@ -16,9 +16,9 @@ setCanonicalCodeHash(bytes32 codeHash, bool allowed)   // owner only, once per p
 
 `register(vault)` then enforces:
 
-- `isCanonicalCodeHash[vault.codehash] == true` — else `NotCanonicalBytecode`
-- caller holds `vault`'s `DEFAULT_ADMIN_ROLE` — else `NotVaultAdmin`
-- `vault != address(0)` and not already registered — else `ZeroAddress` / `AlreadyRegistered`
+- `isCanonicalCodeHash[vault.codehash] == true`, else `NotCanonicalBytecode`
+- caller holds `vault`'s `DEFAULT_ADMIN_ROLE`, else `NotVaultAdmin`
+- `vault != address(0)` and not already registered, else `ZeroAddress` / `AlreadyRegistered`
 
 This makes it impossible to list a fork with a different fee, a different recipient, or hidden modifications. If the vault bytecode is ever revised, PrimeStaking publishes and allow-lists the new codehash; older deployments stay valid under their own hash unless explicitly revoked.
 
@@ -29,10 +29,10 @@ This makes it impossible to list a fork with a different fee, a different recipi
 | State | Meaning | Shown in default directory? |
 | --- | --- | --- |
 | Registered | Passed codehash + admin checks | No (reachable by direct address) |
-| Verified | PrimeStaking has vetted the pool (`setVerified(vault, true)`) | **Yes** — carries the "Verified by PrimeStaking" badge |
+| Verified | PrimeStaking has vetted the pool (`setVerified(vault, true)`) | **Yes**, and carries the "Verified by PrimeStaking" badge |
 | Unregistered | Never listed, or delisted via `unregister` | No |
 
-The app reads `verifiedVaults()` for the curated listing, so the directory can never be flooded with unverified spam pools, while registration itself stays permissionless. `setVerified` and `unregister` are **owner-only** (PrimeStaking); `unregister` clears all registry state for a vault but does not touch the vault contract — its admin can register it again later.
+The app reads `verifiedVaults()` for the curated listing, so the directory can never be flooded with unverified spam pools, while registration itself stays permissionless. `setVerified` and `unregister` are **owner-only** (PrimeStaking); `unregister` clears all registry state for a vault but does not touch the vault contract; its admin can register it again later.
 
 ---
 

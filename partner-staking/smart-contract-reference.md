@@ -8,7 +8,7 @@ Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/add
 
 ---
 
-## `PartnerStakedXDC_V3` — the partner vault
+## `PartnerStakedXDC_V3`: the partner vault
 
 An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3_1` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`.
 
@@ -31,7 +31,7 @@ An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `E
 | --- | --- |
 | `stake(uint256 assets) payable` | Native-XDC stake; `msg.value` must equal `assets`. Mints shares at the current rate. |
 | `depositNative(uint256 assets, address receiver) payable` | Same, crediting `receiver`. |
-| `deposit(...)` / `mint(...)` | **Disabled** — revert `NativeDepositRequired` (deposits must be native, via the payable wrappers). |
+| `deposit(...)` / `mint(...)` | **Disabled.** Revert `NativeDepositRequired` (deposits must be native, via the payable wrappers). |
 | `withdraw(uint256 shares)` | Legacy-compatible redeem-by-shares. |
 | `withdraw(uint256 assets, address receiver, address owner)` / `redeem(...)` | Standard ERC-4626 exits; revert if the liquid buffer can't cover them. |
 | `withdrawWithQueue(uint256 assets, address receiver)` | Instant if liquid, else queues a FIFO request. |
@@ -73,7 +73,7 @@ Each executes only after `governanceDelay` has elapsed.
 
 | Function | Returns |
 | --- | --- |
-| `isPartnerStakedXDCV3()` | `true` — marker the registry/UI use to identify partner vaults |
+| `isPartnerStakedXDCV3()` | `true`, the marker the registry/UI use to identify partner vaults |
 | `name()` / `symbol()` | The partner's branded name/symbol |
 | `totalAssets()` / `desiredBuffer()` | Tracked NAV and target buffer |
 | `isKYCVerified(address)` | Whether an address is KYC'd on the validator |
@@ -84,7 +84,7 @@ Each executes only after `governanceDelay` has elapsed.
 
 ---
 
-## `PartnerVaultRegistry` — the directory
+## `PartnerVaultRegistry`: the directory
 
 `Ownable2Step`; owner is PrimeStaking. See [Registry & Verification](registry-and-verification.md) for the full write-up.
 

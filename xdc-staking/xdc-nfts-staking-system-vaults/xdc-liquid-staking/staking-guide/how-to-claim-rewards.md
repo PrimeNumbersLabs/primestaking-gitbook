@@ -1,12 +1,12 @@
 # Understanding Share Price
 
 {% hint style="info" %}
-There is **no "Claim Rewards" button** for XDC Liquid Staking in V3. Rewards accrue automatically through the psXDC share price — your shares simply become worth more XDC over time. This page explains why and how to read the value of your position.
+There is **no "Claim Rewards" button** for XDC Liquid Staking in V3. Rewards accrue automatically through the psXDC share price: your shares simply become worth more XDC over time. This page explains why and how to read the value of your position.
 {% endhint %}
 
 If you are looking for the **NFT boost** claim flow (a separate XDC stream layered on top of the share), see [Reward Model: Base NAV + Boost](../../xdc-staking-nfts/xdc-nft-staking-reward-system.md).
 
-If you are looking for the legacy V2 manual claim flow, see [Legacy (V2 — historical)](../../../../legacy/README.md).
+If you are looking for the legacy V2 manual claim flow, see [Legacy (V2, historical)](../../../../legacy/README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Day 365: cumulative rewards ≈ 4.5%  →  rate = 1.045
 Burn 1,000 psXDC on day 365  →  receive 1,045 XDC
 ```
 
-Your psXDC balance never changes from rewards. The **value** of your psXDC changes — exactly the same model Aave aTokens, Compound cTokens, and Lido wstETH use.
+Your psXDC balance never changes from rewards. The **value** of your psXDC changes. This is exactly the same model Aave aTokens, Compound cTokens, and Lido wstETH use.
 
 ---
 
@@ -40,7 +40,7 @@ sharesYouHold = balanceOf(yourAddress)
 xdcYouCouldRedeemNow = convertToAssets(sharesYouHold)
 ```
 
-The difference between `xdcYouCouldRedeemNow` and the XDC you originally deposited is your accrued yield. Nothing to claim — it is already inside the share.
+The difference between `xdcYouCouldRedeemNow` and the XDC you originally deposited is your accrued yield. There is nothing to claim; it is already inside the share.
 
 ---
 
@@ -48,18 +48,18 @@ The difference between `xdcYouCouldRedeemNow` and the XDC you originally deposit
 
 Because rewards are baked into the share, you realize them whenever you do **any** of the following:
 
-- **Redeem** psXDC for XDC — you receive XDC at the current (higher) exchange rate.
-- **Sell** psXDC on a DEX — the market price reflects the appreciating NAV.
-- **Transfer** psXDC to another wallet — the recipient inherits the appreciated share and any future appreciation.
+- **Redeem** psXDC for XDC: you receive XDC at the current (higher) exchange rate.
+- **Sell** psXDC on a DEX: the market price reflects the appreciating NAV.
+- **Transfer** psXDC to another wallet: the recipient inherits the appreciated share and any future appreciation.
 
-There is no "leave rewards on the table" risk — rewards belong to whoever holds the share at the moment of redemption.
+There is no "leave rewards on the table" risk, because rewards belong to whoever holds the share at the moment of redemption.
 
 ---
 
 ## What if I'm using my psXDC inside an XDC NFT?
 
-The base NAV continues to accrue while your psXDC is staked inside an NFT — when you withdraw shares from the NFT, you get back the same share count, but each share is worth more XDC than when you deposited.
+The base NAV continues to accrue while your psXDC is staked inside an NFT. When you withdraw shares from the NFT, you get back the same share count, but each share is worth more XDC than when you deposited.
 
-The **boost slice** is the additional XDC the NFT vault distributes via the `XdcNftBoostHarvester`. That stream **does** have a claim button — it accumulates inside the NFT and you collect it from the NFT detail page (or it settles automatically on any state-changing NFT action).
+The **boost slice** is the additional XDC the NFT vault distributes via the `XdcNftBoostHarvester`. That stream **does** have a claim button: it accumulates inside the NFT and you collect it from the NFT detail page (or it settles automatically on any state-changing NFT action).
 
 → [Reward Model: Base NAV + Boost](../../xdc-staking-nfts/xdc-nft-staking-reward-system.md) → [Position & Rewards History](rewards-history.md)

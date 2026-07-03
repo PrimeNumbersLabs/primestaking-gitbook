@@ -21,5 +21,5 @@ If you hold the legacy **pstXDC** token, you can migrate it to the **psXDC** tok
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Migration is only required for users who staked before the psXDC upgrade. New users receive psXDC directly. Once on psXDC, you can subsequently migrate to V3 — see the [V2 → V3 migration guide](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md).
+Migration is only required for users who staked before the psXDC upgrade. New users receive psXDC directly. Once on psXDC, you can subsequently migrate to V3; see the [V2 → V3 migration guide](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md).
 {% endhint %}

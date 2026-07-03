@@ -27,7 +27,7 @@ The redemption settles in the **same transaction**. You receive XDC immediately.
 
 ### If buffer liquidity is constrained
 
-Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time** — it is settled as soon as enough liquidity returns from:
+Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time**. It is settled as soon as enough liquidity returns from:
 
 - New user deposits,
 - Validator reward inflows, or
@@ -35,7 +35,7 @@ Your psXDC shares are escrowed inside the vault and a request is added to the FI
 
 You can monitor the queue at any time from the **My Positions** page. When your request is processed, your XDC lands either directly in your wallet or in the vault's `pendingQueuedAssets` bucket. If it lands in `pendingQueuedAssets` (because the original payout failed for any reason), you collect it by calling `claimQueuedAssets`. The app exposes this as a **Claim** button on the queued withdrawal entry.
 
-You can also cancel a queued request before it settles. The vault returns the escrowed psXDC shares to your wallet — no XDC moves.
+You can also cancel a queued request before it settles. The vault returns the escrowed psXDC shares to your wallet, and no XDC moves.
 
 ---
 
@@ -47,7 +47,7 @@ The queue is preferred over the previous "request and wait for admin approval" m
 
 - No admin signature is needed at any point.
 - You can cancel at any time and get your shares back.
-- Settlement is automatic — anyone can call `processWithdrawalQueue` to push the queue forward.
+- Settlement is automatic: anyone can call `processWithdrawalQueue` to push the queue forward.
 
 → [Withdrawals: Instant vs Queued](withdrawals-instant-vs-queued.md) → [Smart Contract Reference](../smart-contract-functions.md)
 

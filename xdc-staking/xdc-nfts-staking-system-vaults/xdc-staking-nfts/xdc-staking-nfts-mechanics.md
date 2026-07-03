@@ -37,8 +37,8 @@ earned(tokenId) = info.shares * (rewardPerWeightStored − info.rewardIndex) * w
 What this means in practice:
 
 - Whenever the harvester pushes XDC via `notifyBoost`, **every staked NFT's pending reward grows immediately** in proportion to its weight at that moment.
-- `_settle(tokenId)` is called before any weight-changing operation (stake more, lock, unlock, merge, withdraw) so pending boost is captured against the **old** weight — you never overpay or underpay because of mid-stream changes.
-- `notifyBoost` reverts if `totalWeight == 0` — pushing boost into an empty vault is a no-op.
+- `_settle(tokenId)` is called before any weight-changing operation (stake more, lock, unlock, merge, withdraw) so pending boost is captured against the **old** weight. You never overpay or underpay because of mid-stream changes.
+- `notifyBoost` reverts if `totalWeight == 0`, since pushing boost into an empty vault is a no-op.
 
 ---
 
@@ -66,17 +66,17 @@ Locking an NFT does two things:
 1. Sets `lockEnd` to a future timestamp. Until that timestamp passes, `withdraw`, `merge`, and `burnAndRedeem` revert.
 2. Adds the configured `lockBonus` to the NFT's weight, increasing its slice of every subsequent `notifyBoost`.
 
-The lock toggle **does not change `stakedShares`** — the bonus is purely additive on the weight side. When the lock expires you can `unlock` to remove the bonus and regain full mobility, or leave it locked to keep earning the boost slice.
+The lock toggle **does not change `stakedShares`**; the bonus is purely additive on the weight side. When the lock expires you can `unlock` to remove the bonus and regain full mobility, or leave it locked to keep earning the boost slice.
 
-Lock expiry is **preserved across migration** from V2 — see [Locked NFTs & Legacy Diamond Bypass](locked-nft-migration.md).
+Lock expiry is **preserved across migration** from V2; see [Locked NFTs & Legacy Diamond Bypass](locked-nft-migration.md).
 
 ---
 
 ## Caps and tuning
 
-- `setLevelStakedNeeded` and `setLockBoost` can only be changed while `totalWeight == 0` (i.e. before any NFT is staked). Once the vault has live positions these setters revert — this prevents silent weight drift.
+- `setLevelStakedNeeded` and `setLockBoost` can only be changed while `totalWeight == 0` (i.e. before any NFT is staked). Once the vault has live positions these setters revert, which prevents silent weight drift.
 - `rarityMultiplier` has **no setter** on the V3 vault. Updating multipliers would require deploying a new vault and migrating.
 - `setRarityMultiplier` does **not** exist on the live vault by design.
-- The vault is paused with `PAUSER_ROLE`. Pausing halts stake/withdraw/claim; boost can still be received (intentional — keep the stream flowing).
+- The vault is paused with `PAUSER_ROLE`. Pausing halts stake/withdraw/claim; boost can still be received (intentional, to keep the stream flowing).
 
 → [Reward Model: Base NAV + Boost](xdc-nft-staking-reward-system.md) → [Smart Contract Reference](smart-contract-functions.md) → [Boost Harvester (technical)](boost-harvester.md)

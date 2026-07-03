@@ -1,13 +1,13 @@
 # Migrate V2 psXDC → V3.1
 
 {% hint style="success" %}
-**Held psXDC V3 before July 2026? You're already done.** When the protocol redeployed the vault as V3.1, every V3 holder's balance was mirrored 1:1 onto the new contract via a snapshot airdrop — including balances inside XDC NFTs, DEX liquidity pools, and lending markets, which were credited to their underlying owners. No transaction, claim, or approval was needed. The app already shows your V3.1 balance.
+**Held psXDC V3 before July 2026? You're already done.** When the protocol redeployed the vault as V3.1, every V3 holder's balance was mirrored 1:1 onto the new contract via a snapshot airdrop, including balances inside XDC NFTs, DEX liquidity pools, and lending markets, which were credited to their underlying owners. No transaction, claim, or approval was needed. The app already shows your V3.1 balance.
 {% endhint %}
 
-This page is for users who still hold **V2 psXDC** (the original 1:1 token at [`0x9B8e…65A6`](https://xdcscan.com/address/0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6)). Your V2 balance does **not** automatically appear in V3.1 — you migrate by sending V2 tokens through the dedicated migration bridge, which burns the V2 and mints V3.1 shares in one transaction.
+This page is for users who still hold **V2 psXDC** (the original 1:1 token at [`0x9B8e…65A6`](https://xdcscan.com/address/0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6)). Your V2 balance does **not** automatically appear in V3.1. You migrate by sending V2 tokens through the dedicated migration bridge, which burns the V2 and mints V3.1 shares in one transaction.
 
 {% hint style="info" %}
-Migration is optional at any individual point in time, but V3.1 is the only version with self-service withdrawals, share-price reward accrual, and NFT-boost compatibility. See [Legacy (V2 — historical)](../../../../legacy/README.md).
+Migration is optional at any individual point in time, but V3.1 is the only version with self-service withdrawals, share-price reward accrual, and NFT-boost compatibility. See [Legacy (V2, historical)](../../../../legacy/README.md).
 {% endhint %}
 
 ---
@@ -31,9 +31,9 @@ Migration is optional at any individual point in time, but V3.1 is the only vers
 - **Burns your V2 psXDC** so each V2 token can only be migrated once.
 - **Mints V3.1 shares** to your address using the vault's `migrate(...)` function, which is restricted to the configured bridge.
 - **Slippage protection** via `minSharesOut` so the migration reverts if the exchange rate changed unfavourably between the time you signed and the time the transaction settled.
-- **Atomic** — if any step fails (slippage exceeded, etc.) the whole transaction reverts and you keep your V2 tokens.
+- **Atomic**: if any step fails (slippage exceeded, etc.) the whole transaction reverts and you keep your V2 tokens.
 
-The live bridge is [`0x6c57075c7A157113D369109B78738A798d41373C`](https://xdcscan.com/address/0x6c57075c7A157113D369109B78738A798d41373C). The pre-V3.1 bridge (`0x2927…5dd2`) is retired — the app never routes to it.
+The live bridge is [`0x6c57075c7A157113D369109B78738A798d41373C`](https://xdcscan.com/address/0x6c57075c7A157113D369109B78738A798d41373C). The pre-V3.1 bridge (`0x2927…5dd2`) is retired; the app never routes to it.
 
 ---
 
@@ -54,7 +54,7 @@ The V3.1 vault uses share-based pricing (`totalAssets / totalShares`), so each m
 - If the exchange rate is `1.00`, migrating `1,000` V2 psXDC mints `1,000` V3.1 shares.
 - If the exchange rate has appreciated to `1.05`, the same migration mints `~952.38` shares (each share is now worth more XDC).
 
-The default 0.5% slippage tolerance covers small mid-transaction movement. If you set `minSharesOut` too high (e.g. expecting yesterday's rate) and the rate has since grown, the migration will revert — adjust slippage and retry.
+The default 0.5% slippage tolerance covers small mid-transaction movement. If you set `minSharesOut` too high (e.g. expecting yesterday's rate) and the rate has since grown, the migration will revert. Adjust slippage and retry.
 
 ---
 
@@ -66,14 +66,14 @@ The pre-July-2026 V3 token ([`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D9
 - The **`V31AirdropDistributor`** minted those exact balances on V3.1 in the vault's final state, then was permanently finalized.
 - The old V3 contract's bridge was cut to a dead address; old V3 tokens have no remaining function and cannot be migrated or redeemed. Your value lives in V3.1.
 
-If you believe a balance was missed, contact [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz) — the full snapshot and airdrop are auditable on-chain via the distributor contract.
+If you believe a balance was missed, contact [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz); the full snapshot and airdrop are auditable on-chain via the distributor contract.
 
 ---
 
 ## What happens to V2 after you migrate
 
 - The V2 contract continues to exist for users who have not migrated.
-- Your migrated V2 tokens are **burned** — they cannot be re-issued.
+- Your migrated V2 tokens are **burned** and cannot be re-issued.
 - V2-side actions only apply to whatever V2 balance you have left.
 
-→ [Withdrawals: Instant vs Queued (V3.1)](withdrawals-instant-vs-queued.md) → [V2 vs V3 — What Changed](../v2-vs-v3.md) → [Historical pstXDC → psXDC migration (legacy)](../../../../legacy/pstxdc-migration.md)
+→ [Withdrawals: Instant vs Queued (V3.1)](withdrawals-instant-vs-queued.md) → [V2 vs V3: What Changed](../v2-vs-v3.md) → [Historical pstXDC → psXDC migration (legacy)](../../../../legacy/pstxdc-migration.md)

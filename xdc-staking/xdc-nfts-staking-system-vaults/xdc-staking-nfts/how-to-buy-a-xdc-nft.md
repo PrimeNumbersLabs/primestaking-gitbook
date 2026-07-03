@@ -34,7 +34,7 @@ Connect your wallet, select the NFT you want, click **Buy**, and confirm the tra
 
 Once you own an XDC Staking NFT, deposit psXDC v3 shares into it to start earning the boost slice on top of the underlying NAV. See the [Staking Mechanics](xdc-staking-nfts-mechanics.md) guide for details.
 
-If you bought a legacy V2 NFT and want the V3 reward model, run it through the [migrator](migrate-nfts-v2-to-v3.md) — it's a one-tx, same-`tokenId` upgrade.
+If you bought a legacy V2 NFT and want the V3 reward model, run it through the [migrator](migrate-nfts-v2-to-v3.md). It's a one-tx, same-`tokenId` upgrade.
 
 ---
 

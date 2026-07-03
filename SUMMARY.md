@@ -6,7 +6,7 @@
 
 * [XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/README.md)
   * [V3 Architecture](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md)
-  * [V2 vs V3 — What Changed](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v2-vs-v3.md)
+  * [V2 vs V3: What Changed](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v2-vs-v3.md)
   * [How Rewards Work (NAV / share price)](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/xdc-staking-rewards.md)
   * [Staking Guide](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/README.md)
     * [How to Stake XDC](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/how-to-stake-usdxdc.md)
@@ -26,7 +26,7 @@
   * [Trading XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/trading-xdc-staking-nfts.md)
   * [Smart Contract Reference (V3)](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/smart-contract-functions.md)
 * [Deployed Contracts & Addresses](xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md)
-* [DEX Liquidity](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
+* [DEX Liquidity & Spot Trading](xdc-staking/xdc-nfts-staking-system-vaults/dex-liquidity.md)
 * [FAQs](xdc-staking/xdc-nfts-staking-system-vaults/faqs.md)
 
 ## Partner Staking
@@ -56,7 +56,7 @@
   * [Disclaimer](audits-1/disclaimer.md)
 * [Custody & Key Management](custody-and-key-management.md)
 
-## Legacy (V2 — historical)
+## Legacy (V2, historical)
 
 * [Legacy Overview](legacy/README.md)
 * [Historical: pstXDC → psXDC migration](legacy/pstxdc-migration.md)

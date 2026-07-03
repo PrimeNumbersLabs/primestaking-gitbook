@@ -1,6 +1,6 @@
 # Reward Mechanics
 
-This section explains how XDC liquid staking rewards are generated and distributed under V3. The model is **NAV-based**: rewards are not handed out via a manual `claim` flow — they are embedded in the psXDC vault share price.
+This section explains how XDC liquid staking rewards are generated and distributed under V3. The model is **NAV-based**: rewards are not handed out via a manual `claim` flow; they are embedded in the psXDC vault share price.
 
 ---
 
@@ -48,9 +48,9 @@ every psXDC share is worth more XDC
 | --- | --- |
 | **Source** | XDC Network masternode block rewards |
 | **Accrual mechanism** | Reward XDC enters the vault → `totalAssets` rises → exchange rate rises automatically |
-| **User claiming** | None — value is already inside each share |
+| **User claiming** | None; value is already inside each share |
 | **Settlement event** | When the user redeems shares (instant or queued), the higher rate translates directly into more XDC returned |
-| **On-chain verifiability** | Yes — every reward inflow event and the exchange rate are public |
+| **On-chain verifiability** | Yes. Every reward inflow event and the exchange rate are public |
 
 There is **no `notifyRewardAmount` admin call** in V3 (V2-era behaviour). There is **no per-user `claim` flow** for the base reward layer. Both were removed when V3 replaced the time-based APY model with the share-based NAV model.
 
@@ -61,15 +61,15 @@ There is **no `notifyRewardAmount` admin call** in V3 (V2-era behaviour). There 
 | Parameter | Detail |
 | --- | --- |
 | **Gross APY** | Determined by XDC Network masternode economics (network staking ratio, validator performance, operator throughput) |
-| **Protocol fee** | Percentage of gross validator rewards retained by the protocol — exact figure available under partner due diligence |
+| **Protocol fee** | Percentage of gross validator rewards retained by the protocol (exact figure available under partner due diligence) |
 | **Net user APY** | ~4.5% net (variable; depends on the above) |
 | **Distribution basis** | Pro-rata over psXDC shares **automatically through share price**, not at claim time |
 
 Net APY is variable and depends on:
 
-- **Network staking ratio** — total XDC staked across the network affects per-validator rewards.
-- **Validator performance** — uptime and block production efficiency for the operators the vault is delegating to.
-- **Protocol fee** — retained percentage before reward XDC is reflected in `totalAssets`.
+- **Network staking ratio.** Total XDC staked across the network affects per-validator rewards.
+- **Validator performance.** Uptime and block production efficiency for the operators the vault is delegating to.
+- **Protocol fee.** Retained percentage before reward XDC is reflected in `totalAssets`.
 
 ---
 
@@ -81,7 +81,7 @@ XDC NFTs earn an **additional** XDC stream on top of base NAV via the Synthetix-
 - The boost slice is distributed pro-rata to each NFT's weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
 - Boost **is** claimed (`claim(tokenId)`) and paid in XDC.
 
-Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~4.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~4.75% (Plentiful unlocked)** up to **~6% (Handcrafted locked)** — the delta over the floor is the boost slice.
+Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~4.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~4.75% (Plentiful unlocked)** up to **~6% (Handcrafted locked)**; the delta over the floor is the boost slice.
 
 → [Reward Model: Base NAV + Boost](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 
@@ -94,11 +94,11 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 | **Reward asset (base layer)** | XDC, accruing as share-price appreciation of psXDC |
 | **Reward asset (NFT boost)** | XDC, accruing into the NFT vault's Synthetix accumulator |
 | **Distribution frequency (base)** | Continuous via share-price growth (no batches) |
-| **Distribution frequency (boost)** | Each `notifyBoost` event — cadence is an operational choice (typically weekly or daily) |
-| **Claim flow (base)** | None — rewards are realized on redemption |
+| **Distribution frequency (boost)** | Each `notifyBoost` event; cadence is an operational choice (typically weekly or daily) |
+| **Claim flow (base)** | None. Rewards are realized on redemption |
 | **Claim flow (boost)** | User-initiated `claim(tokenId)` from the NFT detail page |
-| **On-chain verifiability** | Yes — both layers emit events indexed by the public subgraphs |
-| **Principal-stake slashing** | None — XDC penalizes downtime via ~2h exclusion + missed rewards, never burns principal |
+| **On-chain verifiability** | Yes, both layers emit events indexed by the public subgraphs |
+| **Principal-stake slashing** | None. XDC penalizes downtime via ~2h exclusion + missed rewards, never burns principal |
 
 ---
 
@@ -106,17 +106,17 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 
 Validator outcomes can be reported via `reportValidatorLoss(operator, assets)` (gated by `RISK_MANAGER_ROLE`). The function is bounded by:
 
-- `maxLossBpsPerReport` — cap per individual report.
-- `maxDailyLossBps` — cap over a rolling 24h window.
+- `maxLossBpsPerReport`: cap per individual report.
+- `maxDailyLossBps`: cap over a rolling 24h window.
 
-Both caps are themselves governed by **delayed governance** — changes are scheduled, wait for `governanceDelay`, then execute. Reports emit the attributed operator (`outstandingValidatorPrincipalByOperator` is updated atomically). This bounds the blast radius of any single risk-management call.
+Both caps are themselves governed by **delayed governance**: changes are scheduled, wait for `governanceDelay`, then execute. Reports emit the attributed operator (`outstandingValidatorPrincipalByOperator` is updated atomically). This bounds the blast radius of any single risk-management call.
 
 ---
 
 ## Transparency & Verification
 
 - Every reward event is logged on the XDC blockchain.
-- Exchange rate is a deterministic function of `totalAssets` and `totalShares` — auditable at any block.
+- Exchange rate is a deterministic function of `totalAssets` and `totalShares`, auditable at any block.
 - Historical exchange-rate data is available via the public subgraph for forecasting and reporting.
 - psXDC v3 supply and total assets are verifiable on-chain at any time on [XDCScan](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4).
 

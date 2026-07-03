@@ -17,10 +17,10 @@ PrimeStaking uses a **permissionless, smart contract-based** validator custody m
 
 PrimeStaking's custody infrastructure is developed in collaboration with:
 
-* Nethermind — smart contract development and security review
-* XDC Core team — network-level validator integration
+* Nethermind: smart contract development and security review
+* XDC Core team: network-level validator integration
 
-The custody substrate (the `PrimeStakedXDC_V3` vault design + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in audit **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed; the three Acknowledged findings are operationally mitigated. The live vault, `PrimeStakedXDC_V3_1`, is a redeployment of this audited codebase — see the [Audits page](audits-1/README.md) for the V3.1 delta and per-finding breakdown, or [read the full report (PDF)](NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf).
+The custody substrate (the `PrimeStakedXDC_V3` vault design + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in audit **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed; the three Acknowledged findings are operationally mitigated. The live vault, `PrimeStakedXDC_V3_1`, is a redeployment of this audited codebase. See the [Audits page](audits-1/README.md) for the V3.1 delta and per-finding breakdown, or [read the full report (PDF)](NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf).
 
 ***
 
@@ -40,5 +40,5 @@ The custody substrate (the `PrimeStakedXDC_V3` vault design + `PrimeStakedXDC_V3
 
 * Users retain **full ownership** of their assets at all times.
 * Smart contract-based custody eliminates reliance on any centralized custodian, strengthening the protocol's decentralization.
-* In V3, **withdrawal UX has improved**: redemptions settle instantly when the vault's liquid buffer permits, and otherwise enter a permissionless FIFO queue users can [self-claim](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md) (`claimQueuedAssets`). The upper bound for queue settlement is the XDC Network's `candidateWithdrawDelay` — approximately **35 days** under typical block times.
+* In V3, **withdrawal UX has improved**: redemptions settle instantly when the vault's liquid buffer permits, and otherwise enter a permissionless FIFO queue users can [self-claim](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md) (`claimQueuedAssets`). The upper bound for queue settlement is the XDC Network's `candidateWithdrawDelay`, approximately **35 days** under typical block times.
 * The psXDC v3 vault is **non-upgradeable**, so the contract that holds your XDC cannot be modified by anyone. Only the NFT staking vault is upgradeable, and only through multisig + delayed governance.

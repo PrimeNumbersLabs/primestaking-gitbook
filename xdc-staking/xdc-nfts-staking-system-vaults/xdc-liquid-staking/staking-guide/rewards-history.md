@@ -1,6 +1,6 @@
 # Position & Rewards History
 
-V3 does not have a "rewards claim" history in the V2 sense — rewards are baked into the share price and don't need to be claimed. Instead the app shows you the **history of your position**: every stake / migrate / withdraw event, and the exchange-rate trajectory over time so you can see your accrued value.
+V3 does not have a "rewards claim" history in the V2 sense, because rewards are baked into the share price and don't need to be claimed. Instead the app shows you the **history of your position**: every stake / migrate / withdraw event, and the exchange-rate trajectory over time so you can see your accrued value.
 
 ---
 

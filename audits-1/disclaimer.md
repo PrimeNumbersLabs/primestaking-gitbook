@@ -18,7 +18,7 @@ Interacting with smart contracts involves risks including bugs, design flaws, up
 
 #### 3. Network & Validator Risks
 
-Rewards and redemptions depend on third-party networks (e.g., XDC Network). Network halts, forks, validator downtime, or congestion can reduce yields, delay queue-based withdrawal processing (subject to the network's `candidateWithdrawDelay` — approximately 35 days under typical block times, longer under congestion), or impair liquidity.
+Rewards and redemptions depend on third-party networks (e.g., XDC Network). Network halts, forks, validator downtime, or congestion can reduce yields, delay queue-based withdrawal processing (subject to the network's `candidateWithdrawDelay`, approximately 35 days under typical block times, longer under congestion), or impair liquidity.
 
 #### 4. Derivative & Peg Risks
 

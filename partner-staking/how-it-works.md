@@ -11,12 +11,12 @@ A partner pool is an independent ERC-4626 liquid staking vault. Stakers deposit 
 | `PLATFORM_FEE_BPS` | `1500` (**15%**) |
 | `PLATFORM_FEE_RECIPIENT` | [`0x1658b14Cb483B96E7e10227fF00f438858089127`](https://xdcscan.com/address/0x1658b14Cb483B96E7e10227fF00f438858089127) (PrimeStaking treasury) |
 
-Both are **compile-time constants** — not constructor arguments. That is deliberate: it means every genuine partner vault compiles to **identical runtime bytecode**, which is what lets the [`PartnerVaultRegistry`](registry-and-verification.md) verify a pool by its `codehash`. Changing the fee or recipient would require a recompile and a fresh allow-list entry, so a partner can't quietly run a 0%-fee fork and still get listed.
+Both are **compile-time constants**, not constructor arguments. That is deliberate: it means every genuine partner vault compiles to **identical runtime bytecode**, which is what lets the [`PartnerVaultRegistry`](registry-and-verification.md) verify a pool by its `codehash`. Changing the fee or recipient would require a recompile and a fresh allow-list entry, so a partner can't quietly run a 0%-fee fork and still get listed.
 
 The fee applies only to **rewards** (yield), never to principal:
 
 - Staker deposits and returned masternode principal are **not** taxed.
-- Only the growth of managed assets above the tracked NAV — i.e. validator rewards — is subject to the 15%.
+- Only the growth of managed assets above the tracked NAV (i.e. validator rewards) is subject to the 15%.
 
 ### Path-independent fee chokepoint
 
@@ -50,7 +50,7 @@ Because of this design the fee is unavoidable: force-sending XDC (`selfdestruct`
 | App, UI, directory & verification badge | PrimeStaking |
 | Receives the 15% protocol fee | PrimeStaking |
 
-PrimeStaking provides the infrastructure and the storefront; the partner runs the pool. PrimeStaking is **non-custodial** with respect to partner pools — it never holds a pool's keys or funds and only ever receives the on-chain protocol fee.
+PrimeStaking provides the infrastructure and the storefront; the partner runs the pool. PrimeStaking is **non-custodial** with respect to partner pools: it never holds a pool's keys or funds and only ever receives the on-chain protocol fee.
 
 ---
 
@@ -59,8 +59,8 @@ PrimeStaking provides the infrastructure and the storefront; the partner runs th
 Identical to flagship psXDC, minus the 15% reward haircut:
 
 - **Stake** native XDC via `stake` / `depositNative`, receive the pool's share token at the current exchange rate.
-- **NAV growth** — no claim button; shares simply become worth more XDC as net (post-fee) rewards accrue.
-- **Withdraw** — instant if the liquidity buffer covers it (`withdraw` / `redeem`), otherwise the request enters an automatic FIFO queue (`withdrawWithQueue` / `redeemWithQueue`) and is claimed once masternode payouts return. Queued requests can be cancelled before they're processed.
+- **NAV growth.** No claim button; shares simply become worth more XDC as net (post-fee) rewards accrue.
+- **Withdraw.** Instant if the liquidity buffer covers it (`withdraw` / `redeem`), otherwise the request enters an automatic FIFO queue (`withdrawWithQueue` / `redeemWithQueue`) and is claimed once masternode payouts return. Queued requests can be cancelled before they're processed.
 - **Same safety rails** as flagship V3: time-locked governance changes, per-report and daily validator-loss caps, pausable, reentrancy-guarded, and role-separated operations.
 
 → [Deploy & List a Pool](deploy-and-list.md) → [Registry & Verification](registry-and-verification.md) → [Smart Contract Reference](smart-contract-reference.md)

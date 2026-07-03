@@ -4,18 +4,18 @@ PrimeStaking V3 splits operational, risk, and governance responsibilities across
 
 ---
 
-## What governance can — and cannot — do
+## What governance can and cannot do
 
 | Action | Possible under governance? |
 | --- | --- |
-| Mint psXDC to anyone | **No** — `mint()` is disabled in V3 |
-| Withdraw user XDC from the vault | **No** — there is no `ownerWithdraw` function |
-| Upgrade `PrimeStakedXDC_V3_1` | **No** — non-upgradeable, deployed with a regular constructor |
-| Upgrade `XdcNftStakingVault` implementation | Yes — TransparentUpgradeableProxy controlled by the protocol multisig with delayed handover |
-| Rotate operational / risk roles | Yes — via the delayed-governance path |
-| Change loss caps (`maxLossBpsPerReport`, `maxDailyLossBps`) | Yes — schedule → wait `governanceDelay` → execute |
-| Pause vault / migrator / harvester | Yes — `PAUSER_ROLE` (multisig) can pause immediately |
-| Bypass the time-lock | **No** — direct `grantRole`/`revokeRole`/`renounceRole` are disabled to prevent bypass |
+| Mint psXDC to anyone | **No.** `mint()` is disabled in V3 |
+| Withdraw user XDC from the vault | **No.** There is no `ownerWithdraw` function |
+| Upgrade `PrimeStakedXDC_V3_1` | **No.** Non-upgradeable, deployed with a regular constructor |
+| Upgrade `XdcNftStakingVault` implementation | Yes, through a TransparentUpgradeableProxy controlled by the protocol multisig with delayed handover |
+| Rotate operational / risk roles | Yes, via the delayed-governance path |
+| Change loss caps (`maxLossBpsPerReport`, `maxDailyLossBps`) | Yes: schedule → wait `governanceDelay` → execute |
+| Pause vault / migrator / harvester | Yes; `PAUSER_ROLE` (multisig) can pause immediately |
+| Bypass the time-lock | **No.** Direct `grantRole`/`revokeRole`/`renounceRole` are disabled to prevent bypass |
 
 → [Custody Model](custody-model.md) for details on what the validator and asset layer guarantees.
 
@@ -35,7 +35,7 @@ No single key can both move funds and modify roles. Role rotations themselves re
 
 ---
 
-## Delayed Governance — schedule → wait → execute
+## Delayed Governance: schedule → wait → execute
 
 Every sensitive change in `PrimeStakedXDC_V3_1` follows the same pattern:
 
@@ -57,11 +57,11 @@ Ownership handoff uses the same pattern: `scheduleOwnerTransfer(newOwner)` → w
 
 | Component | Upgrade path |
 | --- | --- |
-| `PrimeStakedXDC_V3_1` | **None** — non-upgradeable. Replacing the vault requires deploying a new contract and migrating. |
-| `PrimeStakedXDC_V3MigrationBridge` | **None** — non-upgradeable. Treasury operations are delayed and capped. |
-| `XdcStakedNFT` (collection) | **None** — non-upgradeable. |
-| `XdcNftMigrator` | **None** — non-upgradeable. |
-| `XdcNftBoostHarvester` | **None** — non-upgradeable. |
+| `PrimeStakedXDC_V3_1` | **None.** Non-upgradeable. Replacing the vault requires deploying a new contract and migrating. |
+| `PrimeStakedXDC_V3MigrationBridge` | **None.** Non-upgradeable. Treasury operations are delayed and capped. |
+| `XdcStakedNFT` (collection) | **None** (non-upgradeable). |
+| `XdcNftMigrator` | **None** (non-upgradeable). |
+| `XdcNftBoostHarvester` | **None** (non-upgradeable). |
 | `XdcNftStakingVault` (implementation) | TransparentUpgradeableProxy. Implementation changes are executed by the proxy admin, which is owned by the protocol multisig. ERC-7201 namespaced storage prevents accidental slot collisions on future upgrades. |
 | `LegacyMigratorBypassFacet` | Replacement requires a new `diamondCut` on the legacy Diamond (multisig). |
 
@@ -108,9 +108,9 @@ Pauses are immediate (no delay) so the multisig can react to incidents. **Resumi
 
 ## What this means for Partners
 
-- **No unilateral changes** — every sensitive change is publicly scheduled before it can take effect.
-- **Predictable execution** — `governanceDelay` is on-chain; partners can monitor pending changes through events without privileged access.
-- **No admin path to user funds** — the V3 vault's design (no `mint`, no `ownerWithdraw`, no upgrade) means governance literally cannot move staker XDC.
-- **Auditability** — all role grants, schedules, executions, and parameter updates emit events indexed by the public subgraph.
+- **No unilateral changes.** Every sensitive change is publicly scheduled before it can take effect.
+- **Predictable execution.** `governanceDelay` is on-chain; partners can monitor pending changes through events without privileged access.
+- **No admin path to user funds.** The V3 vault's design (no `mint`, no `ownerWithdraw`, no upgrade) means governance literally cannot move staker XDC.
+- **Auditability.** All role grants, schedules, executions, and parameter updates emit events indexed by the public subgraph.
 
 → [Custody Model](custody-model.md) → [Architecture Overview](architecture.md) → [Risk & Compliance](risk-and-compliance.md)

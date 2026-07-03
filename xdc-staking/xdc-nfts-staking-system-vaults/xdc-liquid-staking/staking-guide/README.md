@@ -11,4 +11,4 @@ Step-by-step instructions for using XDC Liquid Staking V3 on [primestaking.xyz](
 | [Position & Rewards History](rewards-history.md) | Read your position, the share price timeline, and your stake/withdraw history |
 | [Understanding Share Price](how-to-claim-rewards.md) | Why there is no "Claim Rewards" button in V3 and how to read your accrued value |
 
-> Migrating from the legacy **pstXDC** token (not V2 psXDC)? That migration was completed years ago and is now archived under [Legacy (V2 — historical)](../../../../legacy/pstxdc-migration.md).
+> Migrating from the legacy **pstXDC** token (not V2 psXDC)? That migration was completed years ago and is now archived under [Legacy (V2, historical)](../../../../legacy/pstxdc-migration.md).

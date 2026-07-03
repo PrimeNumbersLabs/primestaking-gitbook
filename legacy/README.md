@@ -1,8 +1,8 @@
 ---
-description: Reference material for users still on V2 contracts. Not recommended for new users — migrate to V3.
+description: Reference material for users still on V2 contracts. Not recommended for new users; migrate to V3.
 ---
 
-# Legacy (V2 — historical)
+# Legacy (V2, historical)
 
 The V2 stack remains operational so users who have not migrated can continue to use the product. Every new deposit, the official UI, and all partner integrations are wired against the **V3** contracts described in the main documentation. The pages in this section exist for historical context and to support users finishing their migration.
 
@@ -32,12 +32,12 @@ New users should always use V3. The V2 contracts described here do not implement
 | XDC NFTs | Continue to function under the V2 reward model (monthly reward pool driven by NFT multipliers). |
 | Migration | Both psXDC v2 → V3.1 shares (via the [v2 → V3.1 bridge](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md)) and legacy NFTs → V3 NFTs are available; see the V3 documentation for current migration UX. |
 
-There is no plan to deprecate V2 forcibly — users can take their time migrating.
+There is no plan to deprecate V2 forcibly, so users can take their time migrating.
 
 ---
 
 ## Pages in this section
 
-- [Historical: pstXDC → psXDC migration](pstxdc-migration.md) — the original migration from the **pstXDC** token to **psXDC** (V1 → V2). Closed out years ago; kept here for any historical user still on pstXDC.
+- [Historical: pstXDC → psXDC migration](pstxdc-migration.md): the original migration from the **pstXDC** token to **psXDC** (V1 → V2). Closed out years ago; kept here for any historical user still on pstXDC.
 
 → [Migrate V2 psXDC → V3 (current)](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md) → [Migrate XDC NFTs to V3 (current)](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)

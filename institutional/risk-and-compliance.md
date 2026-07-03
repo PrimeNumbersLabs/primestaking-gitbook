@@ -21,7 +21,7 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | Risk               | Severity | Mitigation                                                                                                                                   |
 | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | Validator downtime | Medium   | Multi-validator delegation, automated failover monitoring                                                                                    |
-| Slashing (principal-stake) | **None** | XDC's slashing mechanism penalizes downtime via temporary exclusion from block production (~2h, 4 epochs) and missed rewards, but never burns principal — structurally different from ETH-based liquid staking where slashing can permanently destroy a portion of staked ETH |
+| Slashing (principal-stake) | **None** | XDC's slashing mechanism penalizes downtime via temporary exclusion from block production (~2h, 4 epochs) and missed rewards, but never burns principal. This is structurally different from ETH-based liquid staking, where slashing can permanently destroy a portion of staked ETH |
 | Reward rate change | Low      | Dynamic APY calculation; transparent communication to partners                                                                               |
 
 ### Network Risk
@@ -47,10 +47,10 @@ PrimeStaking maintains a comprehensive risk framework and compliance posture des
 | Module                              | Auditor             | Findings / Score | Status       |
 | ----------------------------------- | ------------------- | ---------------- | ------------ |
 | **XDC Staking Contract (V1 liquid)**| QuillAudits         | 98.8% score      | Published    |
-| **psXDC V3 vault + V3 Migration Bridge** (NM-0843) | Nethermind Security | 21 findings (1C / 2H / 1M / 6L / 9I / 2BP) — **18 Fixed / 3 Acknowledged** | **Published — May 8, 2026** |
-| **XDC NFT V3 stack** (vault, collection, migrator, harvester, bypass facet) | Internal — Nethermind planned | 46 unit tests + 17-test audit-fix regression battery | Internal review complete; external review planned |
+| **psXDC V3 vault + V3 Migration Bridge** (NM-0843) | Nethermind Security | 21 findings (1C / 2H / 1M / 6L / 9I / 2BP): **18 Fixed / 3 Acknowledged** | **Published May 8, 2026** |
+| **XDC NFT V3 stack** (vault, collection, migrator, harvester, bypass facet) | Internal; Nethermind planned | 46 unit tests + 17-test audit-fix regression battery | Internal review complete; external review planned |
 
-**Nethermind Security NM-0843 — XDC Prime Stake** (final report, May 08, 2026) covered `PrimeStakedXDC_V3.sol` and `PrimeStakedXDC_V3MigrationBridge.sol` (1,391 LoC). All Critical, High, and Medium findings are Fixed. The three Acknowledged findings are operationally mitigated (loss caps for risk-manager front-running, pre-deployment seed enforcement, and two-call workaround for partial-fill queue redemption). The live vault, `PrimeStakedXDC_V3_1`, is a redeployment of this audited codebase with a scoped delta for the staged collateral transition; a follow-up external audit of the delta is in progress — see [Audits](../audits-1/README.md).
+**Nethermind Security NM-0843, XDC Prime Stake** (final report, May 08, 2026) covered `PrimeStakedXDC_V3.sol` and `PrimeStakedXDC_V3MigrationBridge.sol` (1,391 LoC). All Critical, High, and Medium findings are Fixed. The three Acknowledged findings are operationally mitigated (loss caps for risk-manager front-running, pre-deployment seed enforcement, and two-call workaround for partial-fill queue redemption). The live vault, `PrimeStakedXDC_V3_1`, is a redeployment of this audited codebase with a scoped delta for the staged collateral transition; a follow-up external audit of the delta is in progress; see [Audits](../audits-1/README.md).
 
 [→ Read the full NM-0843 report (PDF)](../NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf)
 
@@ -105,8 +105,8 @@ PrimeStaking provides the technical infrastructure; regulatory compliance is han
 ### In Case of Delayed Withdrawals
 
 * In V3, withdrawals settle **instantly** when the vault buffer covers them; otherwise they enter the on-chain FIFO queue and settle as new deposits, reward inflows, or masternode resignations replenish liquidity.
-* For redemptions that depend on a masternode resignation, the upper bound is the XDC Network's `candidateWithdrawDelay` — approximately **35 days** under typical real-world block times (longer under network congestion).
-* PrimeStaking does not guarantee specific withdrawal timelines — the queue is FIFO and depends on network conditions and protocol-level cash flow.
+* For redemptions that depend on a masternode resignation, the upper bound is the XDC Network's `candidateWithdrawDelay`, approximately **35 days** under typical real-world block times (longer under network congestion).
+* PrimeStaking does not guarantee specific withdrawal timelines; the queue is FIFO and depends on network conditions and protocol-level cash flow.
 * Partners should communicate **both paths** (instant-when-possible and queued-with-self-claim) to their users.
 
 ### In Case of Reward Rate Changes

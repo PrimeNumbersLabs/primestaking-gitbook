@@ -65,7 +65,7 @@ Uptime is measured monthly. Downtime due to XDC Network-level issues is excluded
 
 ## Upgrade Policy
 
-- The **psXDC v3 vault is non-upgradeable** — its logic can never be modified. The same holds for the V3 migration bridge, NFT collection, NFT migrator, and boost harvester. Any change to these contracts requires deploying new ones and migrating.
+- The **psXDC v3 vault is non-upgradeable**; its logic can never be modified. The same holds for the V3 migration bridge, NFT collection, NFT migrator, and boost harvester. Any change to these contracts requires deploying new ones and migrating.
 - Only the **`XdcNftStakingVault`** is upgradeable (TransparentUpgradeableProxy controlled by the protocol multisig, with ERC-7201 namespaced storage). Implementation changes go through **multisig governance + delayed handover**.
 - Parameter changes on the psXDC v3 vault (loss caps, role rotations, governance delay) follow the on-chain **delayed governance** pattern: schedule → wait `governanceDelay` → execute. Partners can monitor pending changes via on-chain events.
 - Partners are notified **at least 7 days** before any material NFT vault upgrade or psXDC governance change.

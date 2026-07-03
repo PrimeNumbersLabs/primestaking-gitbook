@@ -14,9 +14,9 @@ Stake XDC  →  Receive psXDC shares  →  Share price grows (~4.5% APY)  →  W
 
 1. **Deposit XDC** into the [`PrimeStakedXDC_V3_1`](contract-addresses.md) vault.
 2. **Receive psXDC shares** at the current vault exchange rate. There is no fixed 1:1; share value rises as validator rewards accrue.
-3. **Earn rewards automatically** — rewards are embedded in the share price. No claim button for the base yield.
-4. **Use psXDC** — it's a standard ERC-20 on the XDC Network. Hold it, trade it, use it as collateral, or stake it inside an XDC NFT for an additional boost slice.
-5. **Withdraw** — burn psXDC shares. If the vault has enough buffer liquidity you receive XDC instantly; otherwise your request enters an automatic FIFO queue and you claim when masternode payouts return.
+3. **Earn rewards automatically.** Rewards are embedded in the share price. No claim button for the base yield.
+4. **Use psXDC.** It's a standard ERC-20 on the XDC Network. Hold it, trade it, use it as collateral, or stake it inside an XDC NFT for an additional boost slice.
+5. **Withdraw** by burning psXDC shares. If the vault has enough buffer liquidity you receive XDC instantly; otherwise your request enters an automatic FIFO queue and you claim when masternode payouts return.
 
 ---
 
@@ -35,7 +35,7 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 - The underlying psXDC NAV (same ~4.5% the vault already gives you).
 - A Synthetix-style **boost slice** funded by the protocol's [`XdcNftBoostHarvester`](xdc-staking-nfts/boost-harvester.md), weighted by NFT rarity, level, and lock status.
 
-**Floor: ~4.5%** — the base NAV is always there, automatic, no claim. When the boost stream is flowing, the combined APY ranges from **~4.75% unlocked** up to **~6% locked**.
+**Floor: ~4.5%.** The base NAV is always there, automatic, no claim. When the boost stream is flowing, the combined APY ranges from **~4.75% unlocked** up to **~6% locked**.
 
 → [XDC NFTs Details](xdc-staking-nfts/)
 
@@ -48,11 +48,11 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 | Property | Detail |
 | --- | --- |
 | Standard | ERC-4626 tokenized vault share |
-| Pricing | Exchange rate `totalAssets / totalShares` — grows over time as rewards accrue (not a fixed 1:1) |
+| Pricing | Exchange rate `totalAssets / totalShares`, which grows over time as rewards accrue (not a fixed 1:1) |
 | Network | XDC Network (chain ID `50`) |
-| Transferable | Yes — send, trade, or use as DeFi collateral |
-| Earns rewards | Yes — holding psXDC means the share is worth more XDC each block |
-| Redeemable | Yes — burn psXDC to withdraw XDC, instantly if the buffer allows, otherwise via the automatic FIFO queue |
+| Transferable | Yes: send, trade, or use as DeFi collateral |
+| Earns rewards | Yes; holding psXDC means the share is worth more XDC each block |
+| Redeemable | Yes. Burn psXDC to withdraw XDC, instantly if the buffer allows, otherwise via the automatic FIFO queue |
 | Address | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 
 psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for the base ~4.5% APY, or deposit it into XDC NFTs to layer the boost slice on top.

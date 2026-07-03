@@ -10,13 +10,13 @@ PrimeStaking V3 separates **protocol redemption** (burning shares for XDC agains
 | --- | --- |
 | **Name** | psXDC (Prime Staked XDC) |
 | **Standard** | ERC-4626 vault share |
-| **Pricing** | Exchange rate `totalAssets / totalShares` — grows over time as validator rewards accrue. **Not a fixed 1:1.** |
+| **Pricing** | Exchange rate `totalAssets / totalShares`, which grows over time as validator rewards accrue. **Not a fixed 1:1.** |
 | **Network** | XDC Network (chain ID `50`) |
 | **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
-| **Transferable** | Yes — standard XRC-20 token |
-| **Yield mechanism** | Share-price appreciation; rewards are already inside the share — no manual `claim` |
-| **Redeemable against the protocol** | Yes — `withdraw` / `redeem` (instant when buffer suffices) or `redeemWithQueue` (instant or queued) |
-| **Market-tradeable** | Yes — XSWAP and other DEXs |
+| **Transferable** | Yes (standard XRC-20 token) |
+| **Yield mechanism** | Share-price appreciation; rewards are already inside the share, so there is no manual `claim` |
+| **Redeemable against the protocol** | Yes: `withdraw` / `redeem` (instant when buffer suffices) or `redeemWithQueue` (instant or queued) |
+| **Market-tradeable** | Yes, on XSWAP and other DEXs |
 
 ***
 
@@ -26,12 +26,12 @@ PrimeStaking V3 separates **protocol redemption** (burning shares for XDC agains
 
 When you burn psXDC against the vault, you receive XDC at the **current exchange rate**, not a fixed 1:1. The amount is `convertToAssets(shares)`.
 
-- **Instant** when the vault's liquid buffer (default 5% of total assets, configurable via `setBufferBps`) covers your request — settled in the same transaction.
-- **Queued** when the buffer is insufficient — escrows the shares, adds you to the FIFO queue. Processed as new deposits / reward inflows / masternode resignations replenish liquidity.
-- **No partial fills** — each request settles in full when its turn comes.
-- **Free cancellation** — you can `cancelQueuedWithdrawal` any time before settlement and get your shares back unchanged.
+- **Instant** when the vault's liquid buffer (default 5% of total assets, configurable via `setBufferBps`) covers your request, settled in the same transaction.
+- **Queued** when the buffer is insufficient: escrows the shares, adds you to the FIFO queue. Processed as new deposits / reward inflows / masternode resignations replenish liquidity.
+- **No partial fills.** Each request settles in full when its turn comes.
+- **Free cancellation.** You can `cancelQueuedWithdrawal` any time before settlement and get your shares back unchanged.
 
-For very large redemptions where the vault doesn't have a sufficient buffer + recent rewards, the upper bound on settlement is the XDC Network's `candidateWithdrawDelay` — about 35 days under typical real-world block times. This delay is a network-level property of XDC's masternode unstaking flow, not a PrimeStaking-specific gate.
+For very large redemptions where the vault doesn't have a sufficient buffer + recent rewards, the upper bound on settlement is the XDC Network's `candidateWithdrawDelay`, about 35 days under typical real-world block times. This delay is a network-level property of XDC's masternode unstaking flow, not a PrimeStaking-specific gate.
 
 → [Withdrawals: Instant vs Queued](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md)
 
@@ -39,7 +39,7 @@ For very large redemptions where the vault doesn't have a sufficient buffer + re
 
 Holders can swap psXDC for XDC on a DEX (always verify the pool holds the live V3.1 token, `0xa7FD…73e4`). Market price is set by the AMM and is influenced by:
 
-- The vault's current NAV (`totalAssets / totalShares`) — the long-run anchor.
+- The vault's current NAV (`totalAssets / totalShares`), the long-run anchor.
 - Pool depth and recent volume.
 - Demand for immediate liquidity vs willingness to wait for protocol redemption.
 
@@ -60,8 +60,8 @@ The market price can sit **at, above, or below NAV** depending on these factors.
 | --- | --- |
 | **Two value references** | A user's psXDC balance can be valued either at NAV (`convertToAssets`) or at DEX market price. Use NAV for accounting and partner reporting; DEX price for synchronous trading flows. |
 | **Self-service withdrawals** | Partners do not need to operate any approval flow; users can redeem on their own through `redeemWithQueue`. |
-| **Buffer planning** | If you expect bursty user withdrawal patterns, coordinate with PrimeStaking on buffer sizing (`setBufferBps`) — this affects how often partner users hit the queue. |
-| **Queue UX** | Partners surfacing psXDC redemption should distinguish "complete" from "queued, self-claim later" outcomes — the contract makes this explicit through events. |
+| **Buffer planning** | If you expect bursty user withdrawal patterns, coordinate with PrimeStaking on buffer sizing (`setBufferBps`); this affects how often partner users hit the queue. |
+| **Queue UX** | Partners surfacing psXDC redemption should distinguish "complete" from "queued, self-claim later" outcomes. The contract makes this explicit through events. |
 | **DEX integration** | psXDC pools provide an instant exit, but the protocol's NAV is the canonical value and is what should drive any institutional reporting. |
 
 ***

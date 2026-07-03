@@ -1,7 +1,7 @@
-# psXDC V3 — Non-Custodial Vault Architecture
+# psXDC V3: Non-Custodial Vault Architecture
 
 {% hint style="info" %}
-The live vault is **`PrimeStakedXDC_V3_1`** at [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) — the July 2026 redeployment of the V3 architecture, with every V3 balance carried over 1:1 via snapshot airdrop. V2 contracts remain available for stragglers to migrate.
+The live vault is **`PrimeStakedXDC_V3_1`** at [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4), the July 2026 redeployment of the V3 architecture, with every V3 balance carried over 1:1 via snapshot airdrop. V2 contracts remain available for stragglers to migrate.
 {% endhint %}
 
 psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture underpinning every new psXDC stake. V3.1 keeps this architecture unchanged and adds a **staged collateral-transition mode**: while the legacy masternode fleet is progressively moved into the vault (roughly one masternode per week), NAV is protected against write-downs, and the withdrawal queue is backed by ring-fenced funding lanes so user exits keep working throughout.
@@ -13,12 +13,12 @@ psXDC V3 is a complete rebuild of the liquid staking contract, moving from a cus
 | | |
 | --- | --- |
 | **Standard** | ERC-4626 (OpenZeppelin tokenized vault) |
-| **Token** | psXDC — yield-bearing share token |
+| **Token** | psXDC, a yield-bearing share token |
 | **Pricing** | Exchange rate increases as rewards accrue (not fixed 1:1) |
-| **Withdrawals** | Self-service — no admin approval required |
+| **Withdrawals** | Self-service; no admin approval required |
 | **Staking** | Direct masternode integration via XDC validator contract |
 | **Governance** | Role separation with mandatory time-locked delays |
-| **Admin mint/withdraw** | Disabled — not possible in V3 |
+| **Admin mint/withdraw** | Disabled (not possible in V3) |
 
 ---
 
@@ -28,21 +28,21 @@ psXDC V3 is a complete rebuild of the liquid staking contract, moving from a cus
 
 Deposit XDC through the staking interface. The contract mints psXDC shares based on the current exchange rate. The more rewards the vault accumulates, the more XDC each psXDC share is worth.
 
-There is no minimum deposit. Staking is permissionless — no account, no KYC, just connect your wallet.
+There is no minimum deposit. Staking is permissionless: no account, no KYC, just connect your wallet.
 
 ### 2. Earn Rewards
 
 Your staked XDC is pooled and delegated to KYC-verified masternode operators on the XDC Network. Validator rewards flow back into the contract automatically, increasing the total assets backing all psXDC shares.
 
-You don't need to claim rewards. They are embedded in the share price — your psXDC simply becomes worth more XDC over time.
+You don't need to claim rewards. They are embedded in the share price, so your psXDC simply becomes worth more XDC over time.
 
 ### 3. Withdraw
 
 You have full self-service access to your XDC:
 
-- **Instant withdrawal** — if the contract has sufficient liquid XDC, you redeem shares and receive XDC in the same transaction. No admin approval. No waiting.
-- **Queued withdrawal** — if most XDC is staked in masternodes and liquidity is temporarily low, your request enters an automatic FIFO queue. It processes as soon as liquidity returns from new deposits, reward inflows, or masternode resignations.
-- **DEX swap** — sell psXDC directly on a DEX (verify the pool holds the live V3.1 token) for immediate exit at market rate.
+- **Instant withdrawal**: if the contract has sufficient liquid XDC, you redeem shares and receive XDC in the same transaction. No admin approval. No waiting.
+- **Queued withdrawal**: if most XDC is staked in masternodes and liquidity is temporarily low, your request enters an automatic FIFO queue. It processes as soon as liquidity returns from new deposits, reward inflows, or masternode resignations.
+- **DEX swap**: sell psXDC directly on a DEX (verify the pool holds the live V3.1 token) for immediate exit at market rate.
 
 ### 4. Use psXDC
 
@@ -52,7 +52,7 @@ psXDC is a standard ERC-20 token on the XDC Network. While your XDC earns yield 
 - **Trade** on DEXs
 - **Stake inside XDC NFTs** to boost your yield up to 6%
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens
-- **Transfer** to any wallet — the recipient inherits the yield automatically
+- **Transfer** to any wallet; the recipient inherits the yield automatically
 
 ---
 
@@ -63,9 +63,9 @@ Unlike V2 where 1 psXDC always equals 1 XDC, V3 uses a **share model**:
 | Concept | How it works |
 | --- | --- |
 | **Deposit** | You deposit XDC, receive psXDC shares based on the current exchange rate |
-| **Exchange rate** | `totalAssets / totalShares` — rises over time as rewards accrue |
+| **Exchange rate** | `totalAssets / totalShares`, which rises over time as rewards accrue |
 | **Withdrawal** | You burn psXDC shares and receive XDC at the current rate |
-| **Rewards** | No claiming needed — rewards increase the exchange rate for all holders equally |
+| **Rewards** | No claiming needed; rewards increase the exchange rate for all holders equally |
 
 **Example:** If the exchange rate is 1.05, burning 100 psXDC returns 105 XDC. The rate only goes up (assuming no validator losses).
 
@@ -75,7 +75,7 @@ This is the same model used by major DeFi protocols (Aave aTokens, Compound cTok
 
 ## Masternode Integration
 
-V3 directly stakes XDC with masternodes via the on-chain XDC validator contract. This is what makes psXDC productive — your XDC is not sitting idle.
+V3 directly stakes XDC with masternodes via the on-chain XDC validator contract. This is what makes psXDC productive: your XDC is not sitting idle.
 
 ### How masternodes are managed
 
@@ -115,8 +115,8 @@ V3 separates responsibilities across five roles. No single key can make unilater
 Every sensitive parameter change follows a three-step pattern:
 
 1. **Schedule** the change → mandatory governance delay begins (default 1 day)
-2. **Wait** — anyone can see the pending change on-chain
-3. **Execute** the change after the delay expires — or **cancel** it at any time
+2. **Wait**, during which anyone can see the pending change on-chain
+3. **Execute** the change after the delay expires, or **cancel** it at any time
 
 This applies to: role changes, loss caps, governance delay itself, ownership transfer, and migration bridge configuration.
 
@@ -126,10 +126,10 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 
 | Control | Detail |
 | --- | --- |
-| **No admin mint** | `mint()` is disabled — shares can only be created through genuine XDC deposits |
-| **No admin withdraw** | There is no `ownerWithdraw()` — XDC only leaves through user redemptions or validator operations |
+| **No admin mint** | `mint()` is disabled; shares can only be created through genuine XDC deposits |
+| **No admin withdraw** | There is no `ownerWithdraw()`; XDC only leaves through user redemptions or validator operations |
 | **Loss caps** | `reportValidatorLoss()` is capped at 10% per report and 20% per day (configurable via time-lock) |
-| **Principal separation** | Returning masternode principal is not counted as yield — prevents artificial exchange rate inflation |
+| **Principal separation** | Returning masternode principal is not counted as yield, which prevents artificial exchange rate inflation |
 | **Reentrancy protection** | All external state-changing functions are protected |
 | **Reward threshold** | Reward inflows below 1,000 XDC are not immediately synced, preventing dust manipulation |
 | **No principal-stake slashing** | XDC's slashing mechanism penalizes downtime via ~2h exclusion and missed rewards, but never burns principal stake |
@@ -143,7 +143,7 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 | **Contract** | `PrimeStakedXDC_V3_1.sol` |
 | **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 | **Standard** | ERC-4626 (OpenZeppelin) + AccessControl |
-| **Upgradeability** | **None — deployed with a regular constructor, no proxy.** The vault logic cannot be modified after deployment. |
+| **Upgradeability** | **None. Deployed with a regular constructor, no proxy.** The vault logic cannot be modified after deployment. |
 | **Decimals offset** | 9 (extra share precision) |
 | **Default masternode stake** | 10,000,000 XDC |
 | **Default buffer** | 5% of total assets |
@@ -157,7 +157,7 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 When liquidity is constrained the queue absorbs the overflow without disrupting validator operations:
 
 - Queued requests **escrow shares** inside the vault. They are not burned until settlement.
-- Settlement value is computed at processing time, not at enqueue time — the user redeems at the live share rate, not a stale snapshot.
+- Settlement value is computed at processing time, not at enqueue time. The user redeems at the live share rate, not a stale snapshot.
 - Failed receiver payouts (rare; e.g. contract receivers that revert on payment) are deferred into `pendingQueuedAssets`. Users collect their XDC via `claimQueuedAssets(receiver)` later.
 - Auto-propose is **blocked while the queue has a backlog**, so the vault doesn't lock more XDC in masternodes while users are waiting to withdraw.
 - Operator and queue scans are bounded by `operatorScanLimit` and `queueScanLimit` to prevent gas-griefing.
@@ -171,7 +171,7 @@ When liquidity is constrained the queue absorbs the overflow without disrupting 
 Existing V2 psXDC holders migrate to V3 through a dedicated [`PrimeStakedXDC_V3MigrationBridge`](../contract-addresses.md):
 
 1. Approve the bridge to spend your V2 psXDC.
-2. Call `migrate(amount, minSharesOut)` — the bridge burns your V2 tokens and the vault mints V3 shares.
+2. Call `migrate(amount, minSharesOut)`. The bridge burns your V2 tokens and the vault mints V3 shares.
 3. Slippage protection (`minSharesOut`) prevents unfavourable exchange rates between signing and execution.
 
 The migration bridge has its own security controls: time-locked admin handoff, daily withdrawal caps on excess treasury, and disabled direct role changes.

@@ -8,9 +8,9 @@ description: White-label XDC liquid staking pools that partners deploy and fully
 **Status: live on XDC Mainnet.** The [`PartnerVaultRegistry`](registry-and-verification.md) is deployed at [`0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) and partner pools are already being registered. Pools appear in the app's directory once PrimeStaking marks them **Verified**.
 {% endhint %}
 
-**Partner Staking** lets a community, validator, exchange, or institution run its **own** XDC liquid staking pool — its own branded token, its own masternode operators, its own admin keys — while plugging into the PrimeStaking app, UI, and tooling. PrimeStaking does not custody the pool or operate its validators; it provides the audited vault design and the directory, and earns a flat **15% protocol fee** on the pool's staking rewards.
+**Partner Staking** lets a community, validator, exchange, or institution run its **own** XDC liquid staking pool (its own branded token, its own masternode operators, its own admin keys) while plugging into the PrimeStaking app, UI, and tooling. PrimeStaking does not custody the pool or operate its validators; it provides the audited vault design and the directory, and earns a flat **15% protocol fee** on the pool's staking rewards.
 
-Each pool is a deployment of [`PartnerStakedXDC_V3`](smart-contract-reference.md) — a self-contained, fee-bearing copy of the PrimeStaking flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault. It is a fully independent contract: separate state, separate token, separate admin keys, separate masternode operators. It shares no storage, funds, or permissions with the flagship vault.
+Each pool is a deployment of [`PartnerStakedXDC_V3`](smart-contract-reference.md), a self-contained, fee-bearing copy of the PrimeStaking flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault. It is a fully independent contract: separate state, separate token, separate admin keys, separate masternode operators. It shares no storage, funds, or permissions with the flagship vault.
 
 ---
 
@@ -31,8 +31,8 @@ PrimeStaking offers two different partner tracks. Don't confuse them:
 ## Why it's built this way
 
 - **Self-service & self-managed.** The partner deploys the vault, holds the admin keys, registers their own masternode operators, and covers their own masternode hosting costs. PrimeStaking never holds the keys or the funds.
-- **Non-custodial & ERC-4626.** Same share-based, native-XDC design as the flagship V3 vault — instant withdrawals against a liquidity buffer, an automatic FIFO queue when the buffer is empty, masternode delegation, time-locked governance, and per-report / daily loss caps.
-- **Trust-minimized listing.** The fee rate (15%) and recipient (PrimeStaking treasury) are **compile-time constants**, so every genuine partner vault shares identical runtime bytecode. The [`PartnerVaultRegistry`](registry-and-verification.md) only lists a vault whose `codehash` matches an allow-listed canonical hash — a partner cannot deploy a 0%-fee fork and have it appear in the PrimeStaking UI.
+- **Non-custodial & ERC-4626.** Same share-based, native-XDC design as the flagship V3 vault: instant withdrawals against a liquidity buffer, an automatic FIFO queue when the buffer is empty, masternode delegation, time-locked governance, and per-report / daily loss caps.
+- **Trust-minimized listing.** The fee rate (15%) and recipient (PrimeStaking treasury) are **compile-time constants**, so every genuine partner vault shares identical runtime bytecode. The [`PartnerVaultRegistry`](registry-and-verification.md) only lists a vault whose `codehash` matches an allow-listed canonical hash, so a partner cannot deploy a 0%-fee fork and have it appear in the PrimeStaking UI.
 - **Curated visibility.** Registration is open, but the app shows only pools PrimeStaking has marked **Verified**, so the branded directory can never be flooded with spam pools.
 
 ---
@@ -53,7 +53,7 @@ PrimeStaking offers two different partner tracks. Don't confuse them:
 | --- | --- |
 | [How It Works](how-it-works.md) | The economic model, the 15% fee chokepoint, what the partner manages vs. what PrimeStaking provides |
 | [Deploy & List a Pool](deploy-and-list.md) | Deploying `PartnerStakedXDC_V3`, roles & governance, registering and getting verified |
-| [Registry & Verification](registry-and-verification.md) | `PartnerVaultRegistry` — codehash gating, verification badge, metadata, delisting |
+| [Registry & Verification](registry-and-verification.md) | `PartnerVaultRegistry`: codehash gating, verification badge, metadata, delisting |
 | [Smart Contract Reference](smart-contract-reference.md) | Function-level reference for both partner contracts |
 
 **Contact:** [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)

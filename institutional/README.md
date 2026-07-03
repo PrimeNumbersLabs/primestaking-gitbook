@@ -24,7 +24,7 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | Advantage                  | Detail                                                                                                                                    |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **Non-custodial**          | Users retain full ownership of assets at all times                                                                                        |
-| **Audited by QuillAudits** | XDC Staking Contract, 98.8% — [Published](https://docs.primestaking.xyz/security/audits-1)                                                |
+| **Audited by QuillAudits** | XDC Staking Contract, 98.8%. [Published](https://docs.primestaking.xyz/security/audits-1)                                                |
 | **Audited by Nethermind**  | Security audit of custody contracts conducted by Nethermind Security, trusted auditing partner for Lido, EtherFi, Optimism, and Worldcoin |
 | **No principal-stake slashing** | XDC's slashing penalizes downtime via temporary exclusion (~2h) and missed rewards; staked capital is never burned - unlike ETH liquid staking |
 | **Permissionless custody** | Smart contract-based validator key management - no human custody                                                                          |
@@ -38,7 +38,7 @@ PrimeStaking provides turnkey XDC staking infrastructure that exchanges and inst
 | Property                | Detail                                                                                             |
 | ----------------------- | -------------------------------------------------------------------------------------------------- |
 | **Consensus**           | XDPoS (Delegated Proof of Stake) with masternode validators                                        |
-| **No stake-burning slashing** | XDC slashing excludes underperforming masternodes from block production for ~2h and forfeits their rewards, but never burns principal — stakers face no risk of capital loss from validator behavior |
+| **No stake-burning slashing** | XDC slashing excludes underperforming masternodes from block production for ~2h and forfeits their rewards, but never burns principal, so stakers face no risk of capital loss from validator behavior |
 | **Fast finality**       | 2-second target block time (real-world average \~2.33s) with near-instant transaction confirmation |
 | **Low fees**            | Negligible gas costs compared to Ethereum and most L2s                                             |
 | **Enterprise adoption** | XDC Network is used for trade finance, tokenized assets, and institutional applications            |

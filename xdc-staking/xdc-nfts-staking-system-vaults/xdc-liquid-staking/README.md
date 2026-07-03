@@ -1,6 +1,6 @@
 # XDC Liquid Staking
 
-XDC Liquid Staking lets you earn staking rewards on any amount of XDC — without running a node, meeting a minimum threshold, or locking your funds permanently. PrimeStaking V3 is a fully non-custodial, ERC-4626 vault: rewards accrue directly to the share price and withdrawals are self-service.
+XDC Liquid Staking lets you earn staking rewards on any amount of XDC, without running a node, meeting a minimum threshold, or locking your funds permanently. PrimeStaking V3 is a fully non-custodial, ERC-4626 vault: rewards accrue directly to the share price and withdrawals are self-service.
 
 ---
 
@@ -10,12 +10,12 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC — withou
 | --- | --- |
 | **APY** | ~4.5% (accrued automatically through share price growth) |
 | **Minimum stake** | None |
-| **Token received** | psXDC — ERC-4626 vault share (not a fixed 1:1 receipt) |
+| **Token received** | psXDC, an ERC-4626 vault share (not a fixed 1:1 receipt) |
 | **Reward mechanism** | Share price (`totalAssets / totalShares`) grows as validator rewards accrue |
-| **Claiming** | No claim button — your shares are worth more XDC over time |
+| **Claiming** | No claim button; your shares are worth more XDC over time |
 | **Withdrawal** | Self-service. **Instant** when the buffer is sufficient, otherwise **queued** with self-claim via `claimQueuedAssets` |
-| **DEX exit** | Any DEX pool holding the live V3.1 token — sell psXDC for XDC at market |
-| **Smart contract** | `PrimeStakedXDC_V3_1` — non-upgradeable, audited |
+| **DEX exit** | Any DEX pool holding the live V3.1 token: sell psXDC for XDC at market |
+| **Smart contract** | `PrimeStakedXDC_V3_1` (non-upgradeable, audited) |
 | **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 
 ---
@@ -24,7 +24,7 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC — withou
 
 ### 1. Stake
 
-Deposit XDC through the staking interface at [primestaking.xyz](https://primestaking.xyz/xdc-liquid-staking/overview). No account setup or KYC required — just connect your wallet.
+Deposit XDC through the staking interface at [primestaking.xyz](https://primestaking.xyz/xdc-liquid-staking/overview). No account setup or KYC required, just connect your wallet.
 
 The vault mints psXDC shares for you at the current exchange rate. The app previews exactly how many shares you will receive before you sign.
 
@@ -35,13 +35,13 @@ psXDC is an ERC-4626 vault share. There is no fixed 1:1 ratio:
 - At launch, **1 psXDC ≈ 1 XDC**.
 - After rewards accrue, **1 psXDC > 1 XDC** (e.g. 1 psXDC redeems for 1.05 XDC once the exchange rate has grown).
 
-You don't need to manage two balances — the share is the only thing you hold, and it carries its value with it wherever you send it.
+You don't need to manage two balances. The share is the only thing you hold, and it carries its value with it wherever you send it.
 
 ### 3. Earn Rewards Automatically
 
 Validator rewards flow back into the vault and become part of `totalAssets`. Because the share supply doesn't change, each share is worth more XDC.
 
-This is the same pattern Aave aTokens, Compound cTokens, and Lido wstETH use. **There is no "Claim Rewards" button for liquid staking** — your shares simply appreciate.
+This is the same pattern Aave aTokens, Compound cTokens, and Lido wstETH use. **There is no "Claim Rewards" button for liquid staking**; your shares simply appreciate.
 
 ### 4. Use psXDC
 
@@ -51,15 +51,15 @@ psXDC is a standard ERC-20 on the XDC Network. While the vault earns yield, you 
 - **Trade** on DEXs (typically paired with XDC).
 - **Deposit into XDC NFTs** to layer the boost slice on top of your NAV.
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens.
-- **Transfer** to any wallet — the recipient inherits the appreciating share automatically.
+- **Transfer** to any wallet; the recipient inherits the appreciating share automatically.
 
 ### 5. Withdraw
 
 To convert back to XDC you have three options:
 
-- **Instant redeem** — when the vault's liquid buffer holds enough XDC to cover your request, the redemption settles in the same transaction. No queue, no waiting.
-- **Queued redeem** — when liquidity is constrained, your shares are escrowed and your request joins an automatic FIFO queue. As soon as new deposits or masternode payouts top up the buffer, the queue is processed and you call `claimQueuedAssets` to collect your XDC. You can also `cancelQueuedWithdrawal` at any time before settlement.
-- **DEX exit** — swap psXDC for XDC on a DEX (verify the pool holds the live V3.1 token) for immediate liquidity (subject to pool depth and market rate).
+- **Instant redeem**: when the vault's liquid buffer holds enough XDC to cover your request, the redemption settles in the same transaction. No queue, no waiting.
+- **Queued redeem**: when liquidity is constrained, your shares are escrowed and your request joins an automatic FIFO queue. As soon as new deposits or masternode payouts top up the buffer, the queue is processed and you call `claimQueuedAssets` to collect your XDC. You can also `cancelQueuedWithdrawal` at any time before settlement.
+- **DEX exit**: swap psXDC for XDC on a DEX (verify the pool holds the live V3.1 token) for immediate liquidity (subject to pool depth and market rate).
 
 The app calls `redeemWithQueue` for you, which automatically picks the instant path when possible and falls back to the queue when not. You always see in advance which path your transaction will take.
 
@@ -73,7 +73,7 @@ The app calls `redeemWithQueue` for you, which automatically picks the instant p
 | --- | --- |
 | **Source** | Staking rewards generated by the protocol's XDC Network masternode operators |
 | **Distribution** | Reward XDC enters the vault → `totalAssets` increases → exchange rate rises → every psXDC share is worth more XDC |
-| **Claiming** | No claim — accrual is embedded in the share price |
+| **Claiming** | No claim; accrual is embedded in the share price |
 | **Partial holdings** | Any amount of psXDC earns yield; nothing is forfeited if you transfer or split balances |
 
 ---
@@ -82,8 +82,8 @@ The app calls `redeemWithQueue` for you, which automatically picks the instant p
 
 Two ways to obtain psXDC:
 
-1. **Stake XDC** — deposit through the staking interface to mint psXDC shares directly at the current exchange rate.
-2. **Buy on a DEX** — purchase psXDC on a decentralized exchange. Holding psXDC from any source benefits from the appreciating share price.
+1. **Stake XDC**: deposit through the staking interface to mint psXDC shares directly at the current exchange rate.
+2. **Buy on a DEX**: purchase psXDC on a decentralized exchange. Holding psXDC from any source benefits from the appreciating share price.
 
 ---
 
@@ -92,7 +92,7 @@ Two ways to obtain psXDC:
 If you already hold the V2 psXDC token, the new vault is a separate contract and your V2 balance does not automatically appear in V3. You need to migrate through the dedicated bridge:
 
 1. Approve [`PrimeStakedXDC_V3MigrationBridge`](../contract-addresses.md) to spend your V2 psXDC.
-2. Call `migrate(amount, minSharesOut)` — the bridge burns V2 and mints V3 shares.
+2. Call `migrate(amount, minSharesOut)`. The bridge burns V2 and mints V3 shares.
 3. The migration page in the app calls this for you and lets you tune slippage (defaults to 0.5%).
 
 → [Migrate V2 psXDC → V3](staking-guide/migration.md)
@@ -101,19 +101,19 @@ If you already hold the V2 psXDC token, the new vault is a separate contract and
 
 ## Technical Details
 
-- **Smart contract-driven** — every stake, redemption, and validator action is on-chain.
-- **Validator-driven rewards** — share price reflects the protocol's actual masternode performance, not an admin-set APY.
-- **Non-upgradeable vault** — `PrimeStakedXDC_V3_1` has no proxy. The logic that holds your XDC can never be modified.
+- **Smart contract-driven**: every stake, redemption, and validator action is on-chain.
+- **Validator-driven rewards**: share price reflects the protocol's actual masternode performance, not an admin-set APY.
+- **Non-upgradeable vault**: `PrimeStakedXDC_V3_1` has no proxy. The logic that holds your XDC can never be modified.
 
-→ [V3 Architecture](v3-architecture.md) → [V2 vs V3 — What Changed](v2-vs-v3.md) → [Smart Contract Reference](smart-contract-functions.md)
+→ [V3 Architecture](v3-architecture.md) → [V2 vs V3: What Changed](v2-vs-v3.md) → [Smart Contract Reference](smart-contract-functions.md)
 
 ---
 
 ## Benefits
 
-- **No infrastructure** — the protocol runs the masternodes.
-- **No minimum** — stake any amount of XDC.
-- **Full liquidity** — psXDC keeps your position liquid while earning rewards.
-- **Composable** — ERC-4626 makes psXDC drop-in compatible with DeFi protocols.
-- **Non-custodial** — no admin mint, no admin withdraw, no third-party custodian.
-- **No principal-stake slashing** — XDC's slashing penalizes downtime via temporary exclusion from block production (~2h) and missed rewards, but never burns principal — so staked capital is never at risk from validator behavior.
+- **No infrastructure**: the protocol runs the masternodes.
+- **No minimum**: stake any amount of XDC.
+- **Full liquidity**: psXDC keeps your position liquid while earning rewards.
+- **Composable**: ERC-4626 makes psXDC drop-in compatible with DeFi protocols.
+- **Non-custodial**: no admin mint, no admin withdraw, no third-party custodian.
+- **No principal-stake slashing**: XDC's slashing penalizes downtime via temporary exclusion from block production (~2h) and missed rewards, but never burns principal, so staked capital is never at risk from validator behavior.
