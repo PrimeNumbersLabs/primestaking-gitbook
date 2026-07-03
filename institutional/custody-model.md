@@ -25,7 +25,7 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 
 ### Staked Asset Custody
 
-- User XDC deposits are held in the [`PrimeStakedXDC_V3`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault — **non-upgradeable**, so the logic that holds your XDC can never be modified
+- User XDC deposits are held in the [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault — **non-upgradeable**, so the logic that holds your XDC can never be modified
 - The vault keeps a tunable **liquid buffer** (default 5% of total assets); excess is auto-delegated to KYC-verified masternode operators on the XDC Network
 - Withdrawal requests use `redeemWithQueue` — instant when the buffer covers them, queued FIFO otherwise. Failed payouts defer into `pendingQueuedAssets` and the user collects them via `claimQueuedAssets`. There is no admin approval step at any point.
 - The vault has **no `mint` and no `ownerWithdraw`** — these were removed in V3. Even the protocol admin cannot move user funds.
@@ -70,7 +70,7 @@ The custody model is developed in collaboration with:
 - **XDC Core team** - network-level validator integration
 - **QuillAudits** - independent external audit (98.8% score on staking contracts)
 
-The custody substrate (`PrimeStakedXDC_V3` vault + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed. [Full report (PDF)](../NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf) · [Audits page](../audits-1/README.md).
+The custody substrate (the `PrimeStakedXDC_V3` vault design + `PrimeStakedXDC_V3MigrationBridge`) was independently audited by **Nethermind Security** in **NM-0843, XDC Prime Stake** (final report **May 08, 2026**). All Critical, High, and Medium findings are Fixed. The live vault, `PrimeStakedXDC_V3_1`, is a redeployment of this audited codebase — see the [Audits page](../audits-1/README.md) for the V3.1 delta. [Full report (PDF)](../NM_0843_xdc_prime_stake_FINAL_updated_tests.pdf).
 
 ---
 

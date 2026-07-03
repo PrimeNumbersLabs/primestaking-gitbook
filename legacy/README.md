@@ -30,7 +30,7 @@ New users should always use V3. The V2 contracts described here do not implement
 | Liquid staking rewards | Distributed via the legacy `notifyRewardAmount` flow; users manually claim from the legacy Rewards tab. |
 | Liquid staking withdrawal | Submitted as a request and processed via the validator queue under the legacy operational flow. |
 | XDC NFTs | Continue to function under the V2 reward model (monthly reward pool driven by NFT multipliers). |
-| Migration | Both psXDC v2 → V3 shares and legacy NFTs → V3 NFTs are available; see the V3 documentation for current migration UX. |
+| Migration | Both psXDC v2 → V3.1 shares (via the [v2 → V3.1 bridge](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md)) and legacy NFTs → V3 NFTs are available; see the V3 documentation for current migration UX. |
 
 There is no plan to deprecate V2 forcibly — users can take their time migrating.
 

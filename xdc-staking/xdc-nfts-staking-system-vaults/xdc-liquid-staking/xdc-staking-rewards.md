@@ -16,7 +16,7 @@ PrimeStaking V3 is a fully on-chain, ERC-4626 staking vault. Rewards are not pai
 
 | Layer | Where it lives | Who earns it | How you receive it |
 | --- | --- | --- | --- |
-| **Base NAV** | `PrimeStakedXDC_V3` vault share price | Every psXDC holder | Automatic — share price rises as validator rewards accrue. No claim. |
+| **Base NAV** | `PrimeStakedXDC_V3_1` vault share price | Every psXDC holder | Automatic — share price rises as validator rewards accrue. No claim. |
 | **NFT Boost** | `XdcNftStakingVault` Synthetix accumulator | Only NFTs that have psXDC shares staked inside them | Claimed from the NFT detail page in the app. |
 
 ---

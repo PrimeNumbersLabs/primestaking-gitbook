@@ -10,7 +10,7 @@ description: White-label XDC liquid staking pools that partners deploy and fully
 
 **Partner Staking** lets a community, validator, exchange, or institution run its **own** XDC liquid staking pool — its own branded token, its own masternode operators, its own admin keys — while plugging into the PrimeStaking app, UI, and tooling. PrimeStaking does not custody the pool or operate its validators; it provides the audited vault design and the directory, and earns a flat **15% protocol fee** on the pool's staking rewards.
 
-Each pool is a deployment of [`PartnerStakedXDC_V3`](smart-contract-reference.md) — a self-contained, fee-bearing copy of the PrimeStaking flagship [`PrimeStakedXDC_V3`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault. It is a fully independent contract: separate state, separate token, separate admin keys, separate masternode operators. It shares no storage, funds, or permissions with the flagship vault.
+Each pool is a deployment of [`PartnerStakedXDC_V3`](smart-contract-reference.md) — a self-contained, fee-bearing copy of the PrimeStaking flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault. It is a fully independent contract: separate state, separate token, separate admin keys, separate masternode operators. It shares no storage, funds, or permissions with the flagship vault.
 
 ---
 

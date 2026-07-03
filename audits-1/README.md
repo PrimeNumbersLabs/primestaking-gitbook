@@ -69,6 +69,12 @@ The full per-finding write-up, recommendations, and per-fix verification is in t
 
 ***
 
+### V3.1 redeployment (July 2026)
+
+The live vault, [`PrimeStakedXDC_V3_1`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4), is a redeployment of the NM-0843-audited V3 codebase with a scoped set of changes to support the staged masternode-collateral transition: an under-backed launch mode with NAV write-down protection, ring-fenced funding lanes for the withdrawal queue, and the one-time `V31AirdropDistributor` mint path used to mirror V3 balances. The V3 architecture, roles, time-locks, and withdrawal design are otherwise unchanged. **A follow-up external audit of the V3.1 delta is in progress and will be published on this page.**
+
+***
+
 ### Other V3 stack components
 
 The XDC NFT V3 surface (`XdcStakedNFT`, `XdcNftStakingVault`, `XdcNftMigrator`, `XdcNftBoostHarvester`, `LegacyMigratorBypassFacet`) ships with an internal 46-test suite plus a 17-test audit-fix regression battery covering every C/H/M finding from the internal review. External audit of this surface is planned and any future report will be published on this page.

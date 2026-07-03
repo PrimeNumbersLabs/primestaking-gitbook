@@ -2,6 +2,10 @@
 
 Every withdrawal on V3 goes through `redeemWithQueue` (or `withdrawWithQueue`). The vault automatically picks the **fastest path your balance and the buffer allow** — no admin approval, no per-user setting to flip.
 
+{% hint style="info" %}
+**During the V3.1 collateral transition** (masternodes moving into the vault roughly weekly), instant withdrawals are served from the vault's free liquidity, and the FIFO queue is backed by dedicated team funding that is ring-fenced for queued requests — new stakers' deposits are never trapped, and queued users are paid as each liquidity tranche arrives. Once the transition completes, the standard buffer model below applies in full.
+{% endhint %}
+
 ---
 
 ## The choice the vault makes for you
@@ -65,6 +69,7 @@ The vault's liquid balance grows from:
 - **New user deposits** (any `stake` adds XDC to the buffer).
 - **Validator reward inflows** (rewards flow back into the vault and bump tracked assets).
 - **Masternode resignation** — when a proposer resigns a masternode, the XDC returns to the vault after the network's `candidateWithdrawDelay` (~35 days under typical block times).
+- **Collateral-transition funding** (V3.1) — while the legacy masternode fleet is being moved over, the team injects liquidity tranches on a rolling schedule; funding earmarked for the withdrawal queue is reserved for queued requests and cannot be consumed by instant withdrawals.
 
 For very large withdrawals where the protocol doesn't already have a buffer + recent rewards sufficient to cover, the resignation timeline is the upper bound on settlement.
 

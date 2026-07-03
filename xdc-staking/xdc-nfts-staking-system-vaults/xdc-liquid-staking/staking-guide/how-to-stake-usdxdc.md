@@ -45,7 +45,7 @@ If psXDC doesn't appear in your wallet automatically, click the **Add psXDC Toke
 
 Alternatively, add it manually as a custom token:
 
-**Contract address (V3):** [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)
+**Contract address (V3):** [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)
 
 > Note: the **V2** psXDC token address (`0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6`) is different. If you stake fresh XDC you will receive V3 shares only. If you still hold V2 tokens, see [Migrate V2 psXDC → V3](migration.md).
 

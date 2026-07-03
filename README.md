@@ -5,7 +5,7 @@ description: Non-custodial XDC staking infrastructure. No principal-stake slashi
 # Overview
 
 {% hint style="info" %}
-PrimeStaking has shipped its V3 upgrade. The new **`PrimeStakedXDC_V3`** vault is a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. The XDC NFT stack has also been rebuilt around the V3 vault. V2 contracts remain live for users who have not migrated. See [Migrate V2 psXDC → V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md) and [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
+PrimeStaking runs on the **`PrimeStakedXDC_V3_1`** vault — a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. In July 2026 the vault was redeployed as V3.1 and **every V3 holder's balance was mirrored 1:1 via a snapshot airdrop — no user action was needed**. The XDC NFT stack was cut over to V3.1 in the same operation. V2 holders who never migrated can still do so through the [v2 → V3.1 migration bridge](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md); legacy NFTs migrate via [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
 {% endhint %}
 
 ## Overview
@@ -134,7 +134,7 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 
 ### Security
 
-* `PrimeStakedXDC_V3` is **non-upgradeable** — deployed with a regular constructor, no proxy. The vault logic cannot be modified after deployment.
+* `PrimeStakedXDC_V3_1` is **non-upgradeable** — deployed with a regular constructor, no proxy. The vault logic cannot be modified after deployment.
 * The XDC NFT staking vault is a `TransparentUpgradeableProxy` controlled by the protocol multisig, with namespaced ERC-7201 storage. All other NFT-stack contracts (collection, migrator, harvester, bypass facet) are non-upgradeable.
 * Validator custody is **smart contract-based** - permissionless and trustless, no third-party custodian.
 * The protocol is **non-custodial** - users retain full ownership of their assets at all times.
@@ -155,6 +155,6 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 | Migrate psXDC V2 → V3   | [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/)                                                 |
 | Partner Staking         | [Run your own staking pool](partner-staking/README.md)                                               |
-| psXDC V3 vault          | [XDCScan](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)                    |
+| psXDC V3 vault          | [XDCScan](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)                    |
 | Deployed addresses      | [Contract Addresses](xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md)               |
 | Contact                 | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)                                              |

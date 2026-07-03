@@ -11,7 +11,7 @@ Built in collaboration with **Nethermind** and the **XDC Core team**, PrimeStaki
 PrimeStaking provides turnkey XDC staking infrastructure that exchanges and institutions can integrate or white-label. Our stack handles:
 
 * **Validator operations** - masternode management, uptime, performance monitoring, on-chain delegation
-* **Liquid staking contracts** - the non-upgradeable, ERC-4626 [`PrimeStakedXDC_V3`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault for minting and redeeming psXDC shares
+* **Liquid staking contracts** - the non-upgradeable, ERC-4626 [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault for minting and redeeming psXDC shares
 * **NAV-based reward accrual** - reward XDC flows back into the vault, share price rises automatically; no manual reward distribution path
 * **Self-service withdrawals** - instant when the buffer permits, otherwise a permissionless FIFO queue with `claimQueuedAssets` self-claim
 * **V2 → V3 migration** - dedicated bridge with slippage protection for any psXDC v2 balance partners may already hold

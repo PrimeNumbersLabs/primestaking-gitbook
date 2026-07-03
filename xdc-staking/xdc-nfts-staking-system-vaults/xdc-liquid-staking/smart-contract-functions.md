@@ -1,9 +1,9 @@
 # Smart Contract Reference (psXDC V3)
 
-Technical reference for [`PrimeStakedXDC_V3`](../contract-addresses.md) — the V3 liquid staking vault. The contract is an ERC-4626-style native-XDC vault with self-service withdrawals, a buffer-aware queue, on-chain masternode integration, and time-locked governance.
+Technical reference for [`PrimeStakedXDC_V3_1`](../contract-addresses.md) — the V3 liquid staking vault. The contract is an ERC-4626-style native-XDC vault with self-service withdrawals, a buffer-aware queue, on-chain masternode integration, and time-locked governance.
 
 {% hint style="info" %}
-Address: [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba). **Non-upgradeable** — deployed with a regular constructor, no proxy.
+Address: [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4). **Non-upgradeable** — deployed with a regular constructor, no proxy.
 {% endhint %}
 
 ---
@@ -116,6 +116,22 @@ The owner handoff itself uses the same pattern:
 | `fundMigrationLiquidity()` payable | `MIGRATION_MANAGER_ROLE` | Tops up backing liquidity for migrated shares. Only callable while the migration window is open |
 
 Direct native sends to the vault while migration is in progress are accepted **only** from the migration manager and are treated as migration liquidity (they do not inflate `totalAssets` or `convertToShares`).
+
+---
+
+## V3.1 additions — under-backed mode
+
+V3.1 adds a single mechanism on top of the audited V3 design so the vault could launch while the legacy masternode collateral is still being transferred in:
+
+| Surface | Detail |
+| --- | --- |
+| `underBackedMode` (public bool) | Set once at go-live if the vault's liquid + tracked backing was below its share liability. **Auto-clears** inside `syncTrackedAssets()` when real backing catches up — no admin can force it back on. |
+| `queueBackingBudget` (public uint) | A ring-fenced budget, active only while under-backed. Migration-manager funding and returned masternode principal accrue here and are reserved for the FIFO withdrawal queue. |
+| Withdrawal behaviour | Immediate withdrawals draw only from unencumbered surplus liquidity (new stakes stay withdrawable); queued requests are paid from `queueBackingBudget` as funding tranches arrive. |
+| NAV protection | While under-backed, `syncTrackedAssets()` cannot write NAV down — the transition mechanics can never reduce the value of existing shares. |
+| `fundMigrationLiquidity()` | Callable by the `MIGRATION_MANAGER_ROLE` during under-backed mode to inject collateral tranches (roughly one masternode's worth per week) without minting shares or inflating NAV. |
+
+Once the full collateral has been transferred, `underBackedMode` clears itself and the contract behaves exactly like the audited V3.
 
 ---
 

@@ -6,9 +6,9 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | --- | --- | --- |
 | `XdcStakedNFT` | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection, non-upgradeable |
 | `XdcNftStakingVault` (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | TransparentUpgradeableProxy, ERC-7201 storage |
-| `XdcNftMigratorV2` | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) | Live one-shot migrator (remaps ids ≥ `10000`), non-upgradeable. Supersedes the paused `XdcNftMigrator` `0x45e2…7dFb`. |
-| `XdcNftBoostHarvester` | [`0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) | Boost feeder, non-upgradeable |
-| `LegacyMigratorBypassFacet` | [`0x64413bAD206b5D90a5010cc683F50086407F25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) | Facet added to legacy Diamond `0x7a5d…aA17` |
+| `XdcNftMigratorV2` | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) | Live one-shot migrator (remaps ids ≥ `10000`), non-upgradeable. Supersedes the paused `XdcNftMigrator` `0x45e2…7dFb`. |
+| `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Boost feeder, non-upgradeable |
+| `LegacyMigratorBypassFacet` | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) | Facet added to legacy Diamond `0x7a5d…aA17` |
 
 ---
 
@@ -68,7 +68,7 @@ The collection is **non-upgradeable**.
 
 ## `XdcNftMigratorV2` — the live V2 → V3 migrator
 
-The live migrator is **`XdcNftMigratorV2`** (`0x36Fe…f026`). It is a drop-in successor to the original `XdcNftMigrator` (now paused) that adds **legacy-id remapping**. Same `migrate` / `migrateBatch` surface; the only behavioural change is for legacy ids ≥ `10000`.
+The live migrator is **`XdcNftMigratorV2`** (`0x69DE…2ea8`). It is a drop-in successor to the original `XdcNftMigrator` (now paused) that adds **legacy-id remapping**. Same `migrate` / `migrateBatch` surface; the only behavioural change is for legacy ids ≥ `10000`.
 
 | Function | Notes |
 | --- | --- |

@@ -5,7 +5,7 @@ Locked legacy XDC NFTs cannot be burnt-and-redeemed through the standard V2 faç
 The V3 stack solves this with a tiny facet — [`LegacyMigratorBypassFacet`](../contract-addresses.md) — added to the legacy Diamond via `diamondCut`. The facet exposes a single mutator that only the V3 migrator can call, which clears the diamond's `tokenLocked` flag so the standard `burnAndRedeem` succeeds inside the same atomic migration transaction. The diamond custodies the psXDC backing every NFT and pays the redemption from its own reserve — the facet makes **no** external call.
 
 {% hint style="info" %}
-The bypass facet is **live** on the legacy Diamond. The current facet is `0x6441…25C6`, bound to the current migrator `XdcNftMigratorV2` (`0x36Fe…f026`). Locked migrations work end-to-end through [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate) with no extra steps required from the user.
+The bypass facet is **live** on the legacy Diamond. The current facet is `0x2786…5e13`, bound to the current migrator `XdcNftMigratorV2` (`0x69DE…2ea8`). Locked migrations work end-to-end through [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate) with no extra steps required from the user.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -120,8 +120,8 @@ Every failure mode is "fail closed": the user's legacy NFT remains in place. No 
 | Component | Address |
 | --- | --- |
 | Legacy Diamond | [`0x7a5d364b97126600C0AdDFD5C339230748bcaA17`](https://xdcscan.com/address/0x7a5d364b97126600C0AdDFD5C339230748bcaA17) |
-| Bypass facet (**live**) | [`0x64413bAD206b5D90a5010cc683F50086407F25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) |
-| Migrator (bound to bypass facet, **live**) | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) |
+| Bypass facet (**live**) | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) |
+| Migrator (bound to bypass facet, **live**) | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) |
 | Bypass facet (original, superseded) | [`0x275641d5bA81786A7e60352F990F0c203e7D1836`](https://xdcscan.com/address/0x275641d5bA81786A7e60352F990F0c203e7D1836) |
 | Migrator (original, paused) | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) |
 

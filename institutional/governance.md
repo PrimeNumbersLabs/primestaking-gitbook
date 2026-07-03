@@ -10,7 +10,7 @@ PrimeStaking V3 splits operational, risk, and governance responsibilities across
 | --- | --- |
 | Mint psXDC to anyone | **No** — `mint()` is disabled in V3 |
 | Withdraw user XDC from the vault | **No** — there is no `ownerWithdraw` function |
-| Upgrade `PrimeStakedXDC_V3` | **No** — non-upgradeable, deployed with a regular constructor |
+| Upgrade `PrimeStakedXDC_V3_1` | **No** — non-upgradeable, deployed with a regular constructor |
 | Upgrade `XdcNftStakingVault` implementation | Yes — TransparentUpgradeableProxy controlled by the protocol multisig with delayed handover |
 | Rotate operational / risk roles | Yes — via the delayed-governance path |
 | Change loss caps (`maxLossBpsPerReport`, `maxDailyLossBps`) | Yes — schedule → wait `governanceDelay` → execute |
@@ -37,7 +37,7 @@ No single key can both move funds and modify roles. Role rotations themselves re
 
 ## Delayed Governance — schedule → wait → execute
 
-Every sensitive change in `PrimeStakedXDC_V3` follows the same pattern:
+Every sensitive change in `PrimeStakedXDC_V3_1` follows the same pattern:
 
 | Schedule | Execute (after `governanceDelay`) | Cancel |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Ownership handoff uses the same pattern: `scheduleOwnerTransfer(newOwner)` → w
 
 | Component | Upgrade path |
 | --- | --- |
-| `PrimeStakedXDC_V3` | **None** — non-upgradeable. Replacing the vault requires deploying a new contract and migrating. |
+| `PrimeStakedXDC_V3_1` | **None** — non-upgradeable. Replacing the vault requires deploying a new contract and migrating. |
 | `PrimeStakedXDC_V3MigrationBridge` | **None** — non-upgradeable. Treasury operations are delayed and capped. |
 | `XdcStakedNFT` (collection) | **None** — non-upgradeable. |
 | `XdcNftMigrator` | **None** — non-upgradeable. |
@@ -83,7 +83,7 @@ The V3 migration bridge has its own delayed-governance and rate-limit machinery:
 
 | Surface | Pause role | Effect |
 | --- | --- | --- |
-| `PrimeStakedXDC_V3` | `PAUSER_ROLE` (multisig) | Halts stake/redeem flows for incident response |
+| `PrimeStakedXDC_V3_1` | `PAUSER_ROLE` (multisig) | Halts stake/redeem flows for incident response |
 | `XdcNftStakingVault` | `PAUSER_ROLE` (multisig) | Halts stake/withdraw/claim; `notifyBoost` is **intentionally** still allowed so boost flow continues during ops windows |
 | `XdcNftMigrator` | `PAUSER_ROLE` (multisig) | Halts new V2→V3 NFT migrations |
 | `XdcNftBoostHarvester` | `PAUSER_ROLE` (multisig) | Halts new boost pushes |

@@ -12,7 +12,7 @@ The V3 stack is fully non-custodial: psXDC is an ERC-4626 vault share, withdrawa
 Stake XDC  →  Receive psXDC shares  →  Share price grows (~4.5% APY)  →  Withdraw anytime
 ```
 
-1. **Deposit XDC** into the [`PrimeStakedXDC_V3`](contract-addresses.md) vault.
+1. **Deposit XDC** into the [`PrimeStakedXDC_V3_1`](contract-addresses.md) vault.
 2. **Receive psXDC shares** at the current vault exchange rate. There is no fixed 1:1; share value rises as validator rewards accrue.
 3. **Earn rewards automatically** — rewards are embedded in the share price. No claim button for the base yield.
 4. **Use psXDC** — it's a standard ERC-20 on the XDC Network. Hold it, trade it, use it as collateral, or stake it inside an XDC NFT for an additional boost slice.
@@ -53,7 +53,7 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 | Transferable | Yes — send, trade, or use as DeFi collateral |
 | Earns rewards | Yes — holding psXDC means the share is worth more XDC each block |
 | Redeemable | Yes — burn psXDC to withdraw XDC, instantly if the buffer allows, otherwise via the automatic FIFO queue |
-| Address | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) |
+| Address | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 
 psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for the base ~4.5% APY, or deposit it into XDC NFTs to layer the boost slice on top.
 

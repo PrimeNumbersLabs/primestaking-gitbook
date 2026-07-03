@@ -1,9 +1,9 @@
 # Boost Harvester (technical)
 
-[`XdcNftBoostHarvester`](../contract-addresses.md) is the small, non-upgradeable contract that funds the XDC NFT vault's Synthetix-style boost accumulator. It exists because the underlying [`PrimeStakedXDC_V3`](../contract-addresses.md) vault is non-upgradeable — the boost stream had to live in an external pump rather than being routed inside the V3 vault itself.
+[`XdcNftBoostHarvester`](../contract-addresses.md) is the small, non-upgradeable contract that funds the XDC NFT vault's Synthetix-style boost accumulator. It exists because the underlying [`PrimeStakedXDC_V3_1`](../contract-addresses.md) vault is non-upgradeable — the boost stream had to live in an external pump rather than being routed inside the V3 vault itself.
 
 {% hint style="info" %}
-Live address: [`0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA). The harvester holds the **only** address granted `FEE_ROUTER_ROLE` on the NFT vault — i.e. it's the only contract allowed to call `notifyBoost`. Arbitrary XDC sends to the NFT vault cannot corrupt boost accounting.
+Live address: [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D). The harvester holds the **only** address granted `FEE_ROUTER_ROLE` on the NFT vault — i.e. it's the only contract allowed to call `notifyBoost`. Arbitrary XDC sends to the NFT vault cannot corrupt boost accounting.
 {% endhint %}
 
 ---

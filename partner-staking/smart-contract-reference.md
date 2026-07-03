@@ -10,7 +10,7 @@ Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/add
 
 ## `PartnerStakedXDC_V3` — the partner vault
 
-An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`.
+An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3_1` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`.
 
 ### Constants
 

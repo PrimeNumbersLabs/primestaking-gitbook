@@ -1,10 +1,10 @@
 # psXDC V3 — Non-Custodial Vault Architecture
 
 {% hint style="info" %}
-V3 is **live** on XDC mainnet. Address: [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba). V2 contracts remain operational for users who have not migrated.
+The live vault is **`PrimeStakedXDC_V3_1`** at [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) — the July 2026 redeployment of the V3 architecture, with every V3 balance carried over 1:1 via snapshot airdrop. V2 contracts remain available for stragglers to migrate.
 {% endhint %}
 
-psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture underpinning every new psXDC stake.
+psXDC V3 is a complete rebuild of the liquid staking contract, moving from a custodial model to a fully non-custodial, ERC-4626 tokenized vault. This is the architecture underpinning every new psXDC stake. V3.1 keeps this architecture unchanged and adds a **staged collateral-transition mode**: while the legacy masternode fleet is progressively moved into the vault (roughly one masternode per week), NAV is protected against write-downs, and the withdrawal queue is backed by ring-fenced funding lanes so user exits keep working throughout.
 
 ---
 
@@ -42,7 +42,7 @@ You have full self-service access to your XDC:
 
 - **Instant withdrawal** — if the contract has sufficient liquid XDC, you redeem shares and receive XDC in the same transaction. No admin approval. No waiting.
 - **Queued withdrawal** — if most XDC is staked in masternodes and liquidity is temporarily low, your request enters an automatic FIFO queue. It processes as soon as liquidity returns from new deposits, reward inflows, or masternode resignations.
-- **DEX swap** — sell psXDC directly on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate exit at market rate.
+- **DEX swap** — sell psXDC directly on a DEX (verify the pool holds the live V3.1 token) for immediate exit at market rate.
 
 ### 4. Use psXDC
 
@@ -140,8 +140,8 @@ This applies to: role changes, loss caps, governance delay itself, ownership tra
 
 | Property | Detail |
 | --- | --- |
-| **Contract** | `PrimeStakedXDC_V3.sol` |
-| **Address** | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) |
+| **Contract** | `PrimeStakedXDC_V3_1.sol` |
+| **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 | **Standard** | ERC-4626 (OpenZeppelin) + AccessControl |
 | **Upgradeability** | **None — deployed with a regular constructor, no proxy.** The vault logic cannot be modified after deployment. |
 | **Decimals offset** | 9 (extra share precision) |

@@ -6,6 +6,10 @@ The V3 XDC NFT stack is a fresh set of contracts. Your legacy V2 NFTs continue t
 Migration is **one-shot per NFT**, **atomic** (all-or-nothing), and never holds your funds across transactions. For legacy ids below `10000` the `tokenId` is identical end-to-end — your social presence, links, and OpenSea / PrimePort references keep working.
 {% endhint %}
 
+{% hint style="success" %}
+**Already migrated to a V3 NFT before July 2026?** Nothing to do. When the liquid-staking vault was redeployed as V3.1, the NFT vault was upgraded in place and the psXDC staked inside every V3 NFT was carried over 1:1 automatically. Your NFT, its rarity, lock, and staked balance are unchanged.
+{% endhint %}
+
 {% hint style="warning" %}
 **Legacy ids ≥ `10000` are remapped.** The V3 collection reserves token ids `≥ 10000` for merged NFTs, so a legacy NFT minted in that band cannot keep its number. `XdcNftMigratorV2` automatically assigns such an NFT a **new** id in the `5558–9999` range (emitting `LegacyIdRemapped`) and migrates everything else — rarity, staked value, lock — unchanged. Only ~21 legacy NFTs are affected; all other ids are preserved 1:1.
 {% endhint %}

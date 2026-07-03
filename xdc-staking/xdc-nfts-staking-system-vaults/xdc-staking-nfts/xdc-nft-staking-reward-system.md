@@ -21,7 +21,7 @@ Every psXDC v3 share grows in value as validator rewards flow into the underlyin
 | Aspect | Detail |
 | --- | --- |
 | Target APY | ~4.5% |
-| How it accrues | Via [`PrimeStakedXDC_V3`](../contract-addresses.md) share-price growth |
+| How it accrues | Via [`PrimeStakedXDC_V3_1`](../contract-addresses.md) share-price growth |
 | When you realize it | When you `withdraw` shares from the NFT or `burnAndRedeem` |
 
 ### 2. Boost — Synthetix accumulator inside the NFT vault

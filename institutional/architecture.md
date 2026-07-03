@@ -39,13 +39,13 @@ Infrastructure is developed in collaboration with **Nethermind** (smart contract
 
 | Contract | Function | Upgradeability | Address |
 | --- | --- | --- | --- |
-| `PrimeStakedXDC_V3` | ERC-4626 native-XDC vault. Mints/burns psXDC shares, manages liquidity buffer, processes withdrawals, interfaces with masternodes. | **None** — regular constructor, no proxy | [`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) |
-| `PrimeStakedXDC_V3MigrationBridge` | One-way V2 psXDC → V3 share migration. Time-locked admin, daily withdrawal caps. | **None** | [`0x2927…5dD2`](https://xdcscan.com/address/0x2927630dfDd66433DbA9370b316EF5a8408d5dD2) |
+| `PrimeStakedXDC_V3_1` | ERC-4626 native-XDC vault. Mints/burns psXDC shares, manages liquidity buffer, processes withdrawals, interfaces with masternodes. | **None** — regular constructor, no proxy | [`0xa7FD…73e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
+| `PrimeStakedXDC_V3MigrationBridge` | One-way V2 psXDC → V3 share migration. Time-locked admin, daily withdrawal caps. | **None** | [`0x6c57…373C`](https://xdcscan.com/address/0x6c57075c7A157113D369109B78738A798d41373C) |
 | `XdcStakedNFT` | ERC-721 NFT collection for staking positions. Rarity stored on-chain. | **None** | [`0xf3eB…898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) |
 | `XdcNftStakingVault` | Holds psXDC v3 shares per NFT; runs Synthetix-style boost accumulator; handles stake/withdraw/claim/lock/merge/burnAndRedeem. | **TransparentUpgradeableProxy** (ERC-7201 namespaced storage) | [`0x9f38…4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) |
-| `XdcNftMigratorV2` | Atomic V2 → V3 NFT migration. Preserves `tokenId`/rarity/lock, and remaps legacy ids ≥ `10000` into the free `5558–9999` band. | **None** | [`0x36Fe…f026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) |
-| `XdcNftBoostHarvester` | Funds the NFT vault's boost accumulator via `notifyBoost`. Only holder of `FEE_ROUTER_ROLE`. | **None** | [`0x3bEd…8DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) |
-| `LegacyMigratorBypassFacet` | Diamond facet on the legacy Diamond `0x7a5d…aA17` enabling locked-NFT migration (clears `tokenLocked`; the diamond pays the psXDC). | Facet — added via `diamondCut` | [`0x6441…25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) |
+| `XdcNftMigratorV2` | Atomic V2 → V3 NFT migration. Preserves `tokenId`/rarity/lock, and remaps legacy ids ≥ `10000` into the free `5558–9999` band. | **None** | [`0x69DE…2ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) |
+| `XdcNftBoostHarvester` | Funds the NFT vault's boost accumulator via `notifyBoost`. Only holder of `FEE_ROUTER_ROLE`. | **None** | [`0x6a31…821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) |
+| `LegacyMigratorBypassFacet` | Diamond facet on the legacy Diamond `0x7a5d…aA17` enabling locked-NFT migration (clears `tokenLocked`; the diamond pays the psXDC). | Facet — added via `diamondCut` | [`0x2786…5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) |
 
 Full inventory in [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
 
@@ -55,7 +55,7 @@ Full inventory in [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staki
 
 PrimeStaking operates XDC Network masternodes that generate the underlying staking yield:
 
-- **Validator delegation** is performed by `PrimeStakedXDC_V3` directly against the on-chain XDC validator contract. No off-chain custodian.
+- **Validator delegation** is performed by `PrimeStakedXDC_V3_1` directly against the on-chain XDC validator contract. No off-chain custodian.
 - **Operator onboarding** is admin-controlled (KYC-verified masternode operators); operator scans are bounded by `operatorScanLimit` to prevent gas-griefing.
 - **Auto-propose** runs opportunistically during stake or via `triggerAutoPropose(maxNodes)`. It is **blocked whenever the withdrawal queue has a backlog** — user redemptions are prioritised over new validator locks.
 - **Resignation** returns principal to the vault after the network `candidateWithdrawDelay` (~35 days under typical block times). `reportMasternodeResignPrincipal(operator)` accounts for the returned principal without inflating the reward share.
@@ -73,7 +73,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 | **Smart contract audits** | QuillAudits (98.8% on liquid staking) + Nethermind Security (custody / V3 surface) |
 | **Permissionless custody** | Validator keys and treasury secured by on-chain contracts |
 | **On-chain transparency** | Every stake, queued withdrawal, claim, boost notification, migration, and loss report emits a public event |
-| **Non-upgradeable cores** | `PrimeStakedXDC_V3`, migration bridge, NFT collection, migrator, harvester, and bypass facet are all deployed with regular constructors |
+| **Non-upgradeable cores** | `PrimeStakedXDC_V3_1`, migration bridge, NFT collection, migrator, harvester, and bypass facet are all deployed with regular constructors |
 | **Controlled NFT vault upgrades** | Only `XdcNftStakingVault` is upgradeable, via TransparentUpgradeableProxy controlled by the protocol multisig; storage is ERC-7201 namespaced to remain collision-proof |
 | **Reentrancy protection** | OpenZeppelin `ReentrancyGuard` on every state-changing function |
 | **Pausable surfaces** | Vault, migrator, and harvester each expose `pause()`/`unpause()` under `PAUSER_ROLE` |
@@ -86,7 +86,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 
 ### Staking
 
-1. User calls `stake()` or `depositNative(assets, receiver)` on `PrimeStakedXDC_V3` with native XDC as `msg.value`.
+1. User calls `stake()` or `depositNative(assets, receiver)` on `PrimeStakedXDC_V3_1` with native XDC as `msg.value`.
 2. Vault mints psXDC shares at the current exchange rate (`totalAssets / totalShares`).
 3. Excess liquidity above the buffer triggers auto-propose if no queue backlog exists; XDC is delegated to a masternode through the XDC validator contract.
 
@@ -123,7 +123,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 | Integration Level | Description | Use Case |
 | --- | --- | --- |
 | **Frontend** | Embed PrimeStaking widgets or build a custom frontend on top of the contracts | White-label web integration |
-| **Smart Contract** | Call `PrimeStakedXDC_V3` directly for stake/withdraw, or `migrate` on the bridge. ERC-4626 standard means partner contracts can wrap psXDC as collateral. | Backend / API integration |
+| **Smart Contract** | Call `PrimeStakedXDC_V3_1` directly for stake/withdraw, or `migrate` on the bridge. ERC-4626 standard means partner contracts can wrap psXDC as collateral. | Backend / API integration |
 | **Data / Reporting** | On-chain event indexing via [`staking-v3-indexer`](https://github.com/PrimeNumbersLabs/staking-v3-indexer) and [`xdc-nft-v3-indexer`](https://github.com/PrimeNumbersLabs/xdc-nft-v3-indexer) for portfolio and settlement reporting | Compliance and reconciliation |
 
 → [Integration Models](integration-models.md) → [Custody Model](custody-model.md) → [Governance](governance.md)

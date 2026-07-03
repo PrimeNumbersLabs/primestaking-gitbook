@@ -1,10 +1,23 @@
 # V2 vs V3 — What Changed and Why
 
 {% hint style="info" %}
-V3 is **live** on XDC mainnet. V2 remains operational so users can migrate at their own pace via [the migration bridge](staking-guide/migration.md).
+The live vault is **`PrimeStakedXDC_V3_1`** (`0xa7FD…73e4`). V2 remains available for stragglers to migrate via [the migration bridge](staking-guide/migration.md).
 {% endhint %}
 
 psXDC has moved from its original custodial contract (V2) to a fully non-custodial, ERC-4626 vault architecture (V3). This page explains what changed, why, and what it means for users and partners.
+
+---
+
+## July 2026: the V3.1 redeploy
+
+In July 2026 the V3 vault was redeployed as **V3.1** to restructure how masternode collateral moves into the vault. What users need to know:
+
+- **Balances carried over automatically.** A snapshot captured every V3 holder's balance — including psXDC inside XDC NFTs, DEX pools, lending markets, and open limit orders — and the `V31AirdropDistributor` minted the same balances on V3.1. No user action was required.
+- **Staking, withdrawals, and NFTs work exactly the same.** V3.1 keeps the full ERC-4626 share design, self-service withdrawals, and the FIFO queue.
+- **Masternode collateral migrates progressively.** The XDC backing the vault is being moved from the legacy masternode fleet into the V3.1 vault on a rolling schedule (roughly one masternode per week). While this completes, the vault serves withdrawals from its on-hand liquidity plus dedicated team funding lanes; larger withdrawals may queue until the next liquidity tranche arrives. Share price (NAV) is protected during this phase — it cannot be written down by the transition mechanics.
+- **The old V3 token is retired.** Its bridge was cut to a dead address; the token has no remaining function.
+
+Everywhere else in this page, "V3" refers to the live V3.1 architecture — the design is identical.
 
 ---
 
@@ -33,7 +46,7 @@ V3 eliminates all of these trust assumptions.
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming — rewards are embedded in share price |
 | **XDC utilization** | Custodial — admin withdrew XDC and staked with validators manually | Non-custodial — vault stakes directly with masternodes via smart contract, fully verifiable |
 | **Masternode integration** | Custodial — admin managed validators manually | Direct non-custodial integration with XDC validator contract |
-| **Upgradeability** | UUPS (owner-controlled upgrades) | **None — `PrimeStakedXDC_V3` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
+| **Upgradeability** | UUPS (owner-controlled upgrades) | **None — `PrimeStakedXDC_V3_1` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
 
 ---
 

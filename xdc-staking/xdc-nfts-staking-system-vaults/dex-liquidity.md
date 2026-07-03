@@ -4,10 +4,14 @@ hidden: true
 
 # DEX Liquidity
 
-psXDC is paired with XDC on the **XSWAP DEX**, enabling trading and liquidity provision for participants in the XDC Liquid Staking ecosystem.
+psXDC can be paired with XDC on DEXs, enabling trading and liquidity provision for participants in the XDC Liquid Staking ecosystem.
+
+{% hint style="warning" %}
+**Post-V3.1 note (July 2026):** DEX pools created before the V3.1 redeployment hold the retired old-V3 token and are no longer valid. LP positions in those pools were credited in the snapshot airdrop — LPs received their share of the pool's psXDC directly on V3.1. Before trading or LPing, always verify the pool's psXDC address is the live V3.1 token: [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4).
+{% endhint %}
 
 {% hint style="info" %}
-The psXDC v3 share token (address [`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)) is **NAV-based**, not a fixed 1:1 receipt. The market price on a DEX is set by AMM dynamics and may sit at, above, or below the vault's current exchange rate (`totalAssets / totalShares`). Long-term it tracks NAV; short-term it reflects supply, demand, and pool depth.
+The psXDC share token is **NAV-based**, not a fixed 1:1 receipt. The market price on a DEX is set by AMM dynamics and may sit at, above, or below the vault's current exchange rate (`totalAssets / totalShares`). Long-term it tracks NAV; short-term it reflects supply, demand, and pool depth.
 {% endhint %}
 
 ---
@@ -27,11 +31,11 @@ The psXDC v3 share token (address [`0x98D9…C4Ba`](https://xdcscan.com/address/
 
 ### 1. Access XSWAP
 
-Go to the [XSWAP platform](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) and connect your wallet.
+Go to the [XSWAP platform](https://app.xspswap.finance) and connect your wallet.
 
 ### 2. Select the psXDC/XDC Pair
 
-Find the liquidity pools section and search for the psXDC/XDC trading pair. Verify the pool's `psXDC` token address matches the V3 vault ([`0x98D9…C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba)) before depositing — older pools may still hold the legacy V2 psXDC token (`0x9B8e12b0BAC165B86967E771d98B520Ec3F665A6`).
+Find the liquidity pools section and search for the psXDC/XDC trading pair. Verify the pool's `psXDC` token address matches the live V3.1 vault ([`0xa7FD…73e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)) before depositing — older pools hold the retired old-V3 token (`0x98D9…C4Ba`) or the legacy V2 token (`0x9B8e…65A6`).
 
 ### 3. Prepare Tokens
 

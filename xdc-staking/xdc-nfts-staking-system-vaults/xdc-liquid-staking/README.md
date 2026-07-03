@@ -14,9 +14,9 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC — withou
 | **Reward mechanism** | Share price (`totalAssets / totalShares`) grows as validator rewards accrue |
 | **Claiming** | No claim button — your shares are worth more XDC over time |
 | **Withdrawal** | Self-service. **Instant** when the buffer is sufficient, otherwise **queued** with self-claim via `claimQueuedAssets` |
-| **DEX exit** | [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) — sell psXDC for XDC at market |
-| **Smart contract** | `PrimeStakedXDC_V3` — non-upgradeable, audited |
-| **Address** | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) |
+| **DEX exit** | Any DEX pool holding the live V3.1 token — sell psXDC for XDC at market |
+| **Smart contract** | `PrimeStakedXDC_V3_1` — non-upgradeable, audited |
+| **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
 
 ---
 
@@ -59,7 +59,7 @@ To convert back to XDC you have three options:
 
 - **Instant redeem** — when the vault's liquid buffer holds enough XDC to cover your request, the redemption settles in the same transaction. No queue, no waiting.
 - **Queued redeem** — when liquidity is constrained, your shares are escrowed and your request joins an automatic FIFO queue. As soon as new deposits or masternode payouts top up the buffer, the queue is processed and you call `claimQueuedAssets` to collect your XDC. You can also `cancelQueuedWithdrawal` at any time before settlement.
-- **DEX exit** — swap psXDC for XDC on [XSWAP](https://info.xspswap.finance/#/pools/0xc4a0b4ce176c623a281bc565bfd35eab4fd7050a) for immediate liquidity (subject to pool depth and market rate).
+- **DEX exit** — swap psXDC for XDC on a DEX (verify the pool holds the live V3.1 token) for immediate liquidity (subject to pool depth and market rate).
 
 The app calls `redeemWithQueue` for you, which automatically picks the instant path when possible and falls back to the queue when not. You always see in advance which path your transaction will take.
 
@@ -103,7 +103,7 @@ If you already hold the V2 psXDC token, the new vault is a separate contract and
 
 - **Smart contract-driven** — every stake, redemption, and validator action is on-chain.
 - **Validator-driven rewards** — share price reflects the protocol's actual masternode performance, not an admin-set APY.
-- **Non-upgradeable vault** — `PrimeStakedXDC_V3` has no proxy. The logic that holds your XDC can never be modified.
+- **Non-upgradeable vault** — `PrimeStakedXDC_V3_1` has no proxy. The logic that holds your XDC can never be modified.
 
 → [V3 Architecture](v3-architecture.md) → [V2 vs V3 — What Changed](v2-vs-v3.md) → [Smart Contract Reference](smart-contract-functions.md)
 
