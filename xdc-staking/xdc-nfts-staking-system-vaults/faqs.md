@@ -21,6 +21,10 @@ psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the Jul
 
 No. The vault was redeployed as **V3.1** and every V3 balance was mirrored 1:1 via an on-chain snapshot airdrop, including psXDC inside XDC NFTs, DEX pools, lending markets, and open limit orders, which were credited to their underlying owners. Your balance appears automatically in the app. The old V3 token is retired and has no remaining function.
 
+#### Why were migrations briefly unavailable during the V3.1 cutover (July 3-4, 2026)?
+
+By design. During the cutover the V2 token was paused and the final activation steps (retiring the old V3 bridge and pointing the V3.1 vault at the new migration bridge) sat behind a 24-hour on-chain timelock, a deliberate safety window that made it impossible for anyone to migrate into the retired old V3 token by mistake. Once the timelock matured on July 4 the bridge was activated, V2 was unpaused, and both token and NFT migrations reopened. No funds were ever at risk and nothing expired during the window.
+
 #### What happens when I unstake?
 
 When you decide to unstake, you burn the corresponding psXDC shares. The app calls `redeemWithQueue` which:
