@@ -1,6 +1,6 @@
 # How Partner Staking Works
 
-A partner pool is an independent ERC-4626 liquid staking vault. Stakers deposit native XDC and receive the pool's share token; the share price (NAV) grows as the pool's masternodes earn validator rewards. The only economic difference from the flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault is a **15% protocol fee** that is skimmed from rewards before they reach stakers.
+A partner pool is an independent ERC-4626 liquid staking vault. Stakers deposit native XDC and receive the pool's share token; the share price (NAV) grows as the pool's masternodes earn validator rewards. The only economic difference from the flagship [`PrimeStakedXDC_V3_2`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault is a **15% protocol fee** that is skimmed from rewards before they reach stakers.
 
 ---
 

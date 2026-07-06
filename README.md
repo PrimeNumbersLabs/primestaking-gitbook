@@ -5,7 +5,7 @@ description: Non-custodial XDC staking infrastructure. No principal-stake slashi
 # Overview
 
 {% hint style="info" %}
-PrimeStaking runs on the **`PrimeStakedXDC_V3_1`** vault, a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. In July 2026 the vault was redeployed as V3.1 and **every V3 holder's balance was mirrored 1:1 via a snapshot airdrop; no user action was needed**. The XDC NFT stack was cut over to V3.1 in the same operation. V2 holders who never migrated can still do so through the [v2 → V3.1 migration bridge](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md); legacy NFTs migrate via [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
+PrimeStaking runs on the **`PrimeStakedXDC_V3_2`** vault, a fully non-custodial, ERC-4626 share-based design with self-service withdrawals. In July 2026 the vault was redeployed as V3.2 and **every V3.1 holder's balance was mirrored 1:1 via a snapshot airdrop; no user action was needed**. The XDC NFT vault was repointed to the V3.2 token in the same operation and gained multiple lock tiers. V2 holders who never migrated can still do so through the [migration bridge](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md); legacy NFTs migrate via [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md).
 {% endhint %}
 
 ## Overview
@@ -44,9 +44,10 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
 1. **Stake XDC** - Deposit any amount into the V3 vault.
 2. **Receive psXDC shares** - You receive psXDC at the current vault exchange rate. There is no fixed 1:1 ratio; share price rises as rewards accrue.
-3. **Earn rewards** - Rewards are embedded directly in the share price (~4.5% APY). There is no claim button; your shares simply become worth more XDC over time.
+3. **Earn rewards** - Rewards are embedded directly in the share price (~4.5% APY). There is no claim button; your shares simply become worth more XDC over time. Rewards accrue continuously at any backing level (the V3.2 permanent-ledger model).
 4. **Stay liquid** - psXDC is a standard ERC-20 on the XDC Network. Hold it, transfer it, use it as DeFi collateral, or deposit it into XDC NFTs.
-5. **Withdraw anytime** - Burn psXDC shares. If the vault has enough buffer liquidity, you receive XDC instantly in the same transaction. Otherwise your request enters an automatic FIFO queue and you claim once the masternode payouts return.
+5. **Withdraw anytime** - Burn psXDC shares. If the vault has enough unencumbered liquidity, you receive XDC instantly in the same transaction. Otherwise your request enters an automatic FIFO queue and you claim once masternode payouts return.
+6. **Refer friends** - Share your invite link; when someone stakes for the first time through it, you earn a share of the protocol fee their staking generates. See [Referral Program](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/referral-program.md).
 
 → [Learn more about XDC Liquid Staking](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/) → [V3 Architecture](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md)
 
@@ -58,7 +59,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 * **Base yield** comes from the underlying psXDC share price growing over time (~4.5% APY).
 * **Boost yield** comes from a Synthetix-style accumulator. The protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) calls `notifyBoost` and the resulting slice is distributed pro-rata to NFT weights.
 * **Level up** by merging two same-rarity NFTs into a higher tier.
-* **Lock** your NFT to add a lock bonus to its weight. Floor is the **~4.5% base NAV** (always earned, no claim); when the boost stream is flowing, the combined APY ranges from **~4.75% (unlocked)** up to **~6% (locked)**.
+* **Lock** your NFT for a fixed period to add a lock bonus to its weight. Four tiers are available - **30, 90, 180 or 365 days** - with progressively larger boosts. The boost applies for the whole lock and **ends when the lock expires**; you can re-lock afterwards. Floor is the **~4.5% base NAV** (always earned, no claim); with the boost stream flowing, combined APY ranges from **~4.75% (unlocked)** up to **~6% (365-day lock)**.
 * You only claim the **boost slice** from the app. Base NAV is automatically inside the shares you get back on withdraw.
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/) → [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)
@@ -134,7 +135,7 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 
 ### Security
 
-* `PrimeStakedXDC_V3_1` is **non-upgradeable**, deployed with a regular constructor and no proxy. The vault logic cannot be modified after deployment.
+* `PrimeStakedXDC_V3_2` is **non-upgradeable**, deployed with a regular constructor and no proxy. The vault logic cannot be modified after deployment. The referral contracts (`ReferralRegistry`, `ReferralRewards`) are likewise non-upgradeable satellites; they never hold user principal.
 * The XDC NFT staking vault is a `TransparentUpgradeableProxy` controlled by the protocol multisig, with namespaced ERC-7201 storage. All other NFT-stack contracts (collection, migrator, harvester, bypass facet) are non-upgradeable.
 * Validator custody is **smart contract-based** - permissionless and trustless, no third-party custodian.
 * The protocol is **non-custodial** - users retain full ownership of their assets at all times.
@@ -153,8 +154,9 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 | XDC NFTs                | [primestaking.xyz/xdc-nfts/overview](https://primestaking.xyz/xdc-nfts/overview)                     |
 | Migrate XDC NFTs        | [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migrate)                       |
 | Migrate psXDC V2 → V3   | [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration) |
+| Referral Program        | [primestaking.xyz/xdc-liquid-staking/referral](https://primestaking.xyz/xdc-liquid-staking/referral) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/)                                                 |
 | Partner Staking         | [Run your own staking pool](partner-staking/README.md)                                               |
-| psXDC V3 vault          | [XDCScan](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)                    |
+| psXDC V3.2 vault        | [XDCScan](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)                    |
 | Deployed addresses      | [Contract Addresses](xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md)               |
 | Contact                 | [admin@primenumbers.xyz](mailto:admin@primenumbers.xyz)                                              |

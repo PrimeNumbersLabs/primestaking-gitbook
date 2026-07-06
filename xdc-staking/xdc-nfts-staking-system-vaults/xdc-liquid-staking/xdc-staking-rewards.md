@@ -16,7 +16,7 @@ PrimeStaking V3 is a fully on-chain, ERC-4626 staking vault. Rewards are not pai
 
 | Layer | Where it lives | Who earns it | How you receive it |
 | --- | --- | --- | --- |
-| **Base NAV** | `PrimeStakedXDC_V3_1` vault share price | Every psXDC holder | Automatic: share price rises as validator rewards accrue. No claim. |
+| **Base NAV** | `PrimeStakedXDC_V3_2` vault share price | Every psXDC holder | Automatic: share price rises as validator rewards accrue. No claim. |
 | **NFT Boost** | `XdcNftStakingVault` Synthetix accumulator | Only NFTs that have psXDC shares staked inside them | Claimed from the NFT detail page in the app. |
 
 ---
@@ -24,6 +24,10 @@ PrimeStaking V3 is a fully on-chain, ERC-4626 staking vault. Rewards are not pai
 ## Base layer: share-price growth
 
 When XDC validator rewards flow back into the vault, `totalAssets()` increases while the total share supply stays the same. The vault's exchange rate (`totalAssets / totalShares`) goes up, so every psXDC share becomes worth more XDC.
+
+{% hint style="info" %}
+**V3.2 permanent-ledger model.** In V3.2 the operations manager credits rewards through a dedicated reward lane (`distributeRewards`), which raises the share price for every holder. Rewards accrue **at any backing level** - there is no "fully backed" gate. An optional, hard-capped protocol fee (0% by default, max 20%) can be skimmed per distribution. The share price only ever moves up through this lane; there is no code path that writes it down outside of a rate-limited, risk-manager-only validator-loss report.
+{% endhint %}
 
 | Aspect | Detail |
 | --- | --- |
@@ -51,7 +55,7 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 | `stakedShares` | More psXDC staked inside the NFT → bigger slice |
 | `rarityMultiplier` | Plentiful (lowest) → Handcrafted (highest); set at mint, immutable |
 | `level` | Increases when the NFT levels up via merge |
-| `lockBonus` | Added when the NFT is locked, zeroed when unlocked |
+| `lockBonus` | Added when the NFT is locked, sized by the chosen lock tier (30/90/180/365 days). **Ends automatically when the lock expires** and can be renewed by re-locking. |
 
 When you `claim` from an NFT, the accumulator settles your pending boost and pays it out in XDC.
 

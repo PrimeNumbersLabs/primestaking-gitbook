@@ -1,7 +1,7 @@
 # V2 vs V3: What Changed and Why
 
 {% hint style="info" %}
-The live vault is **`PrimeStakedXDC_V3_1`** (`0xa7FD…73e4`). V2 remains available for stragglers to migrate via [the migration bridge](staking-guide/migration.md).
+The live vault is **`PrimeStakedXDC_V3_2`** (`0xDc74…c734`). V2 remains available for stragglers to migrate via [the migration bridge](staking-guide/migration.md).
 {% endhint %}
 
 psXDC has moved from its original custodial contract (V2) to a fully non-custodial, ERC-4626 vault architecture (V3). This page explains what changed, why, and what it means for users and partners.
@@ -46,7 +46,7 @@ V3 eliminates all of these trust assumptions.
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming; rewards are embedded in share price |
 | **XDC utilization** | Custodial: admin withdrew XDC and staked with validators manually | Non-custodial: vault stakes directly with masternodes via smart contract, fully verifiable |
 | **Masternode integration** | Custodial: admin managed validators manually | Direct non-custodial integration with XDC validator contract |
-| **Upgradeability** | UUPS (owner-controlled upgrades) | **None. `PrimeStakedXDC_V3_1` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
+| **Upgradeability** | UUPS (owner-controlled upgrades) | **None. `PrimeStakedXDC_V3_2` is non-upgradeable.** Deployed with a regular constructor, no proxy. The vault logic can never be modified. |
 
 ---
 

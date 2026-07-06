@@ -27,7 +27,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 
 ## How It Works
 
-1. **Get psXDC shares.** Stake XDC in [`PrimeStakedXDC_V3_1`](../xdc-liquid-staking/README.md) or buy psXDC on a DEX. (Already hold V2 psXDC? [Migrate to V3 first](../xdc-liquid-staking/staking-guide/migration.md).)
+1. **Get psXDC shares.** Stake XDC in [`PrimeStakedXDC_V3_2`](../xdc-liquid-staking/README.md) or buy psXDC on a DEX. (Already hold V2 psXDC? [Migrate to V3 first](../xdc-liquid-staking/staking-guide/migration.md).)
 2. **Get an NFT.** Buy one on [PrimePort](https://primeport.xyz), or migrate a legacy V2 NFT through [`XdcNftMigratorV2`](migrate-nfts-v2-to-v3.md) (preserves your rarity and any active lock, and your `tokenId` for legacy ids below `10000`; ids ≥ `10000` are remapped).
 3. **Stake psXDC shares into your NFT.** The vault records the shares against the NFT's `tokenId`. The NFT's **weight** in the boost accumulator becomes `stakedShares × (rarityMultiplier + level + lockBoost)`.
 4. **Earn two stacked yields**:

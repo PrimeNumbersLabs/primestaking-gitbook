@@ -2,10 +2,10 @@
 
 psXDC can be traded against XDC on-chain, and liquidity providers can earn fees by supplying both sides of the pool.
 
-The primary venue is **PrimeStaking Spot** at [primestaking.xyz/spot](https://primestaking.xyz/spot). It runs on a protocol-owned Uniswap V2 style pool holding the live V3.1 psXDC and wrapped XDC, with market swaps and on-chain limit orders settled by a keeper.
+The primary venue is **PrimeStaking Spot** at [primestaking.xyz/spot](https://primestaking.xyz/spot). It runs on a protocol-owned Uniswap V2 style pool holding the live V3.2 psXDC and wrapped XDC, with market swaps and on-chain limit orders settled by a keeper.
 
 {% hint style="warning" %}
-**Post-V3.1 note (July 2026):** DEX pools created before the V3.1 redeployment hold the retired old-V3 token and are no longer valid. LP positions in those pools were credited in the snapshot airdrop, so LPs received their share of the pool's psXDC directly on V3.1. Before trading or LPing anywhere, verify the pool's psXDC address is the live V3.1 token: [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4).
+**Post-V3.1 note (July 2026):** DEX pools created before the V3.1 redeployment hold the retired old-V3 token and are no longer valid. LP positions in those pools were credited in the snapshot airdrop, so LPs received their share of the pool's psXDC directly on V3.1. Before trading or LPing anywhere, verify the pool's psXDC address is the live V3.2 token: [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734).
 {% endhint %}
 
 {% hint style="info" %}
@@ -46,7 +46,7 @@ The pool was seeded at NAV (1 psXDC : 1 XDC at launch of V3.1). Limit orders are
 
 ## How to Add Liquidity
 
-Liquidity for the psXDC/WXDC pair is added through the router contract. If you use a third-party DEX UI instead, verify the pool's `psXDC` token address matches the live V3.1 vault ([`0xa7FD…73e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)) before depositing. Older pools hold the retired old-V3 token (`0x98D9…C4Ba`) or the legacy V2 token (`0x9B8e…65A6`).
+Liquidity for the psXDC/WXDC pair is added through the router contract. If you use a third-party DEX UI instead, verify the pool's `psXDC` token address matches the live V3.2 vault ([`0xa7FD…73e4`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)) before depositing. Older pools hold the retired old-V3 token (`0x98D9…C4Ba`) or the legacy V2 token (`0x9B8e…65A6`).
 
 When adding liquidity, remember that the **value** of 1 psXDC is not 1 XDC; it equals the current vault exchange rate, and pool ratios follow the market price.
 

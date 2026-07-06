@@ -12,7 +12,7 @@ PrimeStaking V3 separates **protocol redemption** (burning shares for XDC agains
 | **Standard** | ERC-4626 vault share |
 | **Pricing** | Exchange rate `totalAssets / totalShares`, which grows over time as validator rewards accrue. **Not a fixed 1:1.** |
 | **Network** | XDC Network (chain ID `50`) |
-| **Address** | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) |
+| **Address** | [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) |
 | **Transferable** | Yes (standard XRC-20 token) |
 | **Yield mechanism** | Share-price appreciation; rewards are already inside the share, so there is no manual `claim` |
 | **Redeemable against the protocol** | Yes: `withdraw` / `redeem` (instant when buffer suffices) or `redeemWithQueue` (instant or queued) |
@@ -37,7 +37,7 @@ For very large redemptions where the vault doesn't have a sufficient buffer + re
 
 ### 2. Market exit (DEX swap)
 
-Holders can swap psXDC for XDC on a DEX (always verify the pool holds the live V3.1 token, `0xa7FD…73e4`). Market price is set by the AMM and is influenced by:
+Holders can swap psXDC for XDC on a DEX (always verify the pool holds the live V3.2 token, `0xa7FD…73e4`). Market price is set by the AMM and is influenced by:
 
 - The vault's current NAV (`totalAssets / totalShares`), the long-run anchor.
 - Pool depth and recent volume.
@@ -79,12 +79,12 @@ The market price can sit **at, above, or below NAV** depending on these factors.
 
 ## Key Metrics for Partners
 
-All metrics below are verifiable on-chain via the [staking-v3-indexer](https://github.com/PrimeNumbersLabs/staking-v3-indexer) or direct calls to `PrimeStakedXDC_V3_1`.
+All metrics below are verifiable on-chain via the [staking-v3-indexer](https://github.com/PrimeNumbersLabs/staking-v3-indexer) or direct calls to `PrimeStakedXDC_V3_2`.
 
 | Metric | Description | Source |
 | --- | --- | --- |
-| **psXDC total supply** | Outstanding V3 shares | `PrimeStakedXDC_V3_1.totalSupply()` |
-| **Total assets** | XDC tracked by the vault (buffer + delegated) | `PrimeStakedXDC_V3_1.totalAssets()` |
+| **psXDC total supply** | Outstanding V3 shares | `PrimeStakedXDC_V3_2.totalSupply()` |
+| **Total assets** | XDC tracked by the vault (buffer + delegated) | `PrimeStakedXDC_V3_2.totalAssets()` |
 | **Exchange rate** | `totalAssets / totalShares` (or `convertToAssets(1e18)`) | Vault view |
 | **Buffer ratio** | Current liquid XDC vs target buffer | Computed from `getBalance` + `bufferBps` |
 | **Queue depth** | Outstanding `WithdrawalQueued` requests | Subgraph |

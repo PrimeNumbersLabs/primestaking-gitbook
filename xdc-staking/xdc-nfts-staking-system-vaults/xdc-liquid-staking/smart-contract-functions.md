@@ -1,9 +1,9 @@
 # Smart Contract Reference (psXDC V3)
 
-Technical reference for [`PrimeStakedXDC_V3_1`](../contract-addresses.md), the V3 liquid staking vault. The contract is an ERC-4626-style native-XDC vault with self-service withdrawals, a buffer-aware queue, on-chain masternode integration, and time-locked governance.
+Technical reference for [`PrimeStakedXDC_V3_2`](../contract-addresses.md), the V3 liquid staking vault. The contract is an ERC-4626-style native-XDC vault with self-service withdrawals, a buffer-aware queue, on-chain masternode integration, and time-locked governance.
 
 {% hint style="info" %}
-Address: [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4). **Non-upgradeable**: deployed with a regular constructor, no proxy.
+Address: [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734). **Non-upgradeable**: deployed with a regular constructor, no proxy.
 {% endhint %}
 
 ---

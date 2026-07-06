@@ -34,7 +34,7 @@ Direct XDC staking requires running a masternode (10M XDC minimum, infrastructur
 XDC validators
       │ block rewards
       ▼
-PrimeStakedXDC_V3_1 vault
+PrimeStakedXDC_V3_2 vault
       │ totalAssets += rewards
       │ totalShares  unchanged
       ▼
@@ -118,6 +118,6 @@ Both caps are themselves governed by **delayed governance**: changes are schedul
 - Every reward event is logged on the XDC blockchain.
 - Exchange rate is a deterministic function of `totalAssets` and `totalShares`, auditable at any block.
 - Historical exchange-rate data is available via the public subgraph for forecasting and reporting.
-- psXDC v3 supply and total assets are verifiable on-chain at any time on [XDCScan](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4).
+- psXDC v3 supply and total assets are verifiable on-chain at any time on [XDCScan](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734).
 
 → [Liquidity Model](liquidity-model.md) → [Risk & Compliance](risk-and-compliance.md) → [How Rewards Work (user-facing)](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/xdc-staking-rewards.md)

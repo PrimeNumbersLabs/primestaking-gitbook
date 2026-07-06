@@ -15,7 +15,7 @@ psXDC is an **ERC-4626 vault share** representing your position in the V3 stakin
 
 #### Where can I trade psXDC?
 
-psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the July 2026 V3.1 redeployment, verify any pool holds the live token** ([`0xa7FD…73e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4)); pools created before the redeployment hold retired tokens. Purchasing psXDC directly also benefits you, since holding it means owning the appreciating share.
+psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the July 2026 V3.1 redeployment, verify any pool holds the live token** ([`0xDc74…c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)); pools created before the redeployment hold retired tokens. Purchasing psXDC directly also benefits you, since holding it means owning the appreciating share.
 
 #### I held psXDC V3 before July 2026. Do I need to do anything?
 
@@ -96,7 +96,7 @@ You can keep it (the legacy contracts remain operational) or migrate it to V3 in
 1. **Stake XDC** through the V3 vault (`stake()` payable, or `depositNative(assets, receiver)`).
 2. **Receive psXDC shares** at the current exchange rate.
 3. **Watch the share price grow.** Rewards are embedded in the share. No claim needed.
-4. **Withdraw** by calling `redeemWithQueue`: instant when the buffer covers it, queued FIFO otherwise. Or swap on a DEX for an immediate market exit (verify the pool holds the live V3.1 token).
+4. **Withdraw** by calling `redeemWithQueue`: instant when the buffer covers it, queued FIFO otherwise. Or swap on a DEX for an immediate market exit (verify the pool holds the live V3.2 token).
 
 #### Who can participate?
 
@@ -107,7 +107,7 @@ Anyone. There is **no minimum XDC required**. It's accessible to all XDC holders
 You have two options:
 
 * **Protocol redemption** (`redeemWithQueue`): burns the equivalent psXDC shares. **Instant** when the vault's liquid buffer permits, otherwise enters the on-chain **FIFO queue** with self-claim via `claimQueuedAssets`. You can cancel queued requests at any time before settlement.
-* **Instant DEX exit**: swap psXDC for XDC on a DEX (verify the pool holds the live V3.1 token) for immediate liquidity at market price.
+* **Instant DEX exit**: swap psXDC for XDC on a DEX (verify the pool holds the live V3.2 token) for immediate liquidity at market price.
 
 #### Can I transfer my Liquid Staking position?
 
