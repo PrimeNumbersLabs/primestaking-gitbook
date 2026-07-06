@@ -18,7 +18,7 @@ This page is the single source of truth for every address the V3.2 stack interac
 | --- | --- | --- | --- |
 | **`PrimeStakedXDC_V3_2`** | [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) | ERC-4626 vault (native XDC) | **The live psXDC token and vault.** Non-upgradeable, deployed with a regular constructor, no proxy. All staking, withdrawals, and share-price reads go here. Permanent-ledger model: rewards accrue at any backing level via the manager reward lane. |
 | **`V32AirdropDistributor`** | [`0x9ADb9Dfc340375113042b4722e780D34B1123e47`](https://xdcscan.com/address/0x9ADb9Dfc340375113042b4722e780D34B1123e47) | Airdrop distributor (**finalized**) | Batch-minted the snapshot balances of every V3.1 holder onto V3.2 at launch. Permanently finalized; it can never mint again. Kept for on-chain audit trail. |
-| **`PrimeStakedXDC_V3_2MigrationBridge`** (v2 → V3.2) | _deploy pending — see note_ | Migration bridge | For V2 stragglers only: burns V2 psXDC and mints V3.2 shares. It never accepts V3.1 (the airdrop already credited every V3.1 holder 1:1). Wired after go-live behind the vault's governance delay. |
+| **`PrimeStakedXDC_V3_2MigrationBridge`** (v2 → V3.2) | [`0x313e8d6Ad3D16be6318dF2AF5a54A87Aea42c280`](https://xdcscan.com/address/0x313e8d6Ad3D16be6318dF2AF5a54A87Aea42c280) | Migration bridge | For V2 stragglers only: burns V2 psXDC and mints V3.2 shares 1:1. It never accepts V3.1 (the airdrop already credited every V3.1 holder 1:1). The vault's `migrationBridge` repoint to this address is scheduled behind the 24h governance timelock; migration reopens in the app once it executes. |
 
 ## Referral program
 
@@ -111,6 +111,7 @@ These power the white-label [Partner Staking](../../partner-staking/README.md) p
 If you are integrating PrimeStaking from a partner application, the only contracts you ever call directly are:
 
 - `PrimeStakedXDC_V3_2` (`0xDc74…c734`) to stake, withdraw, redeem, or read the share price.
+- `PrimeStakedXDC_V3_2MigrationBridge` (`0x313e…c280`), only if your users hold V2 psXDC and want to migrate.
 - `ReferralRegistry` (`0x9765…16B3`), only if you want a first stake to bind a referrer (`stakeWithReferral`).
 - `XdcNftStakingVault` (proxy, `0x9f38…4da8`) for any NFT-side action.
 - `XdcNftMigratorV2` (`0x69DE…2ea8`), only for migrating legacy V2 NFTs.
