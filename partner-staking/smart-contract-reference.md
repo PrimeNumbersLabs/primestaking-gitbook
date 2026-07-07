@@ -1,16 +1,16 @@
 # Smart Contract Reference
 
-Two contracts make up Partner Staking: **`PartnerStakedXDC_V3`** (the per-partner vault) and **`PartnerVaultRegistry`** (the shared directory).
+Two contracts make up Partner Staking: **`PartnerStakedXDC_V3_2`** (the per-partner vault; legacy pools run `PartnerStakedXDC_V3`) and **`PartnerVaultRegistry`** (the shared directory).
 
 {% hint style="info" %}
-Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) is at `0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`. Each `PartnerStakedXDC_V3` is a separate per-partner deployment; discover live pools via the registry's `allVaults()` / `verifiedVaults()`. See [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
+Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/address/0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67) is at `0x325DEEA5C7c0Ce0D774c4A67EcCaAf1cF8953a67`. Each partner vault is a separate per-partner deployment; discover live pools via the registry's `allVaults()` / `verifiedVaults()`. See [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
 {% endhint %}
 
 ---
 
-## `PartnerStakedXDC_V3`: the partner vault
+## `PartnerStakedXDC_V3_2` — the partner vault
 
-An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3_2` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`.
+An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3_1` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`. V3.2 adds the timelocked **partner fee** (see below); everything else matches the audited V3 template.
 
 ### Constants
 
@@ -18,12 +18,24 @@ An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `E
 | --- | --- | --- |
 | `PLATFORM_FEE_BPS` | `1500` | 15% protocol fee on reward inflows |
 | `PLATFORM_FEE_RECIPIENT` | `0x1658…9127` | PrimeStaking treasury (fee recipient) |
+| `MAX_PARTNER_FEE_BPS` | `8500` | Partner fee ceiling: protocol + partner can never exceed 100% of yield |
+| `PARTNER_FEE_PUSH_GAS_LIMIT` | `100,000` | Gas stipend for the partner fee push (failure defers to the pull lane) |
 | `DEFAULT_MASTERNODE_STAKE` | `10,000,000 XDC` | Default masternode size |
 | `MIN_REWARD_DISTRIBUTION` | `1000 XDC` | Minimum non-privileged reward push via `receive()` |
 | `MAX_BUFFER_BPS` | `5000` | Max liquidity buffer (50%) |
 | `DEFAULT_MAX_LOSS_BPS_PER_REPORT` | `1000` | 10% per-report validator-loss cap |
 | `DEFAULT_MAX_DAILY_LOSS_BPS` | `2000` | 20% rolling daily loss cap |
 | `DEFAULT_GOVERNANCE_DELAY` | `1 day` | Default timelock (range 1 min – 30 days) |
+
+### Partner fee (V3.2)
+
+| Item | Detail |
+| --- | --- |
+| `partnerFeeBps` / `partnerFeeRecipient` | Current fee (bps of gross yield) and payee. Set in the constructor (`initialPartnerFeeBps`, `initialPartnerFeeRecipient`; zero recipient defaults to the deployer). |
+| `setPartnerFee(bps)` → `executePartnerFee()` / `cancelPartnerFeeChange()` | Timelocked rate change (admin only, waits `governanceDelay`). Executing first settles accrued yield at the old rate. |
+| `setPartnerFeeRecipient(addr)` → `executePartnerFeeRecipient()` / `cancelPartnerFeeRecipientChange()` | Timelocked recipient change (admin only). |
+| `pendingPartnerFee()` / `pendingPartnerFeeRecipient()` | Views exposing any scheduled change + its `executeAfter` timestamp (drives the app's staker warnings). |
+| Failure mode | If the recipient rejects the push, the fee parks in `pendingQueuedAssets[recipient]` and is pulled via `claimQueuedAssets` — the pool never bricks. |
 
 ### Stake & withdraw
 
@@ -65,6 +77,8 @@ Direct `grantRole` / `revokeRole` / `renounceRole` / `transferOwnership` / `reno
 | `setMaxLossBpsPerReport` | `executeMaxLossBpsPerReport` | `cancelMaxLossBpsPerReportChange` |
 | `setMaxDailyLossBps` | `executeMaxDailyLossBps` | `cancelMaxDailyLossBpsChange` |
 | `setGovernanceDelay` | `executeGovernanceDelay` | `cancelGovernanceDelayChange` |
+| `setPartnerFee` | `executePartnerFee` | `cancelPartnerFeeChange` |
+| `setPartnerFeeRecipient` | `executePartnerFeeRecipient` | `cancelPartnerFeeRecipientChange` |
 | `scheduleOwnerTransfer` | `executeOwnerTransfer` | `cancelOwnerTransfer` |
 
 Each executes only after `governanceDelay` has elapsed.
@@ -73,14 +87,15 @@ Each executes only after `governanceDelay` has elapsed.
 
 | Function | Returns |
 | --- | --- |
-| `isPartnerStakedXDCV3()` | `true`, the marker the registry/UI use to identify partner vaults |
+| `isPartnerStakedXDCV3()` | `true` — marker the registry/UI use to identify partner vaults (kept in V3.2) |
+| `partnerVaultVersion()` | `2` on V3.2 pools; the call reverts on legacy V3 pools, which is how the app tells generations apart |
 | `name()` / `symbol()` | The partner's branded name/symbol |
 | `totalAssets()` / `desiredBuffer()` | Tracked NAV and target buffer |
 | `isKYCVerified(address)` | Whether an address is KYC'd on the validator |
 
 ### Notable events
 
-`Staked`, `Withdrawn`, `WithdrawalQueued` / `WithdrawalQueueProcessed` / `WithdrawalQueueCancelled`, `MasternodeProposed`, `ValidatorLossReported`, and **`PlatformFeeSkimmed(recipient, amount)`** (emitted on every fee skim).
+`Staked`, `Withdrawn`, `WithdrawalQueued` / `WithdrawalQueueProcessed` / `WithdrawalQueueCancelled`, `MasternodeProposed`, `ValidatorLossReported`, **`PlatformFeeSkimmed(recipient, amount)`** (every protocol fee skim), and on V3.2: **`PartnerFeeSkimmed`** / **`PartnerFeeDeferred`** (partner fee payouts) plus **`PartnerFeeChangeScheduled`** / **`PartnerFeeUpdated`** / **`PartnerFeeChangeCancelled`** and the recipient-change equivalents (timelock transparency).
 
 ---
 

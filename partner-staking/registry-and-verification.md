@@ -8,7 +8,7 @@ It is an `Ownable2Step` contract (two-phase ownership handoff so control can't b
 
 ## Codehash gating
 
-Because `PartnerStakedXDC_V3` bakes the fee rate and recipient in as constants, every genuine partner vault has **identical runtime bytecode** and therefore one canonical `codehash`. PrimeStaking allow-lists that hash:
+Because the partner vault bakes the protocol fee rate and recipient in as constants (the V3.2 partner fee is storage, so it does not affect the bytecode), every genuine partner vault of a generation has **identical runtime bytecode** and therefore one canonical `codehash` per generation. PrimeStaking allow-lists those hashes:
 
 ```solidity
 setCanonicalCodeHash(bytes32 codeHash, bool allowed)   // owner only, once per published vault bytecode version
@@ -20,7 +20,7 @@ setCanonicalCodeHash(bytes32 codeHash, bool allowed)   // owner only, once per p
 - caller holds `vault`'s `DEFAULT_ADMIN_ROLE`, else `NotVaultAdmin`
 - `vault != address(0)` and not already registered, else `ZeroAddress` / `AlreadyRegistered`
 
-This makes it impossible to list a fork with a different fee, a different recipient, or hidden modifications. If the vault bytecode is ever revised, PrimeStaking publishes and allow-lists the new codehash; older deployments stay valid under their own hash unless explicitly revoked.
+This makes it impossible to list a fork with a different protocol fee, a different recipient, or hidden modifications. If the vault bytecode is ever revised, PrimeStaking publishes and allow-lists the new codehash; older deployments stay valid under their own hash unless explicitly revoked. That is exactly how the V3 → V3.2 upgrade (partner fees) shipped: both codehashes are allow-listed, existing V3 pools stayed registered, and new deploys use V3.2.
 
 ---
 
