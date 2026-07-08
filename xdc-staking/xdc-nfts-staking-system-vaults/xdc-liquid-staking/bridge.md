@@ -51,9 +51,12 @@ page shows the current XDC value of your bridged balance.
 
 - Every pathway is verified by **two independent DVNs** (LayerZero Labs and
   Nethermind) — a single compromised verifier cannot forge a bridge message.
-- The adapter enforces a **per-destination rate limit**, bounding how fast the
-  lockbox could be drained even in a worst-case destination-chain compromise,
-  giving operators time to pause.
+- The adapter meters the **unlock path** with a per-source-chain rate limit.
+  Because the lockbox only ever releases funds when psXDC is bridged *back*, the
+  limit is applied there (keyed by the origin chain): even if one destination
+  chain were fully compromised, it could unlock at most the configured burst
+  immediately and a fixed rate thereafter, giving operators time to pause —
+  while the other chains' pathways are unaffected.
 - Total bridged psXDC across all chains always equals psXDC locked in the
   adapter — verified by an on-chain conservation test across multi-hop routes
   (XDC to Base to Arbitrum and back), including sub-1e12 dust round trips.
