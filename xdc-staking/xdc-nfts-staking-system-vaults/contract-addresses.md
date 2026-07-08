@@ -109,13 +109,16 @@ exchange rate to each chain for lending integrations.
 | `PsxdcOFT` | Base | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Mint/burn psXDC representation. |
 | `PsxdcOFT` | Arbitrum | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Same address (deployed at matching nonce). |
 | `PsxdcOFT` | BNB Chain | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Same address. |
+| `PsxdcOFT` | HyperEVM | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Same address. |
 | `PsxdcRateOracle` | Base | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | `AggregatorV3Interface` psXDC/XDC rate for money markets. |
 | `PsxdcRateOracle` | Arbitrum | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | Same address. |
 | `PsxdcRateOracle` | BNB Chain | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | Same address. |
+| `PsxdcRateOracle` | HyperEVM | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | Same address. |
 
 Every pathway is verified by four required DVNs (Canary, LayerZero Labs,
 Horizen, Nethermind) — the same operator set that services the live XDC lanes.
-LayerZero endpoint IDs: XDC 30365, Base 30184, Arbitrum 30110, BNB Chain 30102.
+LayerZero endpoint IDs: XDC 30365, Base 30184, Arbitrum 30110, BNB Chain 30102,
+HyperEVM 30367.
 
 ---
 

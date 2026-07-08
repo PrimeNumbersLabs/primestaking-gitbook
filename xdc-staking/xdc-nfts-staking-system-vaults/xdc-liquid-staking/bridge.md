@@ -1,7 +1,7 @@
 # Bridge psXDC to other chains
 
 psXDC is native to the XDC Network, but you can bridge it to **Base**,
-**Arbitrum**, and **BNB Chain** to use it in DeFi there — holding, providing
+**Arbitrum**, **BNB Chain**, and **HyperEVM** to use it in DeFi there — holding, providing
 liquidity on DEXes, or (once listed) supplying it as collateral on money
 markets. Bridging uses [LayerZero V2](https://layerzero.network), not a
 third-party custodian.
