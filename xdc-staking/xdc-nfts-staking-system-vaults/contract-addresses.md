@@ -95,6 +95,29 @@ These power the white-label [Partner Staking](../../partner-staking/README.md) p
 
 ---
 
+## Multi-chain: psXDC OFT bridge + rate oracle
+
+psXDC bridges to Base, Arbitrum, and BNB Chain via LayerZero V2. The
+[bridge](xdc-liquid-staking/bridge.md) uses a lockbox on XDC; the
+[rate oracle](xdc-liquid-staking/psxdc-rate-oracle.md) publishes the psXDC/XDC
+exchange rate to each chain for lending integrations.
+
+| Contract | Chain | Address | Notes |
+| --- | --- | --- | --- |
+| `PsxdcOFTAdapter` | XDC | _deploying_ | Lockbox: locks/unlocks real psXDC. One canonical adapter for the whole mesh. |
+| `PsxdcRateSender` | XDC | _deploying_ | Broadcasts `previewRedeem(1e18)` to all destination oracles. Permissionless `push()`. |
+| `PsxdcOFT` | Base | _deploying_ | Mint/burn psXDC representation. |
+| `PsxdcOFT` | Arbitrum | _deploying_ | Mint/burn psXDC representation. |
+| `PsxdcOFT` | BNB Chain | _deploying_ | Mint/burn psXDC representation. |
+| `PsxdcRateOracle` | Base | _deploying_ | `AggregatorV3Interface` psXDC/XDC rate for money markets. |
+| `PsxdcRateOracle` | Arbitrum | _deploying_ | As above. |
+| `PsxdcRateOracle` | BNB Chain | _deploying_ | As above. |
+
+Every pathway is verified by two required DVNs (LayerZero Labs + Nethermind).
+LayerZero endpoint IDs: XDC 30365, Base 30184, Arbitrum 30110, BNB Chain 30102.
+
+---
+
 ## Legacy (V2)
 
 | Contract | Address | Role |

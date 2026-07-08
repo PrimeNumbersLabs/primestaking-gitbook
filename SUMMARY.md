@@ -16,6 +16,8 @@
     * [Position & Rewards History](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/rewards-history.md)
     * [Understanding Share Price](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/how-to-claim-rewards.md)
   * [Referral Program](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/referral-program.md)
+  * [Bridge psXDC to Other Chains](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/bridge.md)
+  * [psXDC Rate Oracle (integrators)](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/psxdc-rate-oracle.md)
   * [Smart Contract Reference (V3)](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/smart-contract-functions.md)
 * [XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/README.md)
   * [Staking Mechanics (V3)](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/xdc-staking-nfts-mechanics.md)
