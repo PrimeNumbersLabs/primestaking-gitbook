@@ -104,16 +104,17 @@ exchange rate to each chain for lending integrations.
 
 | Contract | Chain | Address | Notes |
 | --- | --- | --- | --- |
-| `PsxdcOFTAdapter` | XDC | _deploying_ | Lockbox: locks/unlocks real psXDC. One canonical adapter for the whole mesh. |
-| `PsxdcRateSender` | XDC | _deploying_ | Broadcasts `previewRedeem(1e18)` to all destination oracles. Permissionless `push()`. |
-| `PsxdcOFT` | Base | _deploying_ | Mint/burn psXDC representation. |
-| `PsxdcOFT` | Arbitrum | _deploying_ | Mint/burn psXDC representation. |
-| `PsxdcOFT` | BNB Chain | _deploying_ | Mint/burn psXDC representation. |
-| `PsxdcRateOracle` | Base | _deploying_ | `AggregatorV3Interface` psXDC/XDC rate for money markets. |
-| `PsxdcRateOracle` | Arbitrum | _deploying_ | As above. |
-| `PsxdcRateOracle` | BNB Chain | _deploying_ | As above. |
+| `PsxdcOFTAdapter` | XDC | `0xefbb71078cba6425EB6fd957ac1F8a235502D71a` | Lockbox: locks/unlocks real psXDC. One canonical adapter for the whole mesh. |
+| `PsxdcRateSender` | XDC | `0x7215e3a0a1F385127eAC1E84D2F30dBF00c76b04` | Broadcasts `previewRedeem(1e18)` to all destination oracles. Permissionless `push()`. |
+| `PsxdcOFT` | Base | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Mint/burn psXDC representation. |
+| `PsxdcOFT` | Arbitrum | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Same address (deployed at matching nonce). |
+| `PsxdcOFT` | BNB Chain | `0x98D916F5773Ac0482b49856f2659d6c32114C4Ba` | Same address. |
+| `PsxdcRateOracle` | Base | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | `AggregatorV3Interface` psXDC/XDC rate for money markets. |
+| `PsxdcRateOracle` | Arbitrum | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | Same address. |
+| `PsxdcRateOracle` | BNB Chain | `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2` | Same address. |
 
-Every pathway is verified by two required DVNs (LayerZero Labs + Nethermind).
+Every pathway is verified by four required DVNs (Canary, LayerZero Labs,
+Horizen, Nethermind) — the same operator set that services the live XDC lanes.
 LayerZero endpoint IDs: XDC 30365, Base 30184, Arbitrum 30110, BNB Chain 30102.
 
 ---

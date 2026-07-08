@@ -49,8 +49,9 @@ page shows the current XDC value of your bridged balance.
 
 ## Security
 
-- Every pathway is verified by **two independent DVNs** (LayerZero Labs and
-  Nethermind) — a single compromised verifier cannot forge a bridge message.
+- Every pathway is verified by **four independent DVNs** (Canary, LayerZero
+  Labs, Horizen, and Nethermind) — a single compromised verifier cannot forge a
+  bridge message.
 - The adapter meters the **unlock path** with a per-source-chain rate limit.
   Because the lockbox only ever releases funds when psXDC is bridged *back*, the
   limit is applied there (keyed by the origin chain): even if one destination
