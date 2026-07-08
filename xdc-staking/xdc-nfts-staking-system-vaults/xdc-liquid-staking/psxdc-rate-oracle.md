@@ -39,6 +39,13 @@ The rate can only be written by the wired XDC publisher (LayerZero peer auth,
   the configured window (default 2 days). PrimeStaking pushes the rate at least
   daily, and the push is permissionless so it cannot be censored.
 
+If pushes lapse long enough that legitimate cumulative growth would exceed the
+per-update step cap, the bridged update is rejected and the feed goes stale
+(safe: integrators see `isStale()` and pause) rather than jumping. The owner
+restores liveness with a break-glass `adminSetRate`, which still enforces
+non-zero and (unless explicitly armed) monotonicity — so it can never silently
+mark psXDC down.
+
 ## Recommended usage
 
 Treat the oracle as the **exchange-rate** leg only; keep your own market

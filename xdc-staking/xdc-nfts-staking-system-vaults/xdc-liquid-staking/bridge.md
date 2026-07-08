@@ -54,7 +54,11 @@ page shows the current XDC value of your bridged balance.
 - The adapter enforces a **per-destination rate limit**, bounding how fast the
   lockbox could be drained even in a worst-case destination-chain compromise,
   giving operators time to pause.
-- Contracts are owned by PrimeStaking with two-step ownership transfer.
+- Total bridged psXDC across all chains always equals psXDC locked in the
+  adapter — verified by an on-chain conservation test across multi-hop routes
+  (XDC to Base to Arbitrum and back), including sub-1e12 dust round trips.
+- Contracts use two-step ownership transfer (nominate + accept), so ownership
+  cannot be fat-fingered to an address that cannot operate the lockbox.
 
 ## Addresses
 
