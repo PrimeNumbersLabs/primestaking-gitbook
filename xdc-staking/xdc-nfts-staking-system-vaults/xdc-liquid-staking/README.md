@@ -51,6 +51,9 @@ psXDC is a standard ERC-20 on the XDC Network. While the vault earns yield, you 
 - **Trade** on DEXs (typically paired with XDC).
 - **Deposit into XDC NFTs** to layer the boost slice on top of your NAV.
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens.
+- **Bridge to Base, Arbitrum, BNB Chain, or HyperEVM** ([guide](bridge.md)) and
+  lend it on PrimeFi or LP it there — the staking yield keeps accruing the whole
+  time ([opportunities](multichain-opportunities.md)).
 - **Transfer** to any wallet; the recipient inherits the appreciating share automatically.
 
 ### 5. Withdraw

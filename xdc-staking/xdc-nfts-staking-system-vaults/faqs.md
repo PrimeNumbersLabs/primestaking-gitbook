@@ -17,6 +17,10 @@ psXDC is an **ERC-4626 vault share** representing your position in the V3 stakin
 
 psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the July 2026 V3.1 redeployment, verify any pool holds the live token** ([`0xDc74…c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)); pools created before the redeployment hold retired tokens. Purchasing psXDC directly also benefits you, since holding it means owning the appreciating share.
 
+#### Can I use psXDC outside the XDC Network?
+
+Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero from the [Bridge page](https://primestaking.xyz/xdc-liquid-staking/bridge) — no third-party custodian, no bridge fee beyond the LayerZero message cost, and your staking yield keeps accruing while bridged. On Base and HyperEVM it is already listed as collateral on [PrimeFi](https://primefi.xyz), so you can lend it or borrow against it without unstaking. See [Bridge psXDC](xdc-liquid-staking/bridge.md) and [Multichain Opportunities](xdc-liquid-staking/multichain-opportunities.md).
+
 #### I held psXDC V3 before July 2026. Do I need to do anything?
 
 No. The vault was redeployed as **V3.1** and every V3 balance was mirrored 1:1 via an on-chain snapshot airdrop, including psXDC inside XDC NFTs, DEX pools, lending markets, and open limit orders, which were credited to their underlying owners. Your balance appears automatically in the app. The old V3 token is retired and has no remaining function.
