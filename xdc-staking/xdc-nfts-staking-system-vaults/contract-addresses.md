@@ -32,7 +32,7 @@ This page is the single source of truth for every address the V3.2 stack interac
 | Contract | Address | Status |
 | --- | --- | --- |
 | `PrimeStakedXDC_V3_1` (prior vault) | [`0xa7FD1c5601348633018003C90aE568d1ff7973e4`](https://xdcscan.com/address/0xa7FD1c5601348633018003C90aE568d1ff7973e4) | **Superseded and paused.** Every holder balance at the snapshot was mirrored 1:1 onto V3.2. The V3.1 token is frozen and has no further function. |
-| `PrimeStakedXDC_V3` (original vault) | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) | **Superseded** (V3 → V3.1 → V3.2). No further function. |
+| `PrimeStakedXDC_V3` (original vault) | [`0x98D916F5773Ac0482b49856f2659d6c32114C4Ba`](https://xdcscan.com/address/0x98D916F5773Ac0482b49856f2659d6c32114C4Ba) | **Superseded and paused** (July 8, 2026: transfers frozen after residual dead-token trading was observed on abandoned pools). Every V3 balance was mirrored 1:1 onto the live token at the snapshot. On XDC this address is the retired token — do not confuse it with the psXDC OFT, which uses the same address on **other** chains. |
 | `V31AirdropDistributor` | [`0x3b7185844451a57CC45807243477e442ff1A3553`](https://xdcscan.com/address/0x3b7185844451a57CC45807243477e442ff1A3553) | The prior (V3 → V3.1) airdrop distributor, finalized. |
 
 ---
