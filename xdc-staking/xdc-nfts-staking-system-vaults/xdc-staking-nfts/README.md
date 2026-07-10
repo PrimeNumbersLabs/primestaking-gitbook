@@ -14,6 +14,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 | --- | --- |
 | **Collection size** | 5,557 NFTs (5,542 generative + 15 handcrafted), preserved across V2 → V3 |
 | **Token staked** | **psXDC v3 vault shares** (not raw XDC) |
+| **Max stake per NFT** | **100,000 psXDC** (share count). Stake more by holding more NFTs. See [Per-NFT stake cap](xdc-staking-nfts-mechanics.md#per-nft-stake-cap). |
 | **Base yield** | ~4.5%, from share-price appreciation of the underlying psXDC |
 | **Boost slice** | Up to ~1.5%: Synthetix accumulator, weighted by rarity / level / lock |
 | **Floor APY** | **~4.5%** (the base NAV), automatic, always earned regardless of rarity / lock / boost cadence |
@@ -29,7 +30,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 
 1. **Get psXDC shares.** Stake XDC in [`PrimeStakedXDC_V3_2`](../xdc-liquid-staking/README.md) or buy psXDC on a DEX. (Already hold V2 psXDC? [Migrate to V3 first](../xdc-liquid-staking/staking-guide/migration.md).)
 2. **Get an NFT.** Buy one on [PrimePort](https://primeport.xyz), or migrate a legacy V2 NFT through [`XdcNftMigratorV2`](migrate-nfts-v2-to-v3.md) (preserves your rarity and any active lock, and your `tokenId` for legacy ids below `10000`; ids ≥ `10000` are remapped).
-3. **Stake psXDC shares into your NFT.** The vault records the shares against the NFT's `tokenId`. The NFT's **weight** in the boost accumulator becomes `stakedShares × (rarityMultiplier + level + lockBoost)`.
+3. **Stake psXDC shares into your NFT.** The vault records the shares against the NFT's `tokenId`. The NFT's **weight** in the boost accumulator becomes `stakedShares × (rarityMultiplier + level + lockBoost)`. Each NFT holds up to **100,000 psXDC**; to stake more, spread it across multiple NFTs.
 4. **Earn two stacked yields**:
    - **Base NAV**: your staked shares keep appreciating; you receive them back at the higher value when you withdraw.
    - **Boost**: every `notifyBoost` push from the harvester increments `rewardPerWeightStored`; your earned slice grows in proportion to your weight.

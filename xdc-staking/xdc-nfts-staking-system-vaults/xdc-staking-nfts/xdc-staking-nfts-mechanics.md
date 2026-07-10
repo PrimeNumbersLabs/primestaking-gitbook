@@ -46,11 +46,11 @@ What this means in practice:
 
 | Action | Function | What it does |
 | --- | --- | --- |
-| **Stake** | `stake(tokenId, shares)` | Deposit psXDC v3 shares against this NFT. Settles pending boost, updates weight, increments `level` if thresholds are crossed. |
+| **Stake** | `stake(tokenId, shares)` | Deposit psXDC v3 shares against this NFT. Settles pending boost, updates weight, increments `level` if thresholds are crossed. Reverts if the resulting balance would exceed the [per-NFT cap](#per-nft-stake-cap). |
 | **Withdraw shares** | `withdraw(tokenId, shares)` | Remove psXDC shares without burning the NFT. Settles pending boost first. |
 | **Lock** | `lock(tokenId, duration)` | Locks for a chosen tier duration (30/90/180/365 days), freezing that tier's `lockBonus` into the NFT and adding it to weight. Disables `withdraw`, `merge`, `burnAndRedeem` until the lock ends. |
 | **Poke expired** | `pokeExpired(tokenIds)` | Permissionless keeper hook: retires the boost of any NFT whose lock has ended, so `totalWeight` stays accurate even for untouched NFTs. |
-| **Merge** | `merge(tokenIdA, tokenIdB)` | Two same-rarity NFTs → one higher-rarity NFT. Burns originals and shares are released for restaking. |
+| **Merge** | `merge(tokenIdA, tokenIdB)` | Two same-rarity NFTs → one higher-rarity NFT. Burns originals and shares are released for restaking. Reverts if the combined shares would exceed the [per-NFT cap](#per-nft-stake-cap). |
 | **Claim boost** | `claim(tokenId)` | Pays out earned boost in XDC. Can also unwrap to native XDC or keep as shares depending on the call. |
 | **`burnAndRedeem`** | `burnAndRedeem(tokenId)` | Burns the NFT and returns the underlying psXDC v3 shares (or redeems them to XDC) in one transaction. |
 | **Transfer** | ERC-721 `transferFrom` | NFT changes hands. The new owner inherits staked shares, weight, pending boost, and lock status. |
@@ -76,9 +76,22 @@ Lock expiry is **preserved across migration** from V2; see [Locked NFTs & Legacy
 
 ---
 
+## Per-NFT stake cap
+
+A single XDC NFT can hold at most **100,000 psXDC shares**. To stake more than that, hold additional NFTs — one NFT is one capped "slot".
+
+- Enforced on-chain in both `stake()` and `merge()`: any action whose **result** would push an NFT above `maxStakePerNft` reverts with `ExceedsMaxStakePerNft`.
+- **Merge respects the cap too.** Two NFTs whose combined staked shares exceed the cap cannot be merged — otherwise merging would be a way to hold more than the cap in one NFT. They stay as separate NFTs and keep earning independently.
+- **The cap is on share count, not XDC value.** psXDC is an ERC-4626 share; a maxed NFT's XDC value still grows over time as the share price appreciates (that's the base yield). The 100,000 limit is on psXDC shares held.
+- **Rewards are never blocked by the cap.** Base yield accrues in the share price and boost accrues in a separate `pendingBoost` bucket claimed via `claim()` — neither increases `stakedShares`, so a maxed NFT keeps earning and claiming normally.
+- **Grandfathering.** NFTs that already hold more than the cap (e.g. migrated from a large V2 position) keep their full balance and can still `withdraw`/`claim`; they simply can't be topped up or used as a merge input that would exceed the cap.
+- **Migrator mint paths are exempt** (`mintAndStake` / `mintAndStakeLocked`) so pre-existing V2 positions migrate intact.
+- **Configurable by governance** via `setMaxStakePerNft(uint256 maxShares)` (`DEFAULT_ADMIN_ROLE`). Setting `0` disables the cap (unlimited). Changing it only affects future `stake`/`merge`; it never touches existing balances.
+
 ## Caps and tuning
 
 - `setLevelStakedNeeded` and `setLockBoost` can only be changed while `totalWeight == 0` (i.e. before any NFT is staked). Once the vault has live positions these setters revert, which prevents silent weight drift. Lock tiers are enabled/adjusted post-launch through the governance-gated `setLockBoostPostLaunch`, which only affects **future** locks - already-locked NFTs keep the boost they froze at lock time.
+- `setMaxStakePerNft` (the [per-NFT stake cap](#per-nft-stake-cap)) is settable at any time by `DEFAULT_ADMIN_ROLE`, unlike the pre-staking-only setters above; it only gates future `stake`/`merge`.
 - `rarityMultiplier` has **no setter** on the V3 vault. Updating multipliers would require deploying a new vault and migrating.
 - `setRarityMultiplier` does **not** exist on the live vault by design.
 - The vault is paused with `PAUSER_ROLE`. Pausing halts stake/withdraw/claim; boost can still be received (intentional, to keep the stream flowing).

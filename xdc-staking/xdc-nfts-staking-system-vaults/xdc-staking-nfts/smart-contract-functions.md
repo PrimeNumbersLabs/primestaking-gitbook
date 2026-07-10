@@ -18,12 +18,12 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 
 | Function | What it does |
 | --- | --- |
-| `stake(uint256 tokenId, uint256 shares)` | Pulls `shares` of psXDC v3 from `msg.sender` and stakes them against `tokenId`. Settles pending boost first. |
+| `stake(uint256 tokenId, uint256 shares)` | Pulls `shares` of psXDC v3 from `msg.sender` and stakes them against `tokenId`. Settles pending boost first. Reverts `ExceedsMaxStakePerNft` if the resulting balance would exceed `maxStakePerNft` (default 100,000 psXDC). |
 | `withdraw(uint256 tokenId, uint256 shares)` | Returns `shares` of psXDC v3 from the NFT to `msg.sender`. Reverts if the NFT is locked. |
 | `claim(uint256 tokenId, bool unwrap)` | Pays out the NFT's earned boost. If `unwrap == true`, redeems the boost shares to native XDC; otherwise transfers shares. |
 | `lock(uint256 tokenId, uint64 until)` | Sets `lockEnd`, adds `lockBonus` to the NFT's weight. Disables `withdraw`/`merge`/`burnAndRedeem`. |
 | `unlock(uint256 tokenId)` | Removes `lockBonus` once `lockEnd` has passed. |
-| `merge(uint256 tokenIdA, uint256 tokenIdB)` | Burns two same-rarity NFTs, mints one higher-rarity NFT via `XdcStakedNFT.mintMerged`, settles boost on both. |
+| `merge(uint256 tokenIdA, uint256 tokenIdB)` | Burns two same-rarity NFTs, mints one higher-rarity NFT via `XdcStakedNFT.mintMerged`, settles boost on both. Reverts `ExceedsMaxStakePerNft` if the two NFTs' combined shares would exceed `maxStakePerNft`. |
 | `burnAndRedeem(uint256 tokenId, bool unwrap)` | Burns the NFT and returns the underlying shares (or unwraps them to XDC) in one transaction. |
 | `notifyBoost(uint256 amount) payable` | **`FEE_ROUTER_ROLE` only** (granted to the harvester). Receives `amount` native XDC, mints psXDC v3 shares, bumps `rewardPerWeightStored`. Reverts if `totalWeight == 0`. |
 
@@ -42,6 +42,7 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | `earned(uint256 tokenId)` | Pending boost earned by the NFT (not yet claimed) |
 | `totalWeight()` | Global weight across every staked NFT |
 | `rewardPerWeightStored()` | The Synthetix accumulator's running total |
+| `maxStakePerNft()` | Per-NFT staked-shares cap in wei (`0` = unlimited). Default 100,000 psXDC = `100000e18`. |
 | `VAULT_STORAGE_SLOT()` | ERC-7201 namespaced storage slot (constant, for upgrade verification) |
 
 ### Admin
@@ -49,6 +50,7 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 - `pause()` / `unpause()`: `PAUSER_ROLE`. Halts stake/withdraw/claim; boost can still be received.
 - `recoverOrphanedShares(uint256 tokenId, address to)`: `DEFAULT_ADMIN_ROLE`, only `whenPaused` and only for burned NFTs.
 - `setLevelStakedNeeded(...)` / `setLockBoost(...)`: only callable while `totalWeight == 0`.
+- `setMaxStakePerNft(uint256 maxShares)`: `DEFAULT_ADMIN_ROLE`. Sets the per-NFT stake cap (`0` disables it). Settable at any time; only gates future `stake`/`merge` and never touches existing balances (over-cap NFTs are grandfathered). Migrator mint paths are exempt. See [Per-NFT stake cap](xdc-staking-nfts-mechanics.md#per-nft-stake-cap).
 
 ---
 
@@ -116,6 +118,7 @@ The facet reads via `LegacyAppStorageMirror`, which exposes the **actual** stora
 | Event | Contract | When |
 | --- | --- | --- |
 | `Staked` / `Withdrawn` / `Claimed` / `Locked` / `Merged` / `BurnedAndRedeemed` | vault | Standard user actions |
+| `MaxStakePerNftSet(uint256 maxShares)` | vault | Per-NFT stake cap changed (`0` = disabled) |
 | `BoostNotified(uint256 amountIn, uint256 sharesMinted, uint256 rewardPerWeightStored, uint256 totalWeight)` | vault | Each `notifyBoost`; drives boost APR calculation |
 | `MintedAndStaked` / `MintedAndStakedLocked` | vault | Migrator created a new NFT |
 | `Migrated` / `MigratedLocked` | migrator | One-shot migration completed |
