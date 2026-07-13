@@ -33,8 +33,14 @@ When XDC validator rewards flow back into the vault, `totalAssets()` increases w
 | --- | --- |
 | Target APY | ~4.5% |
 | Mechanism | Exchange rate appreciation |
-| When you receive it | Continuously; visible the next time the vault syncs reward inflows |
+| When you receive it | The rate **steps up when the XDC Network pays masternode rewards into the vault** — typically the first days of each month, on the network's own schedule |
 | User action required | None. There is no "claim rewards" button |
+
+{% hint style="warning" %}
+**A flat exchange rate between payouts is normal.** The XDC Network pays masternode rewards roughly **once a month** (usually within the first days of the month), not block-by-block. Between those payments the psXDC rate stays flat — that is the network's payment cadence, not missing rewards. The ~4.5% APY is the annualized result of those monthly steps.
+
+Immediately after a migration or while masternodes are in the network's standby/proposal cycle, the first step-up lands on the **next** monthly payment run after the nodes are active.
+{% endhint %}
 
 **Example.** Stake 1,000 XDC when the exchange rate is `1.00`. You receive 1,000 psXDC shares. Six months later the rate is `1.025`. You burn your 1,000 shares and the vault returns **1,025 XDC**. Your 25 XDC of yield was inside the price the whole time.
 

@@ -6,6 +6,10 @@ Every withdrawal on V3 goes through `redeemWithQueue` (or `withdrawWithQueue`). 
 **During the V3.1 collateral transition** (masternodes moving into the vault roughly weekly), instant withdrawals are served from the vault's free liquidity, and the FIFO queue is backed by dedicated team funding that is ring-fenced for queued requests. New stakers' deposits are never trapped, and queued users are paid as each liquidity tranche arrives. Once the transition completes, the standard buffer model below applies in full.
 {% endhint %}
 
+{% hint style="warning" %}
+**If your request is queued right now:** several masternodes are unstaking at the XDC validator contract specifically to cover every queued withdrawal. The network enforces its own unbonding period (`candidateWithdrawDelay`, ~35 days from resignation under typical block times); as that XDC lands in the vault, the FIFO pays requests out **in order** and your request becomes claimable in the app. Every queued request is fully backed on-chain — no action is needed from you while you wait, and you can cancel at any time to get your psXDC back.
+{% endhint %}
+
 ---
 
 ## The choice the vault makes for you

@@ -46,7 +46,7 @@ strategy, not free money.
 
 | Layer | Source | Where it shows up |
 | --- | --- | --- |
-| ~4.5% APY XDC staking | validator rewards on XDC | psXDC redemption rate (rises daily) |
+| ~4.5% APY XDC staking | validator rewards on XDC | psXDC redemption rate (steps up when the network pays monthly masternode rewards) |
 | Supply APY | PrimeFi lenders' market | claimable on PrimeFi |
 | Borrowed capital | whatever you deploy it into | your strategy |
 

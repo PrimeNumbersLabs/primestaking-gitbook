@@ -24,6 +24,10 @@ Burn 1,000 psXDC on day 365  →  receive 1,045 XDC
 
 Your psXDC balance never changes from rewards. The **value** of your psXDC changes. This is exactly the same model Aave aTokens, Compound cTokens, and Lido wstETH use.
 
+{% hint style="warning" %}
+**The rate moves in monthly steps, not continuously.** The XDC Network pays masternode rewards roughly once a month — usually within the first days of the month. The psXDC rate stays flat between those payments and steps up when each one lands in the vault. Seeing `1.00000` for days or weeks after staking (or after a migration, while nodes complete the network's standby/proposal cycle) is expected behavior, not a missed payout.
+{% endhint %}
+
 ---
 
 ## Where to see your accrued value
