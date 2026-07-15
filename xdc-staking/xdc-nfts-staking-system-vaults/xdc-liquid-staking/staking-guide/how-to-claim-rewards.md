@@ -17,7 +17,7 @@ The V3 vault is an ERC-4626 share contract. When validator rewards flow in, the 
 ```
 Day 0:   1,000 XDC deposited  →  1,000 psXDC minted  (rate = 1.000)
 Day 30:  validator rewards flow in  →  totalAssets increases  →  rate = 1.0037
-Day 365: cumulative rewards ≈ 4.5%  →  rate = 1.045
+Day 365: cumulative rewards ≈ 5.5%  →  rate = 1.045
 
 Burn 1,000 psXDC on day 365  →  receive 1,045 XDC
 ```

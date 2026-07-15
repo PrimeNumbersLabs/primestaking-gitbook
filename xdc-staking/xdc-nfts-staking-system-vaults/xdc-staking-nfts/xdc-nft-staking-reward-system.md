@@ -7,7 +7,7 @@ XDC NFTs in V3 earn from **two stacked sources**. There is no monthly XDC pool a
 ## The two layers
 
 ```
-                  base APY (~4.5%)            boost APY (up to ~1.5%)
+                  base APY (~5.5%)            boost APY (up to ~1.5%)
                        │                              │
                        ▼                              ▼
    shares × NAV(t) appreciation     +     Synthetix accumulator slice
@@ -20,7 +20,7 @@ Every psXDC v3 share grows in value as validator rewards flow into the underlyin
 
 | Aspect | Detail |
 | --- | --- |
-| Target APY | ~4.5% |
+| Target APY | ~5.5% |
 | How it accrues | Via [`PrimeStakedXDC_V3_1`](../contract-addresses.md) share-price growth |
 | When you realize it | When you `withdraw` shares from the NFT or `burnAndRedeem` |
 
@@ -45,12 +45,12 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 
 | Position | Base NAV (floor) | + Boost slice (when flowing) | Combined target |
 | --- | --- | --- | --- |
-| Plain psXDC, no NFT | ~4.5% | none | **~4.5%** |
-| psXDC staked in an unlocked NFT | **~4.5%** | ~0.25% | **~4.5% → ~4.75%** |
-| psXDC staked in a locked NFT | **~4.5%** | up to ~1.5% | **~4.5% → up to ~6%** |
+| Plain psXDC, no NFT | ~5.5% | none | **~5.5%** |
+| psXDC staked in an unlocked NFT | **~5.5%** | ~0.25% | **~5.5% → ~5.75%** |
+| psXDC staked in a locked NFT | **~5.5%** | up to ~1.5% | **~5.5% → up to ~7%** |
 
 {% hint style="info" %}
-**The floor for every staked NFT is the base ~4.5%.** That layer is purely psXDC v3 share-price growth. It accrues automatically and does not depend on rarity, level, lock status, or harvester cadence. Even if `notifyBoost` hasn't been called in a while, you still earn the base. The boost slice is an **additional** stream on top.
+**The floor for every staked NFT is the base ~5.5%.** That layer is purely psXDC v3 share-price growth. It accrues automatically and does not depend on rarity, level, lock status, or harvester cadence. Even if `notifyBoost` hasn't been called in a while, you still earn the base. The boost slice is an **additional** stream on top.
 {% endhint %}
 
 Your individual boost APR depends on:

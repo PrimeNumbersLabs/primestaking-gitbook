@@ -7,7 +7,7 @@ PrimeStaking V3 is a fully on-chain, ERC-4626 staking vault. Rewards are not pai
 ## Two layers of yield
 
 ```
-                base yield (~4.5%)               boost slice (up to ~1.5%)
+                base yield (~5.5%)               boost slice (up to ~1.5%)
                        │                                  │
                        ▼                                  ▼
    shares × NAV(t) appreciation     +     Synthetix-style accumulator
@@ -31,13 +31,13 @@ When XDC validator rewards flow back into the vault, `totalAssets()` increases w
 
 | Aspect | Detail |
 | --- | --- |
-| Target APY | ~4.5% |
+| Target APY | ~5.5% |
 | Mechanism | Exchange rate appreciation |
 | When you receive it | The rate **steps up when the XDC Network pays masternode rewards into the vault** — typically the first days of each month, on the network's own schedule |
 | User action required | None. There is no "claim rewards" button |
 
 {% hint style="warning" %}
-**A flat exchange rate between payouts is normal.** The XDC Network pays masternode rewards roughly **once a month** (usually within the first days of the month), not block-by-block. Between those payments the psXDC rate stays flat — that is the network's payment cadence, not missing rewards. The ~4.5% APY is the annualized result of those monthly steps.
+**A flat exchange rate between payouts is normal.** The XDC Network pays masternode rewards roughly **once a month** (usually within the first days of the month), not block-by-block. Between those payments the psXDC rate stays flat — that is the network's payment cadence, not missing rewards. The ~5.5% APY is the annualized result of those monthly steps.
 
 Immediately after a migration or while masternodes are in the network's standby/proposal cycle, the first step-up lands on the **next** monthly payment run after the nodes are active.
 {% endhint %}
@@ -80,12 +80,12 @@ The boost cadence depends on how often the harvester feeds the accumulator; see 
 
 | Position | Base NAV (floor) | + Boost slice (when flowing) | Combined target |
 | --- | --- | --- | --- |
-| Plain psXDC (no NFT) | ~4.5% | None | **~4.5%** |
-| psXDC inside an unlocked NFT | **~4.5%** | ~0.25% | **~4.5% → ~4.75%** |
-| psXDC inside a locked NFT | **~4.5%** | up to ~1.5% | **~4.5% → up to ~6%** |
+| Plain psXDC (no NFT) | ~5.5% | None | **~5.5%** |
+| psXDC inside an unlocked NFT | **~5.5%** | ~0.25% | **~5.5% → ~5.75%** |
+| psXDC inside a locked NFT | **~5.5%** | up to ~1.5% | **~5.5% → up to ~7%** |
 
 {% hint style="info" %}
-The floor for every staked psXDC (whether you hold it directly, in an unlocked NFT, or in a locked NFT) is the **base ~4.5%**. That layer is automatic. The boost slice (`~0.25%` → `~1.5%`) is an additional stream that depends on harvester cadence and your NFT's weight; when the stream is paused or sparse, you continue to earn the base.
+The floor for every staked psXDC (whether you hold it directly, in an unlocked NFT, or in a locked NFT) is the **base ~5.5%**. That layer is automatic. The boost slice (`~0.25%` → `~1.5%`) is an additional stream that depends on harvester cadence and your NFT's weight; when the stream is paused or sparse, you continue to earn the base.
 {% endhint %}
 
 The exact boost slice depends on your NFT's rarity, level, and lock status relative to the rest of the vault, and on how much XDC the harvester has fed recently. The vault publishes `BoostNotified` events so the UI can show a trailing 30-day boost APR alongside the static targets.

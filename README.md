@@ -35,8 +35,8 @@ Earn rewards on XDC without giving up control of your assets.
 
 | Product                | Token | Yield                          | How It Works                                                                                       |
 | ---------------------- | ----- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
-| **XDC Liquid Staking** | XDC   | \~4.5% APY                     | Stake XDC, receive psXDC vault shares. Share price grows as validator rewards accrue.              |
-| **XDC NFTs**           | psXDC | ~4.5% base + boost slice → up to ~6% locked | Deposit psXDC shares into NFTs. Earn the underlying NAV plus a rarity- and lock-weighted boost slice. |
+| **XDC Liquid Staking** | XDC   | \~5.5% APY                     | Stake XDC, receive psXDC vault shares. Share price grows as validator rewards accrue.              |
+| **XDC NFTs**           | psXDC | ~5.5% base + boost slice → up to ~7% locked | Deposit psXDC shares into NFTs. Earn the underlying NAV plus a rarity- and lock-weighted boost slice. |
 
 #### XDC Liquid Staking
 
@@ -44,7 +44,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
 1. **Stake XDC** - Deposit any amount into the V3 vault.
 2. **Receive psXDC shares** - You receive psXDC at the current vault exchange rate. There is no fixed 1:1 ratio; share price rises as rewards accrue.
-3. **Earn rewards** - Rewards are embedded directly in the share price (~4.5% APY). There is no claim button; your shares simply become worth more XDC over time. Rewards accrue continuously at any backing level (the V3.2 permanent-ledger model).
+3. **Earn rewards** - Rewards are embedded directly in the share price (~5.5% APY). There is no claim button; your shares simply become worth more XDC over time. Rewards accrue continuously at any backing level (the V3.2 permanent-ledger model).
 4. **Stay liquid** - psXDC is a standard ERC-20 on the XDC Network. Hold it, transfer it, use it as DeFi collateral, or deposit it into XDC NFTs.
 5. **Withdraw anytime** - Burn psXDC shares. If the vault has enough unencumbered liquidity, you receive XDC instantly in the same transaction. Otherwise your request enters an automatic FIFO queue and you claim once masternode payouts return.
 6. **Refer friends** - Share your invite link; when someone stakes for the first time through it, you earn a share of the protocol fee their staking generates. See [Referral Program](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/referral-program.md).
@@ -56,10 +56,10 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 A gamified staking layer on top of liquid staking. Deposit psXDC shares into collectible NFTs to earn two stacked yields.
 
 * Each NFT has a **rarity** (Plentiful → Handcrafted) that determines its weight in the boost accumulator.
-* **Base yield** comes from the underlying psXDC share price growing over time (~4.5% APY).
+* **Base yield** comes from the underlying psXDC share price growing over time (~5.5% APY).
 * **Boost yield** comes from a Synthetix-style accumulator. The protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) calls `notifyBoost` and the resulting slice is distributed pro-rata to NFT weights.
 * **Level up** by merging two same-rarity NFTs into a higher tier.
-* **Lock** your NFT for a fixed period to add a lock bonus to its weight. Four tiers are available - **30, 90, 180 or 365 days** - with progressively larger boosts. The boost applies for the whole lock and **ends when the lock expires**; you can re-lock afterwards. Floor is the **~4.5% base NAV** (always earned, no claim); with the boost stream flowing, combined APY ranges from **~4.75% (unlocked)** up to **~6% (365-day lock)**.
+* **Lock** your NFT for a fixed period to add a lock bonus to its weight. Four tiers are available - **30, 90, 180 or 365 days** - with progressively larger boosts. The boost applies for the whole lock and **ends when the lock expires**; you can re-lock afterwards. Floor is the **~5.5% base NAV** (always earned, no claim); with the boost stream flowing, combined APY ranges from **~5.75% (unlocked)** up to **~7% (365-day lock)**.
 * You only claim the **boost slice** from the app. Base NAV is automatically inside the shares you get back on withdraw.
 
 → [Learn more about XDC NFTs](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/) → [Migrate XDC NFTs to V3](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/migrate-nfts-v2-to-v3.md)

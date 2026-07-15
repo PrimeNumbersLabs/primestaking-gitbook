@@ -6,8 +6,8 @@
 
 **XDC Liquid Staking** enables you to stake XDC **while retaining full liquidity**. Instead of locking up your tokens, you receive psXDC (Prime Staked XDC), an ERC-4626 vault share that can be freely used or traded in DeFi.
 
-* **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC vault shares, with no minimum required. Earns ~4.5% APY through share-price appreciation.
-* **XDC NFTs:** Deposit psXDC shares inside XDC NFTs to layer a boost slice on top of the base NAV. **Floor stays at the base ~4.5%** (always earned, regardless of rarity / lock / boost cadence); when the boost stream is flowing, the combined APY ranges from **~4.75% (unlocked)** up to **~6% (locked)**.
+* **XDC Liquid Staking:** A straightforward way to stake XDC and receive psXDC vault shares, with no minimum required. Earns ~5.5% APY through share-price appreciation.
+* **XDC NFTs:** Deposit psXDC shares inside XDC NFTs to layer a boost slice on top of the base NAV. **Floor stays at the base ~5.5%** (always earned, regardless of rarity / lock / boost cadence); when the boost stream is flowing, the combined APY ranges from **~5.75% (unlocked)** up to **~7% (locked)**.
 
 #### What is psXDC?
 
@@ -51,8 +51,8 @@ Yes.
 
 | Product | Base reward | How you receive it |
 | --- | --- | --- |
-| **XDC Liquid Staking** | ~4.5% via psXDC share-price growth | **Automatic**, with no claim button. Rewards are realized when you redeem or transfer the share. |
-| **XDC NFTs** | Base ~4.5% (NAV) + boost slice (up to ~1.5% via Synthetix accumulator) | **Base is automatic** (same as liquid). **Boost is claimed** from the NFT detail page in the app, paid in XDC. |
+| **XDC Liquid Staking** | ~5.5% via psXDC share-price growth | **Automatic**, with no claim button. Rewards are realized when you redeem or transfer the share. |
+| **XDC NFTs** | Base ~5.5% (NAV) + boost slice (up to ~1.5% via Synthetix accumulator) | **Base is automatic** (same as liquid). **Boost is claimed** from the NFT detail page in the app, paid in XDC. |
 
 → [How Rewards Work](xdc-liquid-staking/xdc-staking-rewards.md) → [Reward Model: Base NAV + Boost](xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 
@@ -71,11 +71,11 @@ XDC Network does have a slashing mechanism, but it differs fundamentally from Et
 #### How do XDC NFTs work?
 
 1. **Deposit psXDC shares:** acquire psXDC (by staking XDC or buying on a DEX) and deposit it into your NFT.
-2. **Earn base NAV:** the underlying psXDC shares keep appreciating as the vault accrues validator rewards, the same ~4.5% you'd get without the NFT.
+2. **Earn base NAV:** the underlying psXDC shares keep appreciating as the vault accrues validator rewards, the same ~5.5% you'd get without the NFT.
 3. **Earn boost:** each `notifyBoost` push from the protocol's harvester credits the Synthetix accumulator; your NFT's pending boost grows proportionally to its weight.
 4. **Claim boost:** from the NFT detail page, in XDC.
 5. **Merge:** combine two NFTs of the same rarity to create a higher-rarity NFT with a bigger weight.
-6. **Lock (optional):** locking adds `lockBonus` to the weight, which can push the combined APY toward the ~6% top of the band, but disables withdraw / merge / `burnAndRedeem` until expiry. The base ~4.5% applies whether you lock or not.
+6. **Lock (optional):** locking adds `lockBonus` to the weight, which can push the combined APY toward the ~7% top of the band, but disables withdraw / merge / `burnAndRedeem` until expiry. The base ~5.5% applies whether you lock or not.
 
 #### What is the Merge System?
 

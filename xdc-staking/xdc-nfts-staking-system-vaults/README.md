@@ -9,7 +9,7 @@ The V3 stack is fully non-custodial: psXDC is an ERC-4626 vault share, withdrawa
 ## How It Works
 
 ```
-Stake XDC  →  Receive psXDC shares  →  Share price grows (~4.5% APY)  →  Withdraw anytime
+Stake XDC  →  Receive psXDC shares  →  Share price grows (~5.5% APY)  →  Withdraw anytime
 ```
 
 1. **Deposit XDC** into the [`PrimeStakedXDC_V3_2`](contract-addresses.md) vault.
@@ -22,7 +22,7 @@ Stake XDC  →  Receive psXDC shares  →  Share price grows (~4.5% APY)  →  W
 
 ## Two Ways to Earn
 
-### XDC Liquid Staking (~4.5% APY)
+### XDC Liquid Staking (~5.5% APY)
 
 The simplest path. Stake XDC, receive psXDC shares, watch the share price climb. No NFT required, no minimum amount.
 
@@ -32,10 +32,10 @@ The simplest path. Stake XDC, receive psXDC shares, watch the share price climb.
 
 Gamified staking on top of liquid staking. Deposit psXDC shares into collectible NFTs and earn **two stacked yields**:
 
-- The underlying psXDC NAV (same ~4.5% the vault already gives you).
+- The underlying psXDC NAV (same ~5.5% the vault already gives you).
 - A Synthetix-style **boost slice** funded by the protocol's [`XdcNftBoostHarvester`](xdc-staking-nfts/boost-harvester.md), weighted by NFT rarity, level, and lock status.
 
-**Floor: ~4.5%.** The base NAV is always there, automatic, no claim. When the boost stream is flowing, the combined APY ranges from **~4.75% unlocked** up to **~6% locked**.
+**Floor: ~5.5%.** The base NAV is always there, automatic, no claim. When the boost stream is flowing, the combined APY ranges from **~5.75% unlocked** up to **~7% locked**.
 
 → [XDC NFTs Details](xdc-staking-nfts/)
 
@@ -55,6 +55,6 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 | Redeemable | Yes. Burn psXDC to withdraw XDC, instantly if the buffer allows, otherwise via the automatic FIFO queue |
 | Address | [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) |
 
-psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for the base ~4.5% APY, or deposit it into XDC NFTs to layer the boost slice on top.
+psXDC is the entry point to the entire staking ecosystem. You can hold it as-is for the base ~5.5% APY, or deposit it into XDC NFTs to layer the boost slice on top.
 
 → [V3 Architecture](xdc-liquid-staking/v3-architecture.md) → [Deployed Contracts](contract-addresses.md)

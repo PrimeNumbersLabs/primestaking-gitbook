@@ -62,7 +62,7 @@ There is **no `notifyRewardAmount` admin call** in V3 (V2-era behaviour). There 
 | --- | --- |
 | **Gross APY** | Determined by XDC Network masternode economics (network staking ratio, validator performance, operator throughput) |
 | **Protocol fee** | Percentage of gross validator rewards retained by the protocol (exact figure available under partner due diligence) |
-| **Net user APY** | ~4.5% net (variable; depends on the above) |
+| **Net user APY** | ~5.5% net (variable; depends on the above) |
 | **Distribution basis** | Pro-rata over psXDC shares **automatically through share price**, not at claim time |
 
 Net APY is variable and depends on:
@@ -81,7 +81,7 @@ XDC NFTs earn an **additional** XDC stream on top of base NAV via the Synthetix-
 - The boost slice is distributed pro-rata to each NFT's weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
 - Boost **is** claimed (`claim(tokenId)`) and paid in XDC.
 
-Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~4.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~4.75% (Plentiful unlocked)** up to **~6% (Handcrafted locked)**; the delta over the floor is the boost slice.
+Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~5.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~5.75% (Plentiful unlocked)** up to **~7% (Handcrafted locked)**; the delta over the floor is the boost slice.
 
 → [Reward Model: Base NAV + Boost](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 
