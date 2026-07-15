@@ -77,6 +77,12 @@ The vault's liquid balance grows from:
 
 For very large withdrawals where the protocol doesn't already have a buffer + recent rewards sufficient to cover, the resignation timeline is the upper bound on settlement.
 
+### Queued amounts are fixed — they don't earn while waiting
+
+The XDC amount of a queued request is locked in at the exchange rate of the moment you queued (`previewRedeem` at enqueue time). Reward distributions that land while you wait do **not** increase your payout — from the vault's perspective your exit price is already settled; only the timing of payment is pending. This is standard exit-queue design: fixing the liability at request time keeps the vault's solvency accounting exact.
+
+Because `cancelQueuedWithdrawal` returns your **shares** (not the fixed amount), cancelling after a rate increase and re-queueing captures the appreciation — but it sends you to the back of the FIFO. At ~5.5% APY that trade-off is roughly 0.45% per month of queue time, so it is rarely worth it unless you were far from the head anyway.
+
 ### Cancelling
 
 You can call `cancelQueuedWithdrawal(requestId)` at any time before settlement. The escrowed psXDC shares are returned to your wallet; no XDC moves and nothing is lost.

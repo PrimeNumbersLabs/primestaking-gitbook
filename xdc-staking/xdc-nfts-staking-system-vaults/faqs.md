@@ -38,6 +38,8 @@ When you decide to unstake, you burn the corresponding psXDC shares. The app cal
 
 You can cancel queued requests any time, and if a payout ever fails the XDC lands in `pendingQueuedAssets` so you can collect it via `claimQueuedAssets`.
 
+Note that a queued request's XDC amount is **fixed at the moment you queue** (at that day's exchange rate) — reward distributions that land while you wait don't increase the payout. Cancelling returns your shares (which do carry appreciation), at the cost of your queue position.
+
 → [Withdrawals: Instant vs Queued](xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md)
 
 #### Can I transfer my staking position?
