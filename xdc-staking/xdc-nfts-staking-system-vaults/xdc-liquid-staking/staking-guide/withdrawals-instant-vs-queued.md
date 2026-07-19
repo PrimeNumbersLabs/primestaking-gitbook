@@ -87,7 +87,9 @@ Because `cancelQueuedWithdrawal` returns your **shares** (not the fixed amount),
 
 Every queued request is public on-chain data, and the app's **Queue Explorer** (My Positions page) shows the whole FIFO: each request's position, size, and owner wallet, plus the total queued. Your own requests are highlighted.
 
-The explorer also shows an **expected completion date**. That figure is set by the team from the admin panel to track the real masternode unbonding schedule — it is a good-faith estimate for planning, **not** an on-chain guarantee. What the contract does guarantee: requests are paid strictly first-in-first-out as XDC arrives, and every request is fully backed.
+The explorer also shows an **expected completion date** and, when the team has published the unbonding schedule, a per-request **estimated payout date**. XDC masternodes return principal in **10M XDC lumps**, so the queue drains in steps: each request's estimate is the arrival date of the lump that covers its position.
+
+**How the team dates each step**: the XDC validator contract enforces `candidateWithdrawDelay` = 1,296,000 blocks after a resignation. At the nominal 2-second block time that is 30–31 days, but real block times stretch it to roughly **35–38 days**, so published dates include a ~+5 day buffer on top of the nominal figure. These are good-faith estimates for planning, **not** on-chain guarantees. What the contract does guarantee: requests are paid strictly first-in-first-out as XDC arrives, and every request is fully backed.
 
 ### Cancelling
 
