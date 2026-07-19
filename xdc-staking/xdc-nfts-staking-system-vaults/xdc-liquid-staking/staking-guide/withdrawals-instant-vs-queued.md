@@ -83,6 +83,12 @@ The XDC amount of a queued request is locked in at the exchange rate of the mome
 
 Because `cancelQueuedWithdrawal` returns your **shares** (not the fixed amount), cancelling after a rate increase and re-queueing captures the appreciation — but it sends you to the back of the FIFO. At ~5.5% APY that trade-off is roughly 0.45% per month of queue time, so it is rarely worth it unless you were far from the head anyway.
 
+### The queue is public — and has an ETA
+
+Every queued request is public on-chain data, and the app's **Queue Explorer** (My Positions page) shows the whole FIFO: each request's position, size, and owner wallet, plus the total queued. Your own requests are highlighted.
+
+The explorer also shows an **expected completion date**. That figure is set by the team from the admin panel to track the real masternode unbonding schedule — it is a good-faith estimate for planning, **not** an on-chain guarantee. What the contract does guarantee: requests are paid strictly first-in-first-out as XDC arrives, and every request is fully backed.
+
 ### Cancelling
 
 You can call `cancelQueuedWithdrawal(requestId)` at any time before settlement. The escrowed psXDC shares are returned to your wallet; no XDC moves and nothing is lost.
