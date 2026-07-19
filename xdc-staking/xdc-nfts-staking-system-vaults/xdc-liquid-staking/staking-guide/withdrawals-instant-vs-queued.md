@@ -31,7 +31,7 @@ User calls redeemWithQueue(shares, receiver)
    Receive XDC immediately     Wait → call claimQueuedAssets later
 ```
 
-The buffer is the percentage of total assets the vault keeps liquid (default 5%, tunable by the operations manager via `setBufferBps`). When `maxRedeem(you)` is greater than or equal to the shares you're redeeming, the path is instant. Otherwise the queue kicks in.
+"Enough XDC" means the vault's **unencumbered liquidity**: its native balance minus what is already earmarked for the queue and for failed payouts (V3.2 removed the old percentage-based `bufferBps` buffer). When `maxRedeem(you)` covers the shares you're redeeming, the path is instant; otherwise the queue kicks in. Practically: while a queue backlog exists, most free liquidity is earmarked, so expect the queued path during those periods.
 
 ---
 

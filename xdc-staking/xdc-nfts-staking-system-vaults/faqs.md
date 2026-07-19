@@ -33,8 +33,10 @@ By design. During the cutover the V2 token was paused and the final activation s
 
 When you decide to unstake, you burn the corresponding psXDC shares. The app calls `redeemWithQueue` which:
 
-- **Settles instantly** when the vault's liquid buffer (default 5% of total assets) covers your request. XDC returns to your wallet in the same transaction.
-- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. As soon as the buffer is replenished (new deposits, reward inflows, masternode resignations) the queue settles your request. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
+- **Settles instantly** when the vault's unencumbered liquidity covers your request. XDC returns to your wallet in the same transaction.
+- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. As soon as liquidity is replenished (new deposits, reward inflows, masternode resignations) the queue settles your request. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
+
+Expectation-setting: when a queue backlog exists (e.g. right after a migration, while masternodes unwind), free liquidity is usually thin and **most withdrawals will take the queued path** — instant service is the exception during those periods, not the rule. For an immediate exit at market price you can always sell psXDC on a DEX instead.
 
 You can cancel queued requests any time, and if a payout ever fails the XDC lands in `pendingQueuedAssets` so you can collect it via `claimQueuedAssets`.
 
