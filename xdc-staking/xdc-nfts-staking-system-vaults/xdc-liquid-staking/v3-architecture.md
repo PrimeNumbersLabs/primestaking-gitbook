@@ -41,7 +41,7 @@ You don't need to claim rewards. They are embedded in the share price, so your p
 You have full self-service access to your XDC:
 
 - **Instant withdrawal**: if the contract has sufficient liquid XDC, you redeem shares and receive XDC in the same transaction. No admin approval. No waiting.
-- **Queued withdrawal**: if most XDC is staked in masternodes and liquidity is temporarily low, your request enters an automatic FIFO queue. It processes as soon as liquidity returns from new deposits, reward inflows, or masternode resignations.
+- **Queued withdrawal**: if the vault's free liquidity is too low, your request enters an automatic FIFO queue. The queue is paid from its own ring-fenced budget (`queueBackingBudget`), which the team tops up as masternode principal is unwound and returned; escrowed shares are valued at the exchange rate of the moment they are paid, so queued positions keep earning.
 - **DEX swap**: sell psXDC directly on a DEX (verify the pool holds the live V3.2 token) for immediate exit at market rate.
 
 ### 4. Use psXDC
@@ -50,7 +50,7 @@ psXDC is a standard ERC-20 token on the XDC Network. While your XDC earns yield 
 
 - **Hold** to accumulate rewards passively
 - **Trade** on DEXs
-- **Stake inside XDC NFTs** to boost your yield up to 6%
+- **Stake inside XDC NFTs** to boost your yield to ~5.75% (unlocked) or up to ~7% (locked)
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens
 - **Transfer** to any wallet; the recipient inherits the yield automatically
 
@@ -90,7 +90,7 @@ V3 directly stakes XDC with masternodes via the on-chain XDC validator contract.
 
 ### Liquidity buffer
 
-The contract keeps a configurable percentage of total assets liquid (default 5%) to serve instant withdrawals. This means:
+V3.2 has no percentage buffer target (the earlier `bufferBps` knob was removed). Whatever XDC the vault holds that is not earmarked for the queue or for failed payouts is available for instant withdrawals, and the queue has its own separate budget. In practice:
 
 - Most XDC is working in masternodes earning yield
 - A buffer remains in the contract for immediate redemptions

@@ -26,10 +26,10 @@ PrimeStaking V3 splits operational, risk, and governance responsibilities across
 | Role | Holder | Scope |
 | --- | --- | --- |
 | `DEFAULT_ADMIN_ROLE` | Protocol multisig | Master switch; schedules and executes delayed role/risk changes |
-| `OPERATIONS_MANAGER_ROLE` | Designated operations multisig/manager | `setBufferBps`, scan-limit tuning, auto-propose config, masternode parameter tuning |
+| `OPERATIONS_MANAGER_ROLE` | Designated operations multisig/manager | `distributeRewards` (monthly reward distributions), scan-limit tuning, auto-propose config, masternode parameter tuning |
 | `RISK_MANAGER_ROLE` | Designated risk operator | `reportValidatorLoss` (bounded by per-report and per-day caps) |
 | `PROPOSER_ROLE` | Designated proposer(s) | `proposeMasternode`, `reportMasternodeResignPrincipal` |
-| `MIGRATION_MANAGER_ROLE` | Migration manager | Opens/closes the V2→V3 migration window, tops up backing liquidity via `fundMigrationLiquidity` |
+| `MIGRATION_MANAGER_ROLE` | Migration manager | Opens/closes the V2→V3 migration window, tops up backing via `fundBacking` and funds the withdrawal-queue budget (`queueBackingBudget`) with plain XDC transfers |
 
 No single key can both move funds and modify roles. Role rotations themselves require delayed execution.
 

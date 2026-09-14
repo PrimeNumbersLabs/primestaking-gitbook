@@ -23,7 +23,7 @@ Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero 
 
 #### I held psXDC V3 before July 2026. Do I need to do anything?
 
-No. The vault was redeployed as **V3.1** and every V3 balance was mirrored 1:1 via an on-chain snapshot airdrop, including psXDC inside XDC NFTs, DEX pools, lending markets, and open limit orders, which were credited to their underlying owners. Your balance appears automatically in the app. The old V3 token is retired and has no remaining function.
+No. The vault was redeployed as **V3.1** (3 July) and again as **V3.2** (6 July, the live token [`0xDc74…c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)); each time every balance was mirrored 1:1 via an on-chain snapshot airdrop, including psXDC inside XDC NFTs, DEX pools, lending markets, and open limit orders, which were credited to their underlying owners. Your balance appears automatically in the app. The old V3 and V3.1 tokens are retired and have no remaining function.
 
 #### Why were migrations briefly unavailable during the V3.1 cutover (July 3-4, 2026)?
 
@@ -34,13 +34,13 @@ By design. During the cutover the V2 token was paused and the final activation s
 When you decide to unstake, you burn the corresponding psXDC shares. The app calls `redeemWithQueue` which:
 
 - **Settles instantly** when the vault's unencumbered liquidity covers your request. XDC returns to your wallet in the same transaction.
-- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. As soon as liquidity is replenished (new deposits, reward inflows, masternode resignations) the queue settles your request. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
+- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. The queue is paid from a dedicated budget (`queueBackingBudget`) that the team tops up as masternode principal is unwound and returned — new deposits refill the *instant* buffer, not the queue. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
 
 Expectation-setting: when a queue backlog exists (e.g. right after a migration, while masternodes unwind), free liquidity is usually thin and **most withdrawals will take the queued path** — instant service is the exception during those periods, not the rule. For an immediate exit at market price you can always sell psXDC on a DEX instead.
 
 You can cancel queued requests any time, and if a payout ever fails the XDC lands in `pendingQueuedAssets` so you can collect it via `claimQueuedAssets`.
 
-Note that a queued request's XDC amount is **fixed at the moment you queue** (at that day's exchange rate) — reward distributions that land while you wait don't increase the payout. Cancelling returns your shares (which do carry appreciation), at the cost of your queue position.
+A queued request's payout is **not** frozen at the day you queued: your psXDC stays escrowed as shares and the vault pays `previewRedeem(shares)` at the exchange rate of the moment the request is processed, so reward distributions that land while you wait still reach you. The queue is paid in FIFO order from a dedicated budget; a request the budget cannot yet cover is passed over and retried on the next pass (never cancelled), which is why smaller requests can occasionally settle before larger, older ones.
 
 → [Withdrawals: Instant vs Queued](xdc-liquid-staking/staking-guide/withdrawals-instant-vs-queued.md)
 
@@ -56,7 +56,7 @@ Yes.
 | Product | Base reward | How you receive it |
 | --- | --- | --- |
 | **XDC Liquid Staking** | ~5.5% via psXDC share-price growth | **Automatic**, with no claim button. Rewards are realized when you redeem or transfer the share. |
-| **XDC NFTs** | Base ~5.5% (NAV) + boost slice (up to ~1.5% via Synthetix accumulator) | **Base is automatic** (same as liquid). **Boost is claimed** from the NFT detail page in the app, paid in XDC. |
+| **XDC NFTs** | Base ~5.5% (NAV) + boost slice (up to ~1.5% via Synthetix accumulator) | **Base is automatic** (same as liquid). **Boost is claimed** from the NFT detail page in the app, paid in psXDC shares. |
 
 → [How Rewards Work](xdc-liquid-staking/xdc-staking-rewards.md) → [Reward Model: Base NAV + Boost](xdc-staking-nfts/xdc-nft-staking-reward-system.md)
 
@@ -76,8 +76,8 @@ XDC Network does have a slashing mechanism, but it differs fundamentally from Et
 
 1. **Deposit psXDC shares:** acquire psXDC (by staking XDC or buying on a DEX) and deposit it into your NFT.
 2. **Earn base NAV:** the underlying psXDC shares keep appreciating as the vault accrues validator rewards, the same ~5.5% you'd get without the NFT.
-3. **Earn boost:** each `notifyBoost` push from the protocol's harvester credits the Synthetix accumulator; your NFT's pending boost grows proportionally to its weight.
-4. **Claim boost:** from the NFT detail page, in XDC.
+3. **Earn boost:** each boost push from the operations wallet (`notifyBoost` in XDC or `notifyBoostShares` in psXDC) credits the Synthetix accumulator; your NFT's pending boost grows proportionally to its weight.
+4. **Claim boost:** from the NFT detail page, paid in psXDC shares.
 5. **Merge:** combine two NFTs of the same rarity to create a higher-rarity NFT with a bigger weight.
 6. **Lock (optional):** locking adds `lockBonus` to the weight, which can push the combined APY toward the ~7% top of the band, but disables withdraw / merge / `burnAndRedeem` until expiry. The base ~5.5% applies whether you lock or not.
 

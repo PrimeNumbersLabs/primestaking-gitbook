@@ -33,11 +33,11 @@ When XDC validator rewards flow back into the vault, `totalAssets()` increases w
 | --- | --- |
 | Target APY | ~5.5% |
 | Mechanism | Exchange rate appreciation |
-| When you receive it | The rate **steps up when the XDC Network pays masternode rewards into the vault** — typically the first days of each month, on the network's own schedule |
+| When you receive it | The rate **steps up when the operations team distributes the period's masternode rewards into the vault** (`distributeRewards()`, roughly monthly, sized to the 5.5% target on average TVL) |
 | User action required | None. There is no "claim rewards" button |
 
 {% hint style="warning" %}
-**A flat exchange rate between payouts is normal.** The XDC Network pays masternode rewards roughly **once a month** (usually within the first days of the month), not block-by-block. Between those payments the psXDC rate stays flat — that is the network's payment cadence, not missing rewards. The ~5.5% APY is the annualized result of those monthly steps.
+**A flat exchange rate between payouts is normal.** Rewards reach the vault in roughly **monthly** distributions, not block-by-block. Between those distributions the psXDC rate stays flat — that is the payment cadence, not missing rewards. The ~5.5% APY is the annualized result of those steps; the distribution for a period covers every day of it, so a later payout is not a smaller payout.
 
 Immediately after a migration or while masternodes are in the network's standby/proposal cycle, the first step-up lands on the **next** monthly payment run after the nodes are active.
 {% endhint %}
@@ -60,10 +60,10 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 | --- | --- |
 | `stakedShares` | More psXDC staked inside the NFT → bigger slice |
 | `rarityMultiplier` | Plentiful (lowest) → Handcrafted (highest); set at mint, immutable |
-| `level` | Increases when the NFT levels up via merge |
+| `level` | 0–20, derived from how much psXDC is staked under the NFT against admin-set thresholds (merging changes rarity, not level) |
 | `lockBonus` | Added when the NFT is locked, sized by the chosen lock tier (30/90/180/365 days). **Ends automatically when the lock expires** and can be renewed by re-locking. |
 
-When you `claim` from an NFT, the accumulator settles your pending boost and pays it out in XDC.
+When you `claim` from an NFT, the accumulator settles your pending boost and pays it out in psXDC shares (the app claims as psXDC; the contract can also unwrap to XDC on request).
 
 | Aspect | Detail |
 | --- | --- |
@@ -72,7 +72,7 @@ When you `claim` from an NFT, the accumulator settles your pending boost and pay
 | When you receive it | When you call `claim` on the NFT |
 | User action required | Yes: claim from the NFT detail page, or it settles automatically on any other state-changing action (stake more, lock, merge, withdraw) |
 
-The boost cadence depends on how often the harvester feeds the accumulator; see [Boost Harvester (technical)](../xdc-staking-nfts/boost-harvester.md) for the full picture.
+The boost cadence depends on how often the operator feeds the accumulator (target: monthly, ~1.5% p.a. on the staked total); see [Boost Harvester (technical)](../xdc-staking-nfts/boost-harvester.md) for the full picture and payment history.
 
 ---
 
@@ -88,7 +88,7 @@ The boost cadence depends on how often the harvester feeds the accumulator; see 
 The floor for every staked psXDC (whether you hold it directly, in an unlocked NFT, or in a locked NFT) is the **base ~5.5%**. That layer is automatic. The boost slice (`~0.25%` → `~1.5%`) is an additional stream that depends on harvester cadence and your NFT's weight; when the stream is paused or sparse, you continue to earn the base.
 {% endhint %}
 
-The exact boost slice depends on your NFT's rarity, level, and lock status relative to the rest of the vault, and on how much XDC the harvester has fed recently. The vault publishes `BoostNotified` events so the UI can show a trailing 30-day boost APR alongside the static targets.
+The exact boost slice depends on your NFT's rarity, level, and lock status relative to the rest of the vault, and on how much boost the operator has pushed. The vault publishes `BoostNotified` events so the UI can show the realised boost APR (boost paid since launch, annualised, capped at the marketed band) alongside the static targets.
 
 ---
 
@@ -96,7 +96,7 @@ The exact boost slice depends on your NFT's rarity, level, and lock status relat
 
 The V2 product distributed rewards by having the owner periodically call `notifyRewardAmount` and required users to call `claim` to collect their share. V3 removes both:
 
-- **No `notifyRewardAmount`**: validator rewards flow directly into the vault, so the exchange rate updates automatically.
+- **No `notifyRewardAmount` + claim cycle**: the operations manager distributes the period's validator rewards into the vault (`distributeRewards`, roughly monthly) and the exchange rate updates for every holder at once.
 - **No `claim`**: your reward is *already inside the share*. When you redeem the share, you receive both the principal and the accrued reward in one transaction.
 
 The boost layer keeps its `claim` flow because it is a **separate** XDC stream layered on top of the share, not an internal accrual.

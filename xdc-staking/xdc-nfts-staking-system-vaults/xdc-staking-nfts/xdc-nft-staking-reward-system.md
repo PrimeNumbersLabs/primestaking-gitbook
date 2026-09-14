@@ -1,6 +1,6 @@
 # Reward Model: Base NAV + Boost
 
-XDC NFTs in V3 earn from **two stacked sources**. There is no monthly XDC pool and no "PrimeFi ecosystem profit share" math. Both layers are fully on-chain and continuously accruing.
+XDC NFTs in V3 earn from **two stacked sources**. There is no "PrimeFi ecosystem profit share" math. Both layers are fully on-chain: the base layer moves whenever the psXDC vault's NAV is stepped up by a reward distribution (roughly monthly), the boost layer whenever the operator pushes a boost batch into the NFT vault.
 
 ---
 
@@ -21,7 +21,7 @@ Every psXDC v3 share grows in value as validator rewards flow into the underlyin
 | Aspect | Detail |
 | --- | --- |
 | Target APY | ~5.5% |
-| How it accrues | Via [`PrimeStakedXDC_V3_1`](../contract-addresses.md) share-price growth |
+| How it accrues | Via [`PrimeStakedXDC_V3_2`](../contract-addresses.md) share-price growth (operator `distributeRewards()` calls raise NAV in steps, ~monthly) |
 | When you realize it | When you `withdraw` shares from the NFT or `burnAndRedeem` |
 
 ### 2. Boost: Synthetix accumulator inside the NFT vault
@@ -35,9 +35,9 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 | Aspect | Detail |
 | --- | --- |
 | Target APR band | ~0.25% (Plentiful unlocked) → ~1.5% (Handcrafted locked) |
-| How it accrues | `rewardPerWeightStored` increments on every `notifyBoost`; per-NFT `earned` is computed Synthetix-style |
+| How it accrues | `rewardPerWeightStored` increments on every boost push — `notifyBoost` (native XDC, wrapped into psXDC) or `notifyBoostShares` (psXDC directly, added 14 Sep 2026); per-NFT `earned` is computed Synthetix-style |
 | When you realize it | When you call `claim(tokenId)` from the NFT detail page (or automatically on any other state-changing action like stake/lock/merge/withdraw, which `_settle` first) |
-| Reward asset | XDC (the harvester's payload is native XDC) |
+| Reward asset | psXDC shares (claimed as psXDC in the app; the contract can also unwrap to XDC via `redeemWithQueue` when `unwrap = true`) |
 
 ---
 
@@ -57,21 +57,21 @@ Your individual boost APR depends on:
 
 - Your NFT's `rarityMultiplier`, `level`, and whether it's locked.
 - How much psXDC you have staked (more shares → more weight → more slice).
-- How active the harvester's `notifyBoost` stream has been recently.
+- How much boost the operator has actually pushed (`notifyBoost` / `notifyBoostShares` batches).
 
-The UI surfaces a trailing 30-day boost APR alongside the static targets so you can see what the stream has actually paid.
+The UI shows the boost APR realised since the V3 launch (boost paid to date, annualised and capped at the marketed band) alongside the static targets, so you can see what has actually been paid rather than a projection. The first batch landed on 14 Sep 2026 and covered the whole May–Sep period at the full ~1.5% band.
 
 ---
 
 ## Why no monthly pool
 
-The V2 NFT system distributed rewards in a monthly batch process driven off-chain. V3 replaces this with a **continuous, on-chain Synthetix accumulator** for three reasons:
+The V2 NFT system distributed rewards in a monthly batch process driven off-chain, with per-user payouts. V3 replaces this with an **on-chain Synthetix accumulator** for three reasons:
 
-- **Trust-minimized**: the boost rate is a function of harvester pushes, not a manually-set monthly figure.
-- **Granular**: earnings update on every `notifyBoost`, not once per month.
+- **Trust-minimized**: every boost batch is a public `BoostNotified` transaction and the split is pure arithmetic on weights — no off-chain allocation list.
+- **Granular**: one push credits every NFT at once, and `earned(tokenId)` is exact at any moment.
 - **Composable**: partner integrations can read `earned(tokenId)` directly on-chain at any time.
 
-There is no longer a "10% of PrimeFi profits" framing; the harvester's funding model is described in [Boost Harvester (technical)](boost-harvester.md).
+There is no longer a "10% of PrimeFi profits" framing; the funding model and payment history are described in [Boost Harvester (technical)](boost-harvester.md).
 
 ---
 

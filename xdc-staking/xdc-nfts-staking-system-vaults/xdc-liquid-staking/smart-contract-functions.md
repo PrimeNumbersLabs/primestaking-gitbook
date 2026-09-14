@@ -76,7 +76,9 @@ These are gated by the V3 role split. They never let an admin move user funds; t
 
 | Function | Role | Notes |
 | --- | --- | --- |
-| `setBufferBps(uint256)` | `OPERATIONS_MANAGER_ROLE` | Sets the percentage of total assets kept liquid for instant redeem |
+| `distributeRewards() payable` | `OPERATIONS_MANAGER_ROLE` | Reward lane: credits the sent XDC (minus the optional `rewardFeeBps` skim, default 0, hard-capped at 20%) to `trackedTotalAssets`, i.e. raises the psXDC share price for every holder. This is how the ~5.5% APY reaches holders, roughly monthly. |
+| `setRewardFeeConfig(uint16 bps, address recipient)` | `DEFAULT_ADMIN_ROLE` | Optional protocol fee on distributions (currently 0). |
+| `fundBacking() payable` | `MIGRATION_MANAGER_ROLE` | Backing lane: adds un-earmarked XDC intended for `proposeMasternode`. Never mints shares or moves NAV. |
 | `setOperatorScanLimit(uint256)` / `setQueueScanLimit(uint256)` | `OPERATIONS_MANAGER_ROLE` | Bounded scan limits used by auto-propose and queue processing |
 | `setMinStake(uint256)` | `OPERATIONS_MANAGER_ROLE` | Minimum XDC required to attempt a masternode propose |
 | `setValidator(address)` | `OPERATIONS_MANAGER_ROLE` | Configures the XDC validator contract address |
@@ -113,25 +115,26 @@ The owner handoff itself uses the same pattern:
 | --- | --- | --- |
 | `setMigrationBridge(address)` | admin | Configures the address allowed to call `migrate(...)` |
 | `setMigrationInProgress(bool)` | `MIGRATION_MANAGER_ROLE` | Opens or closes the migration window |
-| `fundMigrationLiquidity()` payable | `MIGRATION_MANAGER_ROLE` | Tops up backing liquidity for migrated shares. Only callable while the migration window is open |
+| `fundBacking()` payable | `MIGRATION_MANAGER_ROLE` | Adds un-earmarked backing XDC (for masternode proposals); a plain XDC transfer from the same role is earmarked to `queueBackingBudget` instead. Neither mints shares nor moves NAV. |
 
-Direct native sends to the vault while migration is in progress are accepted **only** from the migration manager and are treated as migration liquidity (they do not inflate `totalAssets` or `convertToShares`).
+Direct native sends to the vault are routed by sender: from the migration manager they are earmarked to `queueBackingBudget`; from the operations manager or admin they are treated as a reward distribution; from anyone else they are silent backing donations (balance only, never NAV).
 
 ---
 
-## V3.1 additions: under-backed mode
+## V3.2: the permanent ledger model
 
-V3.1 adds a single mechanism on top of the audited V3 design so the vault could launch while the legacy masternode collateral is still being transferred in:
+V3.1 introduced a temporary `underBackedMode` that suspended reward distribution until the vault was fully backed. V3.2 (the live vault) makes the partially-backed state the **permanent, first-class operating model** and removes the mode flag, the percentage buffer (`bufferBps`) and `fundMigrationLiquidity` entirely:
 
 | Surface | Detail |
 | --- | --- |
-| `underBackedMode` (public bool) | Set once at go-live if the vault's liquid + tracked backing was below its share liability. **Auto-clears** inside `syncTrackedAssets()` when real backing catches up; no admin can force it back on. |
-| `queueBackingBudget` (public uint) | A ring-fenced budget, active only while under-backed. Migration-manager funding and returned masternode principal accrue here and are reserved for the FIFO withdrawal queue. |
-| Withdrawal behaviour | Immediate withdrawals draw only from unencumbered surplus liquidity (new stakes stay withdrawable); queued requests are paid from `queueBackingBudget` as funding tranches arrive. |
-| NAV protection | While under-backed, `syncTrackedAssets()` cannot write NAV down, so the transition mechanics can never reduce the value of existing shares. |
-| `fundMigrationLiquidity()` | Callable by the `MIGRATION_MANAGER_ROLE` during under-backed mode to inject collateral tranches (roughly one masternode's worth per week) without minting shares or inflating NAV. |
+| `trackedTotalAssets` | A **liability ledger**: what the vault owes holders. Real backing (native balance + `outstandingValidatorPrincipal`) may sit below it; the gap is disclosed off-chain from the public getters as `(trackedTotalAssets + totalFailedPayouts) − (balance + outstandingValidatorPrincipal)`. |
+| Reward lane — `distributeRewards()` | Always open. The operations manager forwards the period's validator yield; it raises `trackedTotalAssets` (the share price) regardless of the backing gap, so holders earn on schedule. Optional hard-capped `rewardFeeBps` (default 0). |
+| Backing lanes — `fundBacking()` and migration-manager sends | Always open, never NAV. `fundBacking()` adds un-earmarked liquidity for `proposeMasternode`. A raw send from the `MIGRATION_MANAGER_ROLE` wallet is earmarked to `queueBackingBudget`, from which the FIFO withdrawal queue is settled **exclusively**. Neither mints shares nor touches `trackedTotalAssets`; third-party sends are accepted as silent backing donations, so outsiders cannot pump the share price. |
+| `queueBackingBudget` (public uint) | The ring-fenced queue budget. Also receives returned masternode principal (via `withdrawResignedMasternode`) up to the queue's unfunded amount. |
+| Immediate withdrawals | Draw only from **unencumbered surplus liquidity** (balance − queue earmark − failed-payout reserve). Fresh stakers can always exit their own liquidity, and the earmarked queue funding cannot be front-run. |
+| Queue processing | `processWithdrawalQueue(maxRequests)` walks the FIFO paying `previewRedeem(shares)` at the current rate from `queueBackingBudget`; a request the budget cannot cover is skipped (and retried later), never cancelled. |
+| NAV protection | `syncTrackedAssets()` only ratchets tracked assets **upwards** (donations, vault-node rewards). Real validator losses go through `reportValidatorLoss`, bounded by `maxLossBpsPerReport` / `maxDailyLossBps` under the risk manager. |
 
-Once the full collateral has been transferred, `underBackedMode` clears itself and the contract behaves exactly like the audited V3.
 
 ---
 

@@ -39,12 +39,12 @@ Infrastructure is developed in collaboration with **Nethermind** (smart contract
 
 | Contract | Function | Upgradeability | Address |
 | --- | --- | --- | --- |
-| `PrimeStakedXDC_V3_2` | ERC-4626 native-XDC vault. Mints/burns psXDC shares, manages liquidity buffer, processes withdrawals, interfaces with masternodes. | **None** (regular constructor, no proxy) | [`0xa7FD…73e4`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) |
-| `PrimeStakedXDC_V3MigrationBridge` | One-way V2 psXDC → V3 share migration. Time-locked admin, daily withdrawal caps. | **None** | [`0x6c57…373C`](https://xdcscan.com/address/0x6c57075c7A157113D369109B78738A798d41373C) |
+| `PrimeStakedXDC_V3_2` | ERC-4626 native-XDC vault. Mints/burns psXDC shares, serves instant withdrawals from unencumbered liquidity, runs the FIFO queue from a ring-fenced budget, interfaces with masternodes. | **None** (regular constructor, no proxy) | [`0xDc74…c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) |
+| `PrimeStakedXDC_V3_2MigrationBridge` | One-way V2 psXDC → V3.2 share migration. Time-locked admin, daily withdrawal caps. (The original V3 bridge `0x6c57…373C` was retired with the old V3 token.) | **None** | [`0x313e…c280`](https://xdcscan.com/address/0x313e8d6Ad3D16be6318dF2AF5a54A87Aea42c280) |
 | `XdcStakedNFT` | ERC-721 NFT collection for staking positions. Rarity stored on-chain. | **None** | [`0xf3eB…898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) |
 | `XdcNftStakingVault` | Holds psXDC v3 shares per NFT; runs Synthetix-style boost accumulator; handles stake/withdraw/claim/lock/merge/burnAndRedeem; enforces a governance-configurable per-NFT stake cap (default 100,000 psXDC). | **TransparentUpgradeableProxy** (ERC-7201 namespaced storage) | [`0x9f38…4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) |
-| `XdcNftMigratorV2` | Atomic V2 → V3 NFT migration. Preserves `tokenId`/rarity/lock, and remaps legacy ids ≥ `10000` into the free `5558–9999` band. | **None** | [`0x69DE…2ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) |
-| `XdcNftBoostHarvester` | Funds the NFT vault's boost accumulator via `notifyBoost`. Only holder of `FEE_ROUTER_ROLE`. | **None** | [`0x6a31…821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) |
+| `XdcNftMigrator` | Atomic V2 → V3 NFT migration. Preserves `tokenId`/rarity/lock, and remaps legacy ids ≥ `10000` into the free `5558–9999` band. Migration complete (1,431 NFTs, May–Jul 2026); current `MIGRATOR_ROLE` holder shown. | **None** | [`0x87Ab…556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) |
+| `XdcNftBoostHarvester` | Optional pipe that funds the NFT vault's boost accumulator with native XDC via `notifyBoost`. Shares `FEE_ROUTER_ROLE` with the operations wallet, which funds the boost directly (`notifyBoost` / `notifyBoostShares`). | **None** | [`0x6a31…821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) |
 | `LegacyMigratorBypassFacet` | Diamond facet on the legacy Diamond `0x7a5d…aA17` enabling locked-NFT migration (clears `tokenLocked`; the diamond pays the psXDC). | Facet, added via `diamondCut` | [`0x2786…5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) |
 
 Full inventory in [Deployed Contracts & Addresses](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md).
@@ -92,7 +92,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 
 ### Reward Accrual
 
-1. Validator rewards flow back into the vault.
+1. Masternode rewards are collected off-vault and distributed into it by the operations team (`distributeRewards`, roughly monthly, sized to the 5.5% target).
 2. `totalAssets` increases; share supply does not.
 3. Exchange rate rises automatically, so every psXDC share is worth more XDC. There is no manual `claim` step for the base layer.
 
@@ -106,7 +106,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 
 ### Boost (NFT layer)
 
-1. Treasury / harvester pushes XDC into `XdcNftStakingVault.notifyBoost(amount)`.
+1. The operations wallet pushes a boost batch into `XdcNftStakingVault` — `notifyBoost(amount)` in XDC or `notifyBoostShares(shares)` in psXDC (the harvester can also feed XDC in).
 2. The vault converts XDC to psXDC v3 shares and increments `rewardPerWeightStored`.
 3. Each staked NFT's pending boost grows proportionally to its weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
 4. NFT holder calls `claim(tokenId, unwrap)` from the app to settle their slice in XDC or shares.

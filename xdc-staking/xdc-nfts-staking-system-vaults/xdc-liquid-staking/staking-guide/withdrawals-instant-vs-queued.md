@@ -7,7 +7,7 @@ Every withdrawal on V3 goes through `redeemWithQueue` (or `withdrawWithQueue`). 
 {% endhint %}
 
 {% hint style="warning" %}
-**If your request is queued right now:** several masternodes are unstaking at the XDC validator contract specifically to cover every queued withdrawal. The network enforces its own unbonding period (`candidateWithdrawDelay`, ~35 days from resignation under typical block times); as that XDC lands in the vault, the FIFO pays requests out **in order** and your request becomes claimable in the app. Every queued request is fully backed on-chain — no action is needed from you while you wait, and you can cancel at any time to get your psXDC back.
+**If your request is queued right now:** several masternodes are unstaking at the XDC validator contract specifically to cover queued withdrawals. The network enforces its own unbonding period (`candidateWithdrawDelay`, ~35 days from resignation under typical block times); as that XDC is routed into the queue budget, requests are paid out in FIFO order (a request larger than the budget available at that moment is passed over and retried on the next pass, so smaller requests behind it can settle earlier). Your psXDC stays escrowed at its full share value while you wait and keeps following NAV — no action is needed from you, and you can cancel at any time to get your psXDC back.
 {% endhint %}
 
 ---
@@ -60,28 +60,24 @@ When liquidity is constrained:
 Anyone can call `processWithdrawalQueue(maxRequests)`, which:
 
 1. Walks the FIFO, oldest first.
-2. For each request, checks the current liquid XDC against the request's share value at the **current** exchange rate.
-3. If the vault can pay, it does: it burns the escrowed shares and sends XDC to the original receiver.
+2. For each request, values the escrowed shares at the **current** exchange rate (`previewRedeem(shares)`) and compares that against the **queue budget** (`queueBackingBudget`) — the XDC ring-fenced for queued requests. The vault's free liquidity that serves instant redemptions is *not* used for the queue.
+3. If the budget covers the request, it burns the escrowed shares and sends XDC to the original receiver. If it does not, the request is **passed over, not cancelled** — the processor moves on and tries the next request, and the skipped one is retried on the next pass once more budget has arrived. In practice this means a small request can settle before a larger, older one when the budget is topped up in tranches.
 4. If the receiver payout fails (e.g. a smart contract receiver that reverts on payment), the XDC is deferred into `pendingQueuedAssets[receiver]`. The user collects it later via `claimQueuedAssets`.
 
 Auto-propose (the function that pushes new XDC into masternodes) is **blocked while there is any backlog**, so the protocol prioritizes outgoing user redemptions over locking up more XDC.
 
 ### What replenishes liquidity
 
-The vault's liquid balance grows from:
+Two separate pools of XDC matter here:
 
-- **New user deposits** (any `stake` adds XDC to the buffer).
-- **Validator reward inflows** (rewards flow back into the vault and bump tracked assets).
-- **Masternode resignation**: when a proposer resigns a masternode, the XDC returns to the vault after the network's `candidateWithdrawDelay` (~35 days under typical block times).
-- **Collateral-transition funding** (V3.1): while the legacy masternode fleet is being moved over, the team injects liquidity tranches on a rolling schedule; funding earmarked for the withdrawal queue is reserved for queued requests and cannot be consumed by instant withdrawals.
+- The **instant buffer** (unencumbered vault balance) grows from **new user deposits** (any `stake` adds XDC) and any XDC returned from masternode resignations that is not earmarked for the queue. It serves `redeemWithQueue` calls that can settle immediately.
+- The **queue budget** (`queueBackingBudget`) grows only from XDC explicitly routed to it: the team's liquidity tranches (sent by the migration-manager wallet, which the vault earmarks for queued requests) and, when a masternode is resigned through the vault, the returned principal up to the queue's unfunded amount. Instant withdrawals can never consume it, and deposits do not flow into it.
 
-For very large withdrawals where the protocol doesn't already have a buffer + recent rewards sufficient to cover, the resignation timeline is the upper bound on settlement.
+Masternode resignations return principal after the network's `candidateWithdrawDelay` (~35 days under typical block times), so for large backlogs that timeline is the upper bound on settlement.
 
-### Queued amounts are fixed — they don't earn while waiting
+### Queued requests keep following NAV until they are paid
 
-The XDC amount of a queued request is locked in at the exchange rate of the moment you queued (`previewRedeem` at enqueue time). Reward distributions that land while you wait do **not** increase your payout — from the vault's perspective your exit price is already settled; only the timing of payment is pending. This is standard exit-queue design: fixing the liability at request time keeps the vault's solvency accounting exact.
-
-Because `cancelQueuedWithdrawal` returns your **shares** (not the fixed amount), cancelling after a rate increase and re-queueing captures the appreciation — but it sends you to the back of the FIFO. At ~5.5% APY that trade-off is roughly 0.45% per month of queue time, so it is rarely worth it unless you were far from the head anyway.
+Your request records the XDC value at enqueue time for the vault's accounting, but the **payout is recomputed when the request is processed**: the processor pays `previewRedeem(shares)` at the exchange rate of that moment. Reward distributions that land while you wait therefore *do* reach you — your escrowed shares keep appreciating exactly like unstaked psXDC. There is no reason to cancel and re-queue to capture a NAV increase; doing so only sends you to the back of the FIFO.
 
 ### The queue is public — and has an ETA
 
@@ -89,7 +85,7 @@ Every queued request is public on-chain data, and the app's **Queue Explorer** (
 
 The explorer also shows an **expected completion date** and, when the team has published the unbonding schedule, a per-request **estimated payout date**. XDC masternodes return principal in **10M XDC lumps**, so the queue drains in steps: each request's estimate is the arrival date of the lump that covers its position.
 
-**How the team dates each step**: the XDC validator contract enforces `candidateWithdrawDelay` = 1,296,000 blocks after a resignation. At the nominal 2-second block time that is 30–31 days, but real block times stretch it to roughly **35–38 days**, so published dates include a ~+5 day buffer on top of the nominal figure. These are good-faith estimates for planning, **not** on-chain guarantees. What the contract does guarantee: requests are paid strictly first-in-first-out as XDC arrives, and every request is fully backed.
+**How the team dates each step**: the XDC validator contract enforces `candidateWithdrawDelay` = 1,296,000 blocks after a resignation. At the nominal 2-second block time that is 30–31 days, but real block times stretch it to roughly **35–38 days**, so published dates include a ~+5 day buffer on top of the nominal figure. These are good-faith estimates for planning, **not** on-chain guarantees. What the contract does guarantee: requests are processed in first-in-first-out order from the dedicated queue budget, a request the budget cannot yet cover is passed over (never cancelled) and retried on the next pass, escrowed shares are valued at the exchange rate of the moment they are paid, and you can cancel and recover your psXDC at any time.
 
 ### Cancelling
 
@@ -117,7 +113,7 @@ In Lite Mode the **withdraw tab** uses the same logic. The **queue list** on the
 | V2 behaviour | V3 behaviour |
 | --- | --- |
 | Every withdrawal required admin approval | No admin approval at any point |
-| The owner picked which requests to honor | FIFO is enforced on-chain: first in, first out |
+| The owner picked which requests to honor | FIFO order is enforced on-chain; the only deviation is mechanical — a request the current budget cannot cover is passed over and retried, it is never cancelled or reprioritised by anyone |
 | Withdrawals could be paused unilaterally by the admin | Auto-propose is blocked while the queue is non-empty, prioritizing exits over new validator locks |
 | You had to wait the full validator-queue time even when liquidity was available | Instant when possible, queued only when the buffer is insufficient |
 | Failed payouts could lose XDC | Failed payouts defer into `pendingQueuedAssets` and the user self-claims with `claimQueuedAssets` |

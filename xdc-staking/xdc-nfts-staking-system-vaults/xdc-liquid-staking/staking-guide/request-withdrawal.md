@@ -27,11 +27,7 @@ The redemption settles in the **same transaction**. You receive XDC immediately.
 
 ### If buffer liquidity is constrained
 
-Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time**. It is settled as soon as enough liquidity returns from:
-
-- New user deposits,
-- Validator reward inflows, or
-- Masternode resignation principal returning to the vault after the XDC Network's `candidateWithdrawDelay` (~35 days under normal block times).
+Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time**. It is settled as the queue's dedicated budget (`queueBackingBudget`) is topped up — primarily from masternode resignation principal returning after the XDC Network's `candidateWithdrawDelay` (~35 days under normal block times), routed to the queue by the team. New deposits refill the *instant* buffer, not the queue. Your escrowed shares are paid at the exchange rate of the moment they are processed, so they keep earning while you wait.
 
 You can monitor the queue at any time from the **My Positions** page. When your request is processed, your XDC lands either directly in your wallet or in the vault's `pendingQueuedAssets` bucket. If it lands in `pendingQueuedAssets` (because the original payout failed for any reason), you collect it by calling `claimQueuedAssets`. The app exposes this as a **Claim** button on the queued withdrawal entry.
 
@@ -41,7 +37,7 @@ You can also cancel a queued request before it settles. The vault returns the es
 
 ## Why a queue exists at all
 
-The vault keeps most of the XDC working in masternodes earning yield, and only holds a small percentage (the **buffer**, default 5%) liquid for instant redemptions. When demand to withdraw exceeds the buffer, the queue ensures that everyone is served fairly in FIFO order without forcing the protocol to disrupt active validators.
+The vault keeps most of the XDC working in masternodes earning yield and holds only its unencumbered balance liquid for instant redemptions. When demand to withdraw exceeds that, the queue ensures that everyone is served in FIFO order from a ring-fenced budget without forcing the protocol to disrupt active validators (a request the budget cannot yet cover is passed over and retried, never cancelled).
 
 The queue is preferred over the previous "request and wait for admin approval" model because:
 

@@ -47,12 +47,12 @@ every psXDC share is worth more XDC
 | Aspect | Detail |
 | --- | --- |
 | **Source** | XDC Network masternode block rewards |
-| **Accrual mechanism** | Reward XDC enters the vault → `totalAssets` rises → exchange rate rises automatically |
+| **Accrual mechanism** | The operations team distributes the period's masternode rewards into the vault (`distributeRewards`, roughly monthly, sized to the 5.5% target on average TVL) → `totalAssets` rises → exchange rate rises for every holder |
 | **User claiming** | None; value is already inside each share |
 | **Settlement event** | When the user redeems shares (instant or queued), the higher rate translates directly into more XDC returned |
-| **On-chain verifiability** | Yes. Every reward inflow event and the exchange rate are public |
+| **On-chain verifiability** | Yes. Every distribution is a public transaction on the vault and the exchange rate is a public view |
 
-There is **no `notifyRewardAmount` admin call** in V3 (V2-era behaviour). There is **no per-user `claim` flow** for the base reward layer. Both were removed when V3 replaced the time-based APY model with the share-based NAV model.
+There is **no per-user `claim` flow** for the base reward layer — it was removed when V3 replaced the time-based APY model with the share-based NAV model. The V2 `notifyRewardAmount` + claim cycle is replaced by a single operations-manager `distributeRewards()` call per period that raises the share price for every holder.
 
 ---
 
@@ -75,11 +75,11 @@ Net APY is variable and depends on:
 
 ## NFT boost layer (separate from base APY)
 
-XDC NFTs earn an **additional** XDC stream on top of base NAV via the Synthetix-style accumulator inside `XdcNftStakingVault`. The boost is **separate** from validator rewards and follows its own funding model:
+XDC NFTs earn an **additional** stream on top of base NAV via the Synthetix-style accumulator inside `XdcNftStakingVault`. The boost is **separate** from validator rewards and follows its own funding model:
 
-- Boost is pushed into the NFT vault by [`XdcNftBoostHarvester`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) via `notifyBoost(amount)`.
+- Boost is pushed into the NFT vault by the operations wallet — `notifyBoost(amount)` in native XDC or `notifyBoostShares(shares)` in psXDC (added 14 Sep 2026) — or via the optional [`XdcNftBoostHarvester`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md).
 - The boost slice is distributed pro-rata to each NFT's weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
-- Boost **is** claimed (`claim(tokenId)`) and paid in XDC.
+- Boost **is** claimed (`claim(tokenId, unwrap)`) and paid in psXDC shares (the contract can unwrap to XDC on request).
 
 Boost is a product-side reward stream, not validator economics. The **floor** for every NFT position is the **base ~5.5%** (psXDC v3 NAV appreciation, automatic, never goes away regardless of rarity / lock / boost cadence). When the harvester is feeding the accumulator, the combined APY ranges from **~5.75% (Plentiful unlocked)** up to **~7% (Handcrafted locked)**; the delta over the floor is the boost slice.
 
@@ -92,9 +92,9 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 | Parameter | Detail |
 | --- | --- |
 | **Reward asset (base layer)** | XDC, accruing as share-price appreciation of psXDC |
-| **Reward asset (NFT boost)** | XDC, accruing into the NFT vault's Synthetix accumulator |
-| **Distribution frequency (base)** | Continuous via share-price growth (no batches) |
-| **Distribution frequency (boost)** | Each `notifyBoost` event; cadence is an operational choice (typically weekly or daily) |
+| **Reward asset (NFT boost)** | psXDC shares, accruing into the NFT vault's Synthetix accumulator |
+| **Distribution frequency (base)** | Roughly monthly `distributeRewards` steps in the share price |
+| **Distribution frequency (boost)** | Each `notifyBoost` / `notifyBoostShares` batch; target cadence monthly (first batch 14 Sep 2026 covered May–Sep) |
 | **Claim flow (base)** | None. Rewards are realized on redemption |
 | **Claim flow (boost)** | User-initiated `claim(tokenId)` from the NFT detail page |
 | **On-chain verifiability** | Yes, both layers emit events indexed by the public subgraphs |

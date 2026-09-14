@@ -51,7 +51,7 @@ Gamified staking on top of liquid staking. Deposit psXDC shares into collectible
 | Pricing | Exchange rate `totalAssets / totalShares`, which grows over time as rewards accrue (not a fixed 1:1) |
 | Network | XDC Network (chain ID `50`) |
 | Transferable | Yes: send, trade, or use as DeFi collateral |
-| Earns rewards | Yes; holding psXDC means the share is worth more XDC each block |
+| Earns rewards | Yes; holding psXDC means the share is worth more XDC after each reward distribution (roughly monthly) |
 | Redeemable | Yes. Burn psXDC to withdraw XDC, instantly if the buffer allows, otherwise via the automatic FIFO queue |
 | Address | [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734) |
 

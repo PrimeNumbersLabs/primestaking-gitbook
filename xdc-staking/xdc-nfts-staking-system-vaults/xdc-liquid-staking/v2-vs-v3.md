@@ -17,7 +17,9 @@ In July 2026 the V3 vault was redeployed as **V3.1** to restructure how masterno
 - **Masternode collateral migrates progressively.** The XDC backing the vault is being moved from the legacy masternode fleet into the V3.1 vault on a rolling schedule (roughly one masternode per week). While this completes, the vault serves withdrawals from its on-hand liquidity plus dedicated team funding lanes; larger withdrawals may queue until the next liquidity tranche arrives. Share price (NAV) is protected during this phase; it cannot be written down by the transition mechanics.
 - **The old V3 token is retired.** Its bridge was cut to a dead address; the token has no remaining function.
 
-Everywhere else in this page, "V3" refers to the live V3.1 architecture. The design is identical.
+**6 July 2026: V3.2.** Three days later the vault was redeployed once more as **V3.2** ([`0xDc74…c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)) with the same snapshot-and-mirror procedure: every V3.1 balance (wallets, NFT vault, DEX pool, lending markets, open orders) was credited 1:1 on V3.2, the NFT vault was repointed to the new token, and the V2 → V3.2 migration bridge (`0x313e…c280`) went live. V3.1 (`0xa7FD…73e4`) is frozen and has no remaining function. V3.2 also removed the percentage-based `bufferBps`: instant withdrawals are served from whatever unencumbered XDC the vault holds, and the FIFO queue is paid from its own ring-fenced budget.
+
+Everywhere else in this page, "V3" refers to the live V3.2 architecture. The design is identical.
 
 ---
 
@@ -42,7 +44,7 @@ V3 eliminates all of these trust assumptions.
 | --- | --- | --- |
 | **Standard** | Custom staking + APY rewards | ERC-4626 tokenized vault |
 | **Token model** | 1:1 fixed ratio (1 psXDC = 1 XDC) | Share-based exchange rate (increases over time) |
-| **Reward distribution** | Manual: owner calls `notifyRewardAmount()` | Automatic: exchange rate rises as validator rewards flow in |
+| **Reward distribution** | Manual: owner calls `notifyRewardAmount()`, users claim | Operations manager distributes the period's validator rewards into the vault (`distributeRewards`, ~monthly); the exchange rate rises for everyone, nothing to claim |
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming; rewards are embedded in share price |
 | **XDC utilization** | Custodial: admin withdrew XDC and staked with validators manually | Non-custodial: vault stakes directly with masternodes via smart contract, fully verifiable |
 | **Masternode integration** | Custodial: admin managed validators manually | Direct non-custodial integration with XDC validator contract |
@@ -87,7 +89,7 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 
 | Aspect | V2 | V3 |
 | --- | --- | --- |
-| **How rewards enter** | Owner calls `notifyRewardAmount(reward)` with XDC | Validator rewards flow directly into the vault |
+| **How rewards enter** | Owner calls `notifyRewardAmount(reward)` with XDC | Operations manager calls `distributeRewards()` with the period's XDC yield; it raises the share price directly |
 | **Distribution logic** | Time-based APY: `rewardRate * elapsed / totalStaked` | Asset-based: exchange rate = `totalAssets / totalShares` |
 | **User experience** | Claim rewards manually from Rewards tab | No claim; share value increases automatically |
 | **Transparency** | Owner-controlled reward injection | Validator rewards verifiable on-chain via masternode contract |
@@ -125,7 +127,7 @@ This is the most significant change. V2 gives the owner sweeping powers. V3 elim
 | Auto-propose masternodes | No | Yes |
 | Resign masternodes | N/A | Yes (with cooldown) |
 | Share-based pricing | No | Yes |
-| Liquidity buffer | No | Yes (configurable, default 5%) |
+| Liquidity buffer | No | Yes (unencumbered vault XDC serves instant exits; queue paid from a ring-fenced budget) |
 | Time-locked governance | No | Yes (all sensitive changes) |
 | Role-based access control | No (single owner) | Yes (5 distinct roles) |
 | Validator loss reporting | No | Yes (capped, operator-aware) |

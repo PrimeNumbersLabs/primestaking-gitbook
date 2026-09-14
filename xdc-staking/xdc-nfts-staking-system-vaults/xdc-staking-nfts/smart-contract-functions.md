@@ -6,8 +6,8 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | --- | --- | --- |
 | `XdcStakedNFT` | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection, non-upgradeable |
 | `XdcNftStakingVault` (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | TransparentUpgradeableProxy, ERC-7201 storage |
-| `XdcNftMigratorV2` | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) | Live one-shot migrator (remaps ids ≥ `10000`), non-upgradeable. Supersedes the paused `XdcNftMigrator` `0x45e2…7dFb`. |
-| `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Boost feeder, non-upgradeable |
+| `XdcNftMigrator` | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) | Current `MIGRATOR_ROLE` holder (since 9 Aug 2026), non-upgradeable. The 1,431-NFT migration itself ran 15 May – 4 Jul 2026 through `0x45e2…7dFb`, `0x36Fe…f026` and `0x69DE…2ea8` (all revoked). |
+| `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Optional boost feeder (native XDC lanes only), non-upgradeable |
 | `LegacyMigratorBypassFacet` | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) | Facet added to legacy Diamond `0x7a5d…aA17` |
 
 ---
@@ -25,7 +25,8 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | `unlock(uint256 tokenId)` | Removes `lockBonus` once `lockEnd` has passed. |
 | `merge(uint256 tokenIdA, uint256 tokenIdB)` | Burns two same-rarity NFTs, mints one higher-rarity NFT via `XdcStakedNFT.mintMerged`, settles boost on both. Reverts `ExceedsMaxStakePerNft` if the two NFTs' combined shares would exceed `maxStakePerNft`. |
 | `burnAndRedeem(uint256 tokenId, bool unwrap)` | Burns the NFT and returns the underlying shares (or unwraps them to XDC) in one transaction. |
-| `notifyBoost(uint256 amount) payable` | **`FEE_ROUTER_ROLE` only** (granted to the harvester). Receives `amount` native XDC, mints psXDC v3 shares, bumps `rewardPerWeightStored`. Reverts if `totalWeight == 0`. |
+| `notifyBoost(uint256 amount) payable` | **`FEE_ROUTER_ROLE` only** (harvester and operations wallet). Receives `amount` native XDC, mints psXDC v3 shares, bumps `rewardPerWeightStored`. Reverts if `totalWeight == 0`. |
+| `notifyBoostShares(uint256 shares)` | **`FEE_ROUTER_ROLE` only.** Added 14 Sep 2026. Pulls `shares` psXDC from the caller (needs prior `approve`) and credits them to the accumulator exactly like `notifyBoost`, without any native XDC — lets the operator pay the boost from psXDC holdings and leaves the psXDC vault's liquidity buffer untouched. Emits `BoostNotified(0, shares, delta)`. Reverts on zero shares or `totalWeight == 0`. |
 
 ### Migrator-only functions
 
@@ -68,9 +69,9 @@ The collection is **non-upgradeable**.
 
 ---
 
-## `XdcNftMigratorV2`: the live V2 → V3 migrator
+## `XdcNftMigratorV2`: the V2 → V3 migrator
 
-The live migrator is **`XdcNftMigratorV2`** (`0x69DE…2ea8`). It is a drop-in successor to the original `XdcNftMigrator` (now paused) that adds **legacy-id remapping**. Same `migrate` / `migrateBatch` surface; the only behavioural change is for legacy ids ≥ `10000`.
+The migrator that carried most of the migration is **`XdcNftMigratorV2`** (`0x36Fe…f026`, then `0x69DE…2ea8` for the V3.1 wiring); the current `MIGRATOR_ROLE` holder is `0x87Ab…556A`. It is a drop-in successor to the original `XdcNftMigrator` (paused) that adds **legacy-id remapping**. Same `migrate` / `migrateBatch` surface; the only behavioural change is for legacy ids ≥ `10000`.
 
 | Function | Notes |
 | --- | --- |

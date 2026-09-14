@@ -19,7 +19,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 | **Boost slice** | Up to ~1.5%: Synthetix accumulator, weighted by rarity / level / lock |
 | **Floor APY** | **~5.5%** (the base NAV), automatic, always earned regardless of rarity / lock / boost cadence |
 | **Target APY band (with boost)** | ~5.75% (unlocked) → ~7% (locked) when boost stream is steady |
-| **Reward token (boost)** | XDC. `notifyBoost` mints shares, claim unwraps to native XDC |
+| **Reward token (boost)** | psXDC shares. The boost is funded in XDC (`notifyBoost`, wrapped into shares) or directly in psXDC (`notifyBoostShares`); the app claims it as psXDC (`claim(tokenId, false)`), and the contract can also unwrap to native XDC on request (`unwrap = true`, subject to the vault's liquidity/queue) |
 | **Locked yield** | Additive `lockBoost` term added to NFT weight when locked |
 | **Merge** | Two same-rarity NFTs → one higher-rarity NFT (originals burned) |
 | **Marketplace** | [PrimePort.xyz](https://primeport.xyz) |
@@ -33,8 +33,8 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 3. **Stake psXDC shares into your NFT.** The vault records the shares against the NFT's `tokenId`. The NFT's **weight** in the boost accumulator becomes `stakedShares × (rarityMultiplier + level + lockBoost)`. Each NFT holds up to **100,000 psXDC**; to stake more, spread it across multiple NFTs.
 4. **Earn two stacked yields**:
    - **Base NAV**: your staked shares keep appreciating; you receive them back at the higher value when you withdraw.
-   - **Boost**: every `notifyBoost` push from the harvester increments `rewardPerWeightStored`; your earned slice grows in proportion to your weight.
-5. **Claim boost** from the NFT detail page whenever you want. It is paid in XDC. Base NAV is automatic and needs no claim.
+   - **Boost**: every boost push (`notifyBoost` in XDC or `notifyBoostShares` in psXDC, from the operations wallet or the harvester) increments `rewardPerWeightStored`; your earned slice grows in proportion to your weight. Pushes are operator-driven batches, not a continuous stream.
+5. **Claim boost** from the NFT detail page whenever you want. It is paid in psXDC shares (which you can stake back into the NFT, hold, or redeem). Base NAV is automatic and needs no claim.
 6. **Upgrade** by merging two same-rarity NFTs into a higher-tier one for a larger `rarityMultiplier`.
 7. **Lock (optional)**: locking adds `lockBoost` to the weight calculation. Lock expiry is preserved across migration so users can't dodge the lock by routing through the migrator.
 8. **`burnAndRedeem`** burns the NFT and returns the underlying psXDC shares (or, optionally, redeems them to XDC in one transaction).
@@ -45,16 +45,19 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
 
 Each NFT has a rarity that determines its `rarityMultiplier`, which feeds into the weight formula:
 
-| Rarity | Base Multiplier |
+| Rarity | `rarityMultiplier` (weight units) |
 | --- | --- |
-| Plentiful | 0.3 |
-| Common | 0.4 |
-| Uncommon | 0.5 |
-| Rare | 0.7 |
-| Epic | 0.9 |
-| Legendary | 1.2 |
-| Mythic | 1.5 |
-| Godly | 1.9 |
+| Plentiful | 3 |
+| Common | 4 |
+| Uncommon | 5 |
+| Rare | 7 |
+| Epic | 9 |
+| Legendary | 12 |
+| Mythic | 15 |
+| Godly | 19 |
+| Handcrafted | 20 (the 15 hand-curated legacy NFTs; cannot be produced by merging) |
+
+Weight = `shares × (rarityMultiplier + level + lockBoost)`, so a locked Godly NFT at the same stake carries several times the boost weight of an unlocked Plentiful one.
 
 <figure><img src="../../../.gitbook/assets/BaseMultiplierXDC (2).jpg" alt=""><figcaption></figcaption></figure>
 
@@ -90,8 +93,8 @@ The collection includes 15 exclusive, handcrafted NFTs by the Art Director. Owne
 | --- | --- | --- |
 | `XdcStakedNFT` | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | Fresh ERC-721 collection. Non-upgradeable. |
 | `XdcNftStakingVault` (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | Staking engine that holds psXDC shares under each NFT and runs the accumulator. TransparentUpgradeableProxy, ERC-7201 namespaced storage. |
-| `XdcNftMigratorV2` | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) | Live one-shot V2 → V3 migrator. Remaps legacy ids ≥ `10000` to `5558–9999`. Non-upgradeable. (Supersedes the paused `XdcNftMigrator` `0x45e2…7dFb`.) |
-| `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Funds the boost accumulator via `notifyBoost`. Non-upgradeable. |
+| `XdcNftMigrator` | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) | Current holder of `MIGRATOR_ROLE` (since 9 Aug 2026). The V2 → V3 migration is effectively complete — 1,431 NFTs were ported between 15 May and 4 Jul 2026 through the earlier migrators (`0x45e2…7dFb`, `0x36Fe…f026`, `0x69DE…2ea8`, all revoked). Non-upgradeable. |
+| `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Optional boost pipe: forwards native XDC into the accumulator via `feed` → `notifyBoost`. Since 14 Sep 2026 the operations wallet also holds `FEE_ROUTER_ROLE` and funds the boost directly (`notifyBoost` / `notifyBoostShares`). Non-upgradeable. |
 | `LegacyMigratorBypassFacet` | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) | Diamond facet on the legacy diamond enabling locked-NFT migration. Clears `tokenLocked`; the diamond pays the psXDC (no v2-staker call). |
 
 → [Staking Mechanics (V3)](xdc-staking-nfts-mechanics.md) → [Reward Model: Base NAV + Boost](xdc-nft-staking-reward-system.md) → [Migrate XDC NFTs to V3](migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](locked-nft-migration.md) → [Boost Harvester (technical)](boost-harvester.md) → [Smart Contract Reference (V3)](smart-contract-functions.md)

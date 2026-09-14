@@ -45,17 +45,19 @@ The NFT vault proxy was upgraded in place during the V3.2 cutover, so the user-f
 | --- | --- | --- | --- |
 | **`XdcStakedNFT`** | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection | **Non-upgradeable**. Stores rarity on-chain; migrated NFTs preserve their legacy `tokenId` (except legacy ids ≥ `10000`, which the migrator remaps into the `5558–9999` band). |
 | **`XdcNftStakingVault`** (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | TransparentUpgradeableProxy | User-facing vault for stake / withdraw / claim / lock / merge / `burnAndRedeem`. Uses ERC-7201 namespaced storage. Now holds psXDC **V3.2** shares. |
-| `XdcNftStakingVault` implementation | [`0xF39b759c03B593C34d2905E0991F2cf45d8D148B`](https://xdcscan.com/address/0xF39b759c03B593C34d2905E0991F2cf45d8D148B) | Vault logic | Upgraded July 2026 for the V3.2 cutover: repoints psXDC via `migrateV3Token`, adds multi-tier locks (30/90/180/365 days) with **boost expiry**, and a permissionless `pokeExpired` keeper hook. Always interact with the proxy above, not this address. |
+| `XdcNftStakingVault` implementation | [`0xC86d76c826AE30927098DF21dc9319B383E98F58`](https://xdcscan.com/address/0xC86d76c826AE30927098DF21dc9319B383E98F58) | Vault logic | Upgraded **14 Sep 2026**: adds `notifyBoostShares(shares)` so the boost can be funded directly in psXDC shares (no storage changes). Previous implementation `0xF39b…148B` (July 2026 V3.2 cutover) repointed psXDC via `migrateV3Token`, added multi-tier locks (30/90/180/365 days, **+1/+3/+6/+12** boost units) with **boost expiry**, and the permissionless `pokeExpired` keeper hook. Always interact with the proxy above, not this address. |
 | Vault `ProxyAdmin` | [`0xCE17925533C570B3EE5621Df39019b1a5785fb3d`](https://xdcscan.com/address/0xCE17925533C570B3EE5621Df39019b1a5785fb3d) | Proxy admin | Owned by the protocol multisig. |
-| **`XdcNftMigratorV2`** (V3.1 wiring) | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) | Migrator (**live**) | The active one-shot migrator: burns legacy NFT → bridges psXDC through the v2 → V3.1 bridge → mints + stakes new NFT. Remaps legacy ids ≥ `10000` into `5558–9999`, emitting `LegacyIdRemapped`. **Non-upgradeable**. |
-| **`XdcNftBoostHarvester`** (V3.1 wiring) | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Boost pipe | Funds the Synthetix-style boost accumulator via `notifyBoost`. **Non-upgradeable**. |
+| **`XdcNftMigrator`** (current) | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) | Migrator (holds `MIGRATOR_ROLE` since 9 Aug 2026) | One-shot migrator: burns legacy NFT → bridges psXDC → mints + stakes the new NFT. Remaps legacy ids ≥ `10000` into `5558–9999`, emitting `LegacyIdRemapped`. **Non-upgradeable**. The V2 → V3 migration is effectively complete: **1,431 NFTs** were ported (20 of them with their v2 lock preserved) between 15 May and 4 Jul 2026, through the migrators listed below; no migrations have gone through this instance yet. |
+| **`XdcNftBoostHarvester`** (V3.1 wiring) | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Boost pipe (optional) | Holds `FEE_ROUTER_ROLE`; forwards native XDC into the vault's boost accumulator via `feed` / `forwardPending` → `notifyBoost`. Its `harvest` / `claimAndForward` path is wired to the frozen V3.1 psXDC and is not usable. Since 14 Sep 2026 the operations wallet [`0x440cD932957a06cfae5a4e1D29D504069B6f113d`](https://xdcscan.com/address/0x440cD932957a06cfae5a4e1D29D504069B6f113d) also holds `FEE_ROUTER_ROLE` and funds the boost directly with `notifyBoost` (XDC) or `notifyBoostShares` (psXDC). **Non-upgradeable**. |
 | **`LegacyMigratorBypassFacet`** (V3.1 wiring) | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) | Diamond facet (**live**) | Added to the legacy Diamond via `diamondCut` so locked legacy NFTs migrate in a single transaction. Clears the diamond's `tokenLocked` flag and lets the diamond's own `burnAndRedeem` pay the psXDC. |
 
 ### Superseded NFT-stack contracts (roles revoked, do not use)
 
 | Contract | Address | Status |
 | --- | --- | --- |
-| Old `XdcNftMigratorV2` (V3 wiring) | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) | `MINTER_ROLE` / `MIGRATOR_ROLE` revoked at the V3.1 cutover. |
+| `XdcNftMigrator` v1 (V3 wiring) | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) | Migrated 217 NFTs (15 May – 1 Jun 2026). `MIGRATOR_ROLE` revoked 2 Jun 2026. |
+| `XdcNftMigratorV2` (V3 wiring) | [`0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026`](https://xdcscan.com/address/0x36Fe37Ca1FEF0e409977a1c28d191B55333cf026) | Migrated 1,192 NFTs (2 – 28 Jun 2026). `MINTER_ROLE` / `MIGRATOR_ROLE` revoked at the V3.1 cutover (3 Jul 2026). |
+| `XdcNftMigratorV2` (V3.1 wiring) | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) | Straggler run (2 NFTs, 4 Jul 2026) plus the 20 locked-NFT migrations. `MIGRATOR_ROLE` revoked 9 Aug 2026. |
 | Old `XdcNftBoostHarvester` | [`0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA`](https://xdcscan.com/address/0x3bEdb37FC873F64BEeFCA551b3A836e59fc18DeA) | `FEE_ROUTER_ROLE` revoked at the V3.1 cutover. |
 | Old `LegacyMigratorBypassFacet` | [`0x64413bAD206b5D90a5010cc683F50086407F25C6`](https://xdcscan.com/address/0x64413bAD206b5D90a5010cc683F50086407F25C6) | Replaced on the legacy Diamond via `diamondCut`. |
 | Original `XdcNftMigrator` | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) | Paused and replaced in June 2026. |
@@ -133,6 +135,17 @@ HyperEVM 30367.
 
 ---
 
+## Indexers (Goldsky subgraphs)
+
+Public GraphQL endpoints the app uses. Versions change when the schema or mapping changes; the previous version stays up for a while after a bump.
+
+| Data | Endpoint | Notes |
+| --- | --- | --- |
+| Liquid staking (V3.2 vault) | `https://api.goldsky.com/api/public/project_cmfycyhiq9jha01wa1hl9fswz/subgraphs/stakingv3/0.0.9/gn` | Stakes, redemptions, withdrawal queue, NAV history. Source: [`staking-v3-indexer`](https://github.com/PrimeNumbersLabs/staking-v3-indexer). |
+| XDC NFTs (V3) | `https://api.goldsky.com/api/public/project_cmfycyhiq9jha01wa1hl9fswz/subgraphs/xdc-nfts-v3/0.0.5/gn` | Per-NFT positions read back from `vault.nftState` on every event (exact shares / weight / lock), boost notifications and claims, migrations. `Protocol.totalBoostNotified` and `totalBoostClaimed` are denominated in **psXDC shares**. Source: [`xdc-nft-v3-indexer`](https://github.com/PrimeNumbersLabs/xdc-nft-v3-indexer). |
+
+---
+
 ## Quick reference for integrators
 
 If you are integrating PrimeStaking from a partner application, the only contracts you ever call directly are:
@@ -141,7 +154,7 @@ If you are integrating PrimeStaking from a partner application, the only contrac
 - `PrimeStakedXDC_V3_2MigrationBridge` (`0x313e…c280`), only if your users hold V2 psXDC and want to migrate.
 - `ReferralRegistry` (`0x9765…16B3`), only if you want a first stake to bind a referrer (`stakeWithReferral`).
 - `XdcNftStakingVault` (proxy, `0x9f38…4da8`) for any NFT-side action.
-- `XdcNftMigratorV2` (`0x69DE…2ea8`), only for migrating legacy V2 NFTs.
+- `XdcNftMigrator` (`0x87Ab…556A`, current `MIGRATOR_ROLE` holder), only if a legacy V2 NFT still needs migrating (the migration itself completed in July 2026).
 
 The harvester, bypass facet, distributor, vault implementation, and ProxyAdmin are operated by the protocol and do not need to be called from partner code.
 

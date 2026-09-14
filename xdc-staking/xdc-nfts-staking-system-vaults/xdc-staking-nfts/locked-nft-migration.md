@@ -99,7 +99,7 @@ That's the supported case. The migrator preserves the lock and the V3 vault hono
 - Earn the base NAV through the underlying psXDC v3 shares.
 - Be able to `claim` the boost at any time during the lock.
 
-After `lockEnd` you can call `unlock(tokenId)` on the V3 vault to remove the lock bonus from the weight, or leave it locked indefinitely to keep the boost slice.
+After `lockEnd` the lock bonus **stops automatically**: the NFT's effective weight drops back to its unlocked value, and the stale bonus is cleared on your next interaction (or by anyone calling the permissionless `pokeExpired`). Leaving an expired lock in place does not keep the boost slice — re-lock at any tier if you want it back.
 
 ---
 
@@ -121,7 +121,8 @@ Every failure mode is "fail closed": the user's legacy NFT remains in place. No 
 | --- | --- |
 | Legacy Diamond | [`0x7a5d364b97126600C0AdDFD5C339230748bcaA17`](https://xdcscan.com/address/0x7a5d364b97126600C0AdDFD5C339230748bcaA17) |
 | Bypass facet (**live**) | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) |
-| Migrator (bound to bypass facet, **live**) | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) |
+| Migrator (bound to bypass facet, used Jul 2026; role revoked 9 Aug 2026) | [`0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8`](https://xdcscan.com/address/0x69DE30161ec0f2e0Dc0649190dB9b93F4c492ea8) |
+| Migrator (current `MIGRATOR_ROLE` holder) | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) |
 | Bypass facet (original, superseded) | [`0x275641d5bA81786A7e60352F990F0c203e7D1836`](https://xdcscan.com/address/0x275641d5bA81786A7e60352F990F0c203e7D1836) |
 | Migrator (original, paused) | [`0x45e2e91098A8451EA450754784e043bb3F8C7dFb`](https://xdcscan.com/address/0x45e2e91098A8451EA450754784e043bb3F8C7dFb) |
 

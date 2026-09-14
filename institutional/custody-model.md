@@ -26,7 +26,7 @@ PrimeStaking operates a **non-custodial, smart contract-based** custody model. V
 ### Staked Asset Custody
 
 - User XDC deposits are held in the [`PrimeStakedXDC_V3_2`](../xdc-staking/xdc-nfts-staking-system-vaults/contract-addresses.md) vault. It is **non-upgradeable**, so the logic that holds your XDC can never be modified
-- The vault keeps a tunable **liquid buffer** (default 5% of total assets); excess is auto-delegated to KYC-verified masternode operators on the XDC Network
+- The vault's unencumbered XDC serves instant redemptions (V3.2 has no percentage buffer target); the rest of the collateral works in KYC-verified masternodes on the XDC Network, and queued withdrawals are paid from a separate ring-fenced budget
 - Withdrawal requests use `redeemWithQueue`: instant when the buffer covers them, queued FIFO otherwise. Failed payouts defer into `pendingQueuedAssets` and the user collects them via `claimQueuedAssets`. There is no admin approval step at any point.
 - The vault has **no `mint` and no `ownerWithdraw`**; these were removed in V3. Even the protocol admin cannot move user funds.
 

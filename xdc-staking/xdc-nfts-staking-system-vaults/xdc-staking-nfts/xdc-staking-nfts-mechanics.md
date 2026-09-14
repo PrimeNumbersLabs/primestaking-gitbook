@@ -23,7 +23,7 @@ All four terms are stored on-chain; the vault keeps `totalWeight` in sync so rew
 
 ## The Synthetix-style accumulator
 
-Boost rewards aren't distributed in monthly batches. Instead the vault uses a Synthetix-style accumulator that runs continuously:
+Boost rewards are not streamed per block. The operator pushes funding into the vault in batches (`notifyBoost` in XDC, or `notifyBoostShares` in psXDC), and a Synthetix-style accumulator splits every batch across all NFTs by weight the moment it lands — no per-holder transactions, and nothing to claim per batch:
 
 ```
 on notifyBoost(x):
@@ -36,7 +36,7 @@ earned(tokenId) = info.shares * (rewardPerWeightStored − info.rewardIndex) * w
 
 What this means in practice:
 
-- Whenever the harvester pushes XDC via `notifyBoost`, **every staked NFT's pending reward grows immediately** in proportion to its weight at that moment.
+- Whenever the operator pushes a boost batch (`notifyBoost` in XDC or `notifyBoostShares` in psXDC), **every staked NFT's pending reward grows immediately** in proportion to its weight at that moment.
 - `_settle(tokenId)` is called before any weight-changing operation (stake more, lock, unlock, merge, withdraw) so pending boost is captured against the **old** weight. You never overpay or underpay because of mid-stream changes.
 - `notifyBoost` reverts if `totalWeight == 0`, since pushing boost into an empty vault is a no-op.
 
@@ -51,7 +51,7 @@ What this means in practice:
 | **Lock** | `lock(tokenId, duration)` | Locks for a chosen tier duration (30/90/180/365 days), freezing that tier's `lockBonus` into the NFT and adding it to weight. Disables `withdraw`, `merge`, `burnAndRedeem` until the lock ends. |
 | **Poke expired** | `pokeExpired(tokenIds)` | Permissionless keeper hook: retires the boost of any NFT whose lock has ended, so `totalWeight` stays accurate even for untouched NFTs. |
 | **Merge** | `merge(tokenIdA, tokenIdB)` | Two same-rarity NFTs → one higher-rarity NFT. Burns originals and shares are released for restaking. Reverts if the combined shares would exceed the [per-NFT cap](#per-nft-stake-cap). |
-| **Claim boost** | `claim(tokenId)` | Pays out earned boost in XDC. Can also unwrap to native XDC or keep as shares depending on the call. |
+| **Claim boost** | `claim(tokenId, unwrap)` | Pays out earned boost. With `unwrap = false` (what the app does) you receive psXDC shares; with `unwrap = true` the vault redeems them for native XDC through `redeemWithQueue` (instant if the buffer allows, otherwise queued). |
 | **`burnAndRedeem`** | `burnAndRedeem(tokenId)` | Burns the NFT and returns the underlying psXDC v3 shares (or redeems them to XDC) in one transaction. |
 | **Transfer** | ERC-721 `transferFrom` | NFT changes hands. The new owner inherits staked shares, weight, pending boost, and lock status. |
 
@@ -66,7 +66,7 @@ Locking an NFT does two things:
 1. Sets `lockEnd = now + duration`. Until that timestamp passes, `withdraw`, `merge`, and `burnAndRedeem` revert.
 2. Freezes the chosen tier's `lockBonus` into the NFT's weight, increasing its slice of every subsequent `notifyBoost`.
 
-There are **four lock tiers** - 30, 90, 180 and 365 days - each granting a progressively larger boost. The boost you get is fixed at lock time (later tier-table changes don't affect an existing lock).
+There are **four lock tiers** - 30, 90, 180 and 365 days - granting **+1, +3, +6 and +12** weight units respectively (added to the rarity multiplier and level in the weight formula). The boost you get is fixed at lock time (later tier-table changes don't affect an existing lock).
 
 **Boost expiry.** Unlike earlier versions, the lock bonus **ends when the lock ends**. From the moment `lockEnd` passes, the NFT's effective weight drops back to its unlocked value, and the stale bonus is cleared on the next interaction (any user action, or a permissionless `pokeExpired` keeper call). Rewards already earned are never clawed back - the boost simply stops going forward. You can **re-lock** at any tier once a lock has expired.
 

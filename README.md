@@ -44,7 +44,7 @@ The simplest way to earn on your XDC. No NFT required. No minimum amount.
 
 1. **Stake XDC** - Deposit any amount into the V3 vault.
 2. **Receive psXDC shares** - You receive psXDC at the current vault exchange rate. There is no fixed 1:1 ratio; share price rises as rewards accrue.
-3. **Earn rewards** - Rewards are embedded directly in the share price (~5.5% APY). There is no claim button; your shares simply become worth more XDC over time. Rewards accrue continuously at any backing level (the V3.2 permanent-ledger model).
+3. **Earn rewards** - Rewards are embedded directly in the share price (~5.5% APY target). There is no claim button; your shares simply become worth more XDC over time. The share price moves in steps: the operations team distributes the period's staking rewards into the vault (`distributeRewards`, roughly monthly), and every psXDC holder's balance is worth more XDC from that moment, at any backing level (the V3.2 permanent-ledger model).
 4. **Stay liquid** - psXDC is a standard ERC-20 on the XDC Network. Hold it, transfer it, use it as DeFi collateral, or deposit it into XDC NFTs.
 5. **Withdraw anytime** - Burn psXDC shares. If the vault has enough unencumbered liquidity, you receive XDC instantly in the same transaction. Otherwise your request enters an automatic FIFO queue and you claim once masternode payouts return.
 6. **Refer friends** - Share your invite link; when someone stakes for the first time through it, you earn a share of the protocol fee their staking generates. See [Referral Program](xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/referral-program.md).
@@ -57,8 +57,8 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 
 * Each NFT has a **rarity** (Plentiful → Handcrafted) that determines its weight in the boost accumulator.
 * **Base yield** comes from the underlying psXDC share price growing over time (~5.5% APY).
-* **Boost yield** comes from a Synthetix-style accumulator. The protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md) calls `notifyBoost` and the resulting slice is distributed pro-rata to NFT weights.
-* **Level up** by merging two same-rarity NFTs into a higher tier.
+* **Boost yield** comes from a Synthetix-style accumulator. The operations wallet (or the protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md)) pushes boost batches into the NFT vault — `notifyBoost` in XDC or `notifyBoostShares` in psXDC — and each batch is distributed pro-rata to NFT weights.
+* **Rank up** by merging two same-rarity NFTs into a higher-rarity tier (a bigger `rarityMultiplier`). *Levels* (0–20) are separate: they come from how much psXDC is staked under the NFT.
 * **Lock** your NFT for a fixed period to add a lock bonus to its weight. Four tiers are available - **30, 90, 180 or 365 days** - with progressively larger boosts. The boost applies for the whole lock and **ends when the lock expires**; you can re-lock afterwards. Floor is the **~5.5% base NAV** (always earned, no claim); with the boost stream flowing, combined APY ranges from **~5.75% (unlocked)** up to **~7% (365-day lock)**.
 * You only claim the **boost slice** from the app. Base NAV is automatically inside the shares you get back on withdraw.
 
@@ -69,7 +69,7 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 | Product                | What you earn                                    | How you receive it                                                                           |
 | ---------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **XDC Liquid Staking** | Higher psXDC share price                         | Automatic: your shares are worth more XDC over time. No claim button.                       |
-| **XDC NFTs**           | Underlying NAV growth + boost slice (in XDC)     | NAV is automatic; **claim boost** from the NFT detail page. Withdraw burns shares back to XDC. |
+| **XDC NFTs**           | Underlying NAV growth + boost slice (in psXDC)   | NAV is automatic; **claim boost** from the NFT detail page (paid as psXDC). Withdraw returns your shares. |
 
 #### The psXDC Ecosystem
 

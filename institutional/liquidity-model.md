@@ -26,8 +26,8 @@ PrimeStaking V3 separates **protocol redemption** (burning shares for XDC agains
 
 When you burn psXDC against the vault, you receive XDC at the **current exchange rate**, not a fixed 1:1. The amount is `convertToAssets(shares)`.
 
-- **Instant** when the vault's liquid buffer (default 5% of total assets, configurable via `setBufferBps`) covers your request, settled in the same transaction.
-- **Queued** when the buffer is insufficient: escrows the shares, adds you to the FIFO queue. Processed as new deposits / reward inflows / masternode resignations replenish liquidity.
+- **Instant** when the vault's unencumbered XDC (its balance minus what is earmarked for the queue and for failed payouts; V3.2 has no percentage buffer target) covers your request, settled in the same transaction.
+- **Queued** when it does not: escrows the shares, adds you to the FIFO queue. Paid from a ring-fenced `queueBackingBudget` that is topped up from returned masternode principal; processed in FIFO order, with requests the budget cannot yet cover passed over and retried. Escrowed shares are valued at payout time.
 - **No partial fills.** Each request settles in full when its turn comes.
 - **Free cancellation.** You can `cancelQueuedWithdrawal` any time before settlement and get your shares back unchanged.
 
@@ -37,7 +37,7 @@ For very large redemptions where the vault doesn't have a sufficient buffer + re
 
 ### 2. Market exit (DEX swap)
 
-Holders can swap psXDC for XDC on a DEX (always verify the pool holds the live V3.2 token, `0xa7FD…73e4`). Market price is set by the AMM and is influenced by:
+Holders can swap psXDC for XDC on a DEX (always verify the pool holds the live V3.2 token, `0xDc74…c734`). Market price is set by the AMM and is influenced by:
 
 - The vault's current NAV (`totalAssets / totalShares`), the long-run anchor.
 - Pool depth and recent volume.
@@ -60,7 +60,7 @@ The market price can sit **at, above, or below NAV** depending on these factors.
 | --- | --- |
 | **Two value references** | A user's psXDC balance can be valued either at NAV (`convertToAssets`) or at DEX market price. Use NAV for accounting and partner reporting; DEX price for synchronous trading flows. |
 | **Self-service withdrawals** | Partners do not need to operate any approval flow; users can redeem on their own through `redeemWithQueue`. |
-| **Buffer planning** | If you expect bursty user withdrawal patterns, coordinate with PrimeStaking on buffer sizing (`setBufferBps`); this affects how often partner users hit the queue. |
+| **Liquidity planning** | If you expect bursty user withdrawal patterns, coordinate with PrimeStaking on liquidity planning (how much XDC stays unencumbered in the vault and how the queue budget is scheduled); this affects how often partner users hit the queue. |
 | **Queue UX** | Partners surfacing psXDC redemption should distinguish "complete" from "queued, self-claim later" outcomes. The contract makes this explicit through events. |
 | **DEX integration** | psXDC pools provide an instant exit, but the protocol's NAV is the canonical value and is what should drive any institutional reporting. |
 
@@ -72,7 +72,7 @@ The market price can sit **at, above, or below NAV** depending on these factors.
 | --- | --- | --- | --- |
 | psXDC trades at a discount to NAV on a DEX | Medium | Low | Arbitrageurs can buy on the DEX and redeem at NAV when the queue allows; the protocol cannot guarantee zero discount in all conditions. |
 | Mass redemption event | Low | Medium | FIFO queue ensures fair sequencing; the protocol cannot become insolvent because each redemption settles at the live share rate against on-chain assets. |
-| Buffer is too small for normal partner traffic | Low | Medium | `setBufferBps` is governed by `OPERATIONS_MANAGER_ROLE` and can be tuned through the standard ops process. |
+| Unencumbered liquidity is too thin for normal partner traffic | Low | Medium | Liquidity and queue-budget scheduling are managed by the operations / migration managers through the standard ops process. |
 | Failed receiver payout | Very low | Low | Deferred into `pendingQueuedAssets` and claimable via `claimQueuedAssets`. No XDC is lost. |
 
 ***
@@ -86,7 +86,8 @@ All metrics below are verifiable on-chain via the [staking-v3-indexer](https://g
 | **psXDC total supply** | Outstanding V3 shares | `PrimeStakedXDC_V3_2.totalSupply()` |
 | **Total assets** | XDC tracked by the vault (buffer + delegated) | `PrimeStakedXDC_V3_2.totalAssets()` |
 | **Exchange rate** | `totalAssets / totalShares` (or `convertToAssets(1e18)`) | Vault view |
-| **Buffer ratio** | Current liquid XDC vs target buffer | Computed from `getBalance` + `bufferBps` |
+| **Instant liquidity** | Unencumbered XDC available for instant redemptions | Vault balance − `queueBackingBudget` − `totalFailedPayouts` |
+| **Queue budget** | XDC ring-fenced for queued requests | `queueBackingBudget()` vs `totalPendingQueuedAssets()` |
 | **Queue depth** | Outstanding `WithdrawalQueued` requests | Subgraph |
 | **Per-operator principal** | XDC delegated per masternode operator | `outstandingValidatorPrincipalByOperator(operator)` |
 | **DEX market price** | psXDC/XDC pool quote | XSWAP price feed |

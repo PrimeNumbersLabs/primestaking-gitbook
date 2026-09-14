@@ -1,9 +1,9 @@
 # Boost Harvester (technical)
 
-[`XdcNftBoostHarvester`](../contract-addresses.md) is the small, non-upgradeable contract that funds the XDC NFT vault's Synthetix-style boost accumulator. It exists because the underlying [`PrimeStakedXDC_V3_1`](../contract-addresses.md) vault is non-upgradeable, so the boost stream had to live in an external pump rather than being routed inside the V3 vault itself.
+[`XdcNftBoostHarvester`](../contract-addresses.md) is a small, non-upgradeable contract that can fund the XDC NFT vault's Synthetix-style boost accumulator with native XDC. It was designed as an external pump because the underlying psXDC vault is non-upgradeable. Since the **14 Sep 2026** NFT-vault upgrade the harvester is optional: the operations wallet holds `FEE_ROUTER_ROLE` directly and funds the boost with `notifyBoost` (XDC) or the new `notifyBoostShares` (psXDC shares, no XDC needed).
 
 {% hint style="info" %}
-Live address: [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D). The harvester holds the **only** address granted `FEE_ROUTER_ROLE` on the NFT vault, i.e. it's the only contract allowed to call `notifyBoost`. Arbitrary XDC sends to the NFT vault cannot corrupt boost accounting.
+Live address: [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D). `FEE_ROUTER_ROLE` on the NFT vault is held by this harvester **and** by the operations wallet (`0x440c…113d`); nothing else can call `notifyBoost` / `notifyBoostShares`, and arbitrary XDC sends to the NFT vault cannot corrupt boost accounting. Note that this harvester instance is wired to the retired V3.1 psXDC token, so only its native-XDC lanes (`feed`, `forwardPending`) are usable — `harvest` / `claimAndForward` are not.
 {% endhint %}
 
 ---
@@ -55,11 +55,11 @@ The Synthetix-style accumulator means **timing doesn't matter** as long as your 
 
 The original idea was to fund boost from psXDC v3's own NAV. That would have required adding a "fee skim" feature to the V3 vault. But the V3 vault is deliberately **non-upgradeable** (regular constructor, no proxy) so there is no way to change its logic after deployment. The harvester sidesteps this:
 
-- Treasury seeds the harvester with psXDC v3 shares (or directly with XDC).
-- When NAV has grown, the harvester redeems a portion via `redeemWithQueue` (going through the same instant-vs-queued path every user sees) and the resulting XDC funds the boost.
-- The V3 vault itself never needs to know about boost; the harvester is the chokepoint.
+- Treasury seeds the harvester with XDC (`feed` / `forwardPending`). The psXDC-principal lane (`depositPrincipal` → `harvest`) is unusable on the current instance because it points at the retired V3.1 token.
+- In practice the boost is now paid directly by the operations wallet: `notifyBoostShares(shares)` pulls psXDC from it and credits every NFT in one transaction, without touching the psXDC vault's liquidity buffer.
+- The psXDC vault itself never needs to know about boost; the NFT vault's `FEE_ROUTER_ROLE` is the chokepoint.
 
-The trade-off is that the harvester needs to be funded by an operator. The cadence is an operational choice: typically a weekly batch is cheapest gas-wise, daily is the friendliest UX. Either way, every `notifyBoost` emits a public event indexed by the subgraph so the UI can derive a trailing 30-day boost APR.
+The trade-off is that the boost has to be funded by an operator, so it arrives in batches. History so far: no boost was pushed between the V3 launch (14 May 2026) and **14 Sep 2026**, when the full ~1.5% band for that period (250 + 85,850 psXDC ≈ 86,700 XDC) was distributed in one `notifyBoostShares` batch; from there the target cadence is monthly (~1.5% p.a. on the staked total). Every push emits a public `BoostNotified` event indexed by the subgraph, and the app derives the displayed boost APR from the boost paid since launch, annualised and capped at the marketed band.
 
 ---
 
@@ -68,10 +68,10 @@ The trade-off is that the harvester needs to be funded by an operator. The caden
 | Role | Holder | Why |
 | --- | --- | --- |
 | `DEFAULT_ADMIN_ROLE` (vault) | Protocol multisig | Master switch; can grant/revoke other roles |
-| `FEE_ROUTER_ROLE` (vault) | `XdcNftBoostHarvester` | The only address allowed to call `notifyBoost` |
+| `FEE_ROUTER_ROLE` (vault) | `XdcNftBoostHarvester` and the operations wallet `0x440c…113d` | The only addresses allowed to call `notifyBoost` / `notifyBoostShares` |
 | `PAUSER_ROLE` (harvester) | Protocol multisig | Emergency stop |
 
-The NFT vault deliberately has **no `receive()` function**, so there is no way to "donate" XDC into the boost accumulator outside `notifyBoost`. This means random XDC sent to the vault cannot corrupt the accounting; only the harvester's `notifyBoost` calls move `rewardPerWeightStored`.
+The NFT vault deliberately has **no `receive()` function**, so there is no way to "donate" XDC into the boost accumulator outside `notifyBoost` / `notifyBoostShares`. This means random XDC or psXDC sent to the vault cannot corrupt the accounting; only `FEE_ROUTER_ROLE` calls move `rewardPerWeightStored`.
 
 ---
 
