@@ -17,15 +17,15 @@ The V3 vault is an ERC-4626 share contract. When validator rewards flow in, the 
 ```
 Day 0:   1,000 XDC deposited  →  1,000 psXDC minted  (rate = 1.000)
 Day 30:  validator rewards flow in  →  totalAssets increases  →  rate = 1.0037
-Day 365: cumulative rewards ≈ 5.5%  →  rate = 1.055
+Day 365: cumulative rewards ≈ 4.5%  →  rate = 1.045
 
-Burn 1,000 psXDC on day 365  →  receive 1,055 XDC
+Burn 1,000 psXDC on day 365  →  receive 1,045 XDC
 ```
 
 Your psXDC balance never changes from rewards. The **value** of your psXDC changes. This is exactly the same model Aave aTokens, Compound cTokens, and Lido wstETH use.
 
 {% hint style="warning" %}
-**The rate moves in monthly steps, not continuously.** Masternode rewards are collected by the operations team and distributed into the vault with `distributeRewards()` roughly once a month, sized to the 5.5% annual target on the period's average TVL (the V3.2 vault has no on-chain APY oracle — the distribution *is* the yield). The psXDC rate stays flat between distributions and steps up when each one lands. Seeing `1.00000` for days or weeks after staking (or after a migration, while nodes complete the network's standby/proposal cycle) is expected behavior, not a missed payout.
+**The rate moves in monthly steps, not continuously.** Masternode rewards are collected by the operations team and distributed into the vault with `distributeRewards()` roughly once a month, sized to the 4.5% annual target on the period's average TVL (the V3.2 vault has no on-chain APY oracle — the distribution *is* the yield). The psXDC rate stays flat between distributions and steps up when each one lands. Seeing `1.00000` for days or weeks after staking (or after a migration, while nodes complete the network's standby/proposal cycle) is expected behavior, not a missed payout.
 {% endhint %}
 
 ---

@@ -92,7 +92,7 @@ PrimeStaking operates XDC Network masternodes that generate the underlying staki
 
 ### Reward Accrual
 
-1. Masternode rewards are collected off-vault and distributed into it by the operations team (`distributeRewards`, roughly monthly, sized to the 5.5% target).
+1. Masternode rewards are collected off-vault and distributed into it by the operations team (`distributeRewards`, roughly monthly, sized to the 4.5% target).
 2. `totalAssets` increases; share supply does not.
 3. Exchange rate rises automatically, so every psXDC share is worth more XDC. There is no manual `claim` step for the base layer.
 

@@ -76,7 +76,7 @@ These are gated by the V3 role split. They never let an admin move user funds; t
 
 | Function | Role | Notes |
 | --- | --- | --- |
-| `distributeRewards() payable` | `OPERATIONS_MANAGER_ROLE` | Reward lane: credits the sent XDC (minus the optional `rewardFeeBps` skim, default 0, hard-capped at 20%) to `trackedTotalAssets`, i.e. raises the psXDC share price for every holder. This is how the ~5.5% APY reaches holders, roughly monthly. |
+| `distributeRewards() payable` | `OPERATIONS_MANAGER_ROLE` | Reward lane: credits the sent XDC (minus the optional `rewardFeeBps` skim, default 0, hard-capped at 20%) to `trackedTotalAssets`, i.e. raises the psXDC share price for every holder. This is how the ~4.5% APY reaches holders, roughly monthly. |
 | `setRewardFeeConfig(uint16 bps, address recipient)` | `DEFAULT_ADMIN_ROLE` | Optional protocol fee on distributions (currently 0). |
 | `fundBacking() payable` | `MIGRATION_MANAGER_ROLE` | Backing lane: adds un-earmarked XDC intended for `proposeMasternode`. Never mints shares or moves NAV. |
 | `setOperatorScanLimit(uint256)` / `setQueueScanLimit(uint256)` | `OPERATIONS_MANAGER_ROLE` | Bounded scan limits used by auto-propose and queue processing |

@@ -50,7 +50,7 @@ psXDC is a standard ERC-20 token on the XDC Network. While your XDC earns yield 
 
 - **Hold** to accumulate rewards passively
 - **Trade** on DEXs
-- **Stake inside XDC NFTs** to boost your yield to ~5.75% (unlocked) or up to ~7% (locked)
+- **Stake inside XDC NFTs** to boost your yield to ~4.75% (unlocked) or up to ~6% (locked)
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens
 - **Transfer** to any wallet; the recipient inherits the yield automatically
 
