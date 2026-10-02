@@ -91,6 +91,7 @@ A single XDC NFT can hold at most **100,000 psXDC shares**. To stake more than t
 ## Caps and tuning
 
 - `setLevelStakedNeeded` and `setLockBoost` can only be changed while `totalWeight == 0` (i.e. before any NFT is staked). Once the vault has live positions these setters revert, which prevents silent weight drift. Lock tiers are enabled/adjusted post-launch through the governance-gated `setLockBoostPostLaunch`, which only affects **future** locks - already-locked NFTs keep the boost they froze at lock time.
+- `adminSetLockBoost(tokenIds, units)` (`DEFAULT_ADMIN_ROLE`, added 2 Oct 2026) sets the boost of NFTs whose lock is still running, capped at the 365-day tier, after settling the boost they had earned. It exists for locks carried over from V2 ([Locked NFTs](locked-nft-migration.md#lock-boost-of-migrated-locks)).
 - `setMaxStakePerNft` (the [per-NFT stake cap](#per-nft-stake-cap)) is settable at any time by `DEFAULT_ADMIN_ROLE`, unlike the pre-staking-only setters above; it only gates future `stake`/`merge`.
 - `rarityMultiplier` has **no setter** on the V3 vault. Updating multipliers would require deploying a new vault and migrating.
 - `setRarityMultiplier` does **not** exist on the live vault by design.

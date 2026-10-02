@@ -12,6 +12,7 @@ PrimeStaking V3 splits operational, risk, and governance responsibilities across
 | Withdraw user XDC from the vault | **No.** There is no `ownerWithdraw` function |
 | Upgrade `PrimeStakedXDC_V3_2` | **No.** Non-upgradeable, deployed with a regular constructor |
 | Upgrade `XdcNftStakingVault` implementation | Yes, through a TransparentUpgradeableProxy controlled by the protocol multisig with delayed handover |
+| Change the boost units of an NFT's running lock | Yes: `adminSetLockBoost` by the NFT vault admin (`DEFAULT_ADMIN_ROLE`), capped at the 365-day tier, boost earned so far settled first. Used once (2 Oct 2026) for locks migrated from V2 without their boost |
 | Rotate operational / risk roles | Yes, via the delayed-governance path |
 | Change loss caps (`maxLossBpsPerReport`, `maxDailyLossBps`) | Yes: schedule → wait `governanceDelay` → execute |
 | Pause vault / migrator / harvester | Yes; `PAUSER_ROLE` (multisig) can pause immediately |

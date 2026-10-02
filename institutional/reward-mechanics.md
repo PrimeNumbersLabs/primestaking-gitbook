@@ -94,7 +94,7 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 | **Reward asset (base layer)** | XDC, accruing as share-price appreciation of psXDC |
 | **Reward asset (NFT boost)** | psXDC shares, accruing into the NFT vault's Synthetix accumulator |
 | **Distribution frequency (base)** | Roughly monthly `distributeRewards` steps in the share price |
-| **Distribution frequency (boost)** | Each `notifyBoost` / `notifyBoostShares` batch; target cadence monthly (first batch 14 Sep 2026 covered May–Sep) |
+| **Distribution frequency (boost)** | Each `notifyBoost` / `notifyBoostShares` batch; target cadence monthly (14 Sep 2026: May 14 → Sep 14; 2 Oct 2026: Sep 14 → Oct 2) |
 | **Claim flow (base)** | None. Rewards are realized on redemption |
 | **Claim flow (boost)** | User-initiated `claim(tokenId)` from the NFT detail page |
 | **On-chain verifiability** | Yes, both layers emit events indexed by the public subgraphs |

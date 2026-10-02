@@ -82,12 +82,22 @@ mintAndStakeLocked(
   uint256 tokenId,
   uint8   rarity,
   uint256 shares,
-  uint64  lockEnd,    // copied from the legacy NFT
-  uint256 lockBoost   // configured on the V3 vault
+  uint64  lockEnd,         // copied from the legacy NFT
+  uint64  lockBoostUnits   // the migrator's migratorLockBoostUnits
 );
 ```
 
 `lockEnd` is the **original** V2 unlock timestamp. This is the key property: a user cannot dodge the lock by routing through the migrator. On the V3 side, the NFT remains locked (`withdraw`, `merge`, `burnAndRedeem` revert) until the same time it would have unlocked on V2.
+
+### Lock boost of migrated locks
+
+The boost units are whatever the migrator passes, its `migratorLockBoostUnits` setting. That setting was **0 on every migrator**, so the 20 NFTs migrated with a running V2 lock kept their unlock date but earned at the unlocked weight (a Common NFT at level 0 weighed 4× instead of 16×), while a native 365-day `lock` gets +12.
+
+Corrected on **2 Oct 2026**:
+
+- The vault was upgraded with `adminSetLockBoost`, and the 13 NFTs whose lock was still running were given +12 units until their original unlock date ([tx](https://xdcscan.com/tx/0x3ed9f3be2971f5bf8e481017151a084b265d248841e64fcb4f829c7ac9fb26c6)). Boost already earned was settled first and did not change.
+- The owners of all 20 were compensated for the two boost distributions they were under-weighted in (14 Sep and 2 Oct 2026): 505.49 psXDC per NFT still locked, 437.70 psXDC per NFT whose lock had ended in September, 9,635.27 psXDC in total, sent directly to their wallets.
+- The current migrator's `migratorLockBoostUnits` was set to 12, so any locked NFT migrated from now on carries the 365-day boost until its unlock date.
 
 ---
 
@@ -95,7 +105,7 @@ mintAndStakeLocked(
 
 That's the supported case. The migrator preserves the lock and the V3 vault honours it. You won't be able to `withdraw`, `merge`, or `burnAndRedeem` your V3 NFT until `lockEnd` passes, but you will:
 
-- Earn the boost slice on the locked weight (which is higher than the unlocked weight) the entire time.
+- Earn the boost slice on the locked weight (rarity + level + the 365-day tier's +12) until the lock ends.
 - Earn the base NAV through the underlying psXDC v3 shares.
 - Be able to `claim` the boost at any time during the lock.
 

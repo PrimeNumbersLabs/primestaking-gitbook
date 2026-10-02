@@ -21,8 +21,8 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | `stake(uint256 tokenId, uint256 shares)` | Pulls `shares` of psXDC v3 from `msg.sender` and stakes them against `tokenId`. Settles pending boost first. Reverts `ExceedsMaxStakePerNft` if the resulting balance would exceed `maxStakePerNft` (default 100,000 psXDC). |
 | `withdraw(uint256 tokenId, uint256 shares)` | Returns `shares` of psXDC v3 from the NFT to `msg.sender`. Reverts if the NFT is locked. |
 | `claim(uint256 tokenId, bool unwrap)` | Pays out the NFT's earned boost. If `unwrap == true`, redeems the boost shares to native XDC; otherwise transfers shares. |
-| `lock(uint256 tokenId, uint64 until)` | Sets `lockEnd`, adds `lockBonus` to the NFT's weight. Disables `withdraw`/`merge`/`burnAndRedeem`. |
-| `unlock(uint256 tokenId)` | Removes `lockBonus` once `lockEnd` has passed. |
+| `lock(uint256 tokenId, uint64 duration)` | Locks the NFT for one of the configured tiers (30, 90, 180 or 365 days → +1, +3, +6 or +12 boost units) and freezes those units into its weight. Disables `withdraw`/`merge`/`burnAndRedeem` until `lockEnd`. |
+| `pokeExpired(uint256[] tokenIds)` | Permissionless. Clears the lock and boost of NFTs whose `lockEnd` has passed (the boost stops counting at `lockEnd` either way; this settles the bookkeeping). Skips ids that are not expired. |
 | `merge(uint256 tokenIdA, uint256 tokenIdB)` | Burns two same-rarity NFTs, mints one higher-rarity NFT via `XdcStakedNFT.mintMerged`, settles boost on both. Reverts `ExceedsMaxStakePerNft` if the two NFTs' combined shares would exceed `maxStakePerNft`. |
 | `burnAndRedeem(uint256 tokenId, bool unwrap)` | Burns the NFT and returns the underlying shares (or unwraps them to XDC) in one transaction. |
 | `notifyBoost(uint256 amount) payable` | **`FEE_ROUTER_ROLE` only** (harvester and operations wallet). Receives `amount` native XDC, mints psXDC v3 shares, bumps `rewardPerWeightStored`. Reverts if `totalWeight == 0`. |
@@ -33,7 +33,7 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | Function | Role | What it does |
 | --- | --- | --- |
 | `mintAndStake(address to, uint256 tokenId, uint8 rarity, uint256 shares)` | `MIGRATOR_ROLE` | Mints `tokenId` on the collection with the given rarity and immediately stakes `shares` against it for `to`. |
-| `mintAndStakeLocked(address to, uint256 tokenId, uint8 rarity, uint256 shares, uint64 lockEnd, uint256 lockBoost)` | `MIGRATOR_ROLE` | Same, but preserves the legacy NFT's lock state. |
+| `mintAndStakeLocked(address to, uint256 tokenId, uint8 rarity, uint256 shares, uint64 lockEnd, uint64 lockBoostUnits)` | `MIGRATOR_ROLE` | Same, but preserves the legacy NFT's unlock date. The boost units come from the migrator's `migratorLockBoostUnits`: 0 on every migrator until 2 Oct 2026, 12 (the 365-day tier) since. |
 
 ### Read-only helpers
 
@@ -50,7 +50,9 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 
 - `pause()` / `unpause()`: `PAUSER_ROLE`. Halts stake/withdraw/claim; boost can still be received.
 - `recoverOrphanedShares(uint256 tokenId, address to)`: `DEFAULT_ADMIN_ROLE`, only `whenPaused` and only for burned NFTs.
-- `setLevelStakedNeeded(...)` / `setLockBoost(...)`: only callable while `totalWeight == 0`.
+- `setLevelStakedNeeded(...)` / `setLockBoost(...)`: only callable while `totalWeight == 0`. `setLockBoostPostLaunch(duration, units)` (`DEFAULT_ADMIN_ROLE`) enables or changes a tier later; it only affects future locks.
+- `adminUnlock(uint256 tokenId)`: `DEFAULT_ADMIN_ROLE`. Clears an NFT's lock and its boost.
+- `adminSetLockBoost(uint256[] tokenIds, uint64 units)`: `DEFAULT_ADMIN_ROLE`. Added 2 Oct 2026. Sets the boost units of NFTs whose lock is still running, capped at the 365-day tier. Settles boost earned so far at the old weight first and emits `Locked`; ids without an active lock are skipped. Used once, to give the 13 still-locked NFTs migrated from V2 their 365-day boost.
 - `setMaxStakePerNft(uint256 maxShares)`: `DEFAULT_ADMIN_ROLE`. Sets the per-NFT stake cap (`0` disables it). Settable at any time; only gates future `stake`/`merge` and never touches existing balances (over-cap NFTs are grandfathered). Migrator mint paths are exempt. See [Per-NFT stake cap](xdc-staking-nfts-mechanics.md#per-nft-stake-cap).
 
 ---

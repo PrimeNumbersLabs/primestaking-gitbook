@@ -81,6 +81,10 @@ XDC Network does have a slashing mechanism, but it differs fundamentally from Et
 5. **Merge:** combine two NFTs of the same rarity to create a higher-rarity NFT with a bigger weight.
 6. **Lock (optional):** locking adds `lockBonus` to the weight, which can push the combined APY toward the ~6% top of the band, but disables withdraw / merge / `burnAndRedeem` until expiry. The base ~4.5% applies whether you lock or not.
 
+#### My NFT kept its V2 lock after migration but showed no Lock Boost. Is that fixed?
+
+Yes. NFTs migrated with a running V2 lock kept their unlock date but were given a boost of 0, so they earned like unlocked NFTs. On 2 Oct 2026 every one of them still locked got the 365-day tier's +12 until its original unlock date, and the owners of all 20 affected NFTs were sent the boost they missed in the 14 Sep and 2 Oct distributions. Details: [Locked NFTs & Legacy Diamond Bypass](xdc-staking-nfts/locked-nft-migration.md#lock-boost-of-migrated-locks).
+
 #### What is the Merge System?
 
 If you have two NFTs of the same rarity, you can **merge** them into one NFT of the next rarity tier. Both originals are burned and a new one is minted. Higher rarity means a bigger `rarityMultiplier` and a bigger slice of every boost push. Because merging burns NFTs, the collection becomes **more scarce over time**, making remaining NFTs increasingly valuable.

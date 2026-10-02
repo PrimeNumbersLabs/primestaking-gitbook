@@ -59,7 +59,7 @@ The original idea was to fund boost from psXDC v3's own NAV. That would have req
 - In practice the boost is now paid directly by the operations wallet: `notifyBoostShares(shares)` pulls psXDC from it and credits every NFT in one transaction, without touching the psXDC vault's liquidity buffer.
 - The psXDC vault itself never needs to know about boost; the NFT vault's `FEE_ROUTER_ROLE` is the chokepoint.
 
-The trade-off is that the boost has to be funded by an operator, so it arrives in batches. History so far: no boost was pushed between the V3 launch (14 May 2026) and **14 Sep 2026**, when the full ~1.5% band for that period (250 + 85,850 psXDC ≈ 86,700 XDC) was distributed in one `notifyBoostShares` batch; from there the target cadence is monthly (~1.5% p.a. on the staked total). Every push emits a public `BoostNotified` event indexed by the subgraph, and the app derives the displayed boost APR from the boost paid since launch, annualised and capped at the marketed band.
+The trade-off is that the boost has to be funded by an operator, so it arrives in batches. History so far: no boost was pushed between the V3 launch (14 May 2026) and **14 Sep 2026**, when the full ~1.5% band for that period (250 + 85,850 psXDC ≈ 86,700 XDC) was distributed in one `notifyBoostShares` batch; from there the target cadence is monthly (~1.5% p.a. on the staked total). The second batch, on **2 Oct 2026**, paid 12,130 psXDC for 14 Sep → 2 Oct, sized on the psXDC actually staked each day. Every push emits a public `BoostNotified` event indexed by the subgraph, and the app derives the displayed boost APR from the boost paid since launch, annualised and capped at the marketed band.
 
 ---
 

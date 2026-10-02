@@ -36,7 +36,7 @@ The XDC NFT stack has been rebuilt around the psXDC v3 vault. New contract addre
    - **Boost**: every boost push (`notifyBoost` in XDC or `notifyBoostShares` in psXDC, from the operations wallet or the harvester) increments `rewardPerWeightStored`; your earned slice grows in proportion to your weight. Pushes are operator-driven batches, not a continuous stream.
 5. **Claim boost** from the NFT detail page whenever you want. It is paid in psXDC shares (which you can stake back into the NFT, hold, or redeem). Base NAV is automatic and needs no claim.
 6. **Upgrade** by merging two same-rarity NFTs into a higher-tier one for a larger `rarityMultiplier`.
-7. **Lock (optional)**: locking adds `lockBoost` to the weight calculation. Lock expiry is preserved across migration so users can't dodge the lock by routing through the migrator.
+7. **Lock (optional)**: locking adds `lockBoost` to the weight calculation. Lock expiry is preserved across migration so users can't dodge the lock by routing through the migrator. Locks carried over from V2 were first migrated without their boost; since 2 Oct 2026 they carry the 365-day tier's +12, like a native one-year lock ([details](locked-nft-migration.md#lock-boost-of-migrated-locks)).
 8. **`burnAndRedeem`** burns the NFT and returns the underlying psXDC shares (or, optionally, redeems them to XDC in one transaction).
 
 ---
