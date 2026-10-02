@@ -36,8 +36,10 @@ The rate can only be written by the wired XDC publisher (LayerZero peer auth,
 - **Step-capped** — each update may rise by at most `maxStepBps` (default 1%),
   blunting a bad or manipulated push.
 - **Staleness** — `updatedAt` plus `isStale()` let you reject data older than
-  the configured window (default 2 days). PrimeStaking pushes the rate at least
-  daily, and the push is permissionless so it cannot be censored.
+  the configured window: 8 days on all four chains (raised from 2 days on
+  2 Oct 2026). PrimeStaking pushes the rate whenever it changes (the vault's rate
+  moves in roughly monthly reward steps) and refreshes it at least weekly; the
+  push is permissionless so it cannot be censored.
 
 If pushes lapse long enough that legitimate cumulative growth would exceed the
 per-update step cap, the bridged update is rejected and the feed goes stale
