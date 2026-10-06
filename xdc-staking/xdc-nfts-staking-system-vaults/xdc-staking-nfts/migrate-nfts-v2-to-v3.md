@@ -1,6 +1,6 @@
 # Migrate XDC NFTs to V3
 
-The V3 XDC NFT stack is a fresh set of contracts. Your legacy V2 NFTs continue to work, but to earn under the new reward model (psXDC v3 NAV + Synthetix boost slice) you migrate them through [`XdcNftMigratorV2`](../contract-addresses.md). Migration preserves your **rarity** and any active **lock expiry**, and preserves your **tokenId** for every legacy id below `10000`.
+The V3 XDC NFT stack is a fresh set of contracts. Your legacy V2 NFTs keep their staked balance, but they no longer earn: V2 NFT rewards ended with the last monthly payout at the start of June 2026. To earn under the V3 reward model (psXDC v3 NAV + Synthetix boost slice), migrate them through [`XdcNftMigratorV2`](../contract-addresses.md). Migration preserves your **rarity** and any active **lock expiry**, and preserves your **tokenId** for every legacy id below `10000`.
 
 {% hint style="info" %}
 Migration is **one-shot per NFT**, **atomic** (all-or-nothing), and never holds your funds across transactions. For legacy ids below `10000` the `tokenId` is identical end-to-end, so your social presence, links, and OpenSea / PrimePort references keep working.

@@ -28,7 +28,7 @@ Unlike the V2 model, V3 does **not** require you to first own 100% of the underl
 After purchase, the NFT and its full staking state (`stakedShares`, `level`, `lockEnd`, `rewardIndex`, pending boost) transfer to your wallet.
 
 {% hint style="warning" %}
-Both V2 (legacy) and V3 NFTs may be listed. **V2 NFTs follow the legacy reward model** until they are migrated; **V3 NFTs immediately participate in the boost accumulator**. The collection address is the easiest way to tell them apart:
+Both V2 (legacy) and V3 NFTs may be listed. **V2 NFTs earn nothing until they are migrated** (V2 NFT rewards ended in June 2026); **V3 NFTs immediately participate in the boost accumulator**. The collection address is the easiest way to tell them apart:
 
 - V2 collection: `0x9D458330e458f11fd1cE7E44B3a66568af8076a0`
 - V3 collection: [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E)
