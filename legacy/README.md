@@ -27,7 +27,7 @@ New users should always use V3. The V2 contracts described here do not implement
 | Surface | V2 behaviour |
 | --- | --- |
 | Liquid staking deposit | Mints V2 psXDC at a fixed 1:1 ratio with XDC. |
-| Liquid staking rewards | Distributed via the legacy `notifyRewardAmount` flow; users manually claim from the legacy Rewards tab. |
+| Liquid staking rewards | Ended on May 31, 2026, when the last V2 reward period finished. Unclaimed V2 rewards were credited as V3 psXDC on July 7, 2026. Migrate to V3 to earn again. |
 | Liquid staking withdrawal | Submitted as a request and processed via the validator queue under the legacy operational flow. |
 | XDC NFTs | Keep their staked balance but no longer earn: the last V2 monthly reward payout was at the start of June 2026. Migrate them to V3 to earn again. |
 | Migration | Both psXDC v2 → V3.1 shares (via the [v2 → V3.1 bridge](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/staking-guide/migration.md)) and legacy NFTs → V3 NFTs are available; see the V3 documentation for current migration UX. |
