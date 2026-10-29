@@ -9,4 +9,4 @@ All products run on the XDC Network and are governed by audited smart contracts.
 | XDC Liquid Staking | XDC | psXDC rewards | ~4.5% |
 | XDC NFTs | psXDC (inside NFTs) | NAV growth + psXDC boost | ~4.75% (unlocked) → up to ~6% (locked) |
 
-→ Start at [primestaking.xyz](https://primestaking.xyz)
+→ Start at [app.primestaking.xyz](https://app.primestaking.xyz)

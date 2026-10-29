@@ -12,7 +12,7 @@ PrimeStaking runs on the **`PrimeStakedXDC_V3_2`** vault, a fully non-custodial,
 
 **PrimeStaking** is a non-custodial staking platform and infrastructure provider on the XDC Network, built in collaboration with **Nethermind** and the **XDC Core team**.
 
-The platform is live at [primestaking.xyz](https://primestaking.xyz).
+The app is live at [app.primestaking.xyz](https://app.primestaking.xyz), and the website at [primestaking.xyz](https://primestaking.xyz).
 
 ***
 
@@ -149,12 +149,13 @@ White Label and Powered by Prime are integration tracks where you embed the flag
 
 | Resource                | Link                                                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------------------------------- |
-| App                     | [primestaking.xyz](https://primestaking.xyz)                                                         |
-| XDC Liquid Staking      | [primestaking.xyz/xdc-liquid-staking/overview](https://primestaking.xyz/xdc-liquid-staking/overview) |
-| XDC NFTs                | [primestaking.xyz/xdc-nfts/overview](https://primestaking.xyz/xdc-nfts/overview)                     |
-| Migrate XDC NFTs        | [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migrate)                       |
-| Migrate psXDC V2 → V3   | [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration) |
-| Referral Program        | [primestaking.xyz/xdc-liquid-staking/referral](https://primestaking.xyz/xdc-liquid-staking/referral) |
+| App                     | [app.primestaking.xyz](https://app.primestaking.xyz)                                                 |
+| Website                 | [primestaking.xyz](https://primestaking.xyz)                                                         |
+| XDC Liquid Staking      | [app.primestaking.xyz/xdc-liquid-staking/overview](https://app.primestaking.xyz/xdc-liquid-staking/overview) |
+| XDC NFTs                | [app.primestaking.xyz/xdc-nfts/overview](https://app.primestaking.xyz/xdc-nfts/overview)                     |
+| Migrate XDC NFTs        | [app.primestaking.xyz/xdc-nfts/migrate](https://app.primestaking.xyz/xdc-nfts/migrate)                       |
+| Migrate psXDC V2 → V3   | [app.primestaking.xyz/xdc-liquid-staking/migration](https://app.primestaking.xyz/xdc-liquid-staking/migration) |
+| Referral Program        | [app.primestaking.xyz/xdc-liquid-staking/referral](https://app.primestaking.xyz/xdc-liquid-staking/referral) |
 | Institutional Solutions | [Institutional & Exchange Solutions](institutional/)                                                 |
 | Partner Staking         | [Run your own staking pool](partner-staking/README.md)                                               |
 | psXDC V3.2 vault        | [XDCScan](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734)                    |

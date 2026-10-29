@@ -5,7 +5,7 @@ Locked legacy XDC NFTs cannot be burnt-and-redeemed through the standard V2 faç
 The V3 stack solves this with a tiny facet, [`LegacyMigratorBypassFacet`](../contract-addresses.md), added to the legacy Diamond via `diamondCut`. The facet exposes a single mutator that only the V3 migrator can call, which clears the diamond's `tokenLocked` flag so the standard `burnAndRedeem` succeeds inside the same atomic migration transaction. The diamond custodies the psXDC backing every NFT and pays the redemption from its own reserve; the facet makes **no** external call.
 
 {% hint style="info" %}
-The bypass facet is **live** on the legacy Diamond. The current facet is `0x2786…5e13`, bound to the current migrator `XdcNftMigratorV2` (`0x69DE…2ea8`). Locked migrations work end-to-end through [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate) with no extra steps required from the user.
+The bypass facet is **live** on the legacy Diamond. The current facet is `0x2786…5e13`, bound to the current migrator `XdcNftMigratorV2` (`0x69DE…2ea8`). Locked migrations work end-to-end through [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate) with no extra steps required from the user.
 {% endhint %}
 
 {% hint style="warning" %}

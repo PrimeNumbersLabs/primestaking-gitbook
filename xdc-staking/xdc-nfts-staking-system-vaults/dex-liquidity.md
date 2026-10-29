@@ -2,7 +2,7 @@
 
 psXDC can be traded against XDC on-chain, and liquidity providers can earn fees by supplying both sides of the pool.
 
-The primary venue is **PrimeStaking Spot** at [primestaking.xyz/spot](https://primestaking.xyz/spot). It runs on a protocol-owned Uniswap V2 style pool holding the live V3.2 psXDC and wrapped XDC, with market swaps and on-chain limit orders settled by a keeper.
+The primary venue is **PrimeStaking Spot** at [app.primestaking.xyz/spot](https://app.primestaking.xyz/spot). It runs on a protocol-owned Uniswap V2 style pool holding the live V3.2 psXDC and wrapped XDC, with market swaps and on-chain limit orders settled by a keeper.
 
 {% hint style="warning" %}
 **Post-V3.1 note (July 2026):** DEX pools created before the V3.1 redeployment hold the retired old-V3 token and are no longer valid. LP positions in those pools were credited in the snapshot airdrop, so LPs received their share of the pool's psXDC directly on V3.1. Before trading or LPing anywhere, verify the pool's psXDC address is the live V3.2 token: [`0xDc74c0DaED82ae94486DeeF22991d2F54173c734`](https://xdcscan.com/address/0xDc74c0DaED82ae94486DeeF22991d2F54173c734).
@@ -42,7 +42,7 @@ The live pool was re-seeded for the V3.2 token at NAV. It is **shallow** (on the
 
 ## How to Trade on PrimeStaking Spot
 
-1. Go to [primestaking.xyz/spot](https://primestaking.xyz/spot) and connect your wallet.
+1. Go to [app.primestaking.xyz/spot](https://app.primestaking.xyz/spot) and connect your wallet.
 2. **Market orders** swap immediately against the pool at the current price.
 3. **Limit orders** rest on-chain until the pool price reaches your limit; a keeper then settles them automatically. You can cancel an open order at any time and the unfilled escrow is refunded in full.
 

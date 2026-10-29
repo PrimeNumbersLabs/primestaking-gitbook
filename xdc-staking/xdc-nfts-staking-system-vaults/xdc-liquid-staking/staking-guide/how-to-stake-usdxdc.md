@@ -9,7 +9,7 @@
 
 ### Step 1 - Connect Your Wallet
 
-Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**. Approve the connection in your wallet.
+Go to [app.primestaking.xyz](https://app.primestaking.xyz) and click **Connect Wallet**. Approve the connection in your wallet.
 
 <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -17,7 +17,7 @@ Go to [primestaking.xyz](https://primestaking.xyz) and click **Connect Wallet**.
 
 ### Step 2 - Navigate to XDC Liquid Staking
 
-Open [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake. The app previews how many psXDC shares you will receive at the current exchange rate. This is **not** a fixed 1:1; once the vault has accrued rewards, each share is worth more than 1 XDC.
+Open [app.primestaking.xyz/xdc-liquid-staking](https://app.primestaking.xyz/xdc-liquid-staking/overview) and enter the amount of XDC you want to stake. The app previews how many psXDC shares you will receive at the current exchange rate. This is **not** a fixed 1:1; once the vault has accrued rewards, each share is worth more than 1 XDC.
 
 <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -39,7 +39,7 @@ The V2 → V3.2 bridge is [`0x313e8d6Ad3D16be6318dF2AF5a54A87Aea42c280`](https:/
 
 ## Steps
 
-1. Go to the migration page at [primestaking.xyz/xdc-liquid-staking/migration](https://primestaking.xyz/xdc-liquid-staking/migration). (The app also shows a migration banner on the main staking dashboard.)
+1. Go to the migration page at [app.primestaking.xyz/xdc-liquid-staking/migration](https://app.primestaking.xyz/xdc-liquid-staking/migration). (The app also shows a migration banner on the main staking dashboard.)
 2. Enter the amount of V2 psXDC you want to migrate. The app previews the V3.2 shares you will receive and applies a default slippage tolerance of **0.5%**, which you can adjust.
 3. Click **Approve** to allow the bridge to spend that amount of V2 psXDC. Confirm in your wallet.
 4. Click **Migrate**. The app calls `migrate(amount, minSharesOut)` on the bridge. Confirm the transaction.

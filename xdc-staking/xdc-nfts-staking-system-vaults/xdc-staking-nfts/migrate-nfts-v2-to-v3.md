@@ -52,7 +52,7 @@ For locked NFTs the flow is identical except it also routes through the [`Legacy
 
 ### 1. Open the migrate page
 
-Go to [primestaking.xyz/xdc-nfts/migrate](https://primestaking.xyz/xdc-nfts/migrate). The page shows your **legacy** XDC NFT balance and your existing **V3** NFT balance side by side. A yellow banner also appears on `/xdc-nfts/my-nfts` if your wallet still holds legacy NFTs.
+Go to [app.primestaking.xyz/xdc-nfts/migrate](https://app.primestaking.xyz/xdc-nfts/migrate). The page shows your **legacy** XDC NFT balance and your existing **V3** NFT balance side by side. A yellow banner also appears on `/xdc-nfts/my-nfts` if your wallet still holds legacy NFTs.
 
 ### 2. Approve the migrator
 

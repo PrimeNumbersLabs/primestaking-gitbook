@@ -1,6 +1,6 @@
 # Staking Guide
 
-Step-by-step instructions for using XDC Liquid Staking V3 on [primestaking.xyz](https://primestaking.xyz).
+Step-by-step instructions for using XDC Liquid Staking V3 on [app.primestaking.xyz](https://app.primestaking.xyz).
 
 | Guide | What You'll Learn |
 | --- | --- |

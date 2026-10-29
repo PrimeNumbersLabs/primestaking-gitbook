@@ -19,7 +19,7 @@ pause or forfeit that yield — you capture it when you bridge back.
 ## How to bridge (step by step)
 
 The Bridge page is at
-[primestaking.xyz/xdc-liquid-staking/bridge](https://primestaking.xyz/xdc-liquid-staking/bridge).
+[app.primestaking.xyz/xdc-liquid-staking/bridge](https://app.primestaking.xyz/xdc-liquid-staking/bridge).
 
 1. **Connect your wallet.** The page works from any of the five supported
    networks; it will ask your wallet to switch when needed.

@@ -6,7 +6,7 @@ V3 does not have a "rewards claim" history in the V2 sense, because rewards are 
 
 ## How to View
 
-1. Go to [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview).
+1. Go to [app.primestaking.xyz/xdc-liquid-staking](https://app.primestaking.xyz/xdc-liquid-staking/overview).
 2. Open the **My Positions** section. You'll see:
    - Your current psXDC share balance.
    - The current XDC value of that balance at the live exchange rate.

@@ -25,7 +25,7 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC, without r
 
 ### 1. Stake
 
-Deposit XDC through the staking interface at [primestaking.xyz](https://primestaking.xyz/xdc-liquid-staking/overview). No account setup or KYC required, just connect your wallet.
+Deposit XDC through the staking interface at [app.primestaking.xyz](https://app.primestaking.xyz/xdc-liquid-staking/overview). No account setup or KYC required, just connect your wallet.
 
 The vault mints psXDC shares for you at the current exchange rate. The app previews exactly how many shares you will receive before you sign.
 

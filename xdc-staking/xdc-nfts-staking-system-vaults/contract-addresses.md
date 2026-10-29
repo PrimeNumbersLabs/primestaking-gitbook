@@ -66,7 +66,7 @@ The NFT vault proxy was upgraded in place during the V3.2 cutover, so the user-f
 
 ## Spot Trading (psXDC/XDC DEX)
 
-The protocol-owned spot venue behind [primestaking.xyz/spot](https://primestaking.xyz/spot). The factory and router are token-agnostic and carried over from the original deployment; the pair and limit-order book were redeployed against V3.2 in July 2026.
+The protocol-owned spot venue behind [app.primestaking.xyz/spot](https://app.primestaking.xyz/spot). The factory and router are token-agnostic and carried over from the original deployment; the pair and limit-order book were redeployed against V3.2 in July 2026.
 
 | Contract | Address | Type | Notes |
 | --- | --- | --- | --- |

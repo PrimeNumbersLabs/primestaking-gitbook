@@ -10,7 +10,7 @@ For the full breakdown of how the instant vs queued paths choose themselves, see
 
 ## Steps
 
-1. Go to [primestaking.xyz/xdc-liquid-staking](https://primestaking.xyz/xdc-liquid-staking/overview).
+1. Go to [app.primestaking.xyz/xdc-liquid-staking](https://app.primestaking.xyz/xdc-liquid-staking/overview).
 2. Open the **Withdraw** section (or use the **Lite Mode** withdraw tab).
 3. Enter the amount of **psXDC shares** you want to redeem. The app shows you, in real time:
    - The XDC you will receive based on the current exchange rate.

@@ -19,7 +19,7 @@ psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the Jul
 
 #### Can I use psXDC outside the XDC Network?
 
-Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero from the [Bridge page](https://primestaking.xyz/xdc-liquid-staking/bridge) — no third-party custodian, no bridge fee beyond the LayerZero message cost, and your staking yield keeps accruing while bridged. On Base and HyperEVM it is already listed as collateral on [PrimeFi](https://primefi.xyz), so you can lend it or borrow against it without unstaking. See [Bridge psXDC](xdc-liquid-staking/bridge.md) and [Multichain Opportunities](xdc-liquid-staking/multichain-opportunities.md).
+Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero from the [Bridge page](https://app.primestaking.xyz/xdc-liquid-staking/bridge) — no third-party custodian, no bridge fee beyond the LayerZero message cost, and your staking yield keeps accruing while bridged. On Base and HyperEVM it is already listed as collateral on [PrimeFi](https://primefi.xyz), so you can lend it or borrow against it without unstaking. See [Bridge psXDC](xdc-liquid-staking/bridge.md) and [Multichain Opportunities](xdc-liquid-staking/multichain-opportunities.md).
 
 #### I held psXDC V3 before July 2026. Do I need to do anything?
 
@@ -31,7 +31,7 @@ By design. During the cutover the V2 token was paused and the final activation s
 
 #### Why did NFT migration fail with "network fee unavailable" (August 9 – October 6, 2026)?
 
-A configuration bug on our side. On August 9 the NFT migrator was upgraded to [`XdcNftMigratorV2`](contract-addresses.md), but the app kept sending migrations to the previous migrator, which no longer had permission to mint V3 NFTs. Every migration would have reverted, so wallets could not estimate a fee and refused to send it. Nothing was submitted and no funds moved. The app was fixed on October 6: open [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate), approve the new migrator once, then migrate.
+A configuration bug on our side. On August 9 the NFT migrator was upgraded to [`XdcNftMigratorV2`](contract-addresses.md), but the app kept sending migrations to the previous migrator, which no longer had permission to mint V3 NFTs. Every migration would have reverted, so wallets could not estimate a fee and refused to send it. Nothing was submitted and no funds moved. The app was fixed on October 6: open [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate), approve the new migrator once, then migrate.
 
 #### What happens when I unstake?
 
@@ -99,7 +99,7 @@ List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When
 
 #### I still hold a legacy XDC NFT. What should I do?
 
-Migrate it. A legacy NFT keeps its staked balance, but it no longer earns: V2 NFT rewards ended with the last monthly payout at the start of June 2026. Migrating takes a single transaction via [`/xdc-nfts/migrate`](https://primestaking.xyz/xdc-nfts/migrate). Migration preserves your **rarity** and any active **lock expiry**, and your **tokenId** for legacy ids below `10000` (ids ≥ `10000` are remapped into the `5558–9999` band because that range is reserved for merged NFTs). It immediately starts earning under the V3 reward model.
+Migrate it. A legacy NFT keeps its staked balance, but it no longer earns: V2 NFT rewards ended with the last monthly payout at the start of June 2026. Migrating takes a single transaction via [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate). Migration preserves your **rarity** and any active **lock expiry**, and your **tokenId** for legacy ids below `10000` (ids ≥ `10000` are remapped into the `5558–9999` band because that range is reserved for merged NFTs). It immediately starts earning under the V3 reward model.
 
 → [Migrate XDC NFTs to V3](xdc-staking-nfts/migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](xdc-staking-nfts/locked-nft-migration.md)
 
