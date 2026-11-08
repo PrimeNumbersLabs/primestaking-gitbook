@@ -8,7 +8,7 @@ Live on XDC Mainnet. The shared [`PartnerVaultRegistry`](https://xdcscan.com/add
 
 ---
 
-## `PartnerStakedXDC_V3_2` — the partner vault
+## `PartnerStakedXDC_V3_2`: the partner vault
 
 An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `ERC4626`, `Pausable`, `AccessControl`). It is a fee-bearing copy of the flagship `PrimeStakedXDC_V3_1` with separate state, token, keys, and operators. `asset()` is the zero address because the underlying is native XDC; `totalAssets()` returns `trackedTotalAssets`. V3.2 adds the timelocked **partner fee** (see below); everything else matches the audited V3 template.
 
@@ -25,7 +25,7 @@ An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `E
 | `MAX_BUFFER_BPS` | `5000` | Max liquidity buffer (50%) |
 | `DEFAULT_MAX_LOSS_BPS_PER_REPORT` | `1000` | 10% per-report validator-loss cap |
 | `DEFAULT_MAX_DAILY_LOSS_BPS` | `2000` | 20% rolling daily loss cap |
-| `DEFAULT_GOVERNANCE_DELAY` | `1 day` | Default timelock (range 1 min – 30 days) |
+| `DEFAULT_GOVERNANCE_DELAY` | `1 day` | Default timelock (range 1 min to 30 days) |
 
 ### Partner fee (V3.2)
 
@@ -35,7 +35,7 @@ An ERC-4626, native-XDC, share-based liquid staking vault (`ReentrancyGuard`, `E
 | `setPartnerFee(bps)` → `executePartnerFee()` / `cancelPartnerFeeChange()` | Timelocked rate change (admin only, waits `governanceDelay`). Executing first settles accrued yield at the old rate. |
 | `setPartnerFeeRecipient(addr)` → `executePartnerFeeRecipient()` / `cancelPartnerFeeRecipientChange()` | Timelocked recipient change (admin only). |
 | `pendingPartnerFee()` / `pendingPartnerFeeRecipient()` | Views exposing any scheduled change + its `executeAfter` timestamp (drives the app's staker warnings). |
-| Failure mode | If the recipient rejects the push, the fee parks in `pendingQueuedAssets[recipient]` and is pulled via `claimQueuedAssets` — the pool never bricks. |
+| Failure mode | If the recipient rejects the push, the fee parks in `pendingQueuedAssets[recipient]` and is pulled via `claimQueuedAssets`, so the pool never bricks. |
 
 ### Stake & withdraw
 
@@ -87,7 +87,7 @@ Each executes only after `governanceDelay` has elapsed.
 
 | Function | Returns |
 | --- | --- |
-| `isPartnerStakedXDCV3()` | `true` — marker the registry/UI use to identify partner vaults (kept in V3.2) |
+| `isPartnerStakedXDCV3()` | `true`: marker the registry/UI use to identify partner vaults (kept in V3.2) |
 | `partnerVaultVersion()` | `2` on V3.2 pools; the call reverts on legacy V3 pools, which is how the app tells generations apart |
 | `name()` / `symbol()` | The partner's branded name/symbol |
 | `totalAssets()` / `desiredBuffer()` | Tracked NAV and target buffer |

@@ -53,7 +53,7 @@ psXDC is a standard ERC-20 on the XDC Network. While the vault earns yield, you 
 - **Deposit into XDC NFTs** to layer the boost slice on top of your NAV.
 - **Use as collateral** in DeFi protocols that support ERC-4626 vault tokens.
 - **Bridge to Base, Arbitrum, BNB Chain, or HyperEVM** ([guide](bridge.md)) and
-  lend it on PrimeFi or LP it there — the staking yield keeps accruing the whole
+  lend it on PrimeFi or LP it there; the staking yield keeps accruing the whole
   time ([opportunities](multichain-opportunities.md)).
 - **Transfer** to any wallet; the recipient inherits the appreciating share automatically.
 
@@ -68,7 +68,7 @@ To convert back to XDC you have three options:
 The app calls `redeemWithQueue` for you, which automatically picks the instant path when possible and falls back to the queue when not. You always see in advance which path your transaction will take.
 
 {% hint style="info" %}
-**When a queue backlog exists** (for example right after a migration, while masternodes unwind at the validator contract), free liquidity is usually thin and most withdrawals take the **queued** path — during those periods instant service is the exception, not the rule. The DEX exit remains available for immediate liquidity at market price.
+**When a queue backlog exists** (for example right after a migration, while masternodes unwind at the validator contract), free liquidity is usually thin and most withdrawals take the **queued** path; during those periods instant service is the exception, not the rule. The DEX exit remains available for immediate liquidity at market price.
 {% endhint %}
 
 → [Withdrawals: Instant vs Queued](staking-guide/withdrawals-instant-vs-queued.md) → [Request Withdrawal walkthrough](staking-guide/request-withdrawal.md)

@@ -27,7 +27,7 @@ The redemption settles in the **same transaction**. You receive XDC immediately.
 
 ### If buffer liquidity is constrained
 
-Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time**. It is settled as the queue's dedicated budget (`queueBackingBudget`) is topped up — primarily from masternode resignation principal returning after the XDC Network's `candidateWithdrawDelay` (~35 days under normal block times), routed to the queue by the team. New deposits refill the *instant* buffer, not the queue. Your escrowed shares are paid at the exchange rate of the moment they are processed, so they keep earning while you wait.
+Your psXDC shares are escrowed inside the vault and a request is added to the FIFO queue. The withdrawal **does not have a fixed time**. It is settled as the queue's dedicated budget (`queueBackingBudget`) is topped up, primarily from masternode resignation principal returning after the XDC Network's `candidateWithdrawDelay` (~35 days under normal block times), routed to the queue by the team. New deposits refill the *instant* buffer, not the queue. Your escrowed shares are paid at the exchange rate of the moment they are processed, so they keep earning while you wait.
 
 You can monitor the queue at any time from the **My Positions** page. When your request is processed, your XDC lands either directly in your wallet or in the vault's `pendingQueuedAssets` bucket. If it lands in `pendingQueuedAssets` (because the original payout failed for any reason), you collect it by calling `claimQueuedAssets`. The app exposes this as a **Claim** button on the queued withdrawal entry.
 

@@ -57,8 +57,8 @@ A gamified staking layer on top of liquid staking. Deposit psXDC shares into col
 
 * Each NFT has a **rarity** (Plentiful → Handcrafted) that determines its weight in the boost accumulator.
 * **Base yield** comes from the underlying psXDC share price growing over time (~4.5% APY).
-* **Boost yield** comes from a Synthetix-style accumulator. The operations wallet (or the protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md)) pushes boost batches into the NFT vault — `notifyBoost` in XDC or `notifyBoostShares` in psXDC — and each batch is distributed pro-rata to NFT weights.
-* **Rank up** by merging two same-rarity NFTs into a higher-rarity tier (a bigger `rarityMultiplier`). *Levels* (0–20) are separate: they come from how much psXDC is staked under the NFT.
+* **Boost yield** comes from a Synthetix-style accumulator. The operations wallet (or the protocol's [`XdcNftBoostHarvester`](xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md)) pushes boost batches into the NFT vault (`notifyBoost` in XDC or `notifyBoostShares` in psXDC), and each batch is distributed pro-rata to NFT weights.
+* **Rank up** by merging two same-rarity NFTs into a higher-rarity tier (a bigger `rarityMultiplier`). *Levels* (0 to 20) are separate: they come from how much psXDC is staked under the NFT.
 * **Lock** your NFT for a fixed period to add a lock bonus to its weight. Four tiers are available - **30, 90, 180 or 365 days** - with progressively larger boosts. The boost applies for the whole lock and **ends when the lock expires**; you can re-lock afterwards. Floor is the **~4.5% base NAV** (always earned, no claim); with the boost stream flowing, combined APY ranges from **~4.75% (unlocked)** up to **~6% (365-day lock)**.
 * You only claim the **boost slice** from the app. Base NAV is automatically inside the shares you get back on withdraw.
 

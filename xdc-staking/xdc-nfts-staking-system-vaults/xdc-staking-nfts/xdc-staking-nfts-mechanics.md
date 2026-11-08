@@ -23,7 +23,7 @@ All four terms are stored on-chain; the vault keeps `totalWeight` in sync so rew
 
 ## The Synthetix-style accumulator
 
-Boost rewards are not streamed per block. The operator pushes funding into the vault in batches (`notifyBoost` in XDC, or `notifyBoostShares` in psXDC), and a Synthetix-style accumulator splits every batch across all NFTs by weight the moment it lands — no per-holder transactions, and nothing to claim per batch:
+Boost rewards are not streamed per block. The operator pushes funding into the vault in batches (`notifyBoost` in XDC, or `notifyBoostShares` in psXDC), and a Synthetix-style accumulator splits every batch across all NFTs by weight the moment it lands: no per-holder transactions, and nothing to claim per batch:
 
 ```
 on notifyBoost(x):
@@ -78,12 +78,12 @@ Lock expiry is **preserved across migration** from V2; see [Locked NFTs & Legacy
 
 ## Per-NFT stake cap
 
-A single XDC NFT can hold at most **100,000 psXDC shares**. To stake more than that, hold additional NFTs — one NFT is one capped "slot".
+A single XDC NFT can hold at most **100,000 psXDC shares**. To stake more than that, hold additional NFTs; one NFT is one capped "slot".
 
 - Enforced on-chain in both `stake()` and `merge()`: any action whose **result** would push an NFT above `maxStakePerNft` reverts with `ExceedsMaxStakePerNft`.
-- **Merge respects the cap too.** Two NFTs whose combined staked shares exceed the cap cannot be merged — otherwise merging would be a way to hold more than the cap in one NFT. They stay as separate NFTs and keep earning independently.
+- **Merge respects the cap too.** Two NFTs whose combined staked shares exceed the cap cannot be merged; otherwise merging would be a way to hold more than the cap in one NFT. They stay as separate NFTs and keep earning independently.
 - **The cap is on share count, not XDC value.** psXDC is an ERC-4626 share; a maxed NFT's XDC value still grows over time as the share price appreciates (that's the base yield). The 100,000 limit is on psXDC shares held.
-- **Rewards are never blocked by the cap.** Base yield accrues in the share price and boost accrues in a separate `pendingBoost` bucket claimed via `claim()` — neither increases `stakedShares`, so a maxed NFT keeps earning and claiming normally.
+- **Rewards are never blocked by the cap.** Base yield accrues in the share price and boost accrues in a separate `pendingBoost` bucket claimed via `claim()`; neither increases `stakedShares`, so a maxed NFT keeps earning and claiming normally.
 - **Grandfathering.** NFTs that already hold more than the cap (e.g. migrated from a large V2 position) keep their full balance and can still `withdraw`/`claim`; they simply can't be topped up or used as a merge input that would exceed the cap.
 - **Migrator mint paths are exempt** (`mintAndStake` / `mintAndStakeLocked`) so pre-existing V2 positions migrate intact.
 - **Configurable by governance** via `setMaxStakePerNft(uint256 maxShares)` (`DEFAULT_ADMIN_ROLE`). Setting `0` disables the cap (unlimited). Changing it only affects future `stake`/`merge`; it never touches existing balances.

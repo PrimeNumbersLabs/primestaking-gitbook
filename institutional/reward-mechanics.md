@@ -52,7 +52,7 @@ every psXDC share is worth more XDC
 | **Settlement event** | When the user redeems shares (instant or queued), the higher rate translates directly into more XDC returned |
 | **On-chain verifiability** | Yes. Every distribution is a public transaction on the vault and the exchange rate is a public view |
 
-There is **no per-user `claim` flow** for the base reward layer — it was removed when V3 replaced the time-based APY model with the share-based NAV model. The V2 `notifyRewardAmount` + claim cycle is replaced by a single operations-manager `distributeRewards()` call per period that raises the share price for every holder.
+There is **no per-user `claim` flow** for the base reward layer; it was removed when V3 replaced the time-based APY model with the share-based NAV model. The V2 `notifyRewardAmount` + claim cycle is replaced by a single operations-manager `distributeRewards()` call per period that raises the share price for every holder.
 
 ---
 
@@ -77,7 +77,7 @@ Net APY is variable and depends on:
 
 XDC NFTs earn an **additional** stream on top of base NAV via the Synthetix-style accumulator inside `XdcNftStakingVault`. The boost is **separate** from validator rewards and follows its own funding model:
 
-- Boost is pushed into the NFT vault by the operations wallet — `notifyBoost(amount)` in native XDC or `notifyBoostShares(shares)` in psXDC (added 14 Sep 2026) — or via the optional [`XdcNftBoostHarvester`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md).
+- Boost is pushed into the NFT vault by the operations wallet, with `notifyBoost(amount)` in native XDC or `notifyBoostShares(shares)` in psXDC (added 14 Sep 2026), or via the optional [`XdcNftBoostHarvester`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-staking-nfts/boost-harvester.md).
 - The boost slice is distributed pro-rata to each NFT's weight (`stakedShares × (rarityMultiplier + level + lockBonus)`).
 - Boost **is** claimed (`claim(tokenId, unwrap)`) and paid in psXDC shares (the contract can unwrap to XDC on request).
 

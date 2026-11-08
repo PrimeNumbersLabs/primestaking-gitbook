@@ -60,7 +60,7 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 | --- | --- |
 | `stakedShares` | More psXDC staked inside the NFT → bigger slice |
 | `rarityMultiplier` | Plentiful (lowest) → Handcrafted (highest); set at mint, immutable |
-| `level` | 0–20, derived from how much psXDC is staked under the NFT against admin-set thresholds (merging changes rarity, not level) |
+| `level` | 0 to 20, derived from how much psXDC is staked under the NFT against admin-set thresholds (merging changes rarity, not level) |
 | `lockBonus` | Added when the NFT is locked, sized by the chosen lock tier (30/90/180/365 days). **Ends automatically when the lock expires** and can be renewed by re-locking. |
 
 When you `claim` from an NFT, the accumulator settles your pending boost and pays it out in psXDC shares (the app claims as psXDC; the contract can also unwrap to XDC on request).

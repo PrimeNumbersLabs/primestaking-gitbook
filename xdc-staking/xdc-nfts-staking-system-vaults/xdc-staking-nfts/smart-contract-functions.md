@@ -6,7 +6,7 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | --- | --- | --- |
 | `XdcStakedNFT` | [`0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E`](https://xdcscan.com/address/0xf3eB62F0Daf98ab65f0696630621A6ecECDB898E) | ERC-721 collection, non-upgradeable |
 | `XdcNftStakingVault` (proxy) | [`0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8`](https://xdcscan.com/address/0x9f38dF64eeC71e2408B24217b8D621c6B07E4Da8) | TransparentUpgradeableProxy, ERC-7201 storage |
-| `XdcNftMigrator` | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) | Current `MIGRATOR_ROLE` holder (since 9 Aug 2026), non-upgradeable. The 1,431-NFT migration itself ran 15 May – 4 Jul 2026 through `0x45e2…7dFb`, `0x36Fe…f026` and `0x69DE…2ea8` (all revoked). |
+| `XdcNftMigrator` | [`0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A`](https://xdcscan.com/address/0x87Abbf807Be90E3c618Db410c6BEd7c1aA38556A) | Current `MIGRATOR_ROLE` holder (since 9 Aug 2026), non-upgradeable. The 1,431-NFT migration itself ran 15 May to 4 Jul 2026 through `0x45e2…7dFb`, `0x36Fe…f026` and `0x69DE…2ea8` (all revoked). |
 | `XdcNftBoostHarvester` | [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D) | Optional boost feeder (native XDC lanes only), non-upgradeable |
 | `LegacyMigratorBypassFacet` | [`0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13`](https://xdcscan.com/address/0x2786D8Df1C38c9D4eD642B84c073349b0f0B5e13) | Facet added to legacy Diamond `0x7a5d…aA17` |
 
@@ -26,7 +26,7 @@ Technical reference for the V3 XDC NFT stack. There are five distinct contracts;
 | `merge(uint256 tokenIdA, uint256 tokenIdB)` | Burns two same-rarity NFTs, mints one higher-rarity NFT via `XdcStakedNFT.mintMerged`, settles boost on both. Reverts `ExceedsMaxStakePerNft` if the two NFTs' combined shares would exceed `maxStakePerNft`. |
 | `burnAndRedeem(uint256 tokenId, bool unwrap)` | Burns the NFT and returns the underlying shares (or unwraps them to XDC) in one transaction. |
 | `notifyBoost(uint256 amount) payable` | **`FEE_ROUTER_ROLE` only** (harvester and operations wallet). Receives `amount` native XDC, mints psXDC v3 shares, bumps `rewardPerWeightStored`. Reverts if `totalWeight == 0`. |
-| `notifyBoostShares(uint256 shares)` | **`FEE_ROUTER_ROLE` only.** Added 14 Sep 2026. Pulls `shares` psXDC from the caller (needs prior `approve`) and credits them to the accumulator exactly like `notifyBoost`, without any native XDC — lets the operator pay the boost from psXDC holdings and leaves the psXDC vault's liquidity buffer untouched. Emits `BoostNotified(0, shares, delta)`. Reverts on zero shares or `totalWeight == 0`. |
+| `notifyBoostShares(uint256 shares)` | **`FEE_ROUTER_ROLE` only.** Added 14 Sep 2026. Pulls `shares` psXDC from the caller (needs prior `approve`) and credits them to the accumulator exactly like `notifyBoost`, without any native XDC, which lets the operator pay the boost from psXDC holdings and leaves the psXDC vault's liquidity buffer untouched. Emits `BoostNotified(0, shares, delta)`. Reverts on zero shares or `totalWeight == 0`. |
 
 ### Migrator-only functions
 
@@ -82,7 +82,7 @@ The migrator that carried most of the migration is **`XdcNftMigratorV2`** (`0x36
 | `legacyDiamond()` | The legacy Diamond address (`0x7a5d…aA17`), required for locked-NFT migration. |
 | `oldFacade()` | The legacy ERC-721 façade address (`0x9D45…76a0`). |
 
-**Id remapping.** `XdcStakedNFT.mintWithId` rejects ids ≥ `10000` (reserved for merges), so a legacy NFT minted in that band could never be minted 1:1. `XdcNftMigratorV2` detects `oldTokenId ≥ 10000`, allocates a free id in the `5558–9999` reserve band, mints the v3 NFT under that **new** id, and emits `LegacyIdRemapped(oldTokenId, newTokenId)`. Rarity, staked value, and lock state are preserved; only the numeric id changes, and only for the ~21 affected legacy NFTs. Every legacy id below `10000` is still preserved 1:1.
+**Id remapping.** `XdcStakedNFT.mintWithId` rejects ids ≥ `10000` (reserved for merges), so a legacy NFT minted in that band could never be minted 1:1. `XdcNftMigratorV2` detects `oldTokenId ≥ 10000`, allocates a free id in the `5558` to `9999` reserve band, mints the v3 NFT under that **new** id, and emits `LegacyIdRemapped(oldTokenId, newTokenId)`. Rarity, staked value, and lock state are preserved; only the numeric id changes, and only for the ~21 affected legacy NFTs. Every legacy id below `10000` is still preserved 1:1.
 
 Locked NFTs revert with `LegacyDiamondRequiredForLockedNft(tokenId)` if `legacyDiamond == address(0)` (i.e. the migrator was deployed before the bypass facet was cut in).
 
@@ -125,7 +125,7 @@ The facet reads via `LegacyAppStorageMirror`, which exposes the **actual** stora
 | `BoostNotified(uint256 amountIn, uint256 sharesMinted, uint256 rewardPerWeightStored, uint256 totalWeight)` | vault | Each `notifyBoost`; drives boost APR calculation |
 | `MintedAndStaked` / `MintedAndStakedLocked` | vault | Migrator created a new NFT |
 | `Migrated` / `MigratedLocked` | migrator | One-shot migration completed |
-| `LegacyIdRemapped(uint256 oldTokenId, uint256 newTokenId)` | migrator (V2) | A legacy id ≥ `10000` was remapped to a free `5558–9999` id |
+| `LegacyIdRemapped(uint256 oldTokenId, uint256 newTokenId)` | migrator (V2) | A legacy id ≥ `10000` was remapped to a free id between `5558` and `9999` |
 | `MigratorBypassPrepared` | legacy diamond (via facet) | Confirms the bypass facet routed the call |
 
 → [Deployed Contracts & Addresses](../contract-addresses.md) → [Staking Mechanics](xdc-staking-nfts-mechanics.md) → [Reward Model](xdc-nft-staking-reward-system.md)

@@ -1,6 +1,6 @@
 # How Partner Staking Works
 
-A partner pool is an independent ERC-4626 liquid staking vault. Stakers deposit native XDC and receive the pool's share token; the share price (NAV) grows as the pool's masternodes earn validator rewards. The economic difference from the flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault is a **15% protocol fee** — plus, on current-generation (V3.2) pools, an optional **partner fee** set by the pool operator — skimmed from rewards before they reach stakers.
+A partner pool is an independent ERC-4626 liquid staking vault. Stakers deposit native XDC and receive the pool's share token; the share price (NAV) grows as the pool's masternodes earn validator rewards. The economic difference from the flagship [`PrimeStakedXDC_V3_1`](../xdc-staking/xdc-nfts-staking-system-vaults/xdc-liquid-staking/v3-architecture.md) vault is a **15% protocol fee** (plus, on current-generation V3.2 pools, an optional **partner fee** set by the pool operator), skimmed from rewards before they reach stakers.
 
 ---
 
@@ -44,17 +44,17 @@ Pools deployed on the current `PartnerStakedXDC_V3_2` template additionally supp
 
 | Property | Value |
 | --- | --- |
-| Range | `0` – `8500` bps (0–85% of rewards) |
-| Hard bound | `PLATFORM_FEE_BPS + MAX_PARTNER_FEE_BPS = 100%` — the combined skim can never exceed the yield surplus, and **principal is never touched** |
+| Range | `0` to `8500` bps (0 to 85% of rewards) |
+| Hard bound | `PLATFORM_FEE_BPS + MAX_PARTNER_FEE_BPS = 100%`: the combined skim can never exceed the yield surplus, and **principal is never touched** |
 | Set at | Deploy time (constructor) and adjustable afterwards |
 | Changes | `setPartnerFee` schedules; `executePartnerFee` applies after the vault's `governanceDelay` (default **24 hours**); `cancelPartnerFeeChange` aborts. The fee **recipient** has the same schedule/execute/cancel flow |
 | Transparency | Every scheduled change emits a public event, and the pool page in the app shows stakers a warning with the exact activation time |
 
 Key properties:
 
-- **No surprise fees.** Every change — increase *or* decrease — waits out the timelock and is publicly visible first. The timelock is the staker's exit window: anyone who disagrees with a scheduled fee can withdraw before it activates.
+- **No surprise fees.** Every change (increase *or* decrease) waits out the timelock and is publicly visible first. The timelock is the staker's exit window: anyone who disagrees with a scheduled fee can withdraw before it activates.
 - **Storage, not bytecode.** Unlike the protocol fee, the partner fee lives in storage, so every V3.2 pool still shares one canonical codehash and the registry's authenticity check keeps working regardless of each pool's fee.
-- **Cannot brick the pool.** The partner fee is pushed with a bounded gas stipend; if the recipient rejects the transfer, the fee is parked in the vault's claimable lane (`claimQueuedAssets`) instead of reverting — a broken recipient can never block staking, withdrawals, or the protocol fee.
+- **Cannot brick the pool.** The partner fee is pushed with a bounded gas stipend; if the recipient rejects the transfer, the fee is parked in the vault's claimable lane (`claimQueuedAssets`) instead of reverting, so a broken recipient can never block staking, withdrawals, or the protocol fee.
 - **Settled at the old rate.** Executing a fee change first reconciles any yield accrued so far at the previous rate, so a change never retroactively re-prices earlier rewards.
 
 Legacy V3 pools (deployed before the V3.2 template) have no partner fee and keep their original immutable behavior.

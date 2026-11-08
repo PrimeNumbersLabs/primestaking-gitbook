@@ -30,12 +30,12 @@ psXDC/USD = latestRoundData().answer * (XDC/USD) / 1e18
 The rate can only be written by the wired XDC publisher (LayerZero peer auth,
 2 required DVNs). Each update is additionally guarded on the destination:
 
-- **Monotonic** — the rate cannot decrease (share price only grows). A rare
+- **Monotonic**: the rate cannot decrease (share price only grows). A rare
   validator-loss writedown requires an explicit, one-shot owner override, so a
   spurious downward push is rejected by default.
-- **Step-capped** — each update may rise by at most `maxStepBps` (default 1%),
+- **Step-capped**: each update may rise by at most `maxStepBps` (default 1%),
   blunting a bad or manipulated push.
-- **Staleness** — `updatedAt` plus `isStale()` let you reject data older than
+- **Staleness**: `updatedAt` plus `isStale()` let you reject data older than
   the configured window: 8 days on all four chains (raised from 2 days on
   2 Oct 2026). PrimeStaking pushes the rate once it has moved 0.05% since the
   last push (with hourly reward payments, about every four days) and refreshes it
@@ -45,7 +45,7 @@ If pushes lapse long enough that legitimate cumulative growth would exceed the
 per-update step cap, the bridged update is rejected and the feed goes stale
 (safe: integrators see `isStale()` and pause) rather than jumping. The owner
 restores liveness with a break-glass `adminSetRate`, which still enforces
-non-zero and (unless explicitly armed) monotonicity — so it can never silently
+non-zero and (unless explicitly armed) monotonicity, so it can never silently
 mark psXDC down.
 
 ## Recommended usage

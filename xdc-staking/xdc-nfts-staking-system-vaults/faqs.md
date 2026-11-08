@@ -19,7 +19,7 @@ psXDC can be traded on DEXs on the XDC Network, paired with XDC. **After the Jul
 
 #### Can I use psXDC outside the XDC Network?
 
-Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero from the [Bridge page](https://app.primestaking.xyz/xdc-liquid-staking/bridge) — no third-party custodian, no bridge fee beyond the LayerZero message cost, and your staking yield keeps accruing while bridged. On Base and HyperEVM it is already listed as collateral on [PrimeFi](https://primefi.xyz), so you can lend it or borrow against it without unstaking. See [Bridge psXDC](xdc-liquid-staking/bridge.md) and [Multichain Opportunities](xdc-liquid-staking/multichain-opportunities.md).
+Yes. psXDC bridges to **Base, Arbitrum, BNB Chain, and HyperEVM** via LayerZero from the [Bridge page](https://app.primestaking.xyz/xdc-liquid-staking/bridge): no third-party custodian, no bridge fee beyond the LayerZero message cost, and your staking yield keeps accruing while bridged. On Base and HyperEVM it is already listed as collateral on [PrimeFi](https://primefi.xyz), so you can lend it or borrow against it without unstaking. See [Bridge psXDC](xdc-liquid-staking/bridge.md) and [Multichain Opportunities](xdc-liquid-staking/multichain-opportunities.md).
 
 #### I held psXDC V3 before July 2026. Do I need to do anything?
 
@@ -29,7 +29,7 @@ No. The vault was redeployed as **V3.1** (3 July) and again as **V3.2** (6 July,
 
 By design. During the cutover the V2 token was paused and the final activation steps (retiring the old V3 bridge and pointing the V3.1 vault at the new migration bridge) sat behind a 24-hour on-chain timelock, a deliberate safety window that made it impossible for anyone to migrate into the retired old V3 token by mistake. Once the timelock matured on July 4 the bridge was activated, V2 was unpaused, and both token and NFT migrations reopened. No funds were ever at risk and nothing expired during the window.
 
-#### Why did NFT migration fail with "network fee unavailable" (August 9 – October 6, 2026)?
+#### Why did NFT migration fail with "network fee unavailable" (August 9 to October 6, 2026)?
 
 A configuration bug on our side. On August 9 the NFT migrator was upgraded to [`XdcNftMigratorV2`](contract-addresses.md), but the app kept sending migrations to the previous migrator, which no longer had permission to mint V3 NFTs. Every migration would have reverted, so wallets could not estimate a fee and refused to send it. Nothing was submitted and no funds moved. The app was fixed on October 6: open [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate), approve the new migrator once, then migrate.
 
@@ -38,9 +38,9 @@ A configuration bug on our side. On August 9 the NFT migrator was upgraded to [`
 When you decide to unstake, you burn the corresponding psXDC shares. The app calls `redeemWithQueue` which:
 
 - **Settles instantly** when the vault's unencumbered liquidity covers your request. XDC returns to your wallet in the same transaction.
-- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. The queue is paid from a dedicated budget (`queueBackingBudget`) that the team tops up as masternode principal is unwound and returned — new deposits refill the *instant* buffer, not the queue. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
+- **Enters a permissionless FIFO queue** otherwise: your shares are escrowed and a request is created. The queue is paid from a dedicated budget (`queueBackingBudget`) that the team tops up as masternode principal is unwound and returned; new deposits refill the *instant* buffer, not the queue. For very large redemptions the upper bound is the network's `candidateWithdrawDelay`, approximately **~35 days** under typical block times.
 
-Expectation-setting: when a queue backlog exists (e.g. right after a migration, while masternodes unwind), free liquidity is usually thin and **most withdrawals will take the queued path** — instant service is the exception during those periods, not the rule. For an immediate exit at market price you can always sell psXDC on a DEX instead.
+Expectation-setting: when a queue backlog exists (e.g. right after a migration, while masternodes unwind), free liquidity is usually thin and **most withdrawals will take the queued path**; instant service is the exception during those periods, not the rule. For an immediate exit at market price you can always sell psXDC on a DEX instead.
 
 You can cancel queued requests any time, and if a payout ever fails the XDC lands in `pendingQueuedAssets` so you can collect it via `claimQueuedAssets`.
 
@@ -99,7 +99,7 @@ List or auction your XDC NFT on [**PrimePort.xyz**](https://primeport.xyz). When
 
 #### I still hold a legacy XDC NFT. What should I do?
 
-Migrate it. A legacy NFT keeps its staked balance, but it no longer earns: V2 NFT rewards ended with the last monthly payout at the start of June 2026. Migrating takes a single transaction via [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate). Migration preserves your **rarity** and any active **lock expiry**, and your **tokenId** for legacy ids below `10000` (ids ≥ `10000` are remapped into the `5558–9999` band because that range is reserved for merged NFTs). It immediately starts earning under the V3 reward model.
+Migrate it. A legacy NFT keeps its staked balance, but it no longer earns: V2 NFT rewards ended with the last monthly payout at the start of June 2026. Migrating takes a single transaction via [`/xdc-nfts/migrate`](https://app.primestaking.xyz/xdc-nfts/migrate). Migration preserves your **rarity** and any active **lock expiry**, and your **tokenId** for legacy ids below `10000` (ids ≥ `10000` are remapped into the `5558` to `9999` band because that range is reserved for merged NFTs). It immediately starts earning under the V3 reward model.
 
 → [Migrate XDC NFTs to V3](xdc-staking-nfts/migrate-nfts-v2-to-v3.md) → [Locked NFTs & Legacy Diamond Bypass](xdc-staking-nfts/locked-nft-migration.md)
 

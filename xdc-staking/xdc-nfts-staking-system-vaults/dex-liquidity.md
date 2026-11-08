@@ -20,12 +20,12 @@ The psXDC share token is **NAV-based**, not a fixed 1:1 receipt. The market pric
 | --- | --- |
 | psXDC/WXDC pair (**V3.2, live**) | [`0x60189924A43947bE7Bf0350E81be0D2f00D95034`](https://xdcscan.com/address/0x60189924A43947bE7Bf0350E81be0D2f00D95034) |
 | SpotLimitOrders (**V3.2, live**) | [`0xcd81d7d83101884D0B070153A0EBC9cD6C14f6B9`](https://xdcscan.com/address/0xcd81d7d83101884D0B070153A0EBC9cD6C14f6B9) |
-| psXDC/WXDC pair (V3.1, **frozen**) | [`0x14A11af8980ea7e18B18cAbf4721B61586Bab087`](https://xdcscan.com/address/0x14A11af8980ea7e18B18cAbf4721B61586Bab087) — holds the retired V3.1 token; LP positions cannot be unwound on-chain, see the app's legacy spot page |
-| SpotLimitOrders (V3.1, legacy) | [`0x89dB7715fFc5B8b2C4A604BdD49b006df201247a`](https://xdcscan.com/address/0x89dB7715fFc5B8b2C4A604BdD49b006df201247a) — open BUY orders can still be cancelled |
+| psXDC/WXDC pair (V3.1, **frozen**) | [`0x14A11af8980ea7e18B18cAbf4721B61586Bab087`](https://xdcscan.com/address/0x14A11af8980ea7e18B18cAbf4721B61586Bab087): holds the retired V3.1 token; LP positions cannot be unwound on-chain, see the app's legacy spot page |
+| SpotLimitOrders (V3.1, legacy) | [`0x89dB7715fFc5B8b2C4A604BdD49b006df201247a`](https://xdcscan.com/address/0x89dB7715fFc5B8b2C4A604BdD49b006df201247a): open BUY orders can still be cancelled |
 | Router (UniswapV2Router02) | [`0xf77440C4Dc3Dcd5Bb93DaA863BF93Fc306EC0791`](https://xdcscan.com/address/0xf77440C4Dc3Dcd5Bb93DaA863BF93Fc306EC0791) |
 | Factory (UniswapV2Factory) | [`0x3a718EB1b4b06968F78a0a3b7e3dF07037E83f5d`](https://xdcscan.com/address/0x3a718EB1b4b06968F78a0a3b7e3dF07037E83f5d) |
 
-The live pool was re-seeded for the V3.2 token at NAV. It is **shallow** (on the order of 10k psXDC / 7k WXDC at the time of writing), so quotes move a lot with size — check the price impact the app shows before swapping; for anything beyond a few thousand psXDC the vault's `redeemWithQueue` is the better exit. Limit orders are non-custodial: makers escrow only their unfilled input, the contract enforces the maker's price on every fill, and orders can always be cancelled for a full refund of the remaining escrow.
+The live pool was re-seeded for the V3.2 token at NAV. It is **shallow** (on the order of 10k psXDC / 7k WXDC at the time of writing), so quotes move a lot with size. Check the price impact the app shows before swapping; for anything beyond a few thousand psXDC the vault's `redeemWithQueue` is the better exit. Limit orders are non-custodial: makers escrow only their unfilled input, the contract enforces the maker's price on every fill, and orders can always be cancelled for a full refund of the remaining escrow.
 
 ---
 

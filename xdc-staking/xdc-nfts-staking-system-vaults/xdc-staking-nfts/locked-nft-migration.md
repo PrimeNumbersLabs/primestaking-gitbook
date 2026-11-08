@@ -109,7 +109,7 @@ That's the supported case. The migrator preserves the lock and the V3 vault hono
 - Earn the base NAV through the underlying psXDC v3 shares.
 - Be able to `claim` the boost at any time during the lock.
 
-After `lockEnd` the lock bonus **stops automatically**: the NFT's effective weight drops back to its unlocked value, and the stale bonus is cleared on your next interaction (or by anyone calling the permissionless `pokeExpired`). Leaving an expired lock in place does not keep the boost slice — re-lock at any tier if you want it back.
+After `lockEnd` the lock bonus **stops automatically**: the NFT's effective weight drops back to its unlocked value, and the stale bonus is cleared on your next interaction (or by anyone calling the permissionless `pokeExpired`). Leaving an expired lock in place does not keep the boost slice; re-lock at any tier if you want it back.
 
 ---
 

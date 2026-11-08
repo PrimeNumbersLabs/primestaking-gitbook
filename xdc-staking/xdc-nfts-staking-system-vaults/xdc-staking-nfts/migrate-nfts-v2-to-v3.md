@@ -11,7 +11,7 @@ Migration is **one-shot per NFT**, **atomic** (all-or-nothing), and never holds 
 {% endhint %}
 
 {% hint style="warning" %}
-**Legacy ids ≥ `10000` are remapped.** The V3 collection reserves token ids `≥ 10000` for merged NFTs, so a legacy NFT minted in that band cannot keep its number. `XdcNftMigratorV2` automatically assigns such an NFT a **new** id in the `5558–9999` range (emitting `LegacyIdRemapped`) and migrates everything else (rarity, staked value, lock) unchanged. Only ~21 legacy NFTs are affected; all other ids are preserved 1:1.
+**Legacy ids ≥ `10000` are remapped.** The V3 collection reserves token ids `≥ 10000` for merged NFTs, so a legacy NFT minted in that band cannot keep its number. `XdcNftMigratorV2` automatically assigns such an NFT a **new** id in the `5558` to `9999` range (emitting `LegacyIdRemapped`) and migrates everything else (rarity, staked value, lock) unchanged. Only ~21 legacy NFTs are affected; all other ids are preserved 1:1.
 {% endhint %}
 
 ---
@@ -40,7 +40,7 @@ For locked NFTs the flow is identical except it also routes through the [`Legacy
 
 ### Properties that always hold
 
-- **Same `tokenId`** end-to-end for legacy ids below `10000` (wallets, social, marketplaces keep working). Legacy ids ≥ `10000` are remapped to a fresh `5558–9999` id (see the warning above).
+- **Same `tokenId`** end-to-end for legacy ids below `10000` (wallets, social, marketplaces keep working). Legacy ids ≥ `10000` are remapped to a fresh id between `5558` and `9999` (see the warning above).
 - **Same rarity**: the migrator reads `getNFTData` on the legacy NFT and mints with the matching `rarityMultiplier`.
 - **Atomic**: every step reverts together. If any leg of the migration fails (slippage exceeded, bridge inactive, locked NFT but bypass facet missing, etc.) the whole transaction reverts and you keep your legacy NFT untouched.
 - **No reward forfeiture**: for locked NFTs, the migrator calls `try oldFacade.claim(tokenId)` before burning so any V2-pending rewards are folded into the staked balance and survive into V3. (Vanilla `burnAndRedeem` on V2 would otherwise silently drop them.)
@@ -102,7 +102,7 @@ You can interact with your V3 NFT immediately: stake more shares, lock, merge, c
 
 **Can I migrate part of an NFT?** No. Migration is one tokenId at a time. You can batch multiple NFTs in a single tx via `migrateBatch`.
 
-**Can I roll back?** No. Legacy NFTs are **burned** when migrated. The V3 NFT is functionally equivalent (same rarity, same lock expiry; same `tokenId` unless your legacy id was ≥ `10000`, in which case it is remapped to a `5558–9999` id).
+**Can I roll back?** No. Legacy NFTs are **burned** when migrated. The V3 NFT is functionally equivalent (same rarity, same lock expiry; same `tokenId` unless your legacy id was ≥ `10000`, in which case it is remapped to an id between `5558` and `9999`).
 
 **Do I need to claim V2 rewards first?** No. The migrator handles the V2-side claim automatically (best-effort `try claim(tokenId)`) so pending V2 rewards are folded into the staked balance.
 

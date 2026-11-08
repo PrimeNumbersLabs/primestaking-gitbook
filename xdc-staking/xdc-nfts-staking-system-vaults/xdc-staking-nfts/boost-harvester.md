@@ -3,7 +3,7 @@
 [`XdcNftBoostHarvester`](../contract-addresses.md) is a small, non-upgradeable contract that can fund the XDC NFT vault's Synthetix-style boost accumulator with native XDC. It was designed as an external pump because the underlying psXDC vault is non-upgradeable. Since the **14 Sep 2026** NFT-vault upgrade the harvester is optional: the operations wallet holds `FEE_ROUTER_ROLE` directly and funds the boost with `notifyBoost` (XDC) or the new `notifyBoostShares` (psXDC shares, no XDC needed).
 
 {% hint style="info" %}
-Live address: [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D). `FEE_ROUTER_ROLE` on the NFT vault is held by this harvester **and** by the operations wallet (`0x440c…113d`); nothing else can call `notifyBoost` / `notifyBoostShares`, and arbitrary XDC sends to the NFT vault cannot corrupt boost accounting. Note that this harvester instance is wired to the retired V3.1 psXDC token, so only its native-XDC lanes (`feed`, `forwardPending`) are usable — `harvest` / `claimAndForward` are not.
+Live address: [`0x6a319528111E5e50712Fd2D3d2db8323b119821D`](https://xdcscan.com/address/0x6a319528111E5e50712Fd2D3d2db8323b119821D). `FEE_ROUTER_ROLE` on the NFT vault is held by this harvester **and** by the operations wallet (`0x440c…113d`); nothing else can call `notifyBoost` / `notifyBoostShares`, and arbitrary XDC sends to the NFT vault cannot corrupt boost accounting. Note that this harvester instance is wired to the retired V3.1 psXDC token, so only its native-XDC lanes (`feed`, `forwardPending`) are usable; `harvest` / `claimAndForward` are not.
 {% endhint %}
 
 ---

@@ -1,6 +1,6 @@
 # Multichain psXDC: DeFi opportunities
 
-Bridging psXDC is not just about moving tokens — it turns your staked XDC into
+Bridging psXDC is not just about moving tokens: it turns your staked XDC into
 **productive collateral** on other ecosystems while it keeps earning XDC
 staking rewards underneath. This page lists what is live today and how the
 yield stacks.
@@ -22,7 +22,7 @@ What that unlocks:
 - **Supply psXDC, earn supply APY** on top of the XDC staking yield already
   accruing inside the token. Two yields, one asset.
 - **Borrow against your stake without unstaking.** Supply psXDC as collateral
-  and borrow stablecoins or other listed assets — keep your XDC staking
+  and borrow stablecoins or other listed assets, keeping your XDC staking
   exposure and rewards while freeing liquidity for anything else.
 - **No lock-up interaction.** Withdrawing supplied psXDC from PrimeFi is
   instant (subject to pool utilisation); your underlying stake on XDC is never
@@ -30,14 +30,14 @@ What that unlocks:
 
 How psXDC is priced there: PrimeFi consumes an XDC/USD feed and treats psXDC
 conservatively at the XDC price. Because the psXDC redemption rate only grows,
-your collateral is if anything slightly *under*-valued — a safety margin, not a
+your collateral is if anything slightly *under*-valued: a safety margin, not a
 risk. The on-chain [psXDC rate oracle](psxdc-rate-oracle.md) is available for
 integrators who want to credit the full redemption value.
 
 {% hint style="warning" %}
 **Borrowing carries liquidation risk.** Collateral parameters (LTV,
 liquidation threshold and bonus) are set by PrimeFi and shown live in the
-PrimeFi app — always size loans against those numbers, not this page. Start
+PrimeFi app; always size loans against those numbers, not this page. Start
 conservative; borrowing stablecoins against a yield-bearing asset is a
 strategy, not free money.
 {% endhint %}
@@ -58,10 +58,10 @@ unwind any moment: repay → withdraw → bridge back → unstake or sell on
 
 ## Also available on every destination chain
 
-- **Hold & transfer** — psXDC is a plain ERC-20 on Base, Arbitrum, BNB Chain,
+- **Hold & transfer**: psXDC is a plain ERC-20 on Base, Arbitrum, BNB Chain,
   and HyperEVM. Self-custody it, move it between your own wallets, or pay
   another psXDC holder, all with the yield still accruing.
-- **DEX liquidity** — anyone can seed a psXDC pair on a destination-chain DEX.
+- **DEX liquidity**: anyone can seed a psXDC pair on a destination-chain DEX.
   Pricing helpers can read the [psXDC rate oracle](psxdc-rate-oracle.md)
   (same address on every chain:
   `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2`).
@@ -76,7 +76,7 @@ psXDC with two addresses and one page of reading:
   18 decimals (all chains): `0x2927630dfDd66433DbA9370b316EF5a8408d5dD2`
 - Integrator guide: [psXDC Rate Oracle](psxdc-rate-oracle.md)
 
-The oracle is monotonic, step-capped, and refreshed daily — designed
+The oracle is monotonic, step-capped and refreshed at least weekly, designed
 specifically so lending protocols can treat psXDC like a wstETH-class
 liquid-staking collateral.
 
@@ -85,5 +85,5 @@ liquid-staking collateral.
 Nothing on this page changes how rewards are generated: XDC validator rewards
 flow into the vault on XDC and raise the psXDC share price
 ([how rewards work](xdc-staking-rewards.md)). Bridging, lending, and LP-ing
-are layers *on top* of that base yield — every bridged psXDC remains a claim
+are layers *on top* of that base yield: every bridged psXDC remains a claim
 on the same appreciating vault share, redeemable the moment it returns to XDC.

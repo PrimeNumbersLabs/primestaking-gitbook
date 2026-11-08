@@ -35,7 +35,7 @@ weight = stakedShares × (rarityMultiplier + level + lockBonus)
 | Aspect | Detail |
 | --- | --- |
 | Target APR band | ~0.25% (Plentiful unlocked) → ~1.5% (Handcrafted locked) |
-| How it accrues | `rewardPerWeightStored` increments on every boost push — `notifyBoost` (native XDC, wrapped into psXDC) or `notifyBoostShares` (psXDC directly, added 14 Sep 2026); per-NFT `earned` is computed Synthetix-style |
+| How it accrues | `rewardPerWeightStored` increments on every boost push: `notifyBoost` (native XDC, wrapped into psXDC) or `notifyBoostShares` (psXDC directly, added 14 Sep 2026); per-NFT `earned` is computed Synthetix-style |
 | When you realize it | When you call `claim(tokenId)` from the NFT detail page (or automatically on any other state-changing action like stake/lock/merge/withdraw, which `_settle` first) |
 | Reward asset | psXDC shares (claimed as psXDC in the app; the contract can also unwrap to XDC via `redeemWithQueue` when `unwrap = true`) |
 
@@ -59,7 +59,7 @@ Your individual boost APR depends on:
 - How much psXDC you have staked (more shares → more weight → more slice).
 - How much boost the operator has actually pushed (`notifyBoost` / `notifyBoostShares` batches).
 
-The UI shows the boost APR realised since the V3 launch (boost paid to date, annualised and capped at the marketed band) alongside the static targets, so you can see what has actually been paid rather than a projection. The first batch landed on 14 Sep 2026 and covered the whole May–Sep period at the full ~1.5% band.
+The UI shows the boost APR realised since the V3 launch (boost paid to date, annualised and capped at the marketed band) alongside the static targets, so you can see what has actually been paid rather than a projection. The first batch landed on 14 Sep 2026 and covered the whole May to Sep period at the full ~1.5% band.
 
 ---
 
@@ -67,7 +67,7 @@ The UI shows the boost APR realised since the V3 launch (boost paid to date, ann
 
 The V2 NFT system distributed rewards in a monthly batch process driven off-chain, with per-user payouts. V3 replaces this with an **on-chain Synthetix accumulator** for three reasons:
 
-- **Trust-minimized**: every boost batch is a public `BoostNotified` transaction and the split is pure arithmetic on weights — no off-chain allocation list.
+- **Trust-minimized**: every boost batch is a public `BoostNotified` transaction and the split is pure arithmetic on weights, with no off-chain allocation list.
 - **Granular**: one push credits every NFT at once, and `earned(tokenId)` is exact at any moment.
 - **Composable**: partner integrations can read `earned(tokenId)` directly on-chain at any time.
 

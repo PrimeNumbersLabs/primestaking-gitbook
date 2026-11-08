@@ -23,9 +23,9 @@ constructor(
 ) payable
 ```
 
-The deploying address (`msg.sender`) becomes the vault **admin** and is also granted the proposer, operations-manager, and risk-manager roles. Any XDC sent with deployment is seeded as the initial stake. The partner fee is public from block one — setting it in the constructor bypasses no timelock, because nobody has staked yet.
+The deploying address (`msg.sender`) becomes the vault **admin** and is also granted the proposer, operations-manager, and risk-manager roles. Any XDC sent with deployment is seeded as the initial stake. The partner fee is public from block one: setting it in the constructor bypasses no timelock, because nobody has staked yet.
 
-To stay eligible for listing, deploy the **canonical, unmodified** `PartnerStakedXDC_V3_2` bytecode that PrimeStaking has allow-listed — the protocol fee rate and recipient are constants baked into that bytecode, so a custom build will not match the registry's codehash and cannot be listed. Your partner fee is storage (a constructor argument), so any fee choice keeps the canonical codehash.
+To stay eligible for listing, deploy the **canonical, unmodified** `PartnerStakedXDC_V3_2` bytecode that PrimeStaking has allow-listed: the protocol fee rate and recipient are constants baked into that bytecode, so a custom build will not match the registry's codehash and cannot be listed. Your partner fee is storage (a constructor argument), so any fee choice keeps the canonical codehash.
 
 ---
 
@@ -77,8 +77,8 @@ PartnerVaultRegistry.register(address vault)
 
 `register` succeeds only if **both** of the following hold:
 
-1. The vault's `codehash` is an **allow-listed canonical hash** (`isCanonicalCodeHash[vault.codehash] == true`) — proving it's a genuine, unmodified partner vault that charges the 15% protocol fee. Both generations (V3 and V3.2) are allow-listed side by side, so existing pools stay registered.
-2. The caller **holds the vault's `DEFAULT_ADMIN_ROLE`** — proving they actually control the pool.
+1. The vault's `codehash` is an **allow-listed canonical hash** (`isCanonicalCodeHash[vault.codehash] == true`), proving it's a genuine, unmodified partner vault that charges the 15% protocol fee. Both generations (V3 and V3.2) are allow-listed side by side, so existing pools stay registered.
+2. The caller **holds the vault's `DEFAULT_ADMIN_ROLE`**, proving they actually control the pool.
 
 It then records the registrant and emits `VaultRegistered(vault, registrant, name, symbol)`.
 
