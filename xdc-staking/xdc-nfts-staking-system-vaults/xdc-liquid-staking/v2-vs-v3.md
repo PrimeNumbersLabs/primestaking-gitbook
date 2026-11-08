@@ -44,7 +44,7 @@ V3 eliminates all of these trust assumptions.
 | --- | --- | --- |
 | **Standard** | Custom staking + APY rewards | ERC-4626 tokenized vault |
 | **Token model** | 1:1 fixed ratio (1 psXDC = 1 XDC) | Share-based exchange rate (increases over time) |
-| **Reward distribution** | Manual: owner calls `notifyRewardAmount()`, users claim | Operations manager distributes the period's validator rewards into the vault (`distributeRewards`, ~monthly); the exchange rate rises for everyone, nothing to claim |
+| **Reward distribution** | Manual: owner calls `notifyRewardAmount()`, users claim | Operations manager distributes the period's validator rewards into the vault (`distributeRewards`, about every hour); the exchange rate rises for everyone, nothing to claim |
 | **Reward claiming** | Users must manually claim accrued rewards | No claiming; rewards are embedded in share price |
 | **XDC utilization** | Custodial: admin withdrew XDC and staked with validators manually | Non-custodial: vault stakes directly with masternodes via smart contract, fully verifiable |
 | **Masternode integration** | Custodial: admin managed validators manually | Direct non-custodial integration with XDC validator contract |

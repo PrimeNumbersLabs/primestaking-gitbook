@@ -1,6 +1,6 @@
 # Reward Model: Base NAV + Boost
 
-XDC NFTs in V3 earn from **two stacked sources**. There is no "PrimeFi ecosystem profit share" math. Both layers are fully on-chain: the base layer moves whenever the psXDC vault's NAV is stepped up by a reward distribution (roughly monthly), the boost layer whenever the operator pushes a boost batch into the NFT vault.
+XDC NFTs in V3 earn from **two stacked sources**. There is no "PrimeFi ecosystem profit share" math. Both layers are fully on-chain: the base layer moves whenever the psXDC vault's NAV is raised by a reward distribution (about every hour since 20 October 2026), the boost layer whenever the operator pushes a boost batch into the NFT vault.
 
 ---
 
@@ -21,7 +21,7 @@ Every psXDC v3 share grows in value as validator rewards flow into the underlyin
 | Aspect | Detail |
 | --- | --- |
 | Target APY | ~4.5% |
-| How it accrues | Via [`PrimeStakedXDC_V3_2`](../contract-addresses.md) share-price growth (operator `distributeRewards()` calls raise NAV in steps, ~monthly) |
+| How it accrues | Via [`PrimeStakedXDC_V3_2`](../contract-addresses.md) share-price growth (operator `distributeRewards()` calls raise NAV in small steps, about every hour) |
 | When you realize it | When you `withdraw` shares from the NFT or `burnAndRedeem` |
 
 ### 2. Boost: Synthetix accumulator inside the NFT vault

@@ -25,7 +25,7 @@ Burn 1,000 psXDC on day 365  →  receive 1,045 XDC
 Your psXDC balance never changes from rewards. The **value** of your psXDC changes. This is exactly the same model Aave aTokens, Compound cTokens, and Lido wstETH use.
 
 {% hint style="warning" %}
-**The rate moves in monthly steps, not continuously.** Masternode rewards are collected by the operations team and distributed into the vault with `distributeRewards()` roughly once a month, sized to the 4.5% annual target on the period's average TVL (the V3.2 vault has no on-chain APY oracle — the distribution *is* the yield). The psXDC rate stays flat between distributions and steps up when each one lands. Seeing `1.00000` for days or weeks after staking (or after a migration, while nodes complete the network's standby/proposal cycle) is expected behavior, not a missed payout.
+**The rate moves in small steps, not continuously.** Masternode rewards are collected by the operations team and distributed into the vault with `distributeRewards()` about every hour since 20 October 2026 (roughly once a month before), sized to the 4.5% annual target (the V3.2 vault has no on-chain APY oracle: the distribution *is* the yield). The psXDC rate stays flat between distributions and rises when each one lands. A rate that stays flat for an hour or so is expected behavior, not a missed payout; before October 2026 the flat stretches between payments lasted weeks.
 {% endhint %}
 
 ---

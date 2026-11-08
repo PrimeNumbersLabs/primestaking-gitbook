@@ -9,7 +9,7 @@ XDC Liquid Staking lets you earn staking rewards on any amount of XDC, without r
 | | |
 | --- | --- |
 | **APY** | ~4.5% (accrued automatically through share price growth) |
-| **Reward cadence** | The XDC Network pays masternode rewards **~monthly** (typically the first days of the month); the psXDC rate steps up when each payment lands — a flat rate between payouts is normal |
+| **Reward cadence** | Masternode rewards are distributed into the vault **about every hour** since 20 October 2026 (roughly monthly before); the psXDC rate rises when each payment lands and is flat in between |
 | **Minimum stake** | None |
 | **Token received** | psXDC, an ERC-4626 vault share (not a fixed 1:1 receipt) |
 | **Reward mechanism** | Share price (`totalAssets / totalShares`) grows as validator rewards accrue |

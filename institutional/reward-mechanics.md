@@ -47,7 +47,7 @@ every psXDC share is worth more XDC
 | Aspect | Detail |
 | --- | --- |
 | **Source** | XDC Network masternode block rewards |
-| **Accrual mechanism** | The operations team distributes the period's masternode rewards into the vault (`distributeRewards`, roughly monthly, sized to the 4.5% target on average TVL) → `totalAssets` rises → exchange rate rises for every holder |
+| **Accrual mechanism** | The operations team distributes masternode rewards into the vault (`distributeRewards`, about every hour since 20 October 2026 and roughly monthly before, sized to the 4.5% target) → `totalAssets` rises → exchange rate rises for every holder |
 | **User claiming** | None; value is already inside each share |
 | **Settlement event** | When the user redeems shares (instant or queued), the higher rate translates directly into more XDC returned |
 | **On-chain verifiability** | Yes. Every distribution is a public transaction on the vault and the exchange rate is a public view |
@@ -93,7 +93,7 @@ Boost is a product-side reward stream, not validator economics. The **floor** fo
 | --- | --- |
 | **Reward asset (base layer)** | XDC, accruing as share-price appreciation of psXDC |
 | **Reward asset (NFT boost)** | psXDC shares, accruing into the NFT vault's Synthetix accumulator |
-| **Distribution frequency (base)** | Roughly monthly `distributeRewards` steps in the share price |
+| **Distribution frequency (base)** | About every hour since 20 October 2026 (around 24 `distributeRewards` payments a day); roughly monthly before |
 | **Distribution frequency (boost)** | Each `notifyBoost` / `notifyBoostShares` batch; target cadence monthly (14 Sep 2026: May 14 → Sep 14; 2 Oct 2026: Sep 14 → Oct 2) |
 | **Claim flow (base)** | None. Rewards are realized on redemption |
 | **Claim flow (boost)** | User-initiated `claim(tokenId)` from the NFT detail page |

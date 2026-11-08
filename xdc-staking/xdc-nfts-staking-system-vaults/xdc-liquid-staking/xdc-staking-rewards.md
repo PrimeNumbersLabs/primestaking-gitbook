@@ -33,13 +33,13 @@ When XDC validator rewards flow back into the vault, `totalAssets()` increases w
 | --- | --- |
 | Target APY | ~4.5% |
 | Mechanism | Exchange rate appreciation |
-| When you receive it | The rate **steps up when the operations team distributes the period's masternode rewards into the vault** (`distributeRewards()`, roughly monthly, sized to the 4.5% target on average TVL) |
+| When you receive it | The rate **rises each time the operations team distributes masternode rewards into the vault** (`distributeRewards()`, about every hour since 20 October 2026 and roughly monthly before, sized to the 4.5% target) |
 | User action required | None. There is no "claim rewards" button |
 
 {% hint style="warning" %}
-**A flat exchange rate between payouts is normal.** Rewards reach the vault in roughly **monthly** distributions, not block-by-block. Between those distributions the psXDC rate stays flat — that is the payment cadence, not missing rewards. The ~4.5% APY is the annualized result of those steps; the distribution for a period covers every day of it, so a later payout is not a smaller payout.
+**The rate rises in small steps, not block by block.** Rewards reach the vault as discrete payments, about **every hour** since 20 October 2026, and between two payments the psXDC rate is flat. Before October the payments were roughly monthly, so the share-price history has long flat stretches: that was the cadence, not missing rewards. The ~4.5% APY is the annualized result of those steps; each payment covers the time since the previous one, so a late payment is made up and is not a smaller payout.
 
-Immediately after a migration or while masternodes are in the network's standby/proposal cycle, the first step-up lands on the **next** monthly payment run after the nodes are active.
+A new stake shares in the **next** payment, usually within the hour.
 {% endhint %}
 
 **Example.** Stake 1,000 XDC when the exchange rate is `1.00`. You receive 1,000 psXDC shares. Six months later the rate is `1.025`. You burn your 1,000 shares and the vault returns **1,025 XDC**. Your 25 XDC of yield was inside the price the whole time.
@@ -96,7 +96,7 @@ The exact boost slice depends on your NFT's rarity, level, and lock status relat
 
 The V2 product distributed rewards by having the owner periodically call `notifyRewardAmount` and required users to call `claim` to collect their share. V3 removes both:
 
-- **No `notifyRewardAmount` + claim cycle**: the operations manager distributes the period's validator rewards into the vault (`distributeRewards`, roughly monthly) and the exchange rate updates for every holder at once.
+- **No `notifyRewardAmount` + claim cycle**: the operations manager distributes validator rewards into the vault (`distributeRewards`, about every hour) and the exchange rate updates for every holder at once.
 - **No `claim`**: your reward is *already inside the share*. When you redeem the share, you receive both the principal and the accrued reward in one transaction.
 
 The boost layer keeps its `claim` flow because it is a **separate** XDC stream layered on top of the share, not an internal accrual.
